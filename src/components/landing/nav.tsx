@@ -1,3 +1,4 @@
+import logoAsset from "@/assets/guiafin-logo.png.asset.json";
 import { useEffect, useRef, useState } from "react";
 import { Check, ChevronDown, Globe, Menu, X } from "lucide-react";
 import { locales, localeMeta, useI18n, type Locale } from "@/lib/i18n";
