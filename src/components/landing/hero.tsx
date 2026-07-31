@@ -1,5 +1,6 @@
 import { ArrowRight, ShieldCheck, Sparkles, WifiOff } from "lucide-react";
-import heroPhone from "@/assets/hero-phone.png";
+import heroShot from "@/assets/IMG_8884.png.asset.json";
+import { PhoneFrame } from "@/components/landing/phone-frame";
 import { useI18n } from "@/lib/i18n";
 
 export function Hero() {
@@ -59,12 +60,11 @@ export function Hero() {
             style={{ backgroundImage: "var(--gradient-primary)" }}
             aria-hidden="true"
           />
-          <img
-            src={heroPhone}
+          <PhoneFrame
+            src={heroShot.url}
             alt={t("hero.imageAlt")}
-            width={912}
-            height={1408}
-            className="w-[min(100%,22rem)] animate-float drop-shadow-2xl"
+            priority
+            className="w-[min(100%,20rem)] animate-float"
           />
           <div className="absolute -left-2 bottom-16 hidden items-center gap-2 rounded-2xl border border-border bg-card px-3.5 py-2.5 text-xs font-semibold shadow-[var(--shadow-soft)] sm:flex">
             <WifiOff className="size-4 text-primary" aria-hidden="true" />
