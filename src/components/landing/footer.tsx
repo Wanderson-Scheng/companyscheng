@@ -1,0 +1,84 @@
+import { Instagram, Linkedin, Mail, Twitter } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
+
+export function Footer() {
+  const { t } = useI18n();
+  return (
+    <footer className="border-t border-border bg-surface">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <div className="flex items-center gap-2.5">
+            <span
+              className="grid size-9 place-items-center rounded-xl text-sm font-extrabold text-primary-foreground"
+              style={{ backgroundImage: "var(--gradient-primary)" }}
+              aria-hidden="true"
+            >
+              G
+            </span>
+            <span className="text-lg font-extrabold tracking-tight">GuiaFin</span>
+          </div>
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+            {t("footer.tagline")}
+          </p>
+        </div>
+
+        <nav aria-label={t("footer.legal")}>
+          <h2 className="text-sm font-bold">{t("footer.legal")}</h2>
+          <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+            <li>
+              <a href="/privacy" className="transition-colors hover:text-foreground">
+                {t("footer.privacy")}
+              </a>
+            </li>
+            <li>
+              <a href="/terms" className="transition-colors hover:text-foreground">
+                {t("footer.terms")}
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 className="text-sm font-bold">{t("footer.contact")}</h2>
+          <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+            <li>
+              <a
+                href="mailto:ola@guiafin.app"
+                className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+              >
+                <Mail className="size-4" aria-hidden="true" />
+                ola@guiafin.app
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="text-sm font-bold">{t("footer.social")}</h2>
+          <ul className="mt-4 flex gap-2">
+            {[
+              { Icon: Twitter, label: "X", href: "https://x.com" },
+              { Icon: Instagram, label: "Instagram", href: "https://instagram.com" },
+              { Icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+            ].map(({ Icon, label, href }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  aria-label={label}
+                  rel="noreferrer noopener"
+                  target="_blank"
+                  className="grid size-10 place-items-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:text-primary"
+                >
+                  <Icon className="size-4" aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className="border-t border-border px-5 py-6 text-center text-xs text-muted-foreground">
+        © {new Date().getFullYear()} GuiaFin. {t("footer.rights")}
+      </div>
+    </footer>
+  );
+}
