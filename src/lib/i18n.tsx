@@ -1,0 +1,439 @@
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
+
+export const locales = ["pt", "en", "es"] as const;
+export type Locale = (typeof locales)[number];
+
+export const localeMeta: Record<Locale, { label: string; short: string; htmlLang: string }> = {
+  pt: { label: "Português", short: "PT", htmlLang: "pt-PT" },
+  en: { label: "English", short: "EN", htmlLang: "en" },
+  es: { label: "Español", short: "ES", htmlLang: "es" },
+};
+
+type Dict = Record<string, string | string[]>;
+
+const pt: Dict = {
+  "nav.features": "Funcionalidades",
+  "nav.why": "Porquê o GuiaFin",
+  "nav.screens": "Capturas",
+  "nav.faq": "Perguntas",
+  "nav.download": "Baixar agora",
+  "nav.language": "Idioma",
+  "nav.menu": "Abrir menu",
+
+  "hero.badge": "100% offline · sem anúncios · sem assinatura",
+  "hero.title": "As suas finanças, finalmente sob controlo.",
+  "hero.subtitle":
+    "O GuiaFin reúne rendimentos, despesas, contas bancárias, cartões e metas num só lugar. Tudo guardado no seu telemóvel, protegido por PIN e pronto a usar sem internet.",
+  "hero.cta": "Baixar agora",
+  "hero.secondary": "Ver recursos",
+  "hero.stat1": "Avaliação média",
+  "hero.stat2": "Downloads",
+  "hero.stat3": "Dados na nuvem",
+  "hero.stat3v": "Zero",
+  "hero.imageAlt": "iPhone a mostrar o painel do GuiaFin com saldo, gráfico de despesas e categorias",
+
+  "features.eyebrow": "Funcionalidades",
+  "features.title": "Tudo o que precisa. Nada do que não precisa.",
+  "features.subtitle":
+    "Uma ferramenta completa de finanças pessoais, desenhada para ser rápida, privada e simples de manter todos os dias.",
+  "f.income.t": "Rendimentos e despesas",
+  "f.income.d": "Registe entradas e saídas em segundos e veja para onde vai cada euro.",
+  "f.install.t": "Parcelamentos",
+  "f.install.d": "Acompanhe compras a prestações e saiba sempre quanto falta pagar.",
+  "f.accounts.t": "Várias contas bancárias",
+  "f.accounts.d": "Junte todas as suas contas e veja o saldo consolidado num só ecrã.",
+  "f.cards.t": "Cartões de crédito",
+  "f.cards.d": "Faturas, limites e datas de fecho organizados sem esforço.",
+  "f.goals.t": "Metas de poupança",
+  "f.goals.d": "Defina objetivos e acompanhe o progresso com indicadores claros.",
+  "f.offline.t": "Offline total",
+  "f.offline.d": "Funciona sempre, mesmo sem rede. Nenhum servidor envolvido.",
+  "f.noads.t": "Sem anúncios",
+  "f.noads.d": "Nenhuma publicidade, nenhum rastreio, nenhuma distração.",
+  "f.nosub.t": "Sem assinatura",
+  "f.nosub.d": "Paga uma vez, usa para sempre. Sem mensalidades escondidas.",
+  "f.local.t": "Dados locais",
+  "f.local.d": "A informação nunca sai do seu dispositivo.",
+  "f.pin.t": "Proteção por PIN",
+  "f.pin.d": "Bloqueie a app com PIN ou biometria em segundos.",
+  "f.dark.t": "Modo escuro",
+  "f.dark.d": "Interface confortável de dia e de noite.",
+
+  "why.eyebrow": "Comparação",
+  "why.title": "Porquê escolher o GuiaFin",
+  "why.subtitle": "Comparado com as apps tradicionais de finanças pessoais.",
+  "why.guiafin": "GuiaFin",
+  "why.others": "Apps tradicionais",
+  "why.r1": "Dados guardados",
+  "why.r1a": "Apenas no seu telemóvel",
+  "why.r1b": "Servidores de terceiros",
+  "why.r2": "Custo",
+  "why.r2a": "Pagamento único",
+  "why.r2b": "Assinatura mensal",
+  "why.r3": "Publicidade",
+  "why.r3a": "Nenhuma",
+  "why.r3b": "Anúncios e upsells",
+  "why.r4": "Ligação à internet",
+  "why.r4a": "Não necessária",
+  "why.r4b": "Obrigatória",
+  "why.r5": "Conta obrigatória",
+  "why.r5a": "Não",
+  "why.r5b": "Registo e e-mail",
+  "why.r6": "Privacidade",
+  "why.r6a": "Sem rastreio",
+  "why.r6b": "Partilha de dados",
+
+  "screens.eyebrow": "Capturas de ecrã",
+  "screens.title": "Simples de ler. Fácil de manter.",
+  "screens.subtitle":
+    "Cada ecrã foi desenhado para responder a uma pergunta: quanto tenho, para onde foi e quanto falta.",
+  "screens.alt": "Três iPhones com os ecrãs de contas, metas de poupança e despesas do GuiaFin",
+
+  "testimonials.eyebrow": "Testemunhos",
+  "testimonials.title": "Quem usa, não larga",
+  "t1.q": "Finalmente uma app que não me pede a conta do banco. Em duas semanas percebi onde gastava a mais.",
+  "t1.n": "Marta Rocha",
+  "t1.r": "Designer, Lisboa",
+  "t2.q": "Os parcelamentos mudaram tudo. Sei exatamente quanto devo até ao fim do ano.",
+  "t2.n": "Diogo Antunes",
+  "t2.r": "Engenheiro, Porto",
+  "t3.q": "Rápida, offline e sem assinatura. É a única app financeira que ficou no meu telemóvel.",
+  "t3.n": "Inês Carvalho",
+  "t3.r": "Contabilista, Braga",
+
+  "faq.eyebrow": "Perguntas frequentes",
+  "faq.title": "Ainda com dúvidas?",
+  "q1": "O GuiaFin liga-se ao meu banco?",
+  "a1": "Não. Os lançamentos são feitos por si, o que mantém os seus dados bancários totalmente privados.",
+  "q2": "Preciso de criar conta?",
+  "a2": "Não. Instala e começa a usar. Não pedimos e-mail nem palavra-passe.",
+  "q3": "Onde ficam guardados os meus dados?",
+  "a3": "Exclusivamente no seu dispositivo. Pode exportar uma cópia de segurança quando quiser.",
+  "q4": "Existe alguma assinatura?",
+  "a4": "Não. O GuiaFin é um pagamento único, sem mensalidades nem funcionalidades bloqueadas.",
+  "q5": "Funciona sem internet?",
+  "a5": "Sim, todas as funcionalidades estão disponíveis offline.",
+  "q6": "Está disponível para Android?",
+  "a6": "A versão Android está em desenvolvimento e chegará em breve ao Google Play.",
+
+  "cta.title": "Comece hoje a controlar o seu dinheiro",
+  "cta.subtitle": "Instale o GuiaFin e tenha uma visão clara das suas finanças em menos de cinco minutos.",
+  "cta.appstore": "App Store",
+  "cta.appstoreSmall": "Baixar na",
+  "cta.play": "Google Play",
+  "cta.playSmall": "Em breve no",
+
+  "footer.tagline": "Finanças pessoais offline, privadas e sem assinatura.",
+  "footer.privacy": "Política de privacidade",
+  "footer.terms": "Termos de utilização",
+  "footer.contact": "Contactos",
+  "footer.legal": "Legal",
+  "footer.company": "Empresa",
+  "footer.social": "Redes sociais",
+  "footer.rights": "Todos os direitos reservados.",
+};
+
+const en: Dict = {
+  "nav.features": "Features",
+  "nav.why": "Why GuiaFin",
+  "nav.screens": "Screenshots",
+  "nav.faq": "FAQ",
+  "nav.download": "Download now",
+  "nav.language": "Language",
+  "nav.menu": "Open menu",
+
+  "hero.badge": "100% offline · no ads · no subscription",
+  "hero.title": "Your money, finally under control.",
+  "hero.subtitle":
+    "GuiaFin brings income, expenses, bank accounts, cards and goals into one place. Everything stays on your phone, locked with a PIN and ready to use without internet.",
+  "hero.cta": "Download now",
+  "hero.secondary": "See features",
+  "hero.stat1": "Average rating",
+  "hero.stat2": "Downloads",
+  "hero.stat3": "Data in the cloud",
+  "hero.stat3v": "Zero",
+  "hero.imageAlt": "iPhone showing the GuiaFin dashboard with balance, expense chart and categories",
+
+  "features.eyebrow": "Features",
+  "features.title": "Everything you need. Nothing you don't.",
+  "features.subtitle":
+    "A complete personal finance toolkit, designed to be fast, private and easy to keep up with every day.",
+  "f.income.t": "Income & expenses",
+  "f.income.d": "Log money in and out in seconds and see where every euro goes.",
+  "f.install.t": "Instalments",
+  "f.install.d": "Track purchases paid in instalments and always know what's left.",
+  "f.accounts.t": "Multiple bank accounts",
+  "f.accounts.d": "Bring all your accounts together and see one consolidated balance.",
+  "f.cards.t": "Credit cards",
+  "f.cards.d": "Statements, limits and closing dates organised effortlessly.",
+  "f.goals.t": "Savings goals",
+  "f.goals.d": "Set targets and follow your progress with clear indicators.",
+  "f.offline.t": "Fully offline",
+  "f.offline.d": "Always works, even with no signal. No servers involved.",
+  "f.noads.t": "No ads",
+  "f.noads.d": "No advertising, no tracking, no distractions.",
+  "f.nosub.t": "No subscription",
+  "f.nosub.d": "Pay once, use forever. No hidden monthly fees.",
+  "f.local.t": "Local data",
+  "f.local.d": "Your information never leaves your device.",
+  "f.pin.t": "PIN protection",
+  "f.pin.d": "Lock the app with a PIN or biometrics in seconds.",
+  "f.dark.t": "Dark mode",
+  "f.dark.d": "A comfortable interface day and night.",
+
+  "why.eyebrow": "Comparison",
+  "why.title": "Why choose GuiaFin",
+  "why.subtitle": "Side by side with traditional personal finance apps.",
+  "why.guiafin": "GuiaFin",
+  "why.others": "Traditional apps",
+  "why.r1": "Where data lives",
+  "why.r1a": "Only on your phone",
+  "why.r1b": "Third-party servers",
+  "why.r2": "Cost",
+  "why.r2a": "One-time payment",
+  "why.r2b": "Monthly subscription",
+  "why.r3": "Advertising",
+  "why.r3a": "None",
+  "why.r3b": "Ads and upsells",
+  "why.r4": "Internet connection",
+  "why.r4a": "Not required",
+  "why.r4b": "Required",
+  "why.r5": "Account required",
+  "why.r5a": "No",
+  "why.r5b": "Sign-up and email",
+  "why.r6": "Privacy",
+  "why.r6a": "No tracking",
+  "why.r6b": "Data sharing",
+
+  "screens.eyebrow": "Screenshots",
+  "screens.title": "Simple to read. Easy to keep up.",
+  "screens.subtitle":
+    "Every screen answers one question: how much do I have, where did it go and how much is left.",
+  "screens.alt": "Three iPhones showing GuiaFin accounts, savings goals and expenses screens",
+
+  "testimonials.eyebrow": "Testimonials",
+  "testimonials.title": "People who try it, keep it",
+  "t1.q": "Finally an app that doesn't ask for my bank login. In two weeks I saw exactly where I overspent.",
+  "t1.n": "Marta Rocha",
+  "t1.r": "Designer, Lisbon",
+  "t2.q": "Instalment tracking changed everything. I know exactly what I owe until the end of the year.",
+  "t2.n": "Diogo Antunes",
+  "t2.r": "Engineer, Porto",
+  "t3.q": "Fast, offline and subscription-free. The only finance app that stayed on my phone.",
+  "t3.n": "Inês Carvalho",
+  "t3.r": "Accountant, Braga",
+
+  "faq.eyebrow": "FAQ",
+  "faq.title": "Still have questions?",
+  "q1": "Does GuiaFin connect to my bank?",
+  "a1": "No. You enter transactions yourself, which keeps your banking data completely private.",
+  "q2": "Do I need an account?",
+  "a2": "No. Install and start using it. We never ask for an email or password.",
+  "q3": "Where is my data stored?",
+  "a3": "Only on your device. You can export a backup whenever you want.",
+  "q4": "Is there a subscription?",
+  "a4": "No. GuiaFin is a one-time payment, with no monthly fees or locked features.",
+  "q5": "Does it work without internet?",
+  "a5": "Yes, every feature is available offline.",
+  "q6": "Is it available on Android?",
+  "a6": "The Android version is in development and coming soon to Google Play.",
+
+  "cta.title": "Start controlling your money today",
+  "cta.subtitle": "Install GuiaFin and get a clear view of your finances in under five minutes.",
+  "cta.appstore": "App Store",
+  "cta.appstoreSmall": "Download on the",
+  "cta.play": "Google Play",
+  "cta.playSmall": "Coming soon to",
+
+  "footer.tagline": "Offline, private, subscription-free personal finance.",
+  "footer.privacy": "Privacy policy",
+  "footer.terms": "Terms of use",
+  "footer.contact": "Contact",
+  "footer.legal": "Legal",
+  "footer.company": "Company",
+  "footer.social": "Social",
+  "footer.rights": "All rights reserved.",
+};
+
+const es: Dict = {
+  "nav.features": "Funciones",
+  "nav.why": "Por qué GuiaFin",
+  "nav.screens": "Capturas",
+  "nav.faq": "Preguntas",
+  "nav.download": "Descargar ahora",
+  "nav.language": "Idioma",
+  "nav.menu": "Abrir menú",
+
+  "hero.badge": "100% offline · sin anuncios · sin suscripción",
+  "hero.title": "Tus finanzas, por fin bajo control.",
+  "hero.subtitle":
+    "GuiaFin reúne ingresos, gastos, cuentas bancarias, tarjetas y metas en un solo lugar. Todo se guarda en tu móvil, protegido con PIN y listo para usar sin internet.",
+  "hero.cta": "Descargar ahora",
+  "hero.secondary": "Ver funciones",
+  "hero.stat1": "Valoración media",
+  "hero.stat2": "Descargas",
+  "hero.stat3": "Datos en la nube",
+  "hero.stat3v": "Cero",
+  "hero.imageAlt": "iPhone mostrando el panel de GuiaFin con saldo, gráfico de gastos y categorías",
+
+  "features.eyebrow": "Funciones",
+  "features.title": "Todo lo que necesitas. Nada más.",
+  "features.subtitle":
+    "Una herramienta completa de finanzas personales, rápida, privada y fácil de mantener cada día.",
+  "f.income.t": "Ingresos y gastos",
+  "f.income.d": "Registra entradas y salidas en segundos y descubre a dónde va cada euro.",
+  "f.install.t": "Pagos a plazos",
+  "f.install.d": "Controla las compras a plazos y sabe siempre cuánto falta por pagar.",
+  "f.accounts.t": "Varias cuentas bancarias",
+  "f.accounts.d": "Reúne todas tus cuentas y consulta el saldo consolidado.",
+  "f.cards.t": "Tarjetas de crédito",
+  "f.cards.d": "Facturas, límites y fechas de cierre organizados sin esfuerzo.",
+  "f.goals.t": "Metas de ahorro",
+  "f.goals.d": "Define objetivos y sigue tu progreso con indicadores claros.",
+  "f.offline.t": "Totalmente offline",
+  "f.offline.d": "Funciona siempre, incluso sin cobertura. Sin servidores.",
+  "f.noads.t": "Sin anuncios",
+  "f.noads.d": "Sin publicidad, sin rastreo, sin distracciones.",
+  "f.nosub.t": "Sin suscripción",
+  "f.nosub.d": "Pagas una vez y lo usas para siempre. Sin cuotas ocultas.",
+  "f.local.t": "Datos locales",
+  "f.local.d": "Tu información nunca sale del dispositivo.",
+  "f.pin.t": "Protección con PIN",
+  "f.pin.d": "Bloquea la app con PIN o biometría en segundos.",
+  "f.dark.t": "Modo oscuro",
+  "f.dark.d": "Una interfaz cómoda de día y de noche.",
+
+  "why.eyebrow": "Comparativa",
+  "why.title": "Por qué elegir GuiaFin",
+  "why.subtitle": "Frente a las apps tradicionales de finanzas personales.",
+  "why.guiafin": "GuiaFin",
+  "why.others": "Apps tradicionales",
+  "why.r1": "Dónde están los datos",
+  "why.r1a": "Solo en tu móvil",
+  "why.r1b": "Servidores de terceros",
+  "why.r2": "Coste",
+  "why.r2a": "Pago único",
+  "why.r2b": "Suscripción mensual",
+  "why.r3": "Publicidad",
+  "why.r3a": "Ninguna",
+  "why.r3b": "Anuncios y upsells",
+  "why.r4": "Conexión a internet",
+  "why.r4a": "No necesaria",
+  "why.r4b": "Obligatoria",
+  "why.r5": "Cuenta obligatoria",
+  "why.r5a": "No",
+  "why.r5b": "Registro y correo",
+  "why.r6": "Privacidad",
+  "why.r6a": "Sin rastreo",
+  "why.r6b": "Cesión de datos",
+
+  "screens.eyebrow": "Capturas",
+  "screens.title": "Fácil de leer. Fácil de mantener.",
+  "screens.subtitle":
+    "Cada pantalla responde a una pregunta: cuánto tengo, a dónde fue y cuánto queda.",
+  "screens.alt": "Tres iPhones con las pantallas de cuentas, metas de ahorro y gastos de GuiaFin",
+
+  "testimonials.eyebrow": "Testimonios",
+  "testimonials.title": "Quien la prueba, se queda",
+  "t1.q": "Por fin una app que no me pide las claves del banco. En dos semanas vi dónde gastaba de más.",
+  "t1.n": "Marta Rocha",
+  "t1.r": "Diseñadora, Lisboa",
+  "t2.q": "El control de plazos lo cambió todo. Sé exactamente cuánto debo hasta fin de año.",
+  "t2.n": "Diogo Antunes",
+  "t2.r": "Ingeniero, Oporto",
+  "t3.q": "Rápida, offline y sin suscripción. La única app financiera que sigue en mi móvil.",
+  "t3.n": "Inês Carvalho",
+  "t3.r": "Contable, Braga",
+
+  "faq.eyebrow": "Preguntas frecuentes",
+  "faq.title": "¿Aún tienes dudas?",
+  "q1": "¿GuiaFin se conecta a mi banco?",
+  "a1": "No. Tú introduces los movimientos, así tus datos bancarios siguen siendo privados.",
+  "q2": "¿Necesito crear una cuenta?",
+  "a2": "No. Instálala y empieza. Nunca pedimos correo ni contraseña.",
+  "q3": "¿Dónde se guardan mis datos?",
+  "a3": "Solo en tu dispositivo. Puedes exportar una copia de seguridad cuando quieras.",
+  "q4": "¿Hay alguna suscripción?",
+  "a4": "No. GuiaFin es un pago único, sin cuotas ni funciones bloqueadas.",
+  "q5": "¿Funciona sin internet?",
+  "a5": "Sí, todas las funciones están disponibles offline.",
+  "q6": "¿Está disponible en Android?",
+  "a6": "La versión Android está en desarrollo y llegará pronto a Google Play.",
+
+  "cta.title": "Empieza hoy a controlar tu dinero",
+  "cta.subtitle": "Instala GuiaFin y ten una visión clara de tus finanzas en menos de cinco minutos.",
+  "cta.appstore": "App Store",
+  "cta.appstoreSmall": "Descargar en el",
+  "cta.play": "Google Play",
+  "cta.playSmall": "Muy pronto en",
+
+  "footer.tagline": "Finanzas personales offline, privadas y sin suscripción.",
+  "footer.privacy": "Política de privacidad",
+  "footer.terms": "Términos de uso",
+  "footer.contact": "Contacto",
+  "footer.legal": "Legal",
+  "footer.company": "Empresa",
+  "footer.social": "Redes sociales",
+  "footer.rights": "Todos los derechos reservados.",
+};
+
+const dictionaries: Record<Locale, Dict> = { pt, en, es };
+
+const STORAGE_KEY = "guiafin.locale";
+
+type I18nValue = {
+  locale: Locale;
+  setLocale: (l: Locale) => void;
+  t: (key: string) => string;
+};
+
+const I18nContext = createContext<I18nValue | null>(null);
+
+export function I18nProvider({ children }: { children: ReactNode }) {
+  const [locale, setLocaleState] = useState<Locale>("pt");
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem(STORAGE_KEY) as Locale | null;
+    if (stored && locales.includes(stored)) {
+      setLocaleState(stored);
+      return;
+    }
+    const nav = window.navigator.language.slice(0, 2).toLowerCase();
+    if (locales.includes(nav as Locale)) setLocaleState(nav as Locale);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = localeMeta[locale].htmlLang;
+  }, [locale]);
+
+  const setLocale = useCallback((l: Locale) => {
+    setLocaleState(l);
+    window.localStorage.setItem(STORAGE_KEY, l);
+  }, []);
+
+  const t = useCallback(
+    (key: string) => {
+      const value = dictionaries[locale][key] ?? dictionaries.en[key] ?? key;
+      return Array.isArray(value) ? value.join(" ") : value;
+    },
+    [locale],
+  );
+
+  const value = useMemo(() => ({ locale, setLocale, t }), [locale, setLocale, t]);
+
+  return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
+}
+
+export function useI18n() {
+  const ctx = useContext(I18nContext);
+  if (!ctx) throw new Error("useI18n must be used within I18nProvider");
+  return ctx;
+}
