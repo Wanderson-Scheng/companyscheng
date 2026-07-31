@@ -15,7 +15,20 @@ import {
   WifiOff,
   type LucideIcon,
 } from "lucide-react";
-import screensTrio from "@/assets/screens-trio.jpg";
+import shotDash from "@/assets/IMG_8884.png.asset.json";
+import shotBanks from "@/assets/IMG_8885.png.asset.json";
+import shotExpenses from "@/assets/IMG_8886.png.asset.json";
+import shotAccounts from "@/assets/IMG_8887.png.asset.json";
+import shotCard from "@/assets/IMG_8888.png.asset.json";
+import shotInstall from "@/assets/IMG_8889.png.asset.json";
+import shotMenu from "@/assets/IMG_8890.png.asset.json";
+import shotSettings from "@/assets/IMG_8891.png.asset.json";
+import shotSalary from "@/assets/IMG_8894.png.asset.json";
+import shotAnnual from "@/assets/IMG_8896.png.asset.json";
+import shotHistory from "@/assets/IMG_8897.png.asset.json";
+import shotFuture from "@/assets/IMG_8899.png.asset.json";
+import shotPin from "@/assets/lock-pin.png.asset.json";
+import { PhoneFrame } from "@/components/landing/phone-frame";
 import { useI18n } from "@/lib/i18n";
 
 function SectionHeader({
@@ -138,16 +151,21 @@ export function Screens() {
           title={t("screens.title")}
           subtitle={t("screens.subtitle")}
         />
-        <div className="mt-14 overflow-hidden rounded-[2rem] border border-border bg-surface p-4 shadow-[var(--shadow-lift)] sm:p-8">
-          <img
-            src={screensTrio}
-            alt={t("screens.alt")}
-            loading="lazy"
-            width={1600}
-            height={1008}
-            className="w-full rounded-2xl"
-          />
-        </div>
+        <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {screenShots.map(({ k, url }) => (
+            <li key={k} className="group">
+              <PhoneFrame
+                src={url}
+                alt={t(`s.${k}.t`)}
+                className="transition-transform duration-300 group-hover:-translate-y-1.5"
+              />
+              <h3 className="mt-5 text-center text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
+              <p className="mt-1 text-center text-sm leading-relaxed text-muted-foreground">
+                {t(`s.${k}.d`)}
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
