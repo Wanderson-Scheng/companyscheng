@@ -73,13 +73,14 @@ export function Nav() {
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3.5 sm:flex sm:justify-between">
         <a href="#top" className="flex min-w-0 items-center gap-2.5">
-          <span
-            className="grid size-9 shrink-0 place-items-center rounded-xl text-sm font-extrabold text-primary-foreground"
-            style={{ backgroundImage: "var(--gradient-primary)" }}
+          <img
+            src={logoAsset.url}
+            alt=""
+            width={36}
+            height={36}
+            className="size-9 shrink-0 rounded-xl"
             aria-hidden="true"
-          >
-            G
-          </span>
+          />
           <span className="truncate text-lg font-extrabold tracking-tight">GuiaFin</span>
         </a>
 
