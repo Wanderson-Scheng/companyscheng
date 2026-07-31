@@ -141,6 +141,22 @@ export function WhyGuiaFin() {
   );
 }
 
+const screenShots: { k: string; url: string }[] = [
+  { k: "dash", url: shotDash.url },
+  { k: "banks", url: shotBanks.url },
+  { k: "expenses", url: shotExpenses.url },
+  { k: "accounts", url: shotAccounts.url },
+  { k: "card", url: shotCard.url },
+  { k: "install", url: shotInstall.url },
+  { k: "menu", url: shotMenu.url },
+  { k: "settings", url: shotSettings.url },
+  { k: "salary", url: shotSalary.url },
+  { k: "annual", url: shotAnnual.url },
+  { k: "history", url: shotHistory.url },
+  { k: "future", url: shotFuture.url },
+  { k: "pin", url: shotPin.url },
+];
+
 export function Screens() {
   const { t } = useI18n();
   return (
