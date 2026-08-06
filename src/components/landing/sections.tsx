@@ -168,9 +168,9 @@ export function Screens() {
                 alt={t(`s.${k}.t`)}
                 loading="lazy"
                 decoding="async"
-                width={1722}
-                height={1780}
-                className="w-full rounded-[1.5rem] shadow-[var(--shadow-soft)] transition-transform duration-300 group-hover:-translate-y-1.5"
+                width={819}
+                height={1652}
+                className="mx-auto w-[min(100%,15rem)] drop-shadow-xl transition-transform duration-300 group-hover:-translate-y-1.5"
               />
               <h3 className="mt-5 text-center text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
               <p className="mt-1 text-center text-sm leading-relaxed text-muted-foreground">
