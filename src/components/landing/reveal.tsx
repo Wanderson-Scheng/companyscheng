@@ -14,7 +14,7 @@ type RevealProps = {
   as?: ElementType;
 } & Omit<ComponentPropsWithoutRef<"div">, "children" | "className">;
 
-export function Reveal({ children, className = "", as = "div" }: RevealProps) {
+export function Reveal({ children, className = "", as = "div", ...rest }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
   const [state, setState] = useState<"idle" | "hidden" | "visible">("idle");
 
@@ -46,6 +46,7 @@ export function Reveal({ children, className = "", as = "div" }: RevealProps) {
   return createElement(
     as,
     {
+      ...rest,
       ref,
       className: `motion-reveal ${className}`.trim(),
       "data-reveal-state": state === "idle" ? undefined : state,
