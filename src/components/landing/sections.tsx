@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { appStoreUrl } from "@/lib/links";
 import {
   ArrowLeftRight,
   BadgeCheck,
@@ -351,7 +352,9 @@ export function FinalCta() {
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <a
-              href="#download"
+              href={appStoreUrl}
+              target="_blank"
+              rel="noreferrer noopener"
               className="inline-flex items-center gap-3 rounded-2xl bg-card px-6 py-3.5 text-left transition-transform hover:-translate-y-0.5"
             >
               <svg viewBox="0 0 24 24" className="size-7 fill-foreground" aria-hidden="true">

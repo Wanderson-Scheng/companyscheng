@@ -1,4 +1,5 @@
 import logoAsset from "@/assets/guiafin-logo.png.asset.json";
+import { appStoreUrl } from "@/lib/links";
 import { useEffect, useRef, useState } from "react";
 import { Check, ChevronDown, Globe, Menu, X } from "lucide-react";
 import { locales, localeMeta, useI18n, type Locale } from "@/lib/i18n";
@@ -134,8 +135,10 @@ export function Nav() {
             </a>
           ))}
           <a
-            href="#download"
-            onClick={() => setMobileOpen(false)}
+            href={appStoreUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+            onClick={() => setMobileOpen(false)
             className="mt-2 block rounded-xl px-3 py-3 text-center text-sm font-semibold text-primary-foreground"
             style={{ backgroundImage: "var(--gradient-primary)" }}
           >
