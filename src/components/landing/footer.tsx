@@ -45,11 +45,11 @@ export function Footer() {
           <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
             <li>
               <a
-                href="mailto:ola@guiafin.app"
+                href="mailto:Info@companyscheng.com"
                 className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
               >
                 <Mail className="size-4" aria-hidden="true" />
-                ola@guiafin.app
+                Info@companyscheng.com
               </a>
             </li>
           </ul>
@@ -60,7 +60,11 @@ export function Footer() {
           <ul className="mt-4 flex gap-2">
             {[
               { Icon: Twitter, label: "X", href: "https://x.com" },
-              { Icon: Instagram, label: "Instagram", href: "https://instagram.com" },
+              {
+                Icon: Instagram,
+                label: "Instagram",
+                href: "https://www.instagram.com/guiafin_?igsh=bzV0NDAybnJmMmRs",
+              },
               { Icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
             ].map(({ Icon, label, href }) => (
               <li key={label}>
