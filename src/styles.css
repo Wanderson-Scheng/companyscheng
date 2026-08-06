@@ -551,8 +551,7 @@
       animation-name: explode-card-mobile-in;
     }
 
-    .hero-feature-card::after,
-    .hero-stage-badge {
+    .hero-feature-card::after {
       display: none;
     }
 
