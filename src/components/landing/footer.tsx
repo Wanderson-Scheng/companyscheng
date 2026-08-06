@@ -70,7 +70,11 @@ export function Footer() {
                 label: "Instagram",
                 href: "https://www.instagram.com/guiafin_?igsh=bzV0NDAybnJmMmRs",
               },
-              { Icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+              {
+                Icon: Linkedin,
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/in/wanderson-scheng-769b72379",
+              },
             ].map(({ Icon, label, href }) => (
               <li key={label}>
                 <a

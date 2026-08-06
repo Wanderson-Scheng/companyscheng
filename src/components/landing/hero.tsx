@@ -66,7 +66,18 @@ export function Hero() {
               height={1652}
               className="hero-phone relative z-10 w-[min(100%,20rem)] animate-float drop-shadow-2xl"
             />
-            <div className="hero-feature-grid" aria-label={t("features.title")}>
+            <div className="hero-feature-column">
+              <div className="hero-stage-badges">
+                <span className="hero-stage-badge">
+                  <WifiOff className="size-3.5 text-primary" aria-hidden="true" />
+                  Offline
+                </span>
+                <span className="hero-stage-badge">
+                  <ShieldCheck className="size-3.5 text-primary" aria-hidden="true" />
+                  PIN
+                </span>
+              </div>
+              <div className="hero-feature-grid" aria-label={t("features.title")}>
               {explodedFeatures.map(({ icon: Icon, title, description }, index) => (
                 <div
                   className="hero-feature-card"
@@ -80,17 +91,8 @@ export function Hero() {
                   </div>
                 </div>
               ))}
+              </div>
             </div>
-          </div>
-          <div className="hero-stage-badges">
-            <span className="hero-stage-badge">
-              <WifiOff className="size-4 text-primary" aria-hidden="true" />
-              Offline
-            </span>
-            <span className="hero-stage-badge">
-              <ShieldCheck className="size-4 text-primary" aria-hidden="true" />
-              PIN
-            </span>
           </div>
         </div>
       </div>
