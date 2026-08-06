@@ -1,5 +1,6 @@
 import { ArrowRight, ShieldCheck, Sparkles, WifiOff } from "lucide-react";
 import heroShot from "@/assets/app-dash.png.asset.json";
+import { appStoreUrl } from "@/lib/links";
 import { useI18n } from "@/lib/i18n";
 
 export function Hero() {
@@ -22,7 +23,9 @@ export function Hero() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#download"
+              href={appStoreUrl}
+              target="_blank"
+              rel="noreferrer noopener"
               className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] transition-transform hover:-translate-y-0.5"
               style={{ backgroundImage: "var(--gradient-primary)" }}
             >
