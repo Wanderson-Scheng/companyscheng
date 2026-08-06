@@ -1,6 +1,5 @@
 import { ArrowRight, ShieldCheck, Sparkles, WifiOff } from "lucide-react";
-import heroShot from "@/assets/IMG_8884.png.asset.json";
-import { PhoneFrame } from "@/components/landing/phone-frame";
+import heroShot from "@/assets/app-dash.png.asset.json";
 import { useI18n } from "@/lib/i18n";
 
 export function Hero() {
