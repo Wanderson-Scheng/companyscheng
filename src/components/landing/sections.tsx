@@ -232,11 +232,11 @@ export function Screens() {
             </CarouselContent>
             <CarouselPrevious
               className="-left-2 hidden border-border bg-card text-foreground shadow-[var(--shadow-soft)] sm:flex lg:-left-12"
-              aria-label="Captura anterior"
+              aria-label={t("nav.screens")}
             />
             <CarouselNext
               className="-right-2 hidden border-border bg-card text-foreground shadow-[var(--shadow-soft)] sm:flex lg:-right-12"
-              aria-label="Próxima captura"
+              aria-label={t("nav.screens")}
             />
           </Carousel>
 
@@ -253,7 +253,7 @@ export function Screens() {
                 onClick={() => api?.scrollTo(index)}
                 role="tab"
                 aria-selected={index === activeIndex}
-                aria-label={`Captura ${index + 1}`}
+                aria-label={`${t("nav.screens")} ${index + 1}`}
               />
             ))}
           </div>
