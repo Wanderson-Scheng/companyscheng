@@ -28,7 +28,12 @@ export function Footer() {
           <h2 className="text-sm font-bold">{t("footer.legal")}</h2>
           <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
             <li>
-              <a href="/privacy" className="transition-colors hover:text-foreground">
+              <a
+                href="https://wanderson-scheng.github.io/Financas-pro-releases/privacy.html"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="transition-colors hover:text-foreground"
+              >
                 {t("footer.privacy")}
               </a>
             </li>
