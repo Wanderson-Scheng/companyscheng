@@ -366,18 +366,24 @@
 
   .hero-exploded-stage {
     position: relative;
-    width: min(100%, 34rem);
+    display: grid;
+    width: min(100%, 36rem);
+    grid-template-columns: minmax(0, 11.5rem) minmax(0, 1fr);
+    align-items: center;
+    gap: 1.25rem;
   }
 
   .hero-feature-grid {
-    display: contents;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
   }
 
   .hero-feature-card {
-    position: absolute;
+    position: relative;
     z-index: 20;
     display: flex;
-    width: 9.5rem;
+    width: 100%;
     align-items: flex-start;
     gap: 0.55rem;
     border: 1px solid var(--border);
@@ -386,32 +392,24 @@
     padding: 0.75rem;
     box-shadow: var(--shadow-soft);
     backdrop-filter: blur(12px);
-    animation: explode-card-in 850ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: hero-card-slide-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
     transition: transform 300ms ease, box-shadow 300ms ease;
   }
 
   .hero-feature-card:hover {
-    transform: translateY(-5px) scale(1.03);
+    transform: translateX(4px) scale(1.02);
     box-shadow: var(--shadow-lift);
   }
 
   .hero-feature-card::after {
     position: absolute;
     top: 50%;
+    left: 100%;
     width: 2rem;
     height: 1px;
     background: color-mix(in oklab, var(--primary) 35%, transparent);
     content: "";
   }
-
-  .hero-feature-left { left: 0; }
-  .hero-feature-left::after { left: 100%; }
-  .hero-feature-right { right: 0; }
-  .hero-feature-right::after { right: 100%; }
-  .hero-feature-left:nth-child(1) { top: 17%; }
-  .hero-feature-right:nth-child(2) { top: 23%; }
-  .hero-feature-left:nth-child(3) { bottom: 17%; }
-  .hero-feature-right:nth-child(4) { bottom: 11%; }
 
   .hero-phone {
     display: block;
@@ -477,6 +475,11 @@
     to { opacity: 1; transform: scale(1) translateY(0); }
   }
 
+  @keyframes hero-card-slide-in {
+    from { opacity: 0; transform: translateX(-28px) scale(0.94); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
+  }
+
   @keyframes hero-visual-in {
     from { opacity: 0; transform: translateX(18px) scale(0.97); }
     to { opacity: 1; transform: translateX(0) scale(1); }
@@ -504,6 +507,7 @@
 
   @media (max-width: 767px) {
     .hero-exploded-stage {
+      display: block;
       padding-bottom: 0.5rem;
     }
 
