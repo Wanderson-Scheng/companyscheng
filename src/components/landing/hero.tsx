@@ -50,7 +50,7 @@ export function Hero() {
 
         </div>
 
-        <div className="hero-visual relative flex justify-center">
+        <div className="hero-visual relative flex flex-col items-center gap-6">
           <div
             className="hero-glow absolute inset-x-10 top-12 -z-10 h-72 rounded-full opacity-30 blur-3xl"
             style={{ backgroundImage: "var(--gradient-primary)" }}
