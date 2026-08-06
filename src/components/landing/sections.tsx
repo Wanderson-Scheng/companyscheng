@@ -148,7 +148,7 @@ export function WhyGuiaFin() {
 }
 
 const screenShots: { k: string; url: string }[] = [
-  { k: "dash", url: shotDash.url },
+  { k: "pin", url: shotPin.url },
   { k: "currency", url: shotCurrency.url },
   { k: "accounts", url: shotAccounts.url },
   { k: "card", url: shotCard.url },
@@ -157,7 +157,6 @@ const screenShots: { k: string; url: string }[] = [
   { k: "menu", url: shotMenu.url },
   { k: "profile", url: shotProfile.url },
   { k: "annual", url: shotAnnual.url },
-  { k: "pin", url: shotPin.url },
 ];
 
 export function Screens() {
