@@ -15,20 +15,16 @@ import {
   WifiOff,
   type LucideIcon,
 } from "lucide-react";
-import shotDash from "@/assets/IMG_8884.png.asset.json";
-import shotBanks from "@/assets/IMG_8885.png.asset.json";
-import shotExpenses from "@/assets/IMG_8886.png.asset.json";
-import shotAccounts from "@/assets/IMG_8887.png.asset.json";
-import shotCard from "@/assets/IMG_8888.png.asset.json";
-import shotInstall from "@/assets/IMG_8889.png.asset.json";
-import shotMenu from "@/assets/IMG_8890.png.asset.json";
-import shotSettings from "@/assets/IMG_8891.png.asset.json";
-import shotSalary from "@/assets/IMG_8894.png.asset.json";
-import shotAnnual from "@/assets/IMG_8896.png.asset.json";
-import shotHistory from "@/assets/IMG_8897.png.asset.json";
-import shotFuture from "@/assets/IMG_8899.png.asset.json";
-import shotPin from "@/assets/lock-pin.png.asset.json";
-import { PhoneFrame } from "@/components/landing/phone-frame";
+import shotDash from "@/assets/app-dash.png.asset.json";
+import shotCurrency from "@/assets/app-overview.png.asset.json";
+import shotAccounts from "@/assets/app-accounts.png.asset.json";
+import shotCard from "@/assets/app-card.png.asset.json";
+import shotInstall from "@/assets/app-install.png.asset.json";
+import shotProfile from "@/assets/app-profile.png.asset.json";
+import shotAnnual from "@/assets/app-annual.png.asset.json";
+import shotGoal from "@/assets/app-goal.png.asset.json";
+import shotMenu from "@/assets/app-menu.png.asset.json";
+import shotPin from "@/assets/app-pin.png.asset.json";
 import { useI18n } from "@/lib/i18n";
 
 function SectionHeader({
@@ -143,17 +139,14 @@ export function WhyGuiaFin() {
 
 const screenShots: { k: string; url: string }[] = [
   { k: "dash", url: shotDash.url },
-  { k: "banks", url: shotBanks.url },
-  { k: "expenses", url: shotExpenses.url },
+  { k: "currency", url: shotCurrency.url },
   { k: "accounts", url: shotAccounts.url },
   { k: "card", url: shotCard.url },
   { k: "install", url: shotInstall.url },
+  { k: "goal", url: shotGoal.url },
   { k: "menu", url: shotMenu.url },
-  { k: "settings", url: shotSettings.url },
-  { k: "salary", url: shotSalary.url },
+  { k: "profile", url: shotProfile.url },
   { k: "annual", url: shotAnnual.url },
-  { k: "history", url: shotHistory.url },
-  { k: "future", url: shotFuture.url },
   { k: "pin", url: shotPin.url },
 ];
 
@@ -170,10 +163,14 @@ export function Screens() {
         <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {screenShots.map(({ k, url }) => (
             <li key={k} className="group">
-              <PhoneFrame
+              <img
                 src={url}
                 alt={t(`s.${k}.t`)}
-                className="transition-transform duration-300 group-hover:-translate-y-1.5"
+                loading="lazy"
+                decoding="async"
+                width={1722}
+                height={1780}
+                className="w-full rounded-[1.5rem] shadow-[var(--shadow-soft)] transition-transform duration-300 group-hover:-translate-y-1.5"
               />
               <h3 className="mt-5 text-center text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
               <p className="mt-1 text-center text-sm leading-relaxed text-muted-foreground">
