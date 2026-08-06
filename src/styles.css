@@ -375,7 +375,6 @@
 
   .hero-feature-grid {
     display: flex;
-    order: -1;
     flex-direction: column;
     gap: 0.7rem;
   }
