@@ -48,14 +48,10 @@ export function Hero() {
             </a>
           </div>
 
-          <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-border pt-6">
+          <dl className="mt-10 grid max-w-md grid-cols-2 gap-6 border-t border-border pt-6">
             <div className="hero-stat">
               <dt className="text-xs text-muted-foreground">{t("hero.stat1")}</dt>
               <dd className="mt-1 text-2xl font-extrabold tracking-tight">4.9</dd>
-            </div>
-            <div className="hero-stat">
-              <dt className="text-xs text-muted-foreground">{t("hero.stat2")}</dt>
-              <dd className="mt-1 text-2xl font-extrabold tracking-tight">120k+</dd>
             </div>
             <div className="hero-stat">
               <dt className="text-xs text-muted-foreground">{t("hero.stat3")}</dt>
