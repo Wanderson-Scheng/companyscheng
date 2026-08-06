@@ -1,3 +1,4 @@
+import logoAsset from "@/assets/guiafin-logo.png.asset.json";
 import { Instagram, Linkedin, Mail, Twitter } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
@@ -8,13 +9,14 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2.5">
-            <span
-              className="grid size-9 place-items-center rounded-xl text-sm font-extrabold text-primary-foreground"
-              style={{ backgroundImage: "var(--gradient-primary)" }}
+            <img
+              src={logoAsset.url}
+              alt=""
+              width={36}
+              height={36}
+              className="size-9 shrink-0 rounded-xl"
               aria-hidden="true"
-            >
-              G
-            </span>
+            />
             <span className="text-lg font-extrabold tracking-tight">GuiaFin</span>
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
