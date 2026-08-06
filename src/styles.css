@@ -279,7 +279,7 @@
     position: absolute;
     z-index: 20;
     display: flex;
-    width: 8.25rem;
+    width: 9.5rem;
     align-items: flex-start;
     gap: 0.55rem;
     border: 1px solid var(--border);
