@@ -233,7 +233,7 @@
   .hero-motion {
     position: relative;
     isolation: isolate;
-    overflow: hidden;
+    overflow: clip;
   }
 
   .hero-motion::after {
