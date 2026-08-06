@@ -1,5 +1,6 @@
 import { useEffect, useState, type CSSProperties } from "react";
 import { Reveal } from "@/components/landing/reveal";
+import { Typewriter } from "@/components/landing/typewriter";
 import { appStoreUrl } from "@/lib/links";
 import {
   ArrowLeftRight,
@@ -94,12 +95,14 @@ export function Features() {
               <span className="feature-story-index" aria-hidden="true">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <div className="feature-story-card group">
+              <div className="feature-story-card feature-plate group">
                 <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-all duration-300 group-hover:rotate-3 group-hover:bg-primary group-hover:text-primary-foreground">
                   <Icon className="size-5 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
                 </span>
                 <div className="min-w-0">
-                  <h3 className="text-base font-bold tracking-tight">{t(`f.${k}.t`)}</h3>
+                  <h3 className="text-base font-bold tracking-tight">
+                    <Typewriter text={t(`f.${k}.t`)} />
+                  </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(`f.${k}.d`)}</p>
                 </div>
               </div>
