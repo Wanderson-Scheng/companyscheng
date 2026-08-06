@@ -306,9 +306,9 @@
     content: "";
   }
 
-  .hero-feature-left { left: -1rem; }
+  .hero-feature-left { left: 0; }
   .hero-feature-left::after { left: 100%; }
-  .hero-feature-right { right: -1rem; }
+  .hero-feature-right { right: 0; }
   .hero-feature-right::after { right: 100%; }
   .hero-feature-left:nth-child(1) { top: 18%; }
   .hero-feature-right:nth-child(2) { top: 31%; }
