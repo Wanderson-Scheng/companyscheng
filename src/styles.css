@@ -544,11 +544,22 @@
       padding-bottom: 0.5rem;
     }
 
+    .hero-feature-column {
+      display: block;
+    }
+
+    .hero-stage-badges {
+      justify-content: center;
+      margin-top: -0.75rem;
+      position: relative;
+      z-index: 20;
+    }
+
     .hero-feature-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.6rem;
-      margin: 1rem auto 0;
+      margin: 1.25rem auto 0;
       max-width: 21rem;
     }
 
@@ -556,7 +567,8 @@
       position: relative;
       inset: auto;
       width: auto;
-      min-height: 4.5rem;
+      min-height: 5.25rem;
+      height: 100%;
       animation-name: explode-card-mobile-in;
     }
 
