@@ -4,11 +4,11 @@ import heroShot from "@/assets/app-dash.png.asset.json";
 import { appStoreUrl } from "@/lib/links";
 import { useI18n } from "@/lib/i18n";
 
-const explodedFeatures: { icon: LucideIcon; title: string; description: string; side: "left" | "right" }[] = [
-  { icon: ArrowLeftRight, title: "f.income.t", description: "f.income.d", side: "left" },
-  { icon: Landmark, title: "f.accounts.t", description: "f.accounts.d", side: "right" },
-  { icon: PiggyBank, title: "f.goals.t", description: "f.goals.d", side: "left" },
-  { icon: ShieldCheck, title: "f.pin.t", description: "f.pin.d", side: "right" },
+const explodedFeatures: { icon: LucideIcon; title: string; description: string }[] = [
+  { icon: ArrowLeftRight, title: "f.income.t", description: "f.income.d" },
+  { icon: Landmark, title: "f.accounts.t", description: "f.accounts.d" },
+  { icon: PiggyBank, title: "f.goals.t", description: "f.goals.d" },
+  { icon: ShieldCheck, title: "f.pin.t", description: "f.pin.d" },
 ];
 
 export function Hero() {
@@ -67,10 +67,10 @@ export function Hero() {
               className="hero-phone relative z-10 w-[min(100%,20rem)] animate-float drop-shadow-2xl"
             />
             <div className="hero-feature-grid" aria-label={t("features.title")}>
-              {explodedFeatures.map(({ icon: Icon, title, description, side }, index) => (
+              {explodedFeatures.map(({ icon: Icon, title, description }, index) => (
                 <div
-                  className={`hero-feature-card hero-feature-${side}`}
-                  style={{ animationDelay: `${700 + index * 130}ms` }}
+                  className="hero-feature-card"
+                  style={{ animationDelay: `${650 + index * 180}ms` }}
                   key={title}
                 >
                   <Icon className="size-4 shrink-0 text-primary" aria-hidden="true" />
