@@ -266,7 +266,58 @@
     animation: glow-breathe 6s ease-in-out infinite;
   }
 
+  .hero-exploded-stage {
+    position: relative;
+    width: min(100%, 32rem);
+  }
+
+  .hero-feature-grid {
+    display: contents;
+  }
+
+  .hero-feature-card {
+    position: absolute;
+    z-index: 20;
+    display: flex;
+    width: 9.5rem;
+    align-items: flex-start;
+    gap: 0.55rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: color-mix(in oklab, var(--card) 92%, transparent);
+    padding: 0.75rem;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(12px);
+    animation: explode-card-in 850ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+
+  .hero-feature-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .hero-feature-card::after {
+    position: absolute;
+    top: 50%;
+    width: 2.75rem;
+    height: 1px;
+    background: color-mix(in oklab, var(--primary) 35%, transparent);
+    content: "";
+  }
+
+  .hero-feature-left { left: -1rem; }
+  .hero-feature-left::after { left: 100%; }
+  .hero-feature-right { right: -1rem; }
+  .hero-feature-right::after { right: 100%; }
+  .hero-feature-left:nth-child(1) { top: 18%; }
+  .hero-feature-right:nth-child(2) { top: 31%; }
+  .hero-feature-left:nth-child(3) { bottom: 18%; }
+  .hero-feature-right:nth-child(4) { bottom: 8%; }
+
   .hero-phone {
+    display: block;
+    margin-inline: auto;
     transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), filter 700ms ease;
   }
 
@@ -282,6 +333,7 @@
   .hero-float-card-delay {
     animation-delay: 1.4s;
   }
+
 
   .comparison-sheen,
   .cta-shimmer {
@@ -300,6 +352,11 @@
   @keyframes hero-item-in {
     from { opacity: 0; transform: translateX(-18px); }
     to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes explode-card-in {
+    from { opacity: 0; transform: scale(0.72) translateY(18px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
   }
 
   @keyframes hero-visual-in {
