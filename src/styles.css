@@ -268,7 +268,7 @@
 
   .hero-exploded-stage {
     position: relative;
-    width: min(100%, 32rem);
+    width: min(100%, 34rem);
   }
 
   .hero-feature-grid {
@@ -279,7 +279,7 @@
     position: absolute;
     z-index: 20;
     display: flex;
-    width: 9.5rem;
+    width: 8.25rem;
     align-items: flex-start;
     gap: 0.55rem;
     border: 1px solid var(--border);
@@ -300,7 +300,7 @@
   .hero-feature-card::after {
     position: absolute;
     top: 50%;
-    width: 2.75rem;
+    width: 2rem;
     height: 1px;
     background: color-mix(in oklab, var(--primary) 35%, transparent);
     content: "";
@@ -310,10 +310,10 @@
   .hero-feature-left::after { left: 100%; }
   .hero-feature-right { right: 0; }
   .hero-feature-right::after { right: 100%; }
-  .hero-feature-left:nth-child(1) { top: 18%; }
-  .hero-feature-right:nth-child(2) { top: 31%; }
-  .hero-feature-left:nth-child(3) { bottom: 18%; }
-  .hero-feature-right:nth-child(4) { bottom: 8%; }
+  .hero-feature-left:nth-child(1) { top: 17%; }
+  .hero-feature-right:nth-child(2) { top: 23%; }
+  .hero-feature-left:nth-child(3) { bottom: 17%; }
+  .hero-feature-right:nth-child(4) { bottom: 11%; }
 
   .hero-phone {
     display: block;
@@ -326,13 +326,33 @@
     filter: drop-shadow(0 30px 24px color-mix(in oklab, var(--primary-deep) 28%, transparent));
   }
 
-  .hero-float-card {
+  .hero-stage-badge {
+    position: absolute;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--card);
+    padding: 0.625rem 0.875rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-soft);
     animation: float-soft 5.5s ease-in-out infinite;
   }
 
-  .hero-float-card-delay {
+  .hero-stage-badge-offline {
+    bottom: 3%;
+    left: 3%;
+  }
+
+  .hero-stage-badge-pin {
+    top: 4%;
+    right: 3%;
     animation-delay: 1.4s;
   }
+
 
 
   .comparison-sheen,
@@ -405,7 +425,8 @@
       animation-name: explode-card-mobile-in;
     }
 
-    .hero-feature-card::after {
+    .hero-feature-card::after,
+    .hero-stage-badge {
       display: none;
     }
   }

@@ -91,14 +91,14 @@ export function Hero() {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="hero-float-card absolute -left-2 bottom-16 hidden items-center gap-2 rounded-2xl border border-border bg-card px-3.5 py-2.5 text-xs font-semibold shadow-[var(--shadow-soft)] sm:flex">
-            <WifiOff className="size-4 text-primary" aria-hidden="true" />
-            Offline
-          </div>
-          <div className="hero-float-card hero-float-card-delay absolute -right-1 top-16 hidden items-center gap-2 rounded-2xl border border-border bg-card px-3.5 py-2.5 text-xs font-semibold shadow-[var(--shadow-soft)] sm:flex">
-            <ShieldCheck className="size-4 text-primary" aria-hidden="true" />
-            PIN
+            <div className="hero-stage-badge hero-stage-badge-offline">
+              <WifiOff className="size-4 text-primary" aria-hidden="true" />
+              Offline
+            </div>
+            <div className="hero-stage-badge hero-stage-badge-pin">
+              <ShieldCheck className="size-4 text-primary" aria-hidden="true" />
+              PIN
+            </div>
           </div>
         </div>
       </div>
