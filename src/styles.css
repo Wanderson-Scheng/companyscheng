@@ -431,6 +431,42 @@
     .hero-stage-badge {
       display: none;
     }
+
+    .feature-story-list {
+      padding-left: 2.5rem;
+    }
+
+    .feature-story-list::before {
+      left: 0.875rem;
+      transform: none;
+    }
+
+    .feature-story-item,
+    .feature-story-item-right {
+      display: block;
+      min-height: 0;
+      padding: 0.75rem 0 0.75rem 1.5rem;
+      text-align: left;
+    }
+
+    .feature-story-card,
+    .feature-story-item:not(.feature-story-item-right) .feature-story-card,
+    .feature-story-item-right .feature-story-card {
+      max-width: none;
+      margin: 0;
+    }
+
+    .feature-story-card::after {
+      left: -1.5rem !important;
+      right: auto !important;
+      width: 1.5rem;
+    }
+
+    .feature-story-index {
+      left: 0.875rem;
+      width: 2.25rem;
+      height: 2.25rem;
+    }
   }
 
   @keyframes explode-card-mobile-in {
