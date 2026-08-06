@@ -232,6 +232,99 @@
     transition-delay: var(--reveal-delay);
   }
 
+  .feature-story-list {
+    position: relative;
+    max-width: 52rem;
+    margin-inline: auto;
+  }
+
+  .feature-story-list::before {
+    position: absolute;
+    top: 0.75rem;
+    bottom: 0.75rem;
+    left: 50%;
+    width: 1px;
+    background: var(--border);
+    content: "";
+    transform: translateX(-50%);
+  }
+
+  .feature-story-item {
+    position: relative;
+    display: grid;
+    min-height: 10rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .feature-story-card {
+    position: relative;
+    display: flex;
+    max-width: 22rem;
+    align-items: flex-start;
+    gap: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--card);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+  }
+
+  .feature-story-item:not(.feature-story-item-right) .feature-story-card {
+    grid-column: 1;
+    justify-self: end;
+    margin-right: 2.5rem;
+  }
+
+  .feature-story-item-right .feature-story-card {
+    grid-column: 2;
+    justify-self: start;
+    margin-left: 2.5rem;
+  }
+
+  .feature-story-card::after {
+    position: absolute;
+    top: 50%;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--border);
+    content: "";
+  }
+
+  .feature-story-item:not(.feature-story-item-right) .feature-story-card::after {
+    right: -2.5rem;
+  }
+
+  .feature-story-item-right .feature-story-card::after {
+    left: -2.5rem;
+  }
+
+  .feature-story-card:hover {
+    border-color: color-mix(in oklab, var(--primary) 35%, var(--border));
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-4px);
+  }
+
+  .feature-story-index {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    border: 5px solid var(--background);
+    border-radius: 999px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    transform: translate(-50%, -50%);
+  }
+
   .hero-motion {
     position: relative;
     isolation: isolate;
