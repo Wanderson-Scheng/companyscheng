@@ -15,20 +15,16 @@ import {
   WifiOff,
   type LucideIcon,
 } from "lucide-react";
-import shotDash from "@/assets/IMG_8884.png.asset.json";
-import shotBanks from "@/assets/IMG_8885.png.asset.json";
-import shotExpenses from "@/assets/IMG_8886.png.asset.json";
-import shotAccounts from "@/assets/IMG_8887.png.asset.json";
-import shotCard from "@/assets/IMG_8888.png.asset.json";
-import shotInstall from "@/assets/IMG_8889.png.asset.json";
-import shotMenu from "@/assets/IMG_8890.png.asset.json";
-import shotSettings from "@/assets/IMG_8891.png.asset.json";
-import shotSalary from "@/assets/IMG_8894.png.asset.json";
-import shotAnnual from "@/assets/IMG_8896.png.asset.json";
-import shotHistory from "@/assets/IMG_8897.png.asset.json";
-import shotFuture from "@/assets/IMG_8899.png.asset.json";
-import shotPin from "@/assets/lock-pin.png.asset.json";
-import { PhoneFrame } from "@/components/landing/phone-frame";
+import shotDash from "@/assets/app-dash.png.asset.json";
+import shotCurrency from "@/assets/app-overview.png.asset.json";
+import shotAccounts from "@/assets/app-accounts.png.asset.json";
+import shotCard from "@/assets/app-card.png.asset.json";
+import shotInstall from "@/assets/app-install.png.asset.json";
+import shotProfile from "@/assets/app-profile.png.asset.json";
+import shotAnnual from "@/assets/app-annual.png.asset.json";
+import shotGoal from "@/assets/app-goal.png.asset.json";
+import shotMenu from "@/assets/app-menu.png.asset.json";
+import shotPin from "@/assets/app-pin.png.asset.json";
 import { useI18n } from "@/lib/i18n";
 
 function SectionHeader({
