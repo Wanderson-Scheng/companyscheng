@@ -64,9 +64,9 @@ export function Hero() {
             alt={t("hero.imageAlt")}
             loading="eager"
             decoding="async"
-            width={1722}
-            height={1780}
-            className="w-[min(100%,26rem)] animate-float rounded-[1.75rem] shadow-[var(--shadow-lift)]"
+            width={819}
+            height={1652}
+            className="w-[min(100%,20rem)] animate-float drop-shadow-2xl"
           />
           <div className="absolute -left-2 bottom-16 hidden items-center gap-2 rounded-2xl border border-border bg-card px-3.5 py-2.5 text-xs font-semibold shadow-[var(--shadow-soft)] sm:flex">
             <WifiOff className="size-4 text-primary" aria-hidden="true" />
