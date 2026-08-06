@@ -5,10 +5,10 @@ import { appStoreUrl } from "@/lib/links";
 import { useI18n } from "@/lib/i18n";
 
 const explodedFeatures: { icon: LucideIcon; title: string; description: string; side: "left" | "right" }[] = [
-  { icon: ArrowLeftRight, title: "hero.explode.transactions.t", description: "hero.explode.transactions.d", side: "left" },
-  { icon: Landmark, title: "hero.explode.accounts.t", description: "hero.explode.accounts.d", side: "right" },
-  { icon: PiggyBank, title: "hero.explode.goals.t", description: "hero.explode.goals.d", side: "left" },
-  { icon: ShieldCheck, title: "hero.explode.security.t", description: "hero.explode.security.d", side: "right" },
+  { icon: ArrowLeftRight, title: "f.income.t", description: "f.income.d", side: "left" },
+  { icon: Landmark, title: "f.accounts.t", description: "f.accounts.d", side: "right" },
+  { icon: PiggyBank, title: "f.goals.t", description: "f.goals.d", side: "left" },
+  { icon: ShieldCheck, title: "f.pin.t", description: "f.pin.d", side: "right" },
 ];
 
 export function Hero() {
@@ -80,7 +80,7 @@ export function Hero() {
               height={1652}
               className="hero-phone relative z-10 w-[min(100%,20rem)] animate-float drop-shadow-2xl"
             />
-            <div className="hero-feature-grid" aria-label={t("hero.explode.label")}>
+            <div className="hero-feature-grid" aria-label={t("features.title")}>
               {explodedFeatures.map(({ icon: Icon, title, description, side }, index) => (
                 <div
                   className={`hero-feature-card hero-feature-${side}`}
