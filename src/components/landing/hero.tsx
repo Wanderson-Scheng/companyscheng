@@ -16,7 +16,7 @@ export function Hero() {
 
   return (
     <section id="top" className="hero-motion" style={{ backgroundImage: "var(--gradient-hero)" }}>
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:pb-28 lg:pt-20">
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-14 pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:pb-20 lg:pt-14">
         <div className="hero-copy animate-rise">
           <p className="hero-badge inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-semibold text-primary-deep">
             <Sparkles className="size-3.5" aria-hidden="true" />
@@ -50,7 +50,7 @@ export function Hero() {
 
         </div>
 
-        <div className="hero-visual relative flex flex-col items-center gap-6">
+        <div className="hero-visual relative flex flex-col items-center gap-5">
           <div
             className="hero-glow absolute inset-x-10 top-12 -z-10 h-72 rounded-full opacity-30 blur-3xl"
             style={{ backgroundImage: "var(--gradient-primary)" }}
@@ -64,7 +64,7 @@ export function Hero() {
               decoding="async"
               width={819}
               height={1652}
-              className="hero-phone relative z-10 w-[min(100%,20rem)] animate-float drop-shadow-2xl"
+              className="hero-phone relative z-10 animate-float drop-shadow-2xl"
             />
             <div className="hero-feature-column">
               <div className="hero-stage-badges">

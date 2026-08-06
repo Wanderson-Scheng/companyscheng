@@ -255,7 +255,7 @@
   .feature-story-item {
     position: relative;
     display: grid;
-    min-height: 10rem;
+    min-height: 7rem;
     grid-template-columns: 1fr 1fr;
     align-items: center;
   }
@@ -370,7 +370,7 @@
     width: min(100%, 36rem);
     grid-template-columns: minmax(0, 11.5rem) minmax(0, 1fr);
     align-items: center;
-    gap: 1.25rem;
+    gap: 2.75rem;
   }
 
   .hero-feature-grid {
@@ -413,7 +413,7 @@
     position: absolute;
     top: 50%;
     left: 100%;
-    width: 2rem;
+    width: 2.75rem;
     height: 1px;
     background: color-mix(in oklab, var(--primary) 35%, transparent);
     content: "";
@@ -423,6 +423,7 @@
     display: block;
     grid-column: 2;
     grid-row: 1;
+    width: min(100%, 17.5rem);
     margin-inline: auto;
     transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), filter 700ms ease;
   }
@@ -467,6 +468,18 @@
 
   .screen-shot {
     animation: screen-hover 6s ease-in-out infinite;
+  }
+
+  .screen-caption {
+    min-height: 5.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  [id] {
+    scroll-margin-top: 5.5rem;
   }
 
   @keyframes hero-item-in {
