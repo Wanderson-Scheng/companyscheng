@@ -254,9 +254,9 @@ export function Screens() {
                 type="button"
                 variant="ghost"
                 size="icon"
-                className={`size-2 rounded-full p-0 transition-all ${
-                  index === activeIndex ? "bg-primary" : "bg-border hover:bg-primary/50"
-                }`}
+                 className={`size-2 rounded-full p-0 transition-all ${
+                   index === activeIndex ? "scale-125 bg-primary" : "bg-border hover:bg-primary/50"
+                 }`
                 onClick={() => api?.scrollTo(index)}
                 role="tab"
                 aria-selected={index === activeIndex}
