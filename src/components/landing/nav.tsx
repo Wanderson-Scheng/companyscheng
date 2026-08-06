@@ -101,7 +101,9 @@ export function Nav() {
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
           <a
-            href="#download"
+            href={appStoreUrl}
+            target="_blank"
+            rel="noreferrer noopener"
             className="hidden rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-0.5 sm:inline-flex"
             style={{ backgroundImage: "var(--gradient-primary)" }}
           >
