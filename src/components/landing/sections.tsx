@@ -272,6 +272,82 @@ export function Screens() {
 
 const testimonials = ["t1", "t2", "t3"];
 
+const appStoreReviews = [
+  {
+    title: "Super indico",
+    body: "Ótimo para se organizar financeiramente",
+    author: "Cabral—",
+    date: "01.08.2026",
+    version: "1.2.5 · Portugal",
+  },
+  {
+    title: "Top",
+    body: "Ótimo para manter as contas em ordem !!",
+    author: "lucidioo",
+    date: "21.07.2026",
+    version: "1.2 · Portugal",
+  },
+];
+
+export function AppStoreReviews() {
+  const { t } = useI18n();
+  return (
+    <section className="bg-background py-20 sm:py-24">
+      <div className="mx-auto max-w-6xl px-5">
+        <Reveal>
+          <SectionHeader eyebrow={t("reviews.eyebrow")} title={t("reviews.title")} />
+        </Reveal>
+        <Reveal className="mt-12 grid gap-5 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+          <div className="flex flex-col items-center justify-center rounded-3xl border border-border bg-card p-8 text-center shadow-[var(--shadow-soft)]">
+            <p className="text-6xl font-black tracking-tight text-foreground">5,0</p>
+            <p className="mt-1 text-sm text-muted-foreground">{t("reviews.outOf")}</p>
+            <span className="mt-4 flex gap-1" aria-hidden="true">
+              {[0, 1, 2, 3, 4].map((s) => (
+                <Star key={s} className="size-5 fill-primary text-primary" />
+              ))}
+            </span>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              {t("reviews.count")}
+            </p>
+          </div>
+          <ul className="grid gap-5 sm:grid-cols-2">
+            {appStoreReviews.map((r, index) => (
+              <li
+                key={r.title}
+                className="flex flex-col rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25"
+                style={{ "--reveal-delay": `${index * 90}ms` } as CSSProperties}
+              >
+                <span className="flex gap-0.5" aria-hidden="true">
+                  {[0, 1, 2, 3, 4].map((s) => (
+                    <Star key={s} className="size-4 fill-primary text-primary" />
+                  ))}
+                </span>
+                <p className="mt-4 text-base font-bold">{r.title}</p>
+                <blockquote className="mt-2 flex-1 text-sm leading-relaxed text-foreground">
+                  {r.body}
+                </blockquote>
+                <p className="mt-5 border-t border-border pt-4 text-xs text-muted-foreground">
+                  {r.date} · {r.author} · {r.version}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+        <Reveal className="mt-8 text-center">
+          <a
+            href={appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
+          >
+            {t("reviews.link")}
+          </a>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 export function Testimonials() {
   const { t } = useI18n();
   return (

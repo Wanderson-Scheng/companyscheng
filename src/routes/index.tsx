@@ -3,6 +3,7 @@ import { I18nProvider } from "@/lib/i18n";
 import { Nav } from "@/components/landing/nav";
 import { Hero } from "@/components/landing/hero";
 import {
+  AppStoreReviews,
   Faq,
   Features,
   FinalCta,
@@ -59,6 +60,7 @@ function Index() {
           <Features />
           <WhyGuiaFin />
           <Screens />
+          <AppStoreReviews />
           <Testimonials />
           <Faq />
           <FinalCta />
