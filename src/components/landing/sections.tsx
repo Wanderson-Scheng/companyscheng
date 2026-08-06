@@ -335,7 +335,7 @@ export function AppStoreReviews() {
         </Reveal>
         <Reveal className="mt-8 text-center">
           <a
-            href={APP_STORE_URL}
+            href={appStoreUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
