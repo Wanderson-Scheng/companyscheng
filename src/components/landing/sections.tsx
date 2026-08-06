@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   ArrowLeftRight,
   BadgeCheck,
@@ -15,6 +16,15 @@ import {
   WifiOff,
   type LucideIcon,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 import shotDash from "@/assets/app-dash.png.asset.json";
 import shotCurrency from "@/assets/app-overview.png.asset.json";
 import shotAccounts from "@/assets/app-accounts.png.asset.json";
