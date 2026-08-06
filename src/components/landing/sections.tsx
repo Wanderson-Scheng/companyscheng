@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Reveal } from "@/components/landing/reveal";
 import { appStoreUrl } from "@/lib/links";
 import {
   ArrowLeftRight,
@@ -82,20 +83,21 @@ export function Features() {
           title={t("features.title")}
           subtitle={t("features.subtitle")}
         />
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {featureItems.map(({ icon: Icon, k }) => (
+        <Reveal as="ul" className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {featureItems.map(({ icon: Icon, k }, index) => (
             <li
               key={k}
               className="group rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/30"
+              style={{ "--reveal-delay": `${Math.min(index * 55, 440)}ms` } as React.CSSProperties}
             >
-              <span className="grid size-11 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                <Icon className="size-5" aria-hidden="true" />
+              <span className="grid size-11 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-all duration-300 group-hover:rotate-3 group-hover:bg-primary group-hover:text-primary-foreground">
+                <Icon className="size-5 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
               </span>
               <h3 className="mt-5 text-base font-bold tracking-tight">{t(`f.${k}.t`)}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(`f.${k}.d`)}</p>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </div>
     </section>
   );
@@ -108,8 +110,11 @@ export function WhyGuiaFin() {
   return (
     <section id="why" className="bg-surface py-20 sm:py-28">
       <div className="mx-auto max-w-5xl px-5">
-        <SectionHeader eyebrow={t("why.eyebrow")} title={t("why.title")} subtitle={t("why.subtitle")} />
-        <div className="mt-14 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
+        <Reveal>
+          <SectionHeader eyebrow={t("why.eyebrow")} title={t("why.title")} subtitle={t("why.subtitle")} />
+        </Reveal>
+        <Reveal className="mt-14 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
+          <div className="comparison-sheen" aria-hidden="true" />
           <div className="grid grid-cols-[1.1fr_1fr_1fr] items-center gap-2 border-b border-border px-4 py-4 sm:px-6">
             <span className="sr-only">—</span>
             <span
