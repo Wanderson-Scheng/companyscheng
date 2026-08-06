@@ -162,6 +162,33 @@ const screenShots: { k: string; url: string }[] = [
 
 export function Screens() {
   const { t } = useI18n();
+  const [api, setApi] = useState<CarouselApi>();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    const updateActiveIndex = () => setActiveIndex(api.selectedScrollSnap());
+    updateActiveIndex();
+    api.on("select", updateActiveIndex);
+
+    return () => {
+      api.off("select", updateActiveIndex);
+    };
+  }, [api]);
+
+  useEffect(() => {
+    if (!api || isPaused) {
+      return;
+    }
+
+    const interval = window.setInterval(() => api.scrollNext(), 4500);
+    return () => window.clearInterval(interval);
+  }, [api, isPaused]);
+
   return (
     <section id="screens" className="bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
@@ -170,25 +197,67 @@ export function Screens() {
           title={t("screens.title")}
           subtitle={t("screens.subtitle")}
         />
-        <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {screenShots.map(({ k, url }) => (
-            <li key={k} className="group">
-              <img
-                src={url}
-                alt={t(`s.${k}.t`)}
-                loading="lazy"
-                decoding="async"
-                width={819}
-                height={1652}
-                className="mx-auto w-[min(100%,15rem)] drop-shadow-xl transition-transform duration-300 group-hover:-translate-y-1.5"
+        <div
+          className="relative mt-14"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onFocus={() => setIsPaused(true)}
+          onBlur={() => setIsPaused(false)}
+        >
+          <Carousel
+            setApi={setApi}
+            opts={{ align: "start", loop: true, duration: 28 }}
+            aria-label={t("screens.title")}
+          >
+            <CarouselContent className="-ml-5">
+              {screenShots.map(({ k, url }) => (
+                <CarouselItem key={k} className="pl-5 sm:basis-1/2 lg:basis-1/3">
+                  <article className="group h-full text-center">
+                    <img
+                      src={url}
+                      alt={t(`s.${k}.t`)}
+                      loading="lazy"
+                      decoding="async"
+                      width={819}
+                      height={1652}
+                      className="mx-auto w-[min(100%,15rem)] drop-shadow-xl transition-transform duration-300 group-hover:-translate-y-1.5"
+                    />
+                    <h3 className="mt-5 text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                      {t(`s.${k}.d`)}
+                    </p>
+                  </article>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious
+              className="-left-2 hidden border-border bg-card text-foreground shadow-[var(--shadow-soft)] sm:flex lg:-left-12"
+              aria-label="Captura anterior"
+            />
+            <CarouselNext
+              className="-right-2 hidden border-border bg-card text-foreground shadow-[var(--shadow-soft)] sm:flex lg:-right-12"
+              aria-label="Próxima captura"
+            />
+          </Carousel>
+
+          <div className="mt-8 flex items-center justify-center gap-2" role="tablist" aria-label={t("screens.title")}>
+            {screenShots.map(({ k }, index) => (
+              <Button
+                key={k}
+                type="button"
+                variant="ghost"
+                size="icon"
+                className={`size-2 rounded-full p-0 transition-all ${
+                  index === activeIndex ? "bg-primary" : "bg-border hover:bg-primary/50"
+                }`}
+                onClick={() => api?.scrollTo(index)}
+                role="tab"
+                aria-selected={index === activeIndex}
+                aria-label={`Captura ${index + 1}`}
               />
-              <h3 className="mt-5 text-center text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
-              <p className="mt-1 text-center text-sm leading-relaxed text-muted-foreground">
-                {t(`s.${k}.d`)}
-              </p>
-            </li>
-          ))}
-        </ul>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
