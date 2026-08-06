@@ -1,7 +1,15 @@
-import { ArrowRight, ShieldCheck, Sparkles, WifiOff } from "lucide-react";
+import { ArrowLeftRight, ArrowRight, Landmark, PiggyBank, ShieldCheck, Sparkles, WifiOff } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import heroShot from "@/assets/app-dash.png.asset.json";
 import { appStoreUrl } from "@/lib/links";
 import { useI18n } from "@/lib/i18n";
+
+const explodedFeatures: { icon: LucideIcon; title: string; description: string; side: "left" | "right" }[] = [
+  { icon: ArrowLeftRight, title: "f.income.t", description: "f.income.d", side: "left" },
+  { icon: Landmark, title: "f.accounts.t", description: "f.accounts.d", side: "right" },
+  { icon: PiggyBank, title: "f.goals.t", description: "f.goals.d", side: "left" },
+  { icon: ShieldCheck, title: "f.pin.t", description: "f.pin.d", side: "right" },
+];
 
 export function Hero() {
   const { t } = useI18n();
@@ -62,15 +70,32 @@ export function Hero() {
             style={{ backgroundImage: "var(--gradient-primary)" }}
             aria-hidden="true"
           />
-          <img
-            src={heroShot.url}
-            alt={t("hero.imageAlt")}
-            loading="eager"
-            decoding="async"
-            width={819}
-            height={1652}
-            className="hero-phone relative z-10 w-[min(100%,20rem)] animate-float drop-shadow-2xl"
-          />
+          <div className="hero-exploded-stage">
+            <img
+              src={heroShot.url}
+              alt={t("hero.imageAlt")}
+              loading="eager"
+              decoding="async"
+              width={819}
+              height={1652}
+              className="hero-phone relative z-10 w-[min(100%,20rem)] animate-float drop-shadow-2xl"
+            />
+            <div className="hero-feature-grid" aria-label={t("features.title")}>
+              {explodedFeatures.map(({ icon: Icon, title, description, side }, index) => (
+                <div
+                  className={`hero-feature-card hero-feature-${side}`}
+                  style={{ animationDelay: `${700 + index * 130}ms` }}
+                  key={title}
+                >
+                  <Icon className="size-4 shrink-0 text-primary" aria-hidden="true" />
+                  <div>
+                    <p className="text-xs font-bold leading-tight text-foreground">{t(title)}</p>
+                    <p className="mt-1 text-[10px] leading-snug text-muted-foreground">{t(description)}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="hero-float-card absolute -left-2 bottom-16 hidden items-center gap-2 rounded-2xl border border-border bg-card px-3.5 py-2.5 text-xs font-semibold shadow-[var(--shadow-soft)] sm:flex">
             <WifiOff className="size-4 text-primary" aria-hidden="true" />
             Offline
