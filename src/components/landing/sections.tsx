@@ -83,21 +83,29 @@ export function Features() {
           title={t("features.title")}
           subtitle={t("features.subtitle")}
         />
-        <Reveal as="ul" className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="feature-story-list mt-14">
           {featureItems.map(({ icon: Icon, k }, index) => (
-            <li
+            <Reveal
+              as="li"
               key={k}
-              className="group rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/30"
-              style={{ "--reveal-delay": `${Math.min(index * 55, 440)}ms` } as CSSProperties}
+              className={`feature-story-item ${index % 2 ? "feature-story-item-right" : ""}`}
+              style={{ "--reveal-delay": `${Math.min(index * 70, 420)}ms` } as CSSProperties}
             >
-              <span className="grid size-11 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-all duration-300 group-hover:rotate-3 group-hover:bg-primary group-hover:text-primary-foreground">
-                <Icon className="size-5 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+              <span className="feature-story-index" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-5 text-base font-bold tracking-tight">{t(`f.${k}.t`)}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(`f.${k}.d`)}</p>
-            </li>
+              <div className="feature-story-card group">
+                <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-all duration-300 group-hover:rotate-3 group-hover:bg-primary group-hover:text-primary-foreground">
+                  <Icon className="size-5 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="text-base font-bold tracking-tight">{t(`f.${k}.t`)}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(`f.${k}.d`)}</p>
+                </div>
+              </div>
+            </Reveal>
           ))}
-        </Reveal>
+        </ul>
       </div>
     </section>
   );
