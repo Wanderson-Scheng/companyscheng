@@ -119,12 +119,12 @@ const comparisonRows = ["r1", "r2", "r3", "r4", "r5", "r6"];
 export function WhyGuiaFin() {
   const { t } = useI18n();
   return (
-    <section id="why" className="bg-surface py-20 sm:py-28">
+    <section id="why" className="bg-surface py-16 sm:py-20">
       <div className="mx-auto max-w-5xl px-5">
         <Reveal>
           <SectionHeader eyebrow={t("why.eyebrow")} title={t("why.title")} subtitle={t("why.subtitle")} />
         </Reveal>
-        <Reveal className="mt-14 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
+        <Reveal className="mt-10 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
           <div className="comparison-sheen" aria-hidden="true" />
           <div className="grid grid-cols-[1.1fr_1fr_1fr] items-center gap-2 border-b border-border px-4 py-4 sm:px-6">
             <span className="sr-only">—</span>
@@ -206,7 +206,7 @@ export function Screens() {
   }, [api, isPaused]);
 
   return (
-    <section id="screens" className="bg-background py-20 sm:py-28">
+    <section id="screens" className="bg-background py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
           <SectionHeader
@@ -216,7 +216,7 @@ export function Screens() {
           />
         </Reveal>
         <Reveal
-          className="relative mt-14"
+          className="relative mt-10"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onFocus={() => setIsPaused(true)}
@@ -240,20 +240,22 @@ export function Screens() {
                        height={1652}
                        className="screen-shot mx-auto w-[min(100%,15rem)] drop-shadow-xl transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-[1.02]"
                      />
-                     <h3 className="mt-5 text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                      {t(`s.${k}.d`)}
-                    </p>
+                     <div className="screen-caption mt-5">
+                       <h3 className="text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
+                       <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                         {t(`s.${k}.d`)}
+                       </p>
+                     </div>
                   </article>
                 </CarouselItem>
               ))}
             </CarouselContent>
             <CarouselPrevious
-              className="-left-2 hidden border-border bg-card text-foreground shadow-[var(--shadow-soft)] sm:flex lg:-left-12"
+              className="-left-1 flex size-11 border-border bg-card text-foreground shadow-[var(--shadow-soft)] lg:-left-12"
               aria-label={t("nav.screens")}
             />
             <CarouselNext
-              className="-right-2 hidden border-border bg-card text-foreground shadow-[var(--shadow-soft)] sm:flex lg:-right-12"
+              className="-right-1 flex size-11 border-border bg-card text-foreground shadow-[var(--shadow-soft)] lg:-right-12"
               aria-label={t("nav.screens")}
             />
           </Carousel>
@@ -265,7 +267,7 @@ export function Screens() {
                 type="button"
                 variant="ghost"
                 size="icon"
-                 className={`size-2 rounded-full p-0 transition-all ${
+                 className={`size-2.5 rounded-full p-0 transition-all ${
                    index === activeIndex ? "scale-125 bg-primary" : "bg-border hover:bg-primary/50"
                  }`}
                 onClick={() => api?.scrollTo(index)}
@@ -303,7 +305,7 @@ const appStoreReviews = [
 export function AppStoreReviews() {
   const { t } = useI18n();
   return (
-    <section className="bg-background py-20 sm:py-24">
+    <section className="bg-surface py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
           <SectionHeader eyebrow={t("reviews.eyebrow")} title={t("reviews.title")} />
@@ -362,12 +364,12 @@ export function AppStoreReviews() {
 export function Testimonials() {
   const { t } = useI18n();
   return (
-    <section className="bg-surface py-20 sm:py-28">
+    <section className="bg-background py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
           <SectionHeader eyebrow={t("testimonials.eyebrow")} title={t("testimonials.title")} />
         </Reveal>
-        <Reveal as="ul" className="mt-14 grid gap-5 md:grid-cols-3">
+        <Reveal as="ul" className="mt-10 grid gap-5 md:grid-cols-3">
           {testimonials.map((k, index) => (
             <li
               key={k}
@@ -405,7 +407,7 @@ const faqKeys = ["1", "2", "3", "4", "5", "6"];
 export function Faq() {
   const { t } = useI18n();
   return (
-    <section id="faq" className="bg-background py-20 sm:py-28">
+    <section id="faq" className="bg-surface py-16 sm:py-20">
       <div className="mx-auto max-w-3xl px-5">
         <Reveal>
           <SectionHeader eyebrow={t("faq.eyebrow")} title={t("faq.title")} />
@@ -438,7 +440,7 @@ export function Faq() {
 export function FinalCta() {
   const { t } = useI18n();
   return (
-    <section id="download" className="bg-background pb-20 sm:pb-28">
+    <section id="download" className="bg-background py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal className="relative overflow-hidden rounded-[2rem] px-6 py-16 text-center sm:px-12" style={{ backgroundImage: "var(--gradient-primary)" }}>
           <div className="cta-shimmer" aria-hidden="true" />
