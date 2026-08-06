@@ -140,7 +140,7 @@ export function Nav() {
             href={appStoreUrl}
             target="_blank"
             rel="noreferrer noopener"
-            onClick={() => setMobileOpen(false)
+            onClick={() => setMobileOpen(false)}
             className="mt-2 block rounded-xl px-3 py-3 text-center text-sm font-semibold text-primary-foreground"
             style={{ backgroundImage: "var(--gradient-primary)" }}
           >
