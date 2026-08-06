@@ -81,14 +81,16 @@ export function Hero() {
                 </div>
               ))}
             </div>
-            <div className="hero-stage-badge hero-stage-badge-offline">
+          </div>
+          <div className="hero-stage-badges">
+            <span className="hero-stage-badge">
               <WifiOff className="size-4 text-primary" aria-hidden="true" />
               Offline
-            </div>
-            <div className="hero-stage-badge hero-stage-badge-pin">
+            </span>
+            <span className="hero-stage-badge">
               <ShieldCheck className="size-4 text-primary" aria-hidden="true" />
               PIN
-            </div>
+            </span>
           </div>
         </div>
       </div>
