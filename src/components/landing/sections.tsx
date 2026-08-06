@@ -225,8 +225,8 @@ export function Screens() {
                       alt={t(`s.${k}.t`)}
                       loading="lazy"
                       decoding="async"
-                      width={819}
-                      height={1652}
+                       width={819}
+                       height={1652}
                        className="screen-shot mx-auto w-[min(100%,15rem)] drop-shadow-xl transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-[1.02]"
                      />
                      <h3 className="mt-5 text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
@@ -353,10 +353,8 @@ export function FinalCta() {
   return (
     <section id="download" className="bg-background pb-20 sm:pb-28">
       <div className="mx-auto max-w-6xl px-5">
-        <div
-          className="relative overflow-hidden rounded-[2rem] px-6 py-16 text-center sm:px-12"
-          style={{ backgroundImage: "var(--gradient-primary)" }}
-        >
+        <Reveal className="relative overflow-hidden rounded-[2rem] px-6 py-16 text-center sm:px-12" style={{ backgroundImage: "var(--gradient-primary)" }}>
+          <div className="cta-shimmer" aria-hidden="true" />
           <h2 className="mx-auto max-w-2xl text-3xl font-extrabold tracking-tight text-primary-foreground sm:text-4xl">
             {t("cta.title")}
           </h2>
@@ -391,9 +389,9 @@ export function FinalCta() {
                 <span className="block text-sm font-bold text-primary-foreground">{t("cta.play")}</span>
               </span>
             </span>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+           </div>
+        </Reveal>
+       </div>
+     </section>
+   );
+ }
