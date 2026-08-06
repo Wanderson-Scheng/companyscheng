@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
+import { Reveal } from "@/components/landing/reveal";
 import { appStoreUrl } from "@/lib/links";
 import {
   ArrowLeftRight,
@@ -82,20 +83,21 @@ export function Features() {
           title={t("features.title")}
           subtitle={t("features.subtitle")}
         />
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {featureItems.map(({ icon: Icon, k }) => (
+        <Reveal as="ul" className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {featureItems.map(({ icon: Icon, k }, index) => (
             <li
               key={k}
               className="group rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/30"
+              style={{ "--reveal-delay": `${Math.min(index * 55, 440)}ms` } as CSSProperties}
             >
-              <span className="grid size-11 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                <Icon className="size-5" aria-hidden="true" />
+              <span className="grid size-11 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-all duration-300 group-hover:rotate-3 group-hover:bg-primary group-hover:text-primary-foreground">
+                <Icon className="size-5 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
               </span>
               <h3 className="mt-5 text-base font-bold tracking-tight">{t(`f.${k}.t`)}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(`f.${k}.d`)}</p>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </div>
     </section>
   );
@@ -108,8 +110,11 @@ export function WhyGuiaFin() {
   return (
     <section id="why" className="bg-surface py-20 sm:py-28">
       <div className="mx-auto max-w-5xl px-5">
-        <SectionHeader eyebrow={t("why.eyebrow")} title={t("why.title")} subtitle={t("why.subtitle")} />
-        <div className="mt-14 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
+        <Reveal>
+          <SectionHeader eyebrow={t("why.eyebrow")} title={t("why.title")} subtitle={t("why.subtitle")} />
+        </Reveal>
+        <Reveal className="mt-14 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
+          <div className="comparison-sheen" aria-hidden="true" />
           <div className="grid grid-cols-[1.1fr_1fr_1fr] items-center gap-2 border-b border-border px-4 py-4 sm:px-6">
             <span className="sr-only">—</span>
             <span
@@ -142,7 +147,7 @@ export function WhyGuiaFin() {
               </div>
             ))}
           </dl>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -192,12 +197,14 @@ export function Screens() {
   return (
     <section id="screens" className="bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
-        <SectionHeader
-          eyebrow={t("screens.eyebrow")}
-          title={t("screens.title")}
-          subtitle={t("screens.subtitle")}
-        />
-        <div
+        <Reveal>
+          <SectionHeader
+            eyebrow={t("screens.eyebrow")}
+            title={t("screens.title")}
+            subtitle={t("screens.subtitle")}
+          />
+        </Reveal>
+        <Reveal
           className="relative mt-14"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -218,11 +225,11 @@ export function Screens() {
                       alt={t(`s.${k}.t`)}
                       loading="lazy"
                       decoding="async"
-                      width={819}
-                      height={1652}
-                      className="mx-auto w-[min(100%,15rem)] drop-shadow-xl transition-transform duration-300 group-hover:-translate-y-1.5"
-                    />
-                    <h3 className="mt-5 text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
+                       width={819}
+                       height={1652}
+                       className="screen-shot mx-auto w-[min(100%,15rem)] drop-shadow-xl transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-[1.02]"
+                     />
+                     <h3 className="mt-5 text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                       {t(`s.${k}.d`)}
                     </p>
@@ -247,18 +254,18 @@ export function Screens() {
                 type="button"
                 variant="ghost"
                 size="icon"
-                className={`size-2 rounded-full p-0 transition-all ${
-                  index === activeIndex ? "bg-primary" : "bg-border hover:bg-primary/50"
-                }`}
+                 className={`size-2 rounded-full p-0 transition-all ${
+                   index === activeIndex ? "scale-125 bg-primary" : "bg-border hover:bg-primary/50"
+                 }`}
                 onClick={() => api?.scrollTo(index)}
                 role="tab"
                 aria-selected={index === activeIndex}
                 aria-label={`${t("nav.screens")} ${index + 1}`}
               />
             ))}
-          </div>
-        </div>
-      </div>
+           </div>
+        </Reveal>
+       </div>
     </section>
   );
 }
@@ -270,12 +277,15 @@ export function Testimonials() {
   return (
     <section className="bg-surface py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5">
-        <SectionHeader eyebrow={t("testimonials.eyebrow")} title={t("testimonials.title")} />
-        <ul className="mt-14 grid gap-5 md:grid-cols-3">
-          {testimonials.map((k) => (
+        <Reveal>
+          <SectionHeader eyebrow={t("testimonials.eyebrow")} title={t("testimonials.title")} />
+        </Reveal>
+        <Reveal as="ul" className="mt-14 grid gap-5 md:grid-cols-3">
+          {testimonials.map((k, index) => (
             <li
               key={k}
-              className="flex flex-col rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-transform duration-300 hover:-translate-y-1"
+              className="group flex flex-col rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25"
+              style={{ "--reveal-delay": `${index * 90}ms` } as CSSProperties}
             >
               <Quote className="size-6 text-primary" aria-hidden="true" />
               <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground">
@@ -297,7 +307,7 @@ export function Testimonials() {
               </div>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </div>
     </section>
   );
@@ -310,12 +320,15 @@ export function Faq() {
   return (
     <section id="faq" className="bg-background py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-5">
-        <SectionHeader eyebrow={t("faq.eyebrow")} title={t("faq.title")} />
-        <div className="mt-12 space-y-3">
-          {faqKeys.map((k) => (
+        <Reveal>
+          <SectionHeader eyebrow={t("faq.eyebrow")} title={t("faq.title")} />
+        </Reveal>
+        <Reveal className="mt-12 space-y-3">
+          {faqKeys.map((k, index) => (
             <details
               key={k}
-              className="group rounded-2xl border border-border bg-card px-5 py-4 shadow-[var(--shadow-soft)] open:border-primary/30"
+              className="group rounded-2xl border border-border bg-card px-5 py-4 shadow-[var(--shadow-soft)] transition-all duration-300 hover:border-primary/25 open:border-primary/30"
+              style={{ "--reveal-delay": `${index * 60}ms` } as CSSProperties}
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
                 {t(`q${k}`)}
@@ -329,7 +342,7 @@ export function Faq() {
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t(`a${k}`)}</p>
             </details>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -340,10 +353,8 @@ export function FinalCta() {
   return (
     <section id="download" className="bg-background pb-20 sm:pb-28">
       <div className="mx-auto max-w-6xl px-5">
-        <div
-          className="relative overflow-hidden rounded-[2rem] px-6 py-16 text-center sm:px-12"
-          style={{ backgroundImage: "var(--gradient-primary)" }}
-        >
+        <Reveal className="relative overflow-hidden rounded-[2rem] px-6 py-16 text-center sm:px-12" style={{ backgroundImage: "var(--gradient-primary)" }}>
+          <div className="cta-shimmer" aria-hidden="true" />
           <h2 className="mx-auto max-w-2xl text-3xl font-extrabold tracking-tight text-primary-foreground sm:text-4xl">
             {t("cta.title")}
           </h2>
@@ -378,9 +389,9 @@ export function FinalCta() {
                 <span className="block text-sm font-bold text-primary-foreground">{t("cta.play")}</span>
               </span>
             </span>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+           </div>
+        </Reveal>
+       </div>
+     </section>
+   );
+ }
