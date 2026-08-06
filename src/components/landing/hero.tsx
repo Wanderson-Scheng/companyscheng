@@ -48,16 +48,6 @@ export function Hero() {
             </a>
           </div>
 
-          <dl className="mt-10 grid max-w-md grid-cols-2 gap-6 border-t border-border pt-6">
-            <div className="hero-stat">
-              <dt className="text-xs text-muted-foreground">{t("hero.stat1")}</dt>
-              <dd className="mt-1 text-2xl font-extrabold tracking-tight">4.9</dd>
-            </div>
-            <div className="hero-stat">
-              <dt className="text-xs text-muted-foreground">{t("hero.stat3")}</dt>
-              <dd className="mt-1 text-2xl font-extrabold tracking-tight">{t("hero.stat3v")}</dd>
-            </div>
-          </dl>
         </div>
 
         <div className="hero-visual relative flex justify-center">
