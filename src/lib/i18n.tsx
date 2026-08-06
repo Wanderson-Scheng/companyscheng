@@ -130,6 +130,12 @@ const pt: Dict = {
   "s.goal.t": "Metas de poupança",
   "s.goal.d": "Guarda, retira e acompanha a percentagem da tua meta.",
 
+  "reviews.eyebrow": "App Store",
+  "reviews.title": "Avaliações reais na App Store",
+  "reviews.outOf": "de 5",
+  "reviews.count": "4 classificações",
+  "reviews.link": "Ver todas as críticas na App Store",
+
   "testimonials.eyebrow": "Testemunhos",
   "testimonials.title": "Quem usa, não larga",
   "t1.q": "Finalmente uma app que não me pede a conta do banco. Em duas semanas percebi onde gastava a mais.",
@@ -285,6 +291,12 @@ const en: Dict = {
   "s.goal.t": "Savings goals",
   "s.goal.d": "Add, withdraw and track the progress of each goal.",
 
+  "reviews.eyebrow": "App Store",
+  "reviews.title": "Real reviews on the App Store",
+  "reviews.outOf": "out of 5",
+  "reviews.count": "4 ratings",
+  "reviews.link": "See all reviews on the App Store",
+
   "testimonials.eyebrow": "Testimonials",
   "testimonials.title": "People who try it, keep it",
   "t1.q": "Finally an app that doesn't ask for my bank login. In two weeks I saw exactly where I overspent.",
@@ -439,6 +451,12 @@ const es: Dict = {
   "s.profile.d": "Elige tu color, foto y categorías personalizadas.",
   "s.goal.t": "Metas de ahorro",
   "s.goal.d": "Guarda, retira y sigue el progreso de cada meta.",
+
+  "reviews.eyebrow": "App Store",
+  "reviews.title": "Reseñas reales en la App Store",
+  "reviews.outOf": "de 5",
+  "reviews.count": "4 valoraciones",
+  "reviews.link": "Ver todas las reseñas en la App Store",
 
   "testimonials.eyebrow": "Testimonios",
   "testimonials.title": "Quien la prueba, se queda",
