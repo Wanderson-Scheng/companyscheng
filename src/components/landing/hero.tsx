@@ -64,7 +64,7 @@ export function Hero() {
               decoding="async"
               width={819}
               height={1652}
-              className="hero-phone relative z-10 w-[min(100%,20rem)] animate-float drop-shadow-2xl"
+              className="hero-phone relative z-10 animate-float drop-shadow-2xl"
             />
             <div className="hero-feature-column">
               <div className="hero-stage-badges">

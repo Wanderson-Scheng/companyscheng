@@ -77,14 +77,14 @@ const featureItems: { icon: LucideIcon; k: string }[] = [
 export function Features() {
   const { t } = useI18n();
   return (
-    <section id="features" className="bg-background py-20 sm:py-28">
+    <section id="features" className="bg-background py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeader
           eyebrow={t("features.eyebrow")}
           title={t("features.title")}
           subtitle={t("features.subtitle")}
         />
-        <ul className="feature-story-list mt-14">
+        <ul className="feature-story-list mt-10">
           {featureItems.map(({ icon: Icon, k }, index) => (
             <Reveal
               as="li"
