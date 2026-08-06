@@ -147,7 +147,7 @@ export function WhyGuiaFin() {
               </div>
             ))}
           </dl>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
