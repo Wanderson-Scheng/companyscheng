@@ -1,10 +1,18 @@
-import { createElement, useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
+import {
+  createElement,
+  useEffect,
+  useRef,
+  useState,
+  type ComponentPropsWithoutRef,
+  type ElementType,
+  type ReactNode,
+} from "react";
 
 type RevealProps = {
   children: ReactNode;
   className?: string;
   as?: ElementType;
-};
+} & Omit<ComponentPropsWithoutRef<"div">, "children" | "className">;
 
 export function Reveal({ children, className = "", as = "div" }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
