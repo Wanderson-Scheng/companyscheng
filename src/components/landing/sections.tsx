@@ -139,17 +139,14 @@ export function WhyGuiaFin() {
 
 const screenShots: { k: string; url: string }[] = [
   { k: "dash", url: shotDash.url },
-  { k: "banks", url: shotBanks.url },
-  { k: "expenses", url: shotExpenses.url },
+  { k: "currency", url: shotCurrency.url },
   { k: "accounts", url: shotAccounts.url },
   { k: "card", url: shotCard.url },
   { k: "install", url: shotInstall.url },
+  { k: "goal", url: shotGoal.url },
   { k: "menu", url: shotMenu.url },
-  { k: "settings", url: shotSettings.url },
-  { k: "salary", url: shotSalary.url },
+  { k: "profile", url: shotProfile.url },
   { k: "annual", url: shotAnnual.url },
-  { k: "history", url: shotHistory.url },
-  { k: "future", url: shotFuture.url },
   { k: "pin", url: shotPin.url },
 ];
 
@@ -166,10 +163,14 @@ export function Screens() {
         <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {screenShots.map(({ k, url }) => (
             <li key={k} className="group">
-              <PhoneFrame
+              <img
                 src={url}
                 alt={t(`s.${k}.t`)}
-                className="transition-transform duration-300 group-hover:-translate-y-1.5"
+                loading="lazy"
+                decoding="async"
+                width={1722}
+                height={1780}
+                className="w-full rounded-[1.5rem] shadow-[var(--shadow-soft)] transition-transform duration-300 group-hover:-translate-y-1.5"
               />
               <h3 className="mt-5 text-center text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
               <p className="mt-1 text-center text-sm leading-relaxed text-muted-foreground">
