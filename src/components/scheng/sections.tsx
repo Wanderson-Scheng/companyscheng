@@ -12,6 +12,9 @@ import {
   Instagram,
 } from "lucide-react";
 import logoGold from "@/assets/scheng-logo-dark.png.asset.json";
+import logoOrbital from "@/assets/orbital-logo.png.asset.json";
+import logo3d from "@/assets/scheng3d-logo.png.asset.json";
+import logoGuiafin from "@/assets/guiafin-icon.png.asset.json";
 import { Reveal } from "@/components/landing/reveal";
 
 const email = "Info@companyscheng.com";
@@ -165,6 +168,7 @@ export function SchengAbout() {
 const ventures = [
   {
     icon: Rocket,
+    logo: logoOrbital.url,
     name: "Schengen Orbital System",
     tag: "Braço aeroespacial",
     text: "Engenharia espacial profunda e sistemas criogénicos, com operação independente e foco em investigação e desenvolvimento avançado.",
@@ -177,6 +181,10 @@ const ventures = [
   },
   {
     icon: Boxes,
+    logos: [
+      { src: logo3d.url, label: "3D Scheng" },
+      { src: logoGuiafin.url, label: "GuiaFin" },
+    ],
     name: "Scheng Technology",
     tag: "Braço tecnológico",
     text: "Detém a propriedade intelectual e gere as subscrições do 3D Scheng, software de farm 3D, e do GuiaFin, app de gestão financeira.",
@@ -208,9 +216,34 @@ export function SchengVentures() {
             <Reveal key={v.name} delay={100 * i}>
               <article className="group relative flex h-full flex-col rounded-3xl border border-[var(--scheng-line)] bg-white/[0.03] p-7 transition-all hover:-translate-y-1 hover:border-[var(--scheng-gold)]/45">
                 <div className="flex items-center justify-between">
-                  <span className="grid size-11 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
-                    <v.icon className="size-5" />
-                  </span>
+                  {v.logo ? (
+                    <img
+                      src={v.logo}
+                      alt={v.name}
+                      className="size-12 rounded-xl bg-white object-contain p-0.5"
+                      width={48}
+                      height={48}
+                      loading="lazy"
+                    />
+                  ) : v.logos ? (
+                    <span className="flex items-center gap-2">
+                      {v.logos.map((l) => (
+                        <img
+                          key={l.label}
+                          src={l.src}
+                          alt={l.label}
+                          className="size-12 rounded-xl object-contain"
+                          width={48}
+                          height={48}
+                          loading="lazy"
+                        />
+                      ))}
+                    </span>
+                  ) : (
+                    <span className="grid size-11 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
+                      <v.icon className="size-5" />
+                    </span>
+                  )}
                   <span className="rounded-full border border-[var(--scheng-line)] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[var(--scheng-muted)]">
                     {v.tag}
                   </span>
