@@ -4,6 +4,7 @@ import {
   useRef,
   useState,
   type ComponentPropsWithoutRef,
+  type CSSProperties,
   type ElementType,
   type ReactNode,
 } from "react";
@@ -12,9 +13,10 @@ type RevealProps = {
   children: ReactNode;
   className?: string;
   as?: ElementType;
+  delay?: number;
 } & Omit<ComponentPropsWithoutRef<"div">, "children" | "className">;
 
-export function Reveal({ children, className = "", as = "div", ...rest }: RevealProps) {
+export function Reveal({ children, className = "", as = "div", delay, ...rest }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
   const [state, setState] = useState<"idle" | "hidden" | "visible">("idle");
 
@@ -49,6 +51,9 @@ export function Reveal({ children, className = "", as = "div", ...rest }: Reveal
       ...rest,
       ref,
       className: `motion-reveal ${className}`.trim(),
+      style: delay
+        ? ({ ...(rest.style ?? {}), "--reveal-delay": `${delay}ms` } as CSSProperties)
+        : rest.style,
       "data-reveal-state": state === "idle" ? undefined : state,
     },
     children,
