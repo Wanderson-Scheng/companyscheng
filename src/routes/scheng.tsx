@@ -9,9 +9,9 @@ import {
   SchengVentures,
 } from "@/components/scheng/sections";
 
-const title = "Scheng Holdings — Tecnologia, produto e design";
+const title = "Scheng Holdings — Tecnologia, engenharia e produto";
 const description =
-  "A Scheng Holdings constrói e mantém produtos digitais independentes, como o GuiaFin. Tecnologia, engenharia e design com visão de longo prazo.";
+  "A Scheng Holdings reúne quatro braços independentes: engenharia aeroespacial, comércio de hardware, tecnologia e produção artesanal.";
 const url = "https://guiafin-landing-pages.lovable.app/scheng";
 
 export const Route = createFileRoute("/scheng")({

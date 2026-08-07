@@ -142,8 +142,8 @@ export function SchengAbout() {
             Uma casa para produtos independentes
           </h2>
           <p className="mt-4 max-w-2xl text-[var(--scheng-muted)]">
-            Operamos como estúdio e holding: desenhamos, desenvolvemos e mantemos os nossos próprios
-            produtos, partilhando tecnologia, marca e padrões de qualidade entre todos eles.
+            A holding organiza quatro braços independentes — aeroespacial, comercial, tecnológico e
+            artesanal — com uma visão comum de engenharia, produto e qualidade a longo prazo.
           </p>
         </Reveal>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -164,30 +164,30 @@ export function SchengAbout() {
 
 const ventures = [
   {
-    icon: Building2,
-    name: "GuiaFin",
-    tag: "Disponível",
-    text: "App de finanças pessoais 100% offline: rendimentos, despesas, contas, cartões e metas — sem anúncios nem assinatura.",
-    to: "/" as const,
-    cta: "Ver a app",
+    icon: Rocket,
+    name: "Schengen Orbital System",
+    tag: "Braço aeroespacial",
+    text: "Engenharia espacial profunda e sistemas criogénicos, com operação independente e foco em investigação e desenvolvimento avançado.",
   },
   {
-    icon: Rocket,
-    name: "Scheng Orbital System",
-    tag: "Em breve",
-    text: "Plataforma de sistemas e automação para operações digitais do grupo.",
+    icon: Building2,
+    name: "Scheng Imports",
+    tag: "Braço comercial",
+    text: "E-commerce e distribuição de hardware: impressoras 3D, filamentos, ferramentas e sílica em gel.",
   },
   {
     icon: Boxes,
-    name: "3D Scheng",
-    tag: "Em breve",
-    text: "Modelação e produção 3D aplicada a produto, prototipagem e visualização.",
+    name: "Scheng Technology",
+    tag: "Braço tecnológico",
+    text: "Detém a propriedade intelectual e gere as subscrições do 3D Scheng, software de farm 3D, e do GuiaFin, app de gestão financeira.",
+    to: "/" as const,
+    cta: "Conhecer o GuiaFin",
   },
   {
     icon: Sparkles,
-    name: "Ateliê Scheng",
-    tag: "Em breve",
-    text: "Estúdio criativo de identidade visual, marca e direção de arte.",
+    name: "Schengen Atelier",
+    tag: "Braço artesanal",
+    text: "Sabonetes e produtos personalizados feitos à mão, com cuidado artesanal e atenção a cada detalhe.",
   },
 ];
 
