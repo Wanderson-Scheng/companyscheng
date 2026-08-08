@@ -11,10 +11,10 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
-import logoGold from "@/assets/scheng-logo-dark.png.asset.json";
-import logoOrbital from "@/assets/orbital-logo.png.asset.json";
-import logo3d from "@/assets/scheng3d-logo.png.asset.json";
-import logoGuiafin from "@/assets/guiafin-icon.png.asset.json";
+import logoGold from "@/assets/scheng-logo-dark-transparent.png.asset.json";
+import logoOrbital from "@/assets/orbital-logo-transparent.png.asset.json";
+import logo3d from "@/assets/scheng3d-logo-transparent.png.asset.json";
+import logoGuiafin from "@/assets/guiafin-icon-transparent.png.asset.json";
 import { Reveal } from "@/components/landing/reveal";
 
 const email = "Info@companyscheng.com";
@@ -220,7 +220,7 @@ export function SchengVentures() {
                     <img
                       src={v.logo}
                       alt={v.name}
-                      className="size-12 rounded-xl bg-white object-contain p-0.5"
+                      className="size-12 rounded-xl object-contain p-0.5"
                       width={48}
                       height={48}
                       loading="lazy"
