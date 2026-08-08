@@ -8,6 +8,7 @@ import {
   SchengValues,
   SchengVentures,
 } from "@/components/scheng/sections";
+import { SchengProvider, useScheng } from "@/components/scheng/context";
 
 const title = "Scheng Holdings — Tecnologia, engenharia e produto";
 const description =
@@ -51,7 +52,19 @@ export const Route = createFileRoute("/scheng")({
 
 function SchengPage() {
   return (
-    <div className="scheng min-h-dvh bg-[var(--scheng-ink)] font-sans antialiased selection:bg-[var(--scheng-gold)]/30">
+    <SchengProvider>
+      <SchengShell />
+    </SchengProvider>
+  );
+}
+
+function SchengShell() {
+  const { theme } = useScheng();
+  return (
+    <div
+      className="scheng min-h-dvh bg-[var(--scheng-ink)] font-sans antialiased transition-colors duration-500 selection:bg-[var(--scheng-gold)]/30"
+      data-scheng-theme={theme}
+    >
       <SchengNav />
       <main>
         <SchengHero />
