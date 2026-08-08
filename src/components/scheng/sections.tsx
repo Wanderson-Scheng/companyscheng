@@ -5,108 +5,162 @@ import {
   Boxes,
   Compass,
   Mail,
+  Moon,
   Rocket,
   ShieldCheck,
   Sparkles,
+  Sun,
   Linkedin,
   Instagram,
 } from "lucide-react";
 import logoGold from "@/assets/scheng-logo-dark-transparent.png.asset.json";
-import logoOrbital from "@/assets/orbital-logo-transparent.png.asset.json";
+import logoNavy from "@/assets/scheng-logo-light-transparent.png.asset.json";
+import orbitalColor from "@/assets/orbital-color.png.asset.json";
+import orbitalLine from "@/assets/orbital-line.png.asset.json";
 import logo3d from "@/assets/scheng3d-logo-transparent.png.asset.json";
 import logoGuiafin from "@/assets/guiafin-icon-transparent.png.asset.json";
 import { Reveal } from "@/components/landing/reveal";
+import { useScheng } from "@/components/scheng/context";
 
 const email = "Info@companyscheng.com";
 const instagramUrl = "https://www.instagram.com/guiafin_?igsh=bzV0NDAybnJmMmRs";
 const linkedinUrl = "https://www.linkedin.com/in/wanderson-scheng-769b72379";
 
+function useBrandLogo() {
+  const { theme } = useScheng();
+  return theme === "dark" ? logoGold.url : logoNavy.url;
+}
+
+function ThemeLangControls({ compact = false }: { compact?: boolean }) {
+  const { theme, setTheme, lang, setLang, t } = useScheng();
+  return (
+    <div className="flex items-center gap-2">
+      <button
+        type="button"
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        aria-label={t("nav.theme")}
+        className="grid size-9 place-items-center rounded-full border border-[var(--scheng-line)] text-[var(--scheng-muted)] transition-all duration-300 hover:scale-105 hover:text-[var(--scheng-gold)]"
+      >
+        {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
+      </button>
+      <div
+        role="group"
+        aria-label={t("nav.lang")}
+        className="flex items-center rounded-full border border-[var(--scheng-line)] p-0.5"
+      >
+        {(["pt", "en"] as const).map((l) => (
+          <button
+            key={l}
+            type="button"
+            onClick={() => setLang(l)}
+            aria-pressed={lang === l}
+            className={`rounded-full px-2.5 py-1 text-[0.7rem] font-bold uppercase tracking-[0.1em] transition-colors ${
+              lang === l
+                ? "bg-[var(--scheng-gold)]/15 text-[var(--scheng-gold)]"
+                : "text-[var(--scheng-muted)] hover:text-[var(--scheng-fg)]"
+            }`}
+          >
+            {l}
+          </button>
+        ))}
+      </div>
+      {!compact && null}
+    </div>
+  );
+}
+
 export function SchengNav() {
+  const { t, theme } = useScheng();
+  const brand = useBrandLogo();
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--scheng-line)] bg-[var(--scheng-ink-deep)]/85 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
-        <Link to="/scheng" className="flex items-center gap-3">
+      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-5 md:flex md:justify-between">
+        <Link to="/scheng" className="flex min-w-0 items-center gap-3">
           <img
-            src={logoGold.url}
+            src={brand}
             alt="Scheng Holdings"
-            className="h-10 w-auto mix-blend-lighten"
+            className={`h-9 w-auto shrink-0 transition-opacity duration-500 md:h-10 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
             width={160}
             height={40}
           />
           <span className="sr-only">Scheng Holdings</span>
         </Link>
-        <nav className="hidden items-center gap-8 text-sm text-[var(--scheng-muted)] md:flex">
+        <nav className="hidden items-center gap-8 text-sm text-[var(--scheng-muted)] lg:flex">
           <a className="transition-colors hover:text-[var(--scheng-gold)]" href="#grupo">
-            Grupo
+            {t("nav.group")}
           </a>
           <a className="transition-colors hover:text-[var(--scheng-gold)]" href="#empresas">
-            Empresas
+            {t("nav.companies")}
           </a>
           <a className="transition-colors hover:text-[var(--scheng-gold)]" href="#valores">
-            Valores
+            {t("nav.values")}
           </a>
           <a className="transition-colors hover:text-[var(--scheng-gold)]" href="#contacto">
-            Contacto
+            {t("nav.contact")}
           </a>
         </nav>
-        <a
-          href={`mailto:${email}`}
-          className="rounded-full border border-[var(--scheng-gold)]/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--scheng-gold)] transition-colors hover:bg-[var(--scheng-gold)]/10"
-        >
-          Falar connosco
-        </a>
+        <div className="flex shrink-0 items-center gap-2">
+          <ThemeLangControls />
+          <a
+            href={`mailto:${email}`}
+            className="hidden rounded-full border border-[var(--scheng-gold)]/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--scheng-gold)] transition-colors hover:bg-[var(--scheng-gold)]/10 sm:inline-block"
+          >
+            {t("nav.cta")}
+          </a>
+        </div>
       </div>
     </header>
   );
 }
 
 export function SchengHero() {
+  const { t, theme } = useScheng();
+  const brand = useBrandLogo();
   return (
-    <section className="relative overflow-hidden px-5 pb-24 pt-20 md:pt-28">
+    <section className="relative overflow-hidden px-5 pb-20 pt-16 md:pb-24 md:pt-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-[-18rem] h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-[var(--scheng-gold)]/12 blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-[-18rem] h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-[var(--scheng-gold)]/12 blur-3xl scheng-float"
       />
       <div className="relative mx-auto max-w-3xl text-center">
         <Reveal>
           <img
-            src={logoGold.url}
+            src={brand}
             alt="Logótipo Scheng Holdings"
-            className="mx-auto h-40 w-auto mix-blend-lighten md:h-52"
+            className={`mx-auto h-32 w-auto sm:h-40 md:h-52 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
             width={520}
             height={340}
           />
         </Reveal>
         <Reveal delay={120}>
           <p className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.42em] text-[var(--scheng-gold)]">
-            Holding de tecnologia e design
+            {t("hero.eyebrow")}
           </p>
         </Reveal>
         <Reveal delay={200}>
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-6xl">
-            Construímos empresas que resolvem problemas reais
+          <h1 className="mt-6 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-[var(--scheng-fg)] sm:text-4xl md:text-6xl">
+            {t("hero.title")}
           </h1>
         </Reveal>
         <Reveal delay={280}>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[var(--scheng-muted)] md:text-lg">
-            A Scheng Holdings reúne produtos digitais, engenharia e design sob uma única visão:
-            criar soluções simples, privadas e duradouras para pessoas e negócios.
+            {t("hero.sub")}
           </p>
         </Reveal>
         <Reveal delay={360}>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <a
               href="#empresas"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--scheng-gold-deep)] to-[var(--scheng-gold)] px-7 py-3.5 text-sm font-bold text-[var(--scheng-ink-deep)] shadow-[0_18px_45px_-18px_var(--scheng-gold)] transition-transform hover:-translate-y-0.5"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--scheng-gold-deep)] via-[var(--scheng-gold)] to-[var(--scheng-gold-deep)] px-7 py-3.5 text-sm font-bold text-[var(--scheng-ink-deep)] shadow-[0_18px_45px_-18px_var(--scheng-gold)] transition-transform duration-300 hover:-translate-y-0.5 scheng-sheen"
             >
-              Conhecer as empresas
-              <ArrowUpRight className="size-4" />
+              {t("hero.cta1")}
+              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
               href="#contacto"
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--scheng-line)] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[var(--scheng-gold)]/50"
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--scheng-line)] px-7 py-3.5 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]/50"
             >
-              Contacto
+              {t("hero.cta2")}
             </a>
           </div>
         </Reveal>
@@ -116,46 +170,41 @@ export function SchengHero() {
 }
 
 const pillars = [
-  {
-    icon: Compass,
-    title: "Visão de longo prazo",
-    text: "Cada empresa do grupo é construída para durar, não para seguir modas.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Privacidade primeiro",
-    text: "Produtos que respeitam os dados de quem os usa, por princípio e por arquitetura.",
-  },
-  {
-    icon: Sparkles,
-    title: "Design com intenção",
-    text: "Interfaces claras, rápidas e bonitas — sem ruído nem complexidade desnecessária.",
-  },
+  { icon: Compass, k: "p1" },
+  { icon: ShieldCheck, k: "p2" },
+  { icon: Sparkles, k: "p3" },
 ];
 
 export function SchengAbout() {
+  const { t } = useScheng();
   return (
-    <section id="grupo" className="border-y border-[var(--scheng-line)] bg-white/[0.02] px-5 py-20">
+    <section
+      id="grupo"
+      className="border-y border-[var(--scheng-line)] bg-[var(--scheng-surface)] px-5 py-16 md:py-20"
+    >
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-[var(--scheng-gold)]">
-            O grupo
+            {t("about.eyebrow")}
           </p>
-          <h2 className="mt-4 max-w-2xl text-3xl font-bold tracking-tight text-white md:text-4xl">
-            Uma casa para produtos independentes
+          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
+            {t("about.title")}
           </h2>
           <p className="mt-4 max-w-2xl text-[var(--scheng-muted)]">
-            A holding organiza quatro braços independentes — aeroespacial, comercial, tecnológico e
-            artesanal — com uma visão comum de engenharia, produto e qualidade a longo prazo.
+            {t("about.text")}
           </p>
         </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 md:mt-12 md:grid-cols-3">
           {pillars.map((p, i) => (
-            <Reveal key={p.title} delay={120 * i}>
-              <div className="h-full rounded-2xl border border-[var(--scheng-line)] bg-white/[0.03] p-6 transition-colors hover:border-[var(--scheng-gold)]/40">
-                <p.icon className="size-6 text-[var(--scheng-gold)]" />
-                <h3 className="mt-4 text-lg font-semibold text-white">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--scheng-muted)]">{p.text}</p>
+            <Reveal key={p.k} delay={120 * i}>
+              <div className="group h-full rounded-2xl border border-[var(--scheng-line)] bg-[var(--scheng-surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--scheng-gold)]/40 hover:shadow-[0_24px_50px_-30px_var(--scheng-gold)]">
+                <p.icon className="size-6 text-[var(--scheng-gold)] transition-transform duration-300 group-hover:scale-110" />
+                <h3 className="mt-4 text-lg font-semibold text-[var(--scheng-fg)]">
+                  {t(`${p.k}.t`)}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--scheng-muted)]">
+                  {t(`${p.k}.d`)}
+                </p>
               </div>
             </Reveal>
           ))}
@@ -165,64 +214,56 @@ export function SchengAbout() {
   );
 }
 
-const ventures = [
-  {
-    icon: Rocket,
-    logo: logoOrbital.url,
-    name: "Schengen Orbital System",
-    tag: "Braço aeroespacial",
-    text: "Engenharia espacial profunda e sistemas criogénicos, com operação independente e foco em investigação e desenvolvimento avançado.",
-  },
-  {
-    icon: Building2,
-    name: "Scheng Imports",
-    tag: "Braço comercial",
-    text: "E-commerce e distribuição de hardware: impressoras 3D, filamentos, ferramentas e sílica em gel.",
-  },
+type Venture = {
+  icon: typeof Rocket;
+  k: string;
+  name: string;
+  hero?: boolean;
+  logos?: { src: string; label: string }[];
+  to?: "/";
+};
+
+const ventures: Venture[] = [
+  { icon: Rocket, k: "v1", name: "Schengen Orbital System", hero: true },
+  { icon: Building2, k: "v2", name: "Scheng Imports" },
   {
     icon: Boxes,
+    k: "v3",
+    name: "Scheng Technology",
     logos: [
       { src: logo3d.url, label: "3D Scheng" },
       { src: logoGuiafin.url, label: "GuiaFin" },
     ],
-    name: "Scheng Technology",
-    tag: "Braço tecnológico",
-    text: "Detém a propriedade intelectual e gere as subscrições do 3D Scheng, software de farm 3D, e do GuiaFin, app de gestão financeira.",
-    to: "/" as const,
-    cta: "Conhecer o GuiaFin",
+    to: "/",
   },
-  {
-    icon: Sparkles,
-    name: "Schengen Atelier",
-    tag: "Braço artesanal",
-    text: "Sabonetes e produtos personalizados feitos à mão, com cuidado artesanal e atenção a cada detalhe.",
-  },
+  { icon: Sparkles, k: "v4", name: "Schengen Atelier" },
 ];
 
 export function SchengVentures() {
+  const { t, theme } = useScheng();
   return (
-    <section id="empresas" className="px-5 py-20">
+    <section id="empresas" className="px-5 py-16 md:py-20">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-[var(--scheng-gold)]">
-            Empresas
+            {t("vent.eyebrow")}
           </p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-            O que construímos
+          <h2 className="mt-4 text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
+            {t("vent.title")}
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <div className="mt-10 grid gap-5 md:mt-12 md:grid-cols-2">
           {ventures.map((v, i) => (
             <Reveal key={v.name} delay={100 * i}>
-              <article className="group relative flex h-full flex-col rounded-3xl border border-[var(--scheng-line)] bg-white/[0.03] p-7 transition-all hover:-translate-y-1 hover:border-[var(--scheng-gold)]/45">
-                <div className="flex items-center justify-between">
-                  {v.logo ? (
+              <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--scheng-line)] bg-[var(--scheng-surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--scheng-gold)]/45 hover:shadow-[0_30px_60px_-40px_var(--scheng-gold)] sm:p-7">
+                <div className="flex items-start justify-between gap-3">
+                  {v.hero ? (
                     <img
-                      src={v.logo}
+                      src={theme === "dark" ? orbitalLine.url : orbitalColor.url}
                       alt={v.name}
-                      className="size-12 rounded-xl object-contain p-0.5"
-                      width={48}
-                      height={48}
+                      className="h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-105 sm:h-28"
+                      width={220}
+                      height={112}
                       loading="lazy"
                     />
                   ) : v.logos ? (
@@ -232,7 +273,7 @@ export function SchengVentures() {
                           key={l.label}
                           src={l.src}
                           alt={l.label}
-                          className="size-12 rounded-xl object-contain"
+                          className="size-12 shrink-0 rounded-xl bg-[var(--scheng-chip)] object-contain p-1 transition-transform duration-500 group-hover:-translate-y-0.5"
                           width={48}
                           height={48}
                           loading="lazy"
@@ -240,29 +281,31 @@ export function SchengVentures() {
                       ))}
                     </span>
                   ) : (
-                    <span className="grid size-11 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
+                    <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
                       <v.icon className="size-5" />
                     </span>
                   )}
-                  <span className="rounded-full border border-[var(--scheng-line)] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[var(--scheng-muted)]">
-                    {v.tag}
+                  <span className="shrink-0 rounded-full border border-[var(--scheng-line)] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[var(--scheng-muted)]">
+                    {t(`${v.k}.tag`)}
                   </span>
                 </div>
-                <h3 className="mt-5 text-xl font-bold text-white">{v.name}</h3>
+                <h3 className="mt-5 text-lg font-bold text-[var(--scheng-fg)] sm:text-xl">
+                  {v.name}
+                </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--scheng-muted)]">
-                  {v.text}
+                  {t(`${v.k}.d`)}
                 </p>
                 {v.to ? (
                   <Link
                     to={v.to}
                     className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--scheng-gold)]"
                   >
-                    {v.cta}
+                    {t("v3.cta")}
                     <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
                 ) : (
                   <span className="mt-6 text-sm font-medium text-[var(--scheng-muted)]/70">
-                    Em desenvolvimento
+                    {t("vent.soon")}
                   </span>
                 )}
               </article>
@@ -274,34 +317,32 @@ export function SchengVentures() {
   );
 }
 
-const values = [
-  ["01", "Simplicidade", "Menos ecrãs, menos passos, menos fricção."],
-  ["02", "Confiança", "Transparência no que fazemos e no que guardamos."],
-  ["03", "Autonomia", "Produtos que funcionam sem depender de terceiros."],
-  ["04", "Excelência", "Detalhe e acabamento em cada entrega."],
-];
+const values = ["val1", "val2", "val3", "val4"];
 
 export function SchengValues() {
+  const { t } = useScheng();
   return (
     <section
       id="valores"
-      className="border-y border-[var(--scheng-line)] bg-white/[0.02] px-5 py-20"
+      className="border-y border-[var(--scheng-line)] bg-[var(--scheng-surface)] px-5 py-16 md:py-20"
     >
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
-            Os nossos valores
+          <h2 className="text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
+            {t("val.title")}
           </h2>
         </Reveal>
         <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-[var(--scheng-line)] bg-[var(--scheng-line)] sm:grid-cols-2 lg:grid-cols-4">
-          {values.map(([n, title, text], i) => (
-            <Reveal key={n} delay={90 * i}>
-              <div className="h-full bg-[var(--scheng-ink)] p-6">
+          {values.map((k, i) => (
+            <Reveal key={k} delay={90 * i}>
+              <div className="h-full bg-[var(--scheng-ink)] p-6 transition-colors duration-300 hover:bg-[var(--scheng-ink-deep)]">
                 <span className="text-xs font-bold tracking-[0.2em] text-[var(--scheng-gold)]">
-                  {n}
+                  {`0${i + 1}`}
                 </span>
-                <h3 className="mt-3 text-lg font-semibold text-white">{title}</h3>
-                <p className="mt-2 text-sm text-[var(--scheng-muted)]">{text}</p>
+                <h3 className="mt-3 text-lg font-semibold text-[var(--scheng-fg)]">
+                  {t(`${k}.t`)}
+                </h3>
+                <p className="mt-2 text-sm text-[var(--scheng-muted)]">{t(`${k}.d`)}</p>
               </div>
             </Reveal>
           ))}
@@ -312,22 +353,22 @@ export function SchengValues() {
 }
 
 export function SchengContact() {
+  const { t } = useScheng();
   return (
-    <section id="contacto" className="px-5 py-24">
+    <section id="contacto" className="px-5 py-20 md:py-24">
       <Reveal>
-        <div className="mx-auto max-w-3xl rounded-3xl border border-[var(--scheng-gold)]/25 bg-gradient-to-b from-[var(--scheng-gold)]/10 to-transparent p-10 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
-            Vamos construir algo juntos
+        <div className="mx-auto max-w-3xl rounded-3xl border border-[var(--scheng-gold)]/25 bg-gradient-to-b from-[var(--scheng-gold)]/10 to-transparent p-7 text-center sm:p-10">
+          <h2 className="text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
+            {t("contact.title")}
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-[var(--scheng-muted)]">
-            Parcerias, projetos ou dúvidas sobre as empresas do grupo — respondemos a todos os
-            contactos.
+            {t("contact.text")}
           </p>
           <a
             href={`mailto:${email}`}
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--scheng-gold-deep)] to-[var(--scheng-gold)] px-8 py-3.5 text-sm font-bold text-[var(--scheng-ink-deep)] transition-transform hover:-translate-y-0.5"
+            className="mt-8 inline-flex max-w-full items-center gap-2 break-all rounded-full bg-gradient-to-r from-[var(--scheng-gold-deep)] to-[var(--scheng-gold)] px-6 py-3.5 text-sm font-bold text-[var(--scheng-ink-deep)] transition-transform duration-300 hover:-translate-y-0.5 sm:px-8"
           >
-            <Mail className="size-4" />
+            <Mail className="size-4 shrink-0" />
             {email}
           </a>
         </div>
@@ -337,18 +378,20 @@ export function SchengContact() {
 }
 
 export function SchengFooter() {
+  const { t, theme } = useScheng();
+  const brand = useBrandLogo();
   return (
     <footer className="border-t border-[var(--scheng-line)] px-5 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
         <img
-          src={logoGold.url}
+          src={brand}
           alt="Scheng Holdings"
-          className="h-12 w-auto mix-blend-lighten"
+          className={`h-12 w-auto ${theme === "dark" ? "mix-blend-lighten" : ""}`}
           width={180}
           height={48}
         />
-        <p className="text-xs text-[var(--scheng-muted)]">
-          © {new Date().getFullYear()} Scheng Holdings. Todos os direitos reservados.
+        <p className="text-center text-xs text-[var(--scheng-muted)]">
+          © {new Date().getFullYear()} Scheng Holdings. {t("footer.rights")}
         </p>
         <div className="flex items-center gap-3">
           <a
