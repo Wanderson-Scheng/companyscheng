@@ -263,15 +263,19 @@ export function SchengVentures() {
                   {v.logos ? (
                     <span className="flex items-center gap-2">
                       {v.logos.map((l) => (
-                        <img
+                        <span
                           key={l.label}
-                          src={l.src}
-                          alt={l.label}
-                          className="size-12 shrink-0 rounded-xl bg-[var(--scheng-chip)] object-contain p-1 transition-transform duration-500 group-hover:-translate-y-0.5"
-                          width={48}
-                          height={48}
-                          loading="lazy"
-                        />
+                          className="grid size-12 shrink-0 place-items-center overflow-hidden rounded-xl bg-[var(--scheng-chip)] p-1 transition-transform duration-500 group-hover:-translate-y-0.5"
+                        >
+                          <img
+                            src={l.src}
+                            alt={l.label}
+                            className="block size-full object-contain"
+                            width={40}
+                            height={40}
+                            loading="lazy"
+                          />
+                        </span>
                       ))}
                     </span>
                   ) : (
