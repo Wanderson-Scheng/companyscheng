@@ -243,7 +243,7 @@ const ventures: Venture[] = [
 ];
 
 export function SchengVentures() {
-  const { t, theme } = useScheng();
+  const { t } = useScheng();
   return (
     <section id="empresas" className="px-5 py-16 md:py-20">
       <div className="mx-auto max-w-6xl">
