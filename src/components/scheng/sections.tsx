@@ -224,7 +224,12 @@ type Venture = {
 };
 
 const ventures: Venture[] = [
-  { icon: Rocket, k: "v1", name: "Schengen Orbital System", hero: true },
+  {
+    icon: Rocket,
+    k: "v1",
+    name: "Schengen Orbital System",
+    logos: [{ src: orbitalColor.url, label: "Schengen Orbital System" }],
+  },
   { icon: Building2, k: "v2", name: "Scheng Imports" },
   {
     icon: Boxes,
