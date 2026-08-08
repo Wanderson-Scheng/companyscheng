@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import logoGold from "@/assets/scheng-logo-dark-transparent.png.asset.json";
 import logoNavy from "@/assets/scheng-logo-light-transparent.png.asset.json";
-import orbitalColor from "@/assets/orbital-color.png.asset.json";
+import orbitalOfficial from "@/assets/orbital-official.png.asset.json";
 import logo3d from "@/assets/scheng3d-logo-transparent.png.asset.json";
 import logoGuiafin from "@/assets/guiafin-icon-transparent.png.asset.json";
 import { Reveal } from "@/components/landing/reveal";
@@ -226,7 +226,7 @@ const ventures: Venture[] = [
     icon: Rocket,
     k: "v1",
     name: "Schengen Orbital System",
-    logos: [{ src: orbitalColor.url, label: "Schengen Orbital System" }],
+    logos: [{ src: orbitalOfficial.url, label: "Schengen Orbital System" }],
   },
   { icon: Building2, k: "v2", name: "Scheng Imports" },
   {
