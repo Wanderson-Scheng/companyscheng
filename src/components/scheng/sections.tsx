@@ -258,14 +258,22 @@ export function SchengVentures() {
               <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--scheng-line)] bg-[var(--scheng-surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--scheng-gold)]/45 hover:shadow-[0_30px_60px_-40px_var(--scheng-gold)] sm:p-7">
                 <div className="flex items-start justify-between gap-3">
                   {v.hero ? (
-                    <img
-                      src={theme === "dark" ? orbitalLine.url : orbitalColor.url}
-                      alt={v.name}
-                      className="h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-105 sm:h-28"
-                      width={220}
-                      height={112}
-                      loading="lazy"
-                    />
+                    <span
+                      className={
+                        theme === "dark"
+                          ? "block"
+                          : "block rounded-2xl bg-[var(--scheng-chip)] p-3 shadow-[0_18px_40px_-28px_rgba(0,0,0,0.6)]"
+                      }
+                    >
+                      <img
+                        src={theme === "dark" ? orbitalLine.url : orbitalColor.url}
+                        alt={v.name}
+                        className="h-24 w-auto object-contain transition-transform duration-500 group-hover:scale-105 sm:h-28"
+                        width={220}
+                        height={112}
+                        loading="lazy"
+                      />
+                    </span>
                   ) : v.logos ? (
                     <span className="flex items-center gap-2">
                       {v.logos.map((l) => (
