@@ -22,6 +22,7 @@ import logoGold from "@/assets/scheng-logo-dark-transparent.png.asset.json";
 import logoNavy from "@/assets/scheng-logo-light-transparent.png.asset.json";
 import orbitalColor from "@/assets/orbital-mark.png.asset.json";
 import importsLogo from "@/assets/scheng-imports-logo.png.asset.json";
+import logoPro from "@/assets/scheng-pro-logo.png.asset.json";
 import logo3d from "@/assets/scheng3d-logo-transparent.png.asset.json";
 import logoGuiafin from "@/assets/guiafin-icon-transparent.png.asset.json";
 import { Reveal } from "@/components/landing/reveal";
@@ -372,6 +373,7 @@ const ventures: Venture[] = [
     k: "v3",
     name: "Scheng Technology",
     logos: [
+      { src: logoPro.url, label: "Scheng Pro", chip: "light" as const, zoom: true },
       { src: logo3d.url, label: "3D Scheng", chip: "dark" as const },
       { src: logoGuiafin.url, label: "GuiaFin", chip: "dark" as const },
     ],
