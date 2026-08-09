@@ -8,7 +8,9 @@ import {
   Boxes,
   Compass,
   Mail,
+  MessageCircle,
   Moon,
+  Phone,
   Rocket,
   ShieldCheck,
   Sparkles,
@@ -25,6 +27,9 @@ import { Reveal } from "@/components/landing/reveal";
 import { useScheng } from "@/components/scheng/context";
 
 const email = "Info@companyscheng.com";
+const founderEmail = "Wanderson@companyscheng.com";
+const phone = "+351 963614366";
+const whatsappUrl = "https://wa.me/351963614366";
 const instagramUrl = "https://www.instagram.com/guiafin_?igsh=bzV0NDAybnJmMmRs";
 const linkedinUrl = "https://www.linkedin.com/in/wanderson-scheng-769b72379";
 
@@ -570,14 +575,36 @@ export function SchengContact() {
             </p>
           </form>
 
-          <p className="mt-2 text-center text-xs text-[var(--scheng-muted)]">{t("form.or")}</p>
-          <a
-            href={`mailto:${email}`}
-            className="mx-auto mt-2 flex w-fit max-w-full items-center gap-2 break-all rounded-full border border-[var(--scheng-line)] px-5 py-2.5 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]"
-          >
-            <Mail className="size-4 shrink-0" />
-            {email}
-          </a>
+          <div className="mt-5 border-t border-[var(--scheng-line)] pt-5">
+            <p className="text-center text-xs text-[var(--scheng-muted)]">{t("form.or")}</p>
+            <div className="mt-3 flex flex-wrap justify-center gap-2">
+              <a
+                href={`mailto:${email}`}
+                className="inline-flex max-w-full items-center gap-2 break-all rounded-full border border-[var(--scheng-line)] px-4 py-2.5 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]"
+              >
+                <Mail className="size-4 shrink-0" />
+                {email}
+              </a>
+              <a
+                href={`mailto:${founderEmail}`}
+                className="inline-flex max-w-full items-center gap-2 break-all rounded-full border border-[var(--scheng-line)] px-4 py-2.5 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]"
+              >
+                <Mail className="size-4 shrink-0" />
+                {founderEmail}
+              </a>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${t("form.whatsapp")}: ${phone}`}
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--scheng-line)] px-4 py-2.5 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]"
+              >
+                <MessageCircle className="size-4 shrink-0" />
+                <span>{t("form.whatsapp")}</span>
+                <span className="text-[var(--scheng-muted)]">{phone}</span>
+              </a>
+            </div>
+          </div>
         </div>
       </Reveal>
     </section>
