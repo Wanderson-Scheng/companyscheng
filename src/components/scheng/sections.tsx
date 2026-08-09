@@ -217,7 +217,7 @@ type Venture = {
   icon: typeof Rocket;
   k: string;
   name: string;
-  logos?: { src: string; label: string }[];
+  logos?: { src: string; label: string; chip?: "light" | "dark" }[];
   to?: "/";
 };
 
