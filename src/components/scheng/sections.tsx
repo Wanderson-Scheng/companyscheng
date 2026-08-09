@@ -204,7 +204,7 @@ function CompanyMarks() {
   return (
     <span className="flex items-center gap-2" aria-label="Scheng Holdings — quatro empresas">
       {ventures.map((venture) => {
-        const logo = venture.products?.length ? undefined : venture.logos?.[0];
+        const logo = venture.logos?.[0];
 
         return logo ? (
           <span
