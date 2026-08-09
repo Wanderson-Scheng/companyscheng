@@ -87,19 +87,17 @@ export function SchengNav() {
           />
           <span className="sr-only">Scheng Holdings</span>
         </Link>
-        <nav className="hidden items-center gap-8 text-sm text-[var(--scheng-muted)] lg:flex">
-          <a className="transition-colors hover:text-[var(--scheng-gold)]" href="#grupo">
-            {t("nav.group")}
-          </a>
-          <a className="transition-colors hover:text-[var(--scheng-gold)]" href="#empresas">
-            {t("nav.companies")}
-          </a>
-          <a className="transition-colors hover:text-[var(--scheng-gold)]" href="#valores">
-            {t("nav.values")}
-          </a>
-          <a className="transition-colors hover:text-[var(--scheng-gold)]" href="#contacto">
-            {t("nav.contact")}
-          </a>
+        <nav className="hidden items-center gap-1 text-sm text-[var(--scheng-muted)] lg:flex">
+          {tabs.map((tab) => (
+            <Link
+              key={tab.to}
+              to={tab.to}
+              activeOptions={{ exact: tab.to === "/scheng" }}
+              className="rounded-full px-3.5 py-2 transition-colors hover:text-[var(--scheng-gold)] data-[status=active]:bg-[var(--scheng-gold)]/12 data-[status=active]:font-semibold data-[status=active]:text-[var(--scheng-gold)]"
+            >
+              {t(tab.key)}
+            </Link>
+          ))}
         </nav>
         <div className="flex shrink-0 items-center gap-2">
           <ThemeLangControls />
@@ -109,6 +107,20 @@ export function SchengNav() {
           >
             {t("nav.cta")}
           </a>
+        </div>
+      </div>
+      <div className="border-t border-[var(--scheng-line)] lg:hidden">
+        <div className="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-3 py-2 text-sm [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {tabs.map((tab) => (
+            <Link
+              key={tab.to}
+              to={tab.to}
+              activeOptions={{ exact: tab.to === "/scheng" }}
+              className="shrink-0 rounded-full px-3.5 py-1.5 text-[var(--scheng-muted)] transition-colors data-[status=active]:bg-[var(--scheng-gold)]/12 data-[status=active]:font-semibold data-[status=active]:text-[var(--scheng-gold)]"
+            >
+              {t(tab.key)}
+            </Link>
+          ))}
         </div>
       </div>
     </header>
