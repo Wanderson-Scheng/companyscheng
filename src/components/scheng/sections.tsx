@@ -365,7 +365,7 @@ const ventures: Venture[] = [
     icon: Building2,
     k: "v2",
     name: "Scheng Imports",
-    logos: [{ src: importsLogo.url, label: "Scheng Imports", chip: "light" as const }],
+    logos: [{ src: importsLogo.url, label: "Scheng Imports", chip: "light" as const, zoom: true }],
   },
   {
     icon: Boxes,
