@@ -1,5 +1,6 @@
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -8,15 +9,23 @@ import {
 } from "react";
 
 export type SchengTheme = "light" | "dark";
+export type SchengThemeMode = "light" | "dark" | "auto";
 export type SchengLang = "pt" | "en";
 
 type Ctx = {
   theme: SchengTheme;
+  themeMode: SchengThemeMode;
   lang: SchengLang;
+  setThemeMode: (m: SchengThemeMode) => void;
   setTheme: (t: SchengTheme) => void;
   setLang: (l: SchengLang) => void;
   t: (key: string) => string;
 };
+
+function resolveAutoTheme(): SchengTheme {
+  const hour = new Date().getHours();
+  return hour >= 6 && hour < 19 ? "light" : "dark";
+}
 
 const dict: Record<SchengLang, Record<string, string>> = {
   pt: {
@@ -301,31 +310,57 @@ const dict: Record<SchengLang, Record<string, string>> = {
 const SchengContext = createContext<Ctx | null>(null);
 
 export function SchengProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<SchengTheme>("dark");
+  const [themeMode, setThemeModeState] = useState<SchengThemeMode>("auto");
+  const [resolvedTheme, setResolvedTheme] = useState<SchengTheme>("dark");
   const [lang, setLangState] = useState<SchengLang>("pt");
 
   useEffect(() => {
-    const t = window.localStorage.getItem("scheng-theme");
+    const m = window.localStorage.getItem("scheng-theme-mode");
     const l = window.localStorage.getItem("scheng-lang");
-    if (t === "light" || t === "dark") setThemeState(t);
+    if (m === "light" || m === "dark" || m === "auto") {
+      setThemeModeState(m);
+      setResolvedTheme(m === "auto" ? resolveAutoTheme() : m);
+    } else {
+      const legacy = window.localStorage.getItem("scheng-theme");
+      if (legacy === "light" || legacy === "dark") {
+        setThemeModeState(legacy);
+        setResolvedTheme(legacy);
+      } else {
+        setResolvedTheme(resolveAutoTheme());
+      }
+    }
     if (l === "pt" || l === "en") setLangState(l);
+  }, []);
+
+  useEffect(() => {
+    if (themeMode !== "auto") return;
+    setResolvedTheme(resolveAutoTheme());
+    const interval = window.setInterval(() => {
+      setResolvedTheme(resolveAutoTheme());
+    }, 60_000);
+    return () => window.clearInterval(interval);
+  }, [themeMode]);
+
+  const setThemeMode = useCallback((m: SchengThemeMode) => {
+    setThemeModeState(m);
+    window.localStorage.setItem("scheng-theme-mode", m);
+    setResolvedTheme(m === "auto" ? resolveAutoTheme() : m);
   }, []);
 
   const value = useMemo<Ctx>(
     () => ({
-      theme,
+      theme: resolvedTheme,
+      themeMode,
+      setThemeMode,
+      setTheme: (t) => setThemeMode(t),
       lang,
-      setTheme: (t) => {
-        setThemeState(t);
-        window.localStorage.setItem("scheng-theme", t);
-      },
       setLang: (l) => {
         setLangState(l);
         window.localStorage.setItem("scheng-lang", l);
       },
       t: (key) => dict[lang][key] ?? key,
     }),
-    [theme, lang],
+    [resolvedTheme, themeMode, setThemeMode, lang],
   );
 
   return <SchengContext.Provider value={value}>{children}</SchengContext.Provider>;
