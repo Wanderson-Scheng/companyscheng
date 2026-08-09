@@ -347,41 +347,6 @@ export function SchengAbout() {
   );
 }
 
-type Venture = {
-  icon: typeof Rocket;
-  k: string;
-  name: string;
-  logos?: { src: string; label: string; chip?: "light" | "dark"; zoom?: boolean }[];
-  to?: "/";
-};
-
-const ventures: Venture[] = [
-  {
-    icon: Rocket,
-    k: "v1",
-    name: "Scheng Orbital System",
-    logos: [{ src: orbitalColor.url, label: "Scheng Orbital System", chip: "light" as const }],
-  },
-  {
-    icon: Building2,
-    k: "v2",
-    name: "Scheng Imports",
-    logos: [{ src: importsLogo.url, label: "Scheng Imports", chip: "light" as const, zoom: true }],
-  },
-  {
-    icon: Boxes,
-    k: "v3",
-    name: "Scheng Technology",
-    logos: [
-      { src: logoPro.url, label: "Scheng Pro", chip: "light" as const, zoom: true },
-      { src: logo3d.url, label: "3D Scheng", chip: "dark" as const },
-      { src: logoGuiafin.url, label: "GuiaFin", chip: "dark" as const },
-    ],
-    to: "/",
-  },
-  { icon: Sparkles, k: "v4", name: "Scheng Atelier" },
-];
-
 export function SchengVentures() {
   const { t } = useScheng();
   return (
@@ -439,19 +404,14 @@ export function SchengVentures() {
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--scheng-muted)]">
                   {t(`${v.k}.d`)}
                 </p>
-                {v.to ? (
-                  <Link
-                    to={v.to}
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--scheng-gold)]"
-                  >
-                    {t("v3.cta")}
-                    <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Link>
-                ) : (
-                  <span className="mt-6 text-sm font-medium text-[var(--scheng-muted)]/70">
-                    {t("vent.soon")}
-                  </span>
-                )}
+                <Link
+                  to="/scheng/empresas/$slug"
+                  params={{ slug: v.slug }}
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--scheng-gold)]"
+                >
+                  {t("vent.more")}
+                  <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
               </article>
             </Reveal>
           ))}
