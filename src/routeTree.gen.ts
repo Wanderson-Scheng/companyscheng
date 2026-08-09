@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SchengRouteImport } from './routes/scheng'
+import { Route as SchengIndexRouteImport } from './routes/scheng.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,38 @@ const SchengRoute = SchengRouteImport.update({
   path: '/scheng',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SchengIndexRoute = SchengIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SchengRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/scheng': typeof SchengRoute
+  '/scheng': typeof SchengRouteWithChildren
+  '/scheng/': typeof SchengIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/scheng': typeof SchengRoute
+  '/scheng': typeof SchengIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/scheng': typeof SchengRoute
+  '/scheng': typeof SchengRouteWithChildren
+  '/scheng/': typeof SchengIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/scheng'
+  fullPaths: '/' | '/scheng' | '/scheng/'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/scheng'
-  id: '__root__' | '/' | '/scheng'
+  id: '__root__' | '/' | '/scheng' | '/scheng/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  SchengRoute: typeof SchengRoute
+  SchengRoute: typeof SchengRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -65,23 +73,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SchengRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/scheng/': {
+      id: '/scheng/'
+      path: '/'
+      fullPath: '/scheng/'
+      preLoaderRoute: typeof SchengIndexRouteImport
+      parentRoute: typeof SchengRoute
+    }
   }
 }
 
+interface SchengRouteChildren {
+  SchengIndexRoute: typeof SchengIndexRoute
+}
+
+const SchengRouteChildren: SchengRouteChildren = {
+  SchengIndexRoute: SchengIndexRoute,
+}
+
+const SchengRouteWithChildren =
+  SchengRoute._addFileChildren(SchengRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  SchengRoute: SchengRoute,
+  SchengRoute: SchengRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
