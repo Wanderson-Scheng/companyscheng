@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GuiafinRouteImport } from './routes/guiafin'
 import { Route as SchengRouteImport } from './routes/scheng'
 import { Route as SchengIndexRouteImport } from './routes/scheng.index'
 import { Route as SchengContactoRouteImport } from './routes/scheng.contacto'
@@ -22,6 +23,11 @@ import { Route as SchengProdutosSlugRouteImport } from './routes/scheng.produtos
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuiafinRoute = GuiafinRouteImport.update({
+  id: '/guiafin',
+  path: '/guiafin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SchengRoute = SchengRouteImport.update({
@@ -67,6 +73,7 @@ const SchengProdutosSlugRoute = SchengProdutosSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/guiafin': typeof GuiafinRoute
   '/scheng': typeof SchengRouteWithChildren
   '/scheng/contacto': typeof SchengContactoRoute
   '/scheng/grupo': typeof SchengGrupoRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/guiafin': typeof GuiafinRoute
   '/scheng/contacto': typeof SchengContactoRoute
   '/scheng/grupo': typeof SchengGrupoRoute
   '/scheng/valores': typeof SchengValoresRoute
@@ -89,6 +97,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/guiafin': typeof GuiafinRoute
   '/scheng': typeof SchengRouteWithChildren
   '/scheng/contacto': typeof SchengContactoRoute
   '/scheng/grupo': typeof SchengGrupoRoute
@@ -102,6 +111,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/guiafin'
     | '/scheng'
     | '/scheng/contacto'
     | '/scheng/grupo'
@@ -113,6 +123,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/guiafin'
     | '/scheng/contacto'
     | '/scheng/grupo'
     | '/scheng/valores'
@@ -123,6 +134,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/guiafin'
     | '/scheng'
     | '/scheng/contacto'
     | '/scheng/grupo'
@@ -135,6 +147,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GuiafinRoute: typeof GuiafinRoute
   SchengRoute: typeof SchengRouteWithChildren
 }
 
@@ -145,6 +158,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guiafin': {
+      id: '/guiafin'
+      path: '/guiafin'
+      fullPath: '/guiafin'
+      preLoaderRoute: typeof GuiafinRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/scheng': {
@@ -231,6 +251,7 @@ const SchengRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GuiafinRoute: GuiafinRoute,
   SchengRoute: SchengRouteWithChildren,
 }
 export const routeTree = rootRouteImport
