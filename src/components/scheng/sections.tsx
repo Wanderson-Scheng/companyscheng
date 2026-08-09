@@ -283,29 +283,6 @@ export function SchengFounder() {
                 <MessageCircle className="size-4" />
               </a>
             </div>
-            <div className="mt-5 space-y-2 border-t border-[var(--scheng-line)] pt-4 text-sm">
-              <a
-                href={`mailto:${founderEmail}`}
-                className="block break-all text-[var(--scheng-fg)] transition-colors hover:text-[var(--scheng-gold)]"
-              >
-                {founderEmail}
-              </a>
-              <a
-                href={`tel:${phone.replaceAll(" ", "")}`}
-                className="block text-[var(--scheng-muted)] transition-colors hover:text-[var(--scheng-gold)]"
-              >
-                {phone}
-              </a>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-[var(--scheng-muted)] transition-colors hover:text-[var(--scheng-gold)]"
-              >
-                <MessageCircle className="size-4" />
-                WhatsApp
-              </a>
-            </div>
           </div>
         </Reveal>
         <Reveal delay={120}>
