@@ -2,6 +2,7 @@ import { Building2, Boxes, Rocket, Sparkles } from "lucide-react";
 import orbitalColor from "@/assets/orbital-mark.png.asset.json";
 import importsLogo from "@/assets/scheng-imports-logo.png.asset.json";
 import logoPro from "@/assets/scheng-pro-logo.png.asset.json";
+import techLogo from "@/assets/scheng-technology-logo.png.asset.json";
 import logo3d from "@/assets/scheng3d-logo-transparent.png.asset.json";
 import logoGuiafin from "@/assets/guiafin-icon-transparent.png.asset.json";
 
@@ -96,7 +97,7 @@ export const ventures: Venture[] = [
     icon: Boxes,
     k: "v3",
     name: "Scheng Technology",
-    logos: [{ src: logoPro.url, label: "Scheng Technology", chip: "light", zoom: true }],
+    logos: [{ src: techLogo.url, label: "Scheng Technology", chip: "light" }],
     features: 3,
     products: products.filter((p) => p.parentSlug === "scheng-technology"),
   },

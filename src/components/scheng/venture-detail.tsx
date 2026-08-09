@@ -46,7 +46,7 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
 
         <Reveal delay={80}>
           <div className="group mt-8 flex flex-wrap items-center gap-3">
-            {venture.logos && !venture.products?.length ? (
+            {venture.logos?.length ? (
               venture.logos.map((l) => <LogoChip key={l.label} logo={l} />)
             ) : (
               <span className="grid size-12 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
