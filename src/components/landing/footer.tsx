@@ -1,6 +1,7 @@
 import { Instagram, Linkedin, Mail, Twitter } from "lucide-react";
 
 const logoUrl = "/guiafin/guiafin-logo.png";
+
 import { useI18n } from "@/lib/i18n";
 
 export function Footer() {

@@ -16,6 +16,13 @@ npm install
 npm run dev          # local dev server
 npm run build        # production build (requires NITRO_PRESET=vercel on Vercel)
 npm run typecheck    # TypeScript check
+npm run lint         # Biome lint & format check
+npm run lint:fix     # Auto-fix lint issues
+npm run test         # Unit & integration tests (Vitest)
+npm run test:coverage # Tests with coverage report
+npm run test:e2e     # E2E tests (Playwright)
+npm run knip         # Dead code detection
+npm run quality      # Full quality gate (lint + typecheck + test + knip)
 ```
 
 The Vite config uses `@lovable.dev/vite-tanstack-config` which defaults Nitro to Cloudflare. On Vercel, the env var `NITRO_PRESET=vercel` overrides this.
@@ -68,4 +75,15 @@ public/
 - **Logos**: Use `/logos/<name>.png` for holding/venture logos and `/guiafin/<name>.png` for GuiaFin images.
 - **i18n**: All user-facing text uses the `t()` function from `useI18n()`. Supported locales: `pt`, `en`, `es`.
 - **Theming**: Scheng pages support dark/light theme toggle. The brand logo switches between gold (dark) and navy (light) variants.
-- **Commit messages**: Concise, focused on "why". End with `Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>` when AI-assisted.
+- **Commit messages**: Conventional Commits format enforced by Commitlint (e.g. `feat:`, `fix:`, `chore:`). End with `Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>` when AI-assisted.
+
+## Quality & Observability
+
+- **Linting/Formatting**: Biome (replaces ESLint + Prettier). Config in `biome.json`. UI components (`src/components/ui/`) and generated files are excluded.
+- **Commit Hooks**: Husky runs Biome on staged files (pre-commit) and Commitlint on commit messages (commit-msg).
+- **Dead Code**: Knip detects unused exports, dependencies, and files. Config in `knip.config.ts`.
+- **Unit/Integration Tests**: Vitest with React Testing Library. Tests in `src/**/__tests__/`. Config in `vitest.config.ts`.
+- **E2E Tests**: Playwright testing against Chromium and mobile viewport. Tests in `e2e/`. Config in `playwright.config.ts`.
+- **Coverage**: Codecov integration via GitHub Actions CI. Coverage uploaded on every push/PR.
+- **Observability**: Sentry for error tracking and performance monitoring. Set `VITE_SENTRY_DSN` env var to enable.
+- **CI/CD**: GitHub Actions (`.github/workflows/ci.yml`) runs lint, typecheck, unit tests, build, and E2E on every PR.

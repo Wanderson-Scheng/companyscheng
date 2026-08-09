@@ -1,9 +1,10 @@
 import { appStoreUrl } from "@/lib/links";
 
 const logoUrl = "/guiafin/guiafin-logo.png";
-import { useEffect, useRef, useState } from "react";
+
 import { Check, ChevronDown, Globe, Menu, X } from "lucide-react";
-import { locales, localeMeta, useI18n, type Locale } from "@/lib/i18n";
+import { useEffect, useRef, useState } from "react";
+import { type Locale, localeMeta, locales, useI18n } from "@/lib/i18n";
 
 function LanguageSwitcher() {
   const { locale, setLocale, t } = useI18n();

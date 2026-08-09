@@ -11,7 +11,10 @@ export const Route = createFileRoute("/scheng/empresas/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Empresa não encontrada — Scheng Holdings" }, { name: "robots", content: "noindex" }],
+        meta: [
+          { title: "Empresa não encontrada — Scheng Holdings" },
+          { name: "robots", content: "noindex" },
+        ],
       };
     }
     const title = `${loaderData.name} — Scheng Holdings`;

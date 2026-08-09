@@ -24,9 +24,17 @@ export const Route = createFileRoute("/sitemap.xml")({
         ];
 
         for (const venture of ventures) {
-          entries.push({ path: `/scheng/empresas/${venture.slug}`, changefreq: "monthly", priority: "0.7" });
+          entries.push({
+            path: `/scheng/empresas/${venture.slug}`,
+            changefreq: "monthly",
+            priority: "0.7",
+          });
           for (const product of venture.products ?? []) {
-            entries.push({ path: `/scheng/produtos/${product.slug}`, changefreq: "monthly", priority: "0.6" });
+            entries.push({
+              path: `/scheng/produtos/${product.slug}`,
+              changefreq: "monthly",
+              priority: "0.6",
+            });
           }
         }
 

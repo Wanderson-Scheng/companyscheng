@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Check, ImageIcon } from "lucide-react";
 import { Reveal } from "@/components/landing/reveal";
-import { LazyImage } from "@/components/ui/lazy-image";
 import { useScheng } from "@/components/scheng/context";
 import type { Venture, VentureLogo } from "@/components/scheng/ventures";
+import { LazyImage } from "@/components/ui/lazy-image";
 
 export function LogoChip({ logo }: { logo: VentureLogo }) {
   return (
@@ -60,9 +60,7 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
           <h1 className="mt-6 text-3xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-4xl">
             {venture.name}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-[var(--scheng-muted)]">
-            {t(`${venture.k}.d`)}
-          </p>
+          <p className="mt-4 max-w-2xl text-lg text-[var(--scheng-muted)]">{t(`${venture.k}.d`)}</p>
           <p className="mt-4 max-w-2xl leading-relaxed text-[var(--scheng-muted)]">
             {t(`${venture.k}.long`)}
           </p>

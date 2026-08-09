@@ -1,4 +1,4 @@
-import { useState, useCallback, type ImgHTMLAttributes } from "react";
+import { type ImgHTMLAttributes, useCallback, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type LazyImageProps = Omit<ImgHTMLAttributes<HTMLImageElement>, "onLoad"> & {

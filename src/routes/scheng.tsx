@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet, useMatches } from "@tanstack/react-router";
-import { SchengFooter, SchengNav } from "@/components/scheng/sections";
 import { SchengProvider, useScheng } from "@/components/scheng/context";
+import { SchengFooter, SchengNav } from "@/components/scheng/sections";
 
 const description =
   "A Scheng Holdings reúne quatro braços independentes: engenharia aeroespacial, comércio de hardware, tecnologia e produção artesanal.";
