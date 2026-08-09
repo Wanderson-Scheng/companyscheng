@@ -19,6 +19,7 @@ import {
 const logoGoldUrl = "/logos/logo-gold.png";
 const logoNavyUrl = "/logos/logo-navy.png";
 import { Reveal } from "@/components/landing/reveal";
+import { LazyImage } from "@/components/ui/lazy-image";
 import { useScheng } from "@/components/scheng/context";
 import { ventures } from "@/components/scheng/ventures";
 
@@ -88,10 +89,11 @@ export function SchengNav() {
     <header className="sticky top-0 z-50 border-b border-[var(--scheng-line)] bg-[var(--scheng-ink-deep)]/85 backdrop-blur-xl">
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-5 md:flex md:justify-between">
         <Link to="/scheng" className="flex min-w-0 items-center gap-3">
-          <img
+          <LazyImage
+            eager
             src={brand}
             alt="Scheng Holdings"
-            className={`h-9 w-auto shrink-0 transition-opacity duration-500 md:h-10 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
+            className={`h-9 w-auto shrink-0 md:h-10 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
             width={160}
             height={40}
           />
@@ -148,7 +150,8 @@ export function SchengHero() {
       />
       <div className="relative mx-auto max-w-3xl text-center">
         <Reveal>
-          <img
+          <LazyImage
+            eager
             src={brand}
             alt="Logótipo Scheng Holdings"
             className={`mx-auto h-32 w-auto sm:h-40 md:h-52 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
@@ -217,13 +220,12 @@ function CompanyMarks() {
                   : "bg-[var(--scheng-surface)] ring-[var(--scheng-line)]"
             }`}
           >
-            <img
+            <LazyImage
               src={logo.src}
               alt={logo.label}
               className={`size-full object-contain ${logo.zoom ? "scale-[1.45]" : ""}`}
               width={32}
               height={32}
-              loading="lazy"
             />
           </span>
         ) : (
@@ -415,13 +417,12 @@ export function SchengVentures() {
                                 : "bg-[var(--scheng-surface)]"
                           }`}
                         >
-                          <img
+                          <LazyImage
                             src={l.src}
                             alt={l.label}
                             className={`block size-full object-contain ${l.zoom ? "scale-[1.65]" : ""}`}
                             width={40}
                             height={40}
-                            loading="lazy"
                           />
                         </span>
                       ))}
@@ -623,7 +624,7 @@ export function SchengFooter() {
   return (
     <footer className="border-t border-[var(--scheng-line)] px-5 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 md:flex-row">
-        <img
+        <LazyImage
           src={brand}
           alt="Scheng Holdings"
           className={`h-12 w-auto ${theme === "dark" ? "mix-blend-lighten" : ""}`}

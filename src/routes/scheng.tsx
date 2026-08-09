@@ -1,4 +1,4 @@
-import { createFileRoute, Outlet } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useMatches } from "@tanstack/react-router";
 import { SchengFooter, SchengNav } from "@/components/scheng/sections";
 import { SchengProvider, useScheng } from "@/components/scheng/context";
 
@@ -39,13 +39,15 @@ function SchengPage() {
 
 function SchengShell() {
   const { theme } = useScheng();
+  const matches = useMatches();
+  const routeKey = matches[matches.length - 1]?.id ?? "";
   return (
     <div
       className="scheng min-h-dvh bg-[var(--scheng-ink)] font-sans antialiased transition-colors duration-500 selection:bg-[var(--scheng-gold)]/30"
       data-scheng-theme={theme}
     >
       <SchengNav />
-      <main>
+      <main key={routeKey} className="route-transition-enter">
         <Outlet />
       </main>
       <SchengFooter />

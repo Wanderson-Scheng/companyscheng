@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Check, ImageIcon } from "lucide-react";
 import { Reveal } from "@/components/landing/reveal";
+import { LazyImage } from "@/components/ui/lazy-image";
 import { useScheng } from "@/components/scheng/context";
 import type { Venture, VentureLogo } from "@/components/scheng/ventures";
 
@@ -15,13 +16,12 @@ export function LogoChip({ logo }: { logo: VentureLogo }) {
             : "bg-[var(--scheng-surface)]"
       }`}
     >
-      <img
+      <LazyImage
         src={logo.src}
         alt={logo.label}
         className={`block size-full object-contain ${logo.zoom ? "scale-[1.65]" : ""}`}
         width={40}
         height={40}
-        loading="lazy"
       />
     </span>
   );

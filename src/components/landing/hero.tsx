@@ -1,6 +1,7 @@
 import { ArrowLeftRight, ArrowRight, Landmark, PiggyBank, ShieldCheck, Sparkles, WifiOff } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { appStoreUrl } from "@/lib/links";
+import { LazyImage } from "@/components/ui/lazy-image";
 import { useI18n } from "@/lib/i18n";
 
 const heroShotUrl = "/guiafin/app-dash.png";
@@ -58,10 +59,10 @@ export function Hero() {
             aria-hidden="true"
           />
           <div className="hero-exploded-stage">
-            <img
+            <LazyImage
+              eager
               src={heroShotUrl}
               alt={t("hero.imageAlt")}
-              loading="eager"
               decoding="async"
               width={819}
               height={1652}
