@@ -106,7 +106,8 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "form.ok": "Mensagem recebida. Respondemos em breve.",
     "form.error": "Não foi possível enviar. Tente novamente ou escreva-nos por e-mail.",
     "form.invalid": "Verifique os campos: o nome, um e-mail válido e uma mensagem com pelo menos 10 caracteres.",
-    "form.or": "Ou escreva directamente para",
+    "form.or": "Ou contacte-nos directamente",
+    "form.whatsapp": "WhatsApp",
     "footer.rights": "Todos os direitos reservados.",
   },
   en: {
@@ -195,7 +196,8 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "form.ok": "Message received. We will get back to you shortly.",
     "form.error": "We could not send it. Please try again or email us.",
     "form.invalid": "Please check the fields: your name, a valid email and a message with at least 10 characters.",
-    "form.or": "Or write directly to",
+    "form.or": "Or contact us directly",
+    "form.whatsapp": "WhatsApp",
     "footer.rights": "All rights reserved.",
   },
 };
