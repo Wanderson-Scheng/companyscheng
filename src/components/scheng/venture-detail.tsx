@@ -46,7 +46,7 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
 
         <Reveal delay={80}>
           <div className="group mt-8 flex flex-wrap items-center gap-3">
-            {venture.logos ? (
+            {venture.logos && !venture.products?.length ? (
               venture.logos.map((l) => <LogoChip key={l.label} logo={l} />)
             ) : (
               <span className="grid size-12 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
@@ -68,16 +68,18 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
-          {features.map((f, i) => (
-            <Reveal key={f} delay={100 * i}>
-              <div className="h-full rounded-2xl border border-[var(--scheng-line)] bg-[var(--scheng-surface)] p-5">
-                <Check className="size-5 text-[var(--scheng-gold)]" />
-                <p className="mt-3 text-sm leading-relaxed text-[var(--scheng-fg)]">{t(f)}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        {venture.products?.length ? null : (
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {features.map((f, i) => (
+              <Reveal key={f} delay={100 * i}>
+                <div className="h-full rounded-2xl border border-[var(--scheng-line)] bg-[var(--scheng-surface)] p-5">
+                  <Check className="size-5 text-[var(--scheng-gold)]" />
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--scheng-fg)]">{t(f)}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        )}
 
         {venture.products?.length ? (
           <div className="mt-14">
