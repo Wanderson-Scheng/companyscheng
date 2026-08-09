@@ -626,7 +626,7 @@ export function SchengFooter() {
         <img
           src={brand}
           alt="Scheng Holdings"
-          className={`h-12 w-auto ${theme === "dark" ? "mix-blend-lighten" : ""}`}
+          className={`h-14 w-auto ${theme === "dark" ? "mix-blend-lighten" : ""}`}
           width={180}
           height={48}
         />
