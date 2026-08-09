@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SchengVentures } from "@/components/scheng/sections";
 
-const title = "Empresas — Scheng Holdings";
+const title = "Scheng Holdings";
 const description =
   "Scheng Orbital System, Scheng Imports, Scheng Technology e Scheng Atelier: as quatro empresas do grupo e o que cada uma faz.";
 const url = "https://www.companyscheng.com/scheng/empresas";

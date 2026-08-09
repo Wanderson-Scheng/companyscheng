@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SchengContact } from "@/components/scheng/sections";
 
-const title = "Contacto — Scheng Holdings";
+const title = "Scheng Holdings";
 const description =
   "Fale com a Scheng Holdings para parcerias, propostas ou perguntas sobre qualquer empresa do grupo. Respondemos a todos os contactos.";
 const url = "https://www.companyscheng.com/scheng/contacto";
