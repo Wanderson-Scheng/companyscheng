@@ -357,20 +357,106 @@ export function SchengValues() {
 }
 
 export function SchengContact() {
-  const { t } = useScheng();
+  const { t, lang } = useScheng();
+  const send = useServerFn(submitContact);
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error" | "invalid">("idle");
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const payload = {
+      name: String(fd.get("name") ?? "").trim(),
+      email: String(fd.get("email") ?? "").trim(),
+      company: String(fd.get("company") ?? "").trim(),
+      subject: String(fd.get("subject") ?? "").trim(),
+      message: String(fd.get("message") ?? "").trim(),
+      website: String(fd.get("website") ?? ""),
+      locale: lang,
+    };
+    if (payload.name.length < 2 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(payload.email) || payload.message.length < 10) {
+      setStatus("invalid");
+      return;
+    }
+    setStatus("sending");
+    try {
+      const res = await send({ data: payload });
+      if (res.ok) {
+        setStatus("ok");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  const fieldClass =
+    "w-full rounded-xl border border-[var(--scheng-line)] bg-[var(--scheng-bg)]/60 px-4 py-3 text-sm text-[var(--scheng-fg)] outline-none transition-colors placeholder:text-[var(--scheng-muted)] focus:border-[var(--scheng-gold)]";
+
   return (
     <section id="contacto" className="px-5 py-20 md:py-24">
       <Reveal>
-        <div className="mx-auto max-w-3xl rounded-3xl border border-[var(--scheng-gold)]/25 bg-gradient-to-b from-[var(--scheng-gold)]/10 to-transparent p-7 text-center sm:p-10">
+        <div className="mx-auto max-w-3xl rounded-3xl border border-[var(--scheng-gold)]/25 bg-gradient-to-b from-[var(--scheng-gold)]/10 to-transparent p-7 sm:p-10">
+          <div className="text-center">
           <h2 className="text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
             {t("contact.title")}
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-[var(--scheng-muted)]">
             {t("contact.text")}
           </p>
+          </div>
+
+          <form onSubmit={onSubmit} className="mx-auto mt-8 grid max-w-xl gap-3 text-left">
+            <div className="grid gap-3 sm:grid-cols-2">
+              <label className="grid gap-1.5">
+                <span className="text-xs font-medium text-[var(--scheng-muted)]">{t("form.name")}</span>
+                <input name="name" required maxLength={100} autoComplete="name" className={fieldClass} />
+              </label>
+              <label className="grid gap-1.5">
+                <span className="text-xs font-medium text-[var(--scheng-muted)]">{t("form.email")}</span>
+                <input name="email" type="email" required maxLength={255} autoComplete="email" className={fieldClass} />
+              </label>
+              <label className="grid gap-1.5">
+                <span className="text-xs font-medium text-[var(--scheng-muted)]">{t("form.company")}</span>
+                <input name="company" maxLength={120} autoComplete="organization" className={fieldClass} />
+              </label>
+              <label className="grid gap-1.5">
+                <span className="text-xs font-medium text-[var(--scheng-muted)]">{t("form.subject")}</span>
+                <input name="subject" maxLength={150} className={fieldClass} />
+              </label>
+            </div>
+            <label className="grid gap-1.5">
+              <span className="text-xs font-medium text-[var(--scheng-muted)]">{t("form.message")}</span>
+              <textarea name="message" required rows={5} maxLength={2000} className={`${fieldClass} resize-y`} />
+            </label>
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[var(--scheng-gold-deep)] to-[var(--scheng-gold)] px-7 py-3.5 text-sm font-bold text-[var(--scheng-ink-deep)] transition-transform duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {status === "sending" ? t("form.sending") : t("form.send")}
+            </button>
+            <p aria-live="polite" className="min-h-5 text-center text-sm">
+              {status === "ok" && <span className="text-[var(--scheng-gold)]">{t("form.ok")}</span>}
+              {status === "error" && <span className="text-red-400">{t("form.error")}</span>}
+              {status === "invalid" && <span className="text-red-400">{t("form.invalid")}</span>}
+            </p>
+          </form>
+
+          <p className="mt-2 text-center text-xs text-[var(--scheng-muted)]">{t("form.or")}</p>
           <a
             href={`mailto:${email}`}
-            className="mt-8 inline-flex max-w-full items-center gap-2 break-all rounded-full bg-gradient-to-r from-[var(--scheng-gold-deep)] to-[var(--scheng-gold)] px-6 py-3.5 text-sm font-bold text-[var(--scheng-ink-deep)] transition-transform duration-300 hover:-translate-y-0.5 sm:px-8"
+            className="mx-auto mt-2 flex w-fit max-w-full items-center gap-2 break-all rounded-full border border-[var(--scheng-line)] px-5 py-2.5 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]"
           >
             <Mail className="size-4 shrink-0" />
             {email}
