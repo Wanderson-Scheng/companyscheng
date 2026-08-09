@@ -20,8 +20,55 @@ export type Venture = {
   logos?: VentureLogo[];
   /** Number of i18n feature bullets available (`${k}.f1`...). */
   features: number;
-  external?: { to: "/"; labelKey: string };
+  products?: Product[];
 };
+
+export type Product = {
+  slug: string;
+  k: string;
+  name: string;
+  logo: VentureLogo;
+  features: number;
+  /** Set when the product already has a dedicated site inside this app. */
+  externalTo?: "/";
+  parentSlug: string;
+  parentName: string;
+};
+
+export const products: Product[] = [
+  {
+    slug: "guiafin",
+    k: "pr1",
+    name: "GuiaFin",
+    logo: { src: logoGuiafin.url, label: "GuiaFin", chip: "dark" },
+    features: 3,
+    externalTo: "/",
+    parentSlug: "scheng-technology",
+    parentName: "Scheng Technology",
+  },
+  {
+    slug: "3d-scheng",
+    k: "pr2",
+    name: "3D Scheng",
+    logo: { src: logo3d.url, label: "3D Scheng", chip: "dark" },
+    features: 3,
+    parentSlug: "scheng-technology",
+    parentName: "Scheng Technology",
+  },
+  {
+    slug: "scheng-pro",
+    k: "pr3",
+    name: "Scheng Pro",
+    logo: { src: logoPro.url, label: "Scheng Pro", chip: "light", zoom: true },
+    features: 3,
+    parentSlug: "scheng-technology",
+    parentName: "Scheng Technology",
+  },
+];
+
+export function getProduct(slug: string) {
+  return products.find((p) => p.slug === slug);
+}
 
 export const ventures: Venture[] = [
   {
@@ -55,7 +102,7 @@ export const ventures: Venture[] = [
       { src: logoGuiafin.url, label: "GuiaFin", chip: "dark" },
     ],
     features: 3,
-    external: { to: "/", labelKey: "v3.cta" },
+    products: products.filter((p) => p.parentSlug === "scheng-technology"),
   },
   {
     slug: "scheng-atelier",
