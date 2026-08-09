@@ -27,6 +27,7 @@ import { Reveal } from "@/components/landing/reveal";
 import { useScheng } from "@/components/scheng/context";
 
 const email = "Info@companyscheng.com";
+const companyPhone = "+351 914293350";
 const founderEmail = "Wanderson@companyscheng.com";
 const phone = "+351 963614366";
 const whatsappUrl = "https://wa.me/351963614366";
@@ -609,13 +610,22 @@ export function SchengContact() {
 
           <div className="mt-5 border-t border-[var(--scheng-line)] pt-5">
             <p className="text-center text-xs text-[var(--scheng-muted)]">{t("form.or")}</p>
-            <a
-              href={`mailto:${email}`}
-              className="mx-auto mt-3 flex w-fit max-w-full items-center gap-2 break-all rounded-full border border-[var(--scheng-line)] px-5 py-2.5 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]"
-            >
-              <Mail className="size-4 shrink-0" />
-              {email}
-            </a>
+            <div className="mt-3 flex flex-wrap justify-center gap-2">
+              <a
+                href={`mailto:${email}`}
+                className="inline-flex max-w-full items-center gap-2 break-all rounded-full border border-[var(--scheng-line)] px-5 py-2.5 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]"
+              >
+                <Mail className="size-4 shrink-0" />
+                {email}
+              </a>
+              <a
+                href={`tel:${companyPhone.replaceAll(" ", "")}`}
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--scheng-line)] px-5 py-2.5 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]"
+              >
+                <Phone className="size-4 shrink-0" />
+                {companyPhone}
+              </a>
+            </div>
           </div>
         </div>
       </Reveal>
