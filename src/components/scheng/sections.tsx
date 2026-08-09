@@ -350,7 +350,7 @@ type Venture = {
   icon: typeof Rocket;
   k: string;
   name: string;
-  logos?: { src: string; label: string; chip?: "light" | "dark" }[];
+  logos?: { src: string; label: string; chip?: "light" | "dark"; zoom?: boolean }[];
   to?: "/";
 };
 
@@ -365,7 +365,7 @@ const ventures: Venture[] = [
     icon: Building2,
     k: "v2",
     name: "Scheng Imports",
-    logos: [{ src: importsLogo.url, label: "Scheng Imports", chip: "light" as const }],
+    logos: [{ src: importsLogo.url, label: "Scheng Imports", chip: "light" as const, zoom: true }],
   },
   {
     icon: Boxes,
@@ -414,7 +414,7 @@ export function SchengVentures() {
                           <img
                             src={l.src}
                             alt={l.label}
-                            className="block size-full object-contain"
+                            className={`block size-full object-contain ${l.zoom ? "scale-[1.65]" : ""}`}
                             width={40}
                             height={40}
                             loading="lazy"
