@@ -13,7 +13,7 @@ import {
 } from "@/components/landing/sections";
 import { I18nProvider } from "@/lib/i18n";
 
-const title = "GuiaFin — Finanças pessoais offline, privadas e sem assinatura";
+const title = "Scheng Holdings";
 const description =
   "Controle rendimentos, despesas, parcelamentos, contas, cartões e metas de poupança no seu telemóvel. Offline total, dados locais, proteção por PIN, sem anúncios.";
 

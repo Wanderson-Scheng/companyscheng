@@ -11,13 +11,10 @@ export const Route = createFileRoute("/scheng/produtos/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [
-          { title: "Produto não encontrado — Scheng Holdings" },
-          { name: "robots", content: "noindex" },
-        ],
+        meta: [{ title: "Scheng Holdings" }, { name: "robots", content: "noindex" }],
       };
     }
-    const title = `${loaderData.name} — ${loaderData.parentName}`;
+    const title = "Scheng Holdings";
     const description = `${loaderData.name}, produto da ${loaderData.parentName}, grupo Scheng Holdings: o que faz, principais características e contacto.`;
     const url = `https://www.companyscheng.com/scheng/produtos/${loaderData.slug}`;
     return {

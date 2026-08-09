@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SchengAbout, SchengFounder } from "@/components/scheng/sections";
 
-const title = "O grupo — Scheng Holdings";
+const title = "Scheng Holdings";
 const description =
   "Como a Scheng Holdings está organizada e quem a fundou: estratégia, propriedade intelectual e recursos partilhados entre quatro empresas autónomas.";
 const url = "https://www.companyscheng.com/scheng/grupo";

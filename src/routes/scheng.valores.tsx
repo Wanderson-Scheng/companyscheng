@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SchengValues } from "@/components/scheng/sections";
 
-const title = "Valores — Scheng Holdings";
+const title = "Scheng Holdings";
 const description =
   "Simplicidade, confiança, autonomia e excelência: os princípios que orientam o trabalho de todas as empresas do grupo Scheng.";
 const url = "https://www.companyscheng.com/scheng/valores";

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SchengHero, SchengHighlights } from "@/components/scheng/sections";
 
-const title = "Scheng Holdings — Aeroespacial, comércio e tecnologia";
+const title = "Scheng Holdings";
 const description =
   "A Scheng Holdings detém e desenvolve quatro empresas independentes em Portugal: aeroespacial, comercial, tecnológica e artesanal.";
 const url = "https://www.companyscheng.com/scheng";
