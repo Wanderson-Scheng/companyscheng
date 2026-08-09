@@ -41,8 +41,7 @@ const tabs = [
 ] as const;
 
 function useBrandLogo() {
-  const { theme } = useScheng();
-  return theme === "dark" ? logoGoldUrl : logoNavyUrl;
+  return logoNavyUrl;
 }
 
 function ThemeLangControls({ compact = false }: { compact?: boolean }) {
@@ -99,7 +98,7 @@ export function SchengNav() {
             eager
             src={brand}
             alt="Scheng Holdings"
-            className={`h-9 w-auto shrink-0 md:h-10 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
+            className="h-9 w-auto shrink-0 md:h-10"
             width={160}
             height={40}
           />
@@ -146,7 +145,7 @@ export function SchengNav() {
 }
 
 export function SchengHero() {
-  const { t, theme } = useScheng();
+  const { t } = useScheng();
   const brand = useBrandLogo();
   return (
     <section className="relative overflow-hidden px-5 pb-20 pt-16 md:pb-24 md:pt-24">
@@ -160,15 +159,10 @@ export function SchengHero() {
             eager
             src={brand}
             alt="Logótipo Scheng Holdings"
-            className={`mx-auto h-32 w-auto sm:h-40 md:h-52 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
+            className="mx-auto h-32 w-auto sm:h-40 md:h-52"
             width={520}
             height={340}
           />
-        </Reveal>
-        <Reveal delay={120}>
-          <p className="mt-2 text-[0.7rem] font-semibold uppercase tracking-[0.42em] text-[var(--scheng-gold)]">
-            {t("hero.eyebrow")}
-          </p>
         </Reveal>
         <Reveal delay={200}>
           <h1 className="mt-6 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-[var(--scheng-fg)] sm:text-4xl md:text-6xl">
