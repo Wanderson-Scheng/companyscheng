@@ -6,7 +6,7 @@ export const Route = createFileRoute("/scheng/empresas/$slug")({
   loader: ({ params }) => {
     const venture = getVenture(params.slug);
     if (!venture) throw notFound();
-    return { name: venture.name, slug: venture.slug, tagline: venture.tagline ?? "" };
+    return { name: venture.name, slug: venture.slug };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/scheng/empresas/$slug")({
             "@type": "Organization",
             name: loaderData.name,
             url,
-            description: loaderData.tagline || description,
+            description,
             parentOrganization: {
               "@type": "Organization",
               name: "Scheng Holdings",
