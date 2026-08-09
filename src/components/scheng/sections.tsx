@@ -226,7 +226,7 @@ const ventures: Venture[] = [
     icon: Rocket,
     k: "v1",
     name: "Scheng Orbital System",
-    logos: [{ src: orbitalColor.url, label: "Scheng Orbital System" }],
+    logos: [{ src: orbitalColor.url, label: "Scheng Orbital System", chip: "light" as const }],
   },
   { icon: Building2, k: "v2", name: "Scheng Imports" },
   {
@@ -234,8 +234,8 @@ const ventures: Venture[] = [
     k: "v3",
     name: "Scheng Technology",
     logos: [
-      { src: logo3d.url, label: "3D Scheng" },
-      { src: logoGuiafin.url, label: "GuiaFin" },
+      { src: logo3d.url, label: "3D Scheng", chip: "dark" as const },
+      { src: logoGuiafin.url, label: "GuiaFin", chip: "dark" as const },
     ],
     to: "/",
   },
