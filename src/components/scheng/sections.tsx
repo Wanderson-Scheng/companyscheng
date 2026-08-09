@@ -27,10 +27,10 @@ import { Reveal } from "@/components/landing/reveal";
 import { useScheng } from "@/components/scheng/context";
 
 const email = "Info@companyscheng.com";
-const companyPhone = "+351 914293350";
+const companyPhone = "+351 963614366";
 const founderEmail = "Wanderson@companyscheng.com";
-const phone = "+351 963614366";
-const whatsappUrl = "https://wa.me/351963614366";
+const phone = "+351 914293350";
+const whatsappUrl = "https://wa.me/351914293350";
 const instagramUrl = "https://www.instagram.com/guiafin_?igsh=bzV0NDAybnJmMmRs";
 const linkedinUrl = "https://www.linkedin.com/in/wanderson-scheng-769b72379";
 
