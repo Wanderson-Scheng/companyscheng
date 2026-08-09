@@ -1,13 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import {
-  SchengAbout,
-  SchengContact,
-  SchengFooter,
-  SchengHero,
-  SchengNav,
-  SchengValues,
-  SchengVentures,
-} from "@/components/scheng/sections";
+import { createFileRoute, Outlet } from "@tanstack/react-router";
+import { SchengFooter, SchengNav } from "@/components/scheng/sections";
 import { SchengProvider, useScheng } from "@/components/scheng/context";
 
 const title = "Scheng Holdings — Tecnologia, engenharia e produto";
@@ -67,11 +59,7 @@ function SchengShell() {
     >
       <SchengNav />
       <main>
-        <SchengHero />
-        <SchengAbout />
-        <SchengVentures />
-        <SchengValues />
-        <SchengContact />
+        <Outlet />
       </main>
       <SchengFooter />
     </div>
