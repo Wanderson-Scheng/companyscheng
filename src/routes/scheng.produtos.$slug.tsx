@@ -6,7 +6,7 @@ export const Route = createFileRoute("/scheng/produtos/$slug")({
   loader: ({ params }) => {
     const product = getProduct(params.slug);
     if (!product) throw notFound();
-    return { name: product.name, parentName: product.parentName };
+    return { name: product.name, parentName: product.parentName, slug: params.slug };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -19,6 +19,7 @@ export const Route = createFileRoute("/scheng/produtos/$slug")({
     }
     const title = `${loaderData.name} — ${loaderData.parentName}`;
     const description = `${loaderData.name}, produto da ${loaderData.parentName}, grupo Scheng Holdings: o que faz, principais características e contacto.`;
+    const url = `https://www.companyscheng.com/scheng/produtos/${loaderData.slug}`;
     return {
       meta: [
         { title },
@@ -26,9 +27,24 @@ export const Route = createFileRoute("/scheng/produtos/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: url },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: loaderData.name,
+            url,
+            description,
+            brand: { "@type": "Brand", name: loaderData.parentName },
+          }),
+        },
       ],
     };
   },
