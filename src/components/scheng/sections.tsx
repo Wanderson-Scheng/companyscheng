@@ -41,7 +41,8 @@ const tabs = [
 ] as const;
 
 function useBrandLogo() {
-  return logoNavyUrl;
+  const { theme } = useScheng();
+  return theme === "dark" ? logoGoldUrl : logoNavyUrl;
 }
 
 function ThemeLangControls({ compact = false }: { compact?: boolean }) {
@@ -98,7 +99,7 @@ export function SchengNav() {
             eager
             src={brand}
             alt="Scheng Holdings"
-            className="h-9 w-auto shrink-0 md:h-10"
+            className={`h-9 w-auto shrink-0 md:h-10 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
             width={160}
             height={40}
           />
@@ -145,7 +146,7 @@ export function SchengNav() {
 }
 
 export function SchengHero() {
-  const { t } = useScheng();
+  const { t, theme } = useScheng();
   const brand = useBrandLogo();
   return (
     <section className="relative overflow-hidden px-5 pb-20 pt-16 md:pb-24 md:pt-24">
@@ -159,7 +160,7 @@ export function SchengHero() {
             eager
             src={brand}
             alt="Logótipo Scheng Holdings"
-            className="mx-auto h-32 w-auto sm:h-40 md:h-52"
+            className={`mx-auto h-32 w-auto sm:h-40 md:h-52 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
             width={520}
             height={340}
           />
