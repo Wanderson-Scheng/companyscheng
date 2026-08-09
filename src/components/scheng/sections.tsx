@@ -200,6 +200,45 @@ const highlights = [
   { icon: Mail, to: "/scheng/contacto", k: "h4" },
 ] as const;
 
+function CompanyMarks() {
+  return (
+    <span className="flex items-center gap-2" aria-label="Scheng Holdings — quatro empresas">
+      {ventures.map((venture) => {
+        const logo = venture.products?.length ? undefined : venture.logos?.[0];
+
+        return logo ? (
+          <span
+            key={venture.slug}
+            className={`grid size-10 shrink-0 place-items-center overflow-hidden rounded-xl p-1.5 ring-1 transition-transform duration-300 group-hover:-translate-y-0.5 ${
+              logo.chip === "light"
+                ? "bg-white ring-black/5"
+                : logo.chip === "dark"
+                  ? "bg-[#0b1220] ring-white/10"
+                  : "bg-[var(--scheng-surface)] ring-[var(--scheng-line)]"
+            }`}
+          >
+            <img
+              src={logo.src}
+              alt={logo.label}
+              className={`size-full object-contain ${logo.zoom ? "scale-[1.45]" : ""}`}
+              width={32}
+              height={32}
+              loading="lazy"
+            />
+          </span>
+        ) : (
+          <span
+            key={venture.slug}
+            className="grid size-10 shrink-0 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)] transition-transform duration-300 group-hover:-translate-y-0.5"
+          >
+            <venture.icon className="size-5" aria-hidden="true" />
+          </span>
+        );
+      })}
+    </span>
+  );
+}
+
 export function SchengHighlights() {
   const { t } = useScheng();
   return (
@@ -220,9 +259,13 @@ export function SchengHighlights() {
                 to={h.to}
                 className="group flex h-full flex-col rounded-3xl border border-[var(--scheng-line)] bg-[var(--scheng-ink)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--scheng-gold)]/45 hover:shadow-[0_30px_60px_-40px_var(--scheng-gold)] sm:p-7"
               >
-                <span className="grid size-11 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
-                  <h.icon className="size-5" />
-                </span>
+                {h.k === "h1" ? (
+                  <CompanyMarks />
+                ) : (
+                  <span className="grid size-11 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
+                    <h.icon className="size-5" />
+                  </span>
+                )}
                 <h3 className="mt-5 text-lg font-bold text-[var(--scheng-fg)]">{t(`${h.k}.t`)}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--scheng-muted)]">
                   {t(`${h.k}.d`)}
