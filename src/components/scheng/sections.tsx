@@ -28,6 +28,14 @@ const email = "Info@companyscheng.com";
 const instagramUrl = "https://www.instagram.com/guiafin_?igsh=bzV0NDAybnJmMmRs";
 const linkedinUrl = "https://www.linkedin.com/in/wanderson-scheng-769b72379";
 
+const tabs = [
+  { to: "/scheng", key: "nav.home" },
+  { to: "/scheng/grupo", key: "nav.group" },
+  { to: "/scheng/empresas", key: "nav.companies" },
+  { to: "/scheng/valores", key: "nav.values" },
+  { to: "/scheng/contacto", key: "nav.contact" },
+] as const;
+
 function useBrandLogo() {
   const { theme } = useScheng();
   return theme === "dark" ? logoGold.url : logoNavy.url;
