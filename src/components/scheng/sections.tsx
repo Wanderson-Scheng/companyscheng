@@ -225,8 +225,8 @@ const ventures: Venture[] = [
   {
     icon: Rocket,
     k: "v1",
-    name: "Schengen Orbital System",
-    logos: [{ src: orbitalColor.url, label: "Schengen Orbital System" }],
+    name: "Scheng Orbital System",
+    logos: [{ src: orbitalColor.url, label: "Scheng Orbital System" }],
   },
   { icon: Building2, k: "v2", name: "Scheng Imports" },
   {
@@ -239,7 +239,7 @@ const ventures: Venture[] = [
     ],
     to: "/",
   },
-  { icon: Sparkles, k: "v4", name: "Schengen Atelier" },
+  { icon: Sparkles, k: "v4", name: "Scheng Atelier" },
 ];
 
 export function SchengVentures() {
