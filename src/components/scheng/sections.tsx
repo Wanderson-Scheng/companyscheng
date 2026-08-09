@@ -610,20 +610,22 @@ export function SchengContact() {
 
           <div className="mt-5 border-t border-[var(--scheng-line)] pt-5">
             <p className="text-center text-xs text-[var(--scheng-muted)]">{t("form.or")}</p>
-            <div className="mt-3 flex flex-wrap justify-center gap-2">
+            <div className="mt-3 flex items-center justify-center gap-3">
               <a
                 href={`mailto:${email}`}
-                className="inline-flex max-w-full items-center gap-2 break-all rounded-full border border-[var(--scheng-line)] px-5 py-2.5 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]"
+                title={email}
+                aria-label={email}
+                className="grid size-10 place-items-center rounded-full border border-[var(--scheng-line)] text-[var(--scheng-muted)] transition-colors hover:border-[var(--scheng-gold)] hover:text-[var(--scheng-gold)]"
               >
-                <Mail className="size-4 shrink-0" />
-                {email}
+                <Mail className="size-4" />
               </a>
               <a
                 href={`tel:${companyPhone.replaceAll(" ", "")}`}
-                className="inline-flex items-center gap-2 rounded-full border border-[var(--scheng-line)] px-5 py-2.5 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]"
+                title={companyPhone}
+                aria-label={companyPhone}
+                className="grid size-10 place-items-center rounded-full border border-[var(--scheng-line)] text-[var(--scheng-muted)] transition-colors hover:border-[var(--scheng-gold)] hover:text-[var(--scheng-gold)]"
               >
-                <Phone className="size-4 shrink-0" />
-                {companyPhone}
+                <Phone className="size-4" />
               </a>
             </div>
           </div>
