@@ -102,7 +102,7 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
           <div className="mt-14 flex flex-wrap items-center gap-3">
             <Link
               to="/scheng/contacto"
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--scheng-gold)] px-6 py-3 text-sm font-semibold text-[var(--scheng-on-gold)] transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--scheng-gold-deep)] via-[var(--scheng-gold)] to-[var(--scheng-gold-deep)] px-6 py-3 text-sm font-bold text-[var(--scheng-ink-deep)] shadow-[0_18px_45px_-18px_var(--scheng-gold)] transition-transform duration-300 hover:-translate-y-0.5"
             >
               {t("detail.cta")}
               <ArrowUpRight className="size-4" />
