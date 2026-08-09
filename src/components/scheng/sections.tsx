@@ -27,6 +27,7 @@ import logo3d from "@/assets/scheng3d-logo-transparent.png.asset.json";
 import logoGuiafin from "@/assets/guiafin-icon-transparent.png.asset.json";
 import { Reveal } from "@/components/landing/reveal";
 import { useScheng } from "@/components/scheng/context";
+import { ventures } from "@/components/scheng/ventures";
 
 const email = "Info@companyscheng.com";
 const companyPhone = "+351 963614366";
