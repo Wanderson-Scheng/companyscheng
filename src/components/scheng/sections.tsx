@@ -266,9 +266,11 @@ export function SchengVentures() {
                         <span
                           key={l.label}
                           className={`grid size-12 shrink-0 place-items-center overflow-hidden rounded-xl p-1.5 transition-transform duration-500 group-hover:-translate-y-0.5 ${
-                            v.k === "v1"
+                            l.chip === "light"
                               ? "bg-white ring-1 ring-black/5"
-                              : "bg-[var(--scheng-surface)]"
+                              : l.chip === "dark"
+                                ? "bg-[#0b1220] ring-1 ring-white/10"
+                                : "bg-[var(--scheng-surface)]"
                           }`}
                         >
                           <img
