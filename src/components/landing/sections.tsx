@@ -1,7 +1,3 @@
-import { useEffect, useState, type CSSProperties } from "react";
-import { Reveal } from "@/components/landing/reveal";
-import { Typewriter } from "@/components/landing/typewriter";
-import { appStoreUrl } from "@/lib/links";
 import {
   ArrowLeftRight,
   BadgeCheck,
@@ -10,6 +6,7 @@ import {
   HardDrive,
   Landmark,
   Lock,
+  type LucideIcon,
   Minus,
   Moon,
   PiggyBank,
@@ -17,18 +14,21 @@ import {
   Repeat,
   Star,
   WifiOff,
-  type LucideIcon,
 } from "lucide-react";
+import { type CSSProperties, useEffect, useState } from "react";
+import { Reveal } from "@/components/landing/reveal";
+import { Typewriter } from "@/components/landing/typewriter";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
 } from "@/components/ui/carousel";
 import { useI18n } from "@/lib/i18n";
+import { appStoreUrl } from "@/lib/links";
 
 function SectionHeader({
   eyebrow,
@@ -87,13 +87,18 @@ export function Features() {
               </span>
               <div className="feature-story-card feature-plate group">
                 <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-all duration-300 group-hover:rotate-3 group-hover:bg-primary group-hover:text-primary-foreground">
-                  <Icon className="size-5 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+                  <Icon
+                    className="size-5 transition-transform duration-300 group-hover:scale-110"
+                    aria-hidden="true"
+                  />
                 </span>
                 <div className="min-w-0">
                   <h3 className="text-base font-bold tracking-tight">
                     <Typewriter text={t(`f.${k}.t`)} />
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(`f.${k}.d`)}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {t(`f.${k}.d`)}
+                  </p>
                 </div>
               </div>
             </Reveal>
@@ -112,7 +117,11 @@ export function WhyGuiaFin() {
     <section id="why" className="bg-surface py-16 sm:py-20">
       <div className="mx-auto max-w-5xl px-5">
         <Reveal>
-          <SectionHeader eyebrow={t("why.eyebrow")} title={t("why.title")} subtitle={t("why.subtitle")} />
+          <SectionHeader
+            eyebrow={t("why.eyebrow")}
+            title={t("why.title")}
+            subtitle={t("why.subtitle")}
+          />
         </Reveal>
         <Reveal className="mt-10 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-soft)]">
           <div className="comparison-sheen" aria-hidden="true" />
@@ -226,16 +235,16 @@ export function Screens() {
                       alt={t(`s.${k}.t`)}
                       loading="lazy"
                       decoding="async"
-                       width={819}
-                       height={1652}
-                       className="screen-shot mx-auto w-[min(100%,15rem)] drop-shadow-xl transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-[1.02]"
-                     />
-                     <div className="screen-caption mt-5">
-                       <h3 className="text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
-                       <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                         {t(`s.${k}.d`)}
-                       </p>
-                     </div>
+                      width={819}
+                      height={1652}
+                      className="screen-shot mx-auto w-[min(100%,15rem)] drop-shadow-xl transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-[1.02]"
+                    />
+                    <div className="screen-caption mt-5">
+                      <h3 className="text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                        {t(`s.${k}.d`)}
+                      </p>
+                    </div>
                   </article>
                 </CarouselItem>
               ))}
@@ -250,25 +259,29 @@ export function Screens() {
             />
           </Carousel>
 
-          <div className="mt-8 flex items-center justify-center gap-2" role="tablist" aria-label={t("screens.title")}>
+          <div
+            className="mt-8 flex items-center justify-center gap-2"
+            role="tablist"
+            aria-label={t("screens.title")}
+          >
             {screenShots.map(({ k }, index) => (
               <Button
                 key={k}
                 type="button"
                 variant="ghost"
                 size="icon"
-                 className={`size-2.5 rounded-full p-0 transition-all ${
-                   index === activeIndex ? "scale-125 bg-primary" : "bg-border hover:bg-primary/50"
-                 }`}
+                className={`size-2.5 rounded-full p-0 transition-all ${
+                  index === activeIndex ? "scale-125 bg-primary" : "bg-border hover:bg-primary/50"
+                }`}
                 onClick={() => api?.scrollTo(index)}
                 role="tab"
                 aria-selected={index === activeIndex}
                 aria-label={`${t("nav.screens")} ${index + 1}`}
               />
             ))}
-           </div>
+          </div>
         </Reveal>
-       </div>
+      </div>
     </section>
   );
 }
@@ -432,7 +445,10 @@ export function FinalCta() {
   return (
     <section id="download" className="bg-background py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-5">
-        <Reveal className="relative overflow-hidden rounded-[2rem] px-6 py-16 text-center sm:px-12" style={{ backgroundImage: "var(--gradient-primary)" }}>
+        <Reveal
+          className="relative overflow-hidden rounded-[2rem] px-6 py-16 text-center sm:px-12"
+          style={{ backgroundImage: "var(--gradient-primary)" }}
+        >
           <div className="cta-shimmer" aria-hidden="true" />
           <h2 className="mx-auto max-w-2xl text-3xl font-extrabold tracking-tight text-primary-foreground sm:text-4xl">
             {t("cta.title")}
@@ -454,23 +470,31 @@ export function FinalCta() {
                 <span className="block text-[0.65rem] font-medium text-muted-foreground">
                   {t("cta.appstoreSmall")}
                 </span>
-                <span className="block text-base font-bold text-foreground">{t("cta.appstore")}</span>
+                <span className="block text-base font-bold text-foreground">
+                  {t("cta.appstore")}
+                </span>
               </span>
             </a>
             <span className="inline-flex cursor-default items-center gap-3 rounded-2xl border border-primary-foreground/25 px-6 py-4 text-left opacity-70">
-              <svg viewBox="0 0 24 24" className="size-6 fill-primary-foreground" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                className="size-6 fill-primary-foreground"
+                aria-hidden="true"
+              >
                 <path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1zm12.5 6.2L6.2 2.9l7.3 7.3 2.6-1.7zM6.2 21.1l9.9-5.6-2.6-2.6-7.3 8.2zM19.9 10.7l-2.4-1.4-2.8 2.7 2.8 2.8 2.4-1.4c.8-.5.8-2.2 0-2.7z" />
               </svg>
               <span>
                 <span className="block text-[0.65rem] font-medium text-primary-foreground/75">
                   {t("cta.playSmall")}
                 </span>
-                <span className="block text-sm font-semibold text-primary-foreground">{t("cta.play")}</span>
+                <span className="block text-sm font-semibold text-primary-foreground">
+                  {t("cta.play")}
+                </span>
               </span>
             </span>
-           </div>
+          </div>
         </Reveal>
-       </div>
-     </section>
-   );
- }
+      </div>
+    </section>
+  );
+}

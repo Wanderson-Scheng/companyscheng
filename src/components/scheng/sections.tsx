@@ -1,11 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useState, type FormEvent } from "react";
-import { submitContact } from "@/lib/contact.functions";
 import {
   ArrowUpRight,
   Clock,
   Compass,
+  Instagram,
+  Linkedin,
   Mail,
   MessageCircle,
   Moon,
@@ -14,15 +14,17 @@ import {
   ShieldCheck,
   Sparkles,
   Sun,
-  Linkedin,
-  Instagram,
 } from "lucide-react";
+import { type FormEvent, useState } from "react";
+import { submitContact } from "@/lib/contact.functions";
+
 const logoGoldUrl = "/logos/logo-gold.png";
 const logoNavyUrl = "/logos/logo-navy.png";
+
 import { Reveal } from "@/components/landing/reveal";
-import { LazyImage } from "@/components/ui/lazy-image";
 import { useScheng } from "@/components/scheng/context";
 import { ventures } from "@/components/scheng/ventures";
+import { LazyImage } from "@/components/ui/lazy-image";
 
 const email = "Info@companyscheng.com";
 const companyPhone = "+351 963614366";
@@ -60,7 +62,13 @@ function ThemeLangControls({ compact = false }: { compact?: boolean }) {
         title={themeMode === "auto" ? "Auto (horário)" : themeMode === "dark" ? "Escuro" : "Claro"}
         className="grid size-9 place-items-center rounded-full border border-[var(--scheng-line)] text-[var(--scheng-muted)] transition-all duration-300 hover:scale-105 hover:text-[var(--scheng-gold)]"
       >
-        {themeMode === "dark" ? <Moon className="size-4" /> : themeMode === "light" ? <Sun className="size-4" /> : <Clock className="size-4" />}
+        {themeMode === "dark" ? (
+          <Moon className="size-4" />
+        ) : themeMode === "light" ? (
+          <Sun className="size-4" />
+        ) : (
+          <Clock className="size-4" />
+        )}
       </button>
       <div
         role="group"
@@ -363,9 +371,7 @@ export function SchengAbout() {
           <h1 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
             {t("about.title")}
           </h1>
-          <p className="mt-4 max-w-2xl text-[var(--scheng-muted)]">
-            {t("about.text")}
-          </p>
+          <p className="mt-4 max-w-2xl text-[var(--scheng-muted)]">{t("about.text")}</p>
         </Reveal>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 md:mt-12 md:grid-cols-3">
           {pillars.map((p, i) => (
@@ -513,7 +519,11 @@ export function SchengContact() {
       website: String(fd.get("website") ?? ""),
       locale: lang,
     };
-    if (payload.name.length < 2 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(payload.email) || payload.message.length < 10) {
+    if (
+      payload.name.length < 2 ||
+      !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(payload.email) ||
+      payload.message.length < 10
+    ) {
       setStatus("invalid");
       return;
     }
@@ -539,36 +549,68 @@ export function SchengContact() {
       <Reveal>
         <div className="mx-auto max-w-3xl rounded-3xl border border-[var(--scheng-gold)]/25 bg-gradient-to-b from-[var(--scheng-gold)]/10 to-transparent p-7 sm:p-10">
           <div className="text-center">
-          <h1 className="text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
-            {t("contact.title")}
-          </h1>
-          <p className="mx-auto mt-4 max-w-lg text-[var(--scheng-muted)]">
-            {t("contact.text")}
-          </p>
+            <h1 className="text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
+              {t("contact.title")}
+            </h1>
+            <p className="mx-auto mt-4 max-w-lg text-[var(--scheng-muted)]">{t("contact.text")}</p>
           </div>
 
           <form onSubmit={onSubmit} className="mx-auto mt-8 grid max-w-xl gap-3 text-left">
             <div className="grid gap-3 sm:grid-cols-2">
               <label className="grid gap-1.5">
-                <span className="text-xs font-medium text-[var(--scheng-muted)]">{t("form.name")}</span>
-                <input name="name" required maxLength={100} autoComplete="name" className={fieldClass} />
+                <span className="text-xs font-medium text-[var(--scheng-muted)]">
+                  {t("form.name")}
+                </span>
+                <input
+                  name="name"
+                  required
+                  maxLength={100}
+                  autoComplete="name"
+                  className={fieldClass}
+                />
               </label>
               <label className="grid gap-1.5">
-                <span className="text-xs font-medium text-[var(--scheng-muted)]">{t("form.email")}</span>
-                <input name="email" type="email" required maxLength={255} autoComplete="email" className={fieldClass} />
+                <span className="text-xs font-medium text-[var(--scheng-muted)]">
+                  {t("form.email")}
+                </span>
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  maxLength={255}
+                  autoComplete="email"
+                  className={fieldClass}
+                />
               </label>
               <label className="grid gap-1.5">
-                <span className="text-xs font-medium text-[var(--scheng-muted)]">{t("form.company")}</span>
-                <input name="company" maxLength={120} autoComplete="organization" className={fieldClass} />
+                <span className="text-xs font-medium text-[var(--scheng-muted)]">
+                  {t("form.company")}
+                </span>
+                <input
+                  name="company"
+                  maxLength={120}
+                  autoComplete="organization"
+                  className={fieldClass}
+                />
               </label>
               <label className="grid gap-1.5">
-                <span className="text-xs font-medium text-[var(--scheng-muted)]">{t("form.subject")}</span>
+                <span className="text-xs font-medium text-[var(--scheng-muted)]">
+                  {t("form.subject")}
+                </span>
                 <input name="subject" maxLength={150} className={fieldClass} />
               </label>
             </div>
             <label className="grid gap-1.5">
-              <span className="text-xs font-medium text-[var(--scheng-muted)]">{t("form.message")}</span>
-              <textarea name="message" required rows={5} maxLength={2000} className={`${fieldClass} resize-y`} />
+              <span className="text-xs font-medium text-[var(--scheng-muted)]">
+                {t("form.message")}
+              </span>
+              <textarea
+                name="message"
+                required
+                rows={5}
+                maxLength={2000}
+                className={`${fieldClass} resize-y`}
+              />
             </label>
             <input
               type="text"

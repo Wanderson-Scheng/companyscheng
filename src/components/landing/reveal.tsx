@@ -1,12 +1,12 @@
 import {
+  type ComponentPropsWithoutRef,
+  type CSSProperties,
   createElement,
+  type ElementType,
+  type ReactNode,
   useEffect,
   useRef,
   useState,
-  type ComponentPropsWithoutRef,
-  type CSSProperties,
-  type ElementType,
-  type ReactNode,
 } from "react";
 
 type RevealProps = {

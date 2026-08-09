@@ -1,11 +1,11 @@
 import {
   createContext,
+  type ReactNode,
   useCallback,
   useContext,
   useEffect,
   useMemo,
   useState,
-  type ReactNode,
 } from "react";
 
 export type SchengTheme = "light" | "dark";
@@ -64,8 +64,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
       "A Scheng Holdings nasceu da vontade de reunir, sob a mesma estrutura, projectos que já existiam de forma independente: engenharia, comércio de equipamento, software e produção artesanal.",
     "founder.p2":
       "O grupo mantém equipas pequenas e decisões rápidas. Cada empresa responde pelo que entrega e a holding garante os recursos, a marca e a visão de longo prazo.",
-    "founder.quote":
-      "Preferimos fazer poucas coisas e fazê-las de forma que aguente o tempo.",
+    "founder.quote": "Preferimos fazer poucas coisas e fazê-las de forma que aguente o tempo.",
 
     "about.eyebrow": "O grupo",
     "about.title": "Como o grupo está organizado",
@@ -81,9 +80,11 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "vent.eyebrow": "Empresas",
     "vent.title": "O que fazemos",
     "v1.tag": "Braço aeroespacial",
-    "v1.d": "Engenharia espacial e sistemas criogénicos, com foco em investigação e desenvolvimento.",
+    "v1.d":
+      "Engenharia espacial e sistemas criogénicos, com foco em investigação e desenvolvimento.",
     "v2.tag": "Braço comercial",
-    "v2.d": "Importação e venda de hardware: impressoras 3D, filamentos, ferramentas e sílica em gel.",
+    "v2.d":
+      "Importação e venda de hardware: impressoras 3D, filamentos, ferramentas e sílica em gel.",
     "v3.tag": "Braço tecnológico",
     "v3.d":
       "Detém o 3D Scheng, software de gestão de impressão 3D, e o GuiaFin, aplicação de finanças pessoais.",
@@ -96,7 +97,8 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "detail.gallery": "Imagens",
     "detail.products": "Produtos",
     "pr1.tag": "Aplicação móvel",
-    "pr1.d": "Aplicação de finanças pessoais que funciona sem ligação à Internet, sem publicidade e sem subscrição.",
+    "pr1.d":
+      "Aplicação de finanças pessoais que funciona sem ligação à Internet, sem publicidade e sem subscrição.",
     "pr1.long":
       "O GuiaFin permite controlar rendimentos, despesas, prestações, contas bancárias, cartões de crédito e metas de poupança. Todos os dados ficam guardados no telemóvel, protegidos por PIN.",
     "pr1.f1": "Funciona totalmente offline, com dados guardados no dispositivo.",
@@ -104,7 +106,8 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "pr1.f3": "Protecção por PIN, modo escuro e sem publicidade.",
     "pr1.cta": "Visitar o site do GuiaFin",
     "pr2.tag": "Software de gestão",
-    "pr2.d": "Plataforma de gestão e monitorização de impressão 3D para oficinas e produção em série.",
+    "pr2.d":
+      "Plataforma de gestão e monitorização de impressão 3D para oficinas e produção em série.",
     "pr2.long":
       "O 3D Scheng organiza filas de impressão, acompanha o estado das máquinas e regista o consumo de material, dando visibilidade sobre cada trabalho do início ao fim.",
     "pr2.f1": "Gestão de filas e de vários equipamentos em simultâneo.",
@@ -162,7 +165,8 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "form.sending": "A enviar...",
     "form.ok": "Mensagem recebida. Respondemos em breve.",
     "form.error": "Não foi possível enviar. Tente novamente ou escreva-nos por e-mail.",
-    "form.invalid": "Verifique os campos: o nome, um e-mail válido e uma mensagem com pelo menos 10 caracteres.",
+    "form.invalid":
+      "Verifique os campos: o nome, um e-mail válido e uma mensagem com pelo menos 10 caracteres.",
     "form.or": "Ou contacte-nos directamente",
     "form.whatsapp": "WhatsApp",
     "footer.rights": "Todos os direitos reservados.",
@@ -242,7 +246,8 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "pr1.f3": "PIN protection, dark mode and no advertising.",
     "pr1.cta": "Visit the GuiaFin site",
     "pr2.tag": "Management software",
-    "pr2.d": "A platform for managing and monitoring 3D printing in workshops and batch production.",
+    "pr2.d":
+      "A platform for managing and monitoring 3D printing in workshops and batch production.",
     "pr2.long":
       "3D Scheng organises print queues, tracks machine status and records material usage, giving full visibility over every job from start to finish.",
     "pr2.f1": "Queue management across several machines at once.",
@@ -300,7 +305,8 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "form.sending": "Sending...",
     "form.ok": "Message received. We will get back to you shortly.",
     "form.error": "We could not send it. Please try again or email us.",
-    "form.invalid": "Please check the fields: your name, a valid email and a message with at least 10 characters.",
+    "form.invalid":
+      "Please check the fields: your name, a valid email and a message with at least 10 characters.",
     "form.or": "Or contact us directly",
     "form.whatsapp": "WhatsApp",
     "footer.rights": "All rights reserved.",

@@ -33,9 +33,7 @@ export function SchengProductDetail({ product }: { product: Product }) {
           <h1 className="mt-6 text-3xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-4xl">
             {product.name}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-[var(--scheng-muted)]">
-            {t(`${product.k}.d`)}
-          </p>
+          <p className="mt-4 max-w-2xl text-lg text-[var(--scheng-muted)]">{t(`${product.k}.d`)}</p>
           <p className="mt-4 max-w-2xl leading-relaxed text-[var(--scheng-muted)]">
             {t(`${product.k}.long`)}
           </p>

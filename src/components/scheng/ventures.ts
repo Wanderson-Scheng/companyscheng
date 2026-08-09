@@ -1,4 +1,5 @@
-import { Building2, Boxes, Rocket, Sparkles } from "lucide-react";
+import { Boxes, Building2, Rocket, Sparkles } from "lucide-react";
+
 const orbitalColorUrl = "/logos/orbital-mark.png";
 const importsLogoUrl = "/logos/scheng-imports.png";
 const logoProUrl = "/logos/scheng-pro.png";
@@ -77,9 +78,7 @@ export const ventures: Venture[] = [
     icon: Rocket,
     k: "v1",
     name: "Scheng Orbital System",
-    logos: [
-      { src: orbitalColorUrl, label: "Scheng Orbital System", chip: "light" },
-    ],
+    logos: [{ src: orbitalColorUrl, label: "Scheng Orbital System", chip: "light" }],
     features: 3,
   },
   {
@@ -87,9 +86,7 @@ export const ventures: Venture[] = [
     icon: Building2,
     k: "v2",
     name: "Scheng Imports",
-    logos: [
-      { src: importsLogoUrl, label: "Scheng Imports", chip: "light", zoom: true },
-    ],
+    logos: [{ src: importsLogoUrl, label: "Scheng Imports", chip: "light", zoom: true }],
     features: 3,
   },
   {

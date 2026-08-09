@@ -1,8 +1,16 @@
-import { ArrowLeftRight, ArrowRight, Landmark, PiggyBank, ShieldCheck, Sparkles, WifiOff } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { appStoreUrl } from "@/lib/links";
+import {
+  ArrowLeftRight,
+  ArrowRight,
+  Landmark,
+  PiggyBank,
+  ShieldCheck,
+  Sparkles,
+  WifiOff,
+} from "lucide-react";
 import { LazyImage } from "@/components/ui/lazy-image";
 import { useI18n } from "@/lib/i18n";
+import { appStoreUrl } from "@/lib/links";
 
 const heroShotUrl = "/guiafin/app-dash.png";
 
@@ -40,7 +48,10 @@ export function Hero() {
               style={{ backgroundImage: "var(--gradient-primary)" }}
             >
               {t("hero.cta")}
-              <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+              <ArrowRight
+                className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
             </a>
             <a
               href="#features"
@@ -49,7 +60,6 @@ export function Hero() {
               {t("hero.secondary")}
             </a>
           </div>
-
         </div>
 
         <div className="hero-visual relative flex flex-col items-center gap-5">
@@ -80,19 +90,21 @@ export function Hero() {
                 </span>
               </div>
               <div className="hero-feature-grid" aria-label={t("features.title")}>
-              {explodedFeatures.map(({ icon: Icon, title, description }, index) => (
-                <div
-                  className="hero-feature-card"
-                  style={{ animationDelay: `${650 + index * 180}ms` }}
-                  key={title}
-                >
-                  <Icon className="size-4 shrink-0 text-primary" aria-hidden="true" />
-                  <div>
-                    <p className="text-xs font-bold leading-tight text-foreground">{t(title)}</p>
-                    <p className="mt-1 text-[10px] leading-snug text-muted-foreground">{t(description)}</p>
+                {explodedFeatures.map(({ icon: Icon, title, description }, index) => (
+                  <div
+                    className="hero-feature-card"
+                    style={{ animationDelay: `${650 + index * 180}ms` }}
+                    key={title}
+                  >
+                    <Icon className="size-4 shrink-0 text-primary" aria-hidden="true" />
+                    <div>
+                      <p className="text-xs font-bold leading-tight text-foreground">{t(title)}</p>
+                      <p className="mt-1 text-[10px] leading-snug text-muted-foreground">
+                        {t(description)}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
               </div>
             </div>
           </div>

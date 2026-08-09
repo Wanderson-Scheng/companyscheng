@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { I18nProvider } from "@/lib/i18n";
-import { Nav } from "@/components/landing/nav";
+import { Footer } from "@/components/landing/footer";
 import { Hero } from "@/components/landing/hero";
+import { Nav } from "@/components/landing/nav";
 import {
   AppStoreReviews,
   Faq,
@@ -11,7 +11,7 @@ import {
   Testimonials,
   WhyGuiaFin,
 } from "@/components/landing/sections";
-import { Footer } from "@/components/landing/footer";
+import { I18nProvider } from "@/lib/i18n";
 
 const title = "GuiaFin — Finanças pessoais offline, privadas e sem assinatura";
 const description =
