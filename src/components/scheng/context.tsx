@@ -20,6 +20,7 @@ type Ctx = {
 
 const dict: Record<SchengLang, Record<string, string>> = {
   pt: {
+    "nav.home": "Início",
     "nav.group": "Grupo",
     "nav.companies": "Empresas",
     "nav.values": "Valores",
@@ -34,6 +35,28 @@ const dict: Record<SchengLang, Record<string, string>> = {
       "A Scheng Holdings detém e desenvolve empresas nas áreas aeroespacial, comercial, tecnológica e artesanal. Cada uma opera de forma autónoma, com engenharia própria e responsabilidade sobre o que entrega.",
     "hero.cta1": "Ver as empresas",
     "hero.cta2": "Contactar",
+
+    "home.eyebrow": "Navegar",
+    "home.title": "Por onde quer começar?",
+    "home.more": "Ver mais",
+    "h1.t": "Empresas",
+    "h1.d": "As quatro empresas do grupo e a área em que cada uma trabalha.",
+    "h2.t": "O grupo",
+    "h2.d": "Como estamos organizados e quem fundou a holding.",
+    "h3.t": "Valores",
+    "h3.d": "Os princípios que orientam as decisões em todas as empresas.",
+    "h4.t": "Contacto",
+    "h4.d": "Parcerias, propostas ou perguntas: falamos consigo.",
+
+    "founder.eyebrow": "Fundador",
+    "founder.role": "Fundador e responsável pela estratégia do grupo",
+    "founder.title": "Uma holding construída a partir de projectos reais",
+    "founder.p1":
+      "A Scheng Holdings nasceu da vontade de reunir, sob a mesma estrutura, projectos que já existiam de forma independente: engenharia, comércio de equipamento, software e produção artesanal.",
+    "founder.p2":
+      "O grupo mantém equipas pequenas e decisões rápidas. Cada empresa responde pelo que entrega e a holding garante os recursos, a marca e a visão de longo prazo.",
+    "founder.quote":
+      "Preferimos fazer poucas coisas e fazê-las de forma que aguente o tempo.",
 
     "about.eyebrow": "O grupo",
     "about.title": "Como o grupo está organizado",
@@ -87,6 +110,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "footer.rights": "Todos os direitos reservados.",
   },
   en: {
+    "nav.home": "Home",
     "nav.group": "Group",
     "nav.companies": "Companies",
     "nav.values": "Values",
@@ -101,6 +125,27 @@ const dict: Record<SchengLang, Record<string, string>> = {
       "Scheng Holdings owns and builds companies across aerospace, trade, technology and craft. Each one runs independently, with its own engineering and full ownership of what it ships.",
     "hero.cta1": "See the companies",
     "hero.cta2": "Contact",
+
+    "home.eyebrow": "Explore",
+    "home.title": "Where would you like to start?",
+    "home.more": "See more",
+    "h1.t": "Companies",
+    "h1.d": "The four companies in the group and what each one works on.",
+    "h2.t": "The group",
+    "h2.d": "How we are organised and who founded the holding.",
+    "h3.t": "Values",
+    "h3.d": "The principles behind decisions across every company.",
+    "h4.t": "Contact",
+    "h4.d": "Partnerships, proposals or questions: let's talk.",
+
+    "founder.eyebrow": "Founder",
+    "founder.role": "Founder, responsible for group strategy",
+    "founder.title": "A holding built from real projects",
+    "founder.p1":
+      "Scheng Holdings was created to bring together, under one structure, projects that already existed independently: engineering, hardware trade, software and craft production.",
+    "founder.p2":
+      "The group keeps small teams and fast decisions. Each company owns what it ships, while the holding provides resources, the brand and the long-term view.",
+    "founder.quote": "We would rather do a few things, and do them so they last.",
 
     "about.eyebrow": "The group",
     "about.title": "How the group is organised",

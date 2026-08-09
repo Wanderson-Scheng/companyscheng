@@ -171,20 +171,114 @@ export function SchengHero() {
         </Reveal>
         <Reveal delay={360}>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#empresas"
+            <Link
+              to="/scheng/empresas"
               className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--scheng-gold-deep)] via-[var(--scheng-gold)] to-[var(--scheng-gold-deep)] px-7 py-3.5 text-sm font-bold text-[var(--scheng-ink-deep)] shadow-[0_18px_45px_-18px_var(--scheng-gold)] transition-transform duration-300 hover:-translate-y-0.5 scheng-sheen"
             >
               {t("hero.cta1")}
               <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-            <a
-              href="#contacto"
+            </Link>
+            <Link
+              to="/scheng/contacto"
               className="inline-flex items-center gap-2 rounded-full border border-[var(--scheng-line)] px-7 py-3.5 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]/50"
             >
               {t("hero.cta2")}
-            </a>
+            </Link>
           </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+const highlights = [
+  { icon: Rocket, to: "/scheng/empresas", k: "h1" },
+  { icon: Compass, to: "/scheng/grupo", k: "h2" },
+  { icon: ShieldCheck, to: "/scheng/valores", k: "h3" },
+  { icon: Mail, to: "/scheng/contacto", k: "h4" },
+] as const;
+
+export function SchengHighlights() {
+  const { t } = useScheng();
+  return (
+    <section className="border-t border-[var(--scheng-line)] bg-[var(--scheng-surface)] px-5 py-16 md:py-20">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-[var(--scheng-gold)]">
+            {t("home.eyebrow")}
+          </p>
+          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
+            {t("home.title")}
+          </h2>
+        </Reveal>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          {highlights.map((h, i) => (
+            <Reveal key={h.k} delay={100 * i}>
+              <Link
+                to={h.to}
+                className="group flex h-full flex-col rounded-3xl border border-[var(--scheng-line)] bg-[var(--scheng-ink)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--scheng-gold)]/45 hover:shadow-[0_30px_60px_-40px_var(--scheng-gold)] sm:p-7"
+              >
+                <span className="grid size-11 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
+                  <h.icon className="size-5" />
+                </span>
+                <h3 className="mt-5 text-lg font-bold text-[var(--scheng-fg)]">{t(`${h.k}.t`)}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--scheng-muted)]">
+                  {t(`${h.k}.d`)}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--scheng-gold)]">
+                  {t("home.more")}
+                  <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function SchengFounder() {
+  const { t } = useScheng();
+  return (
+    <section id="fundador" className="px-5 py-16 md:py-20">
+      <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[minmax(0,1fr)_1.3fr] md:items-start">
+        <Reveal>
+          <div className="rounded-3xl border border-[var(--scheng-line)] bg-[var(--scheng-surface)] p-7">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-[var(--scheng-gold)]">
+              {t("founder.eyebrow")}
+            </p>
+            <h3 className="mt-4 text-xl font-bold text-[var(--scheng-fg)]">Wanderson Scheng</h3>
+            <p className="mt-1 text-sm text-[var(--scheng-muted)]">{t("founder.role")}</p>
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href={linkedinUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                className="grid size-10 place-items-center rounded-full border border-[var(--scheng-line)] text-[var(--scheng-muted)] transition-colors hover:text-[var(--scheng-gold)]"
+              >
+                <Linkedin className="size-4" />
+              </a>
+              <a
+                href={`mailto:${email}`}
+                aria-label="Email"
+                className="grid size-10 place-items-center rounded-full border border-[var(--scheng-line)] text-[var(--scheng-muted)] transition-colors hover:text-[var(--scheng-gold)]"
+              >
+                <Mail className="size-4" />
+              </a>
+            </div>
+          </div>
+        </Reveal>
+        <Reveal delay={120}>
+          <h2 className="text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl">
+            {t("founder.title")}
+          </h2>
+          <p className="mt-4 text-[var(--scheng-muted)]">{t("founder.p1")}</p>
+          <p className="mt-4 text-[var(--scheng-muted)]">{t("founder.p2")}</p>
+          <blockquote className="mt-6 border-l-2 border-[var(--scheng-gold)] pl-5 text-lg italic text-[var(--scheng-fg)]">
+            {t("founder.quote")}
+          </blockquote>
         </Reveal>
       </div>
     </section>
