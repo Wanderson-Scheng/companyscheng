@@ -357,7 +357,7 @@ export function SchengAbout() {
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-[var(--scheng-gold)]">
             {t("about.eyebrow")}
           </p>
-          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
+          <h1 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
             {t("about.title")}
           </h2>
           <p className="mt-4 max-w-2xl text-[var(--scheng-muted)]">
@@ -393,7 +393,7 @@ export function SchengVentures() {
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-[var(--scheng-gold)]">
             {t("vent.eyebrow")}
           </p>
-          <h2 className="mt-4 text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
+          <h1 className="mt-4 text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
             {t("vent.title")}
           </h2>
         </Reveal>
@@ -469,7 +469,7 @@ export function SchengValues() {
     >
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <h2 className="text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
+          <h1 className="text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
             {t("val.title")}
           </h2>
         </Reveal>
@@ -537,7 +537,7 @@ export function SchengContact() {
       <Reveal>
         <div className="mx-auto max-w-3xl rounded-3xl border border-[var(--scheng-gold)]/25 bg-gradient-to-b from-[var(--scheng-gold)]/10 to-transparent p-7 sm:p-10">
           <div className="text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
+          <h1 className="text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
             {t("contact.title")}
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-[var(--scheng-muted)]">
