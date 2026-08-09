@@ -77,14 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "GuiaFin — Finanças pessoais offline e privadas" },
-      {
-        name: "description",
-        content:
-          "GuiaFin organiza rendimentos, despesas, contas, cartões e metas no seu telemóvel. Offline, sem anúncios e sem assinatura.",
-      },
-      { name: "author", content: "GuiaFin" },
-      { property: "og:site_name", content: "GuiaFin" },
+      { property: "og:site_name", content: "Scheng Holdings" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
