@@ -79,6 +79,37 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
           ))}
         </div>
 
+        {venture.products?.length ? (
+          <div className="mt-14">
+            <Reveal>
+              <h2 className="text-xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-2xl">
+                {t("detail.products")}
+              </h2>
+            </Reveal>
+            <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {venture.products.map((p, i) => (
+                <Reveal key={p.slug} delay={100 * i}>
+                  <Link
+                    to="/scheng/produtos/$slug"
+                    params={{ slug: p.slug }}
+                    className="group flex h-full flex-col rounded-3xl border border-[var(--scheng-line)] bg-[var(--scheng-surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--scheng-gold)]/45 hover:shadow-[0_30px_60px_-40px_var(--scheng-gold)]"
+                  >
+                    <LogoChip logo={p.logo} />
+                    <h3 className="mt-5 text-lg font-bold text-[var(--scheng-fg)]">{p.name}</h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--scheng-muted)]">
+                      {t(`${p.k}.d`)}
+                    </p>
+                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--scheng-gold)]">
+                      {t("vent.more")}
+                      <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </span>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
         <Reveal delay={120}>
           <h2 className="mt-14 text-xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-2xl">
             {t("detail.gallery")}
@@ -107,15 +138,6 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
               {t("detail.cta")}
               <ArrowUpRight className="size-4" />
             </Link>
-            {venture.external ? (
-              <Link
-                to={venture.external.to}
-                className="inline-flex items-center gap-2 rounded-full border border-[var(--scheng-line)] px-6 py-3 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]/50"
-              >
-                {t(venture.external.labelKey)}
-                <ArrowUpRight className="size-4" />
-              </Link>
-            ) : null}
           </div>
         </Reveal>
       </div>
