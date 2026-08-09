@@ -2,25 +2,12 @@ import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { SchengFooter, SchengNav } from "@/components/scheng/sections";
 import { SchengProvider, useScheng } from "@/components/scheng/context";
 
-const title = "Scheng Holdings — Tecnologia, engenharia e produto";
 const description =
   "A Scheng Holdings reúne quatro braços independentes: engenharia aeroespacial, comércio de hardware, tecnologia e produção artesanal.";
-const url = "https://guiafin-landing-pages.lovable.app/scheng";
+const url = "https://www.companyscheng.com/scheng";
 
 export const Route = createFileRoute("/scheng")({
   head: () => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: url },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: title },
-      { name: "twitter:description", content: description },
-    ],
-    links: [{ rel: "canonical", href: url }],
     scripts: [
       {
         type: "application/ld+json",
