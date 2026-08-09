@@ -359,7 +359,7 @@ export function SchengAbout() {
           </p>
           <h1 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
             {t("about.title")}
-          </h2>
+          </h1>
           <p className="mt-4 max-w-2xl text-[var(--scheng-muted)]">
             {t("about.text")}
           </p>
@@ -395,7 +395,7 @@ export function SchengVentures() {
           </p>
           <h1 className="mt-4 text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
             {t("vent.title")}
-          </h2>
+          </h1>
         </Reveal>
         <div className="mt-10 grid gap-5 md:mt-12 md:grid-cols-2">
           {ventures.map((v, i) => (
@@ -471,7 +471,7 @@ export function SchengValues() {
         <Reveal>
           <h1 className="text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
             {t("val.title")}
-          </h2>
+          </h1>
         </Reveal>
         <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-[var(--scheng-line)] bg-[var(--scheng-line)] sm:grid-cols-2 lg:grid-cols-4">
           {values.map((k, i) => (
@@ -539,7 +539,7 @@ export function SchengContact() {
           <div className="text-center">
           <h1 className="text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
             {t("contact.title")}
-          </h2>
+          </h1>
           <p className="mx-auto mt-4 max-w-lg text-[var(--scheng-muted)]">
             {t("contact.text")}
           </p>
