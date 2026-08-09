@@ -1,5 +1,6 @@
-import logoAsset from "@/assets/guiafin-logo.png.asset.json";
 import { Instagram, Linkedin, Mail, Twitter } from "lucide-react";
+
+const logoUrl = "/guiafin/guiafin-logo.png";
 import { useI18n } from "@/lib/i18n";
 
 export function Footer() {
@@ -10,7 +11,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-2.5">
             <img
-              src={logoAsset.url}
+              src={logoUrl}
               alt=""
               width={36}
               height={36}

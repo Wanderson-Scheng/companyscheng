@@ -31,7 +31,7 @@ export type Product = {
   logo: VentureLogo;
   features: number;
   /** Set when the product already has a dedicated site inside this app. */
-  externalTo?: "/";
+  externalTo?: string;
   parentSlug: string;
   parentName: string;
 };
@@ -43,7 +43,7 @@ export const products: Product[] = [
     name: "GuiaFin",
     logo: { src: logoGuiafinUrl, label: "GuiaFin", chip: "dark" },
     features: 3,
-    externalTo: "/",
+    externalTo: "/guiafin",
     parentSlug: "scheng-technology",
     parentName: "Scheng Technology",
   },

@@ -28,16 +28,6 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import shotDash from "@/assets/app-dash.png.asset.json";
-import shotCurrency from "@/assets/app-overview.png.asset.json";
-import shotAccounts from "@/assets/app-accounts.png.asset.json";
-import shotCard from "@/assets/app-card.png.asset.json";
-import shotInstall from "@/assets/app-install.png.asset.json";
-import shotProfile from "@/assets/app-profile.png.asset.json";
-import shotAnnual from "@/assets/app-annual.png.asset.json";
-import shotGoal from "@/assets/app-goal.png.asset.json";
-import shotMenu from "@/assets/app-menu.png.asset.json";
-import shotPin from "@/assets/app-pin.png.asset.json";
 import { useI18n } from "@/lib/i18n";
 
 function SectionHeader({
@@ -165,15 +155,15 @@ export function WhyGuiaFin() {
 }
 
 const screenShots: { k: string; url: string }[] = [
-  { k: "pin", url: shotPin.url },
-  { k: "currency", url: shotCurrency.url },
-  { k: "accounts", url: shotAccounts.url },
-  { k: "card", url: shotCard.url },
-  { k: "install", url: shotInstall.url },
-  { k: "goal", url: shotGoal.url },
-  { k: "menu", url: shotMenu.url },
-  { k: "profile", url: shotProfile.url },
-  { k: "annual", url: shotAnnual.url },
+  { k: "pin", url: "/guiafin/app-pin.png" },
+  { k: "currency", url: "/guiafin/app-overview.png" },
+  { k: "accounts", url: "/guiafin/app-accounts.png" },
+  { k: "card", url: "/guiafin/app-card.png" },
+  { k: "install", url: "/guiafin/app-install.png" },
+  { k: "goal", url: "/guiafin/app-goal.png" },
+  { k: "menu", url: "/guiafin/app-menu.png" },
+  { k: "profile", url: "/guiafin/app-profile.png" },
+  { k: "annual", url: "/guiafin/app-annual.png" },
 ];
 
 export function Screens() {

@@ -1,5 +1,6 @@
-import logoAsset from "@/assets/guiafin-logo.png.asset.json";
 import { appStoreUrl } from "@/lib/links";
+
+const logoUrl = "/guiafin/guiafin-logo.png";
 import { useEffect, useRef, useState } from "react";
 import { Check, ChevronDown, Globe, Menu, X } from "lucide-react";
 import { locales, localeMeta, useI18n, type Locale } from "@/lib/i18n";
@@ -76,7 +77,7 @@ export function Nav() {
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3.5 sm:flex sm:justify-between">
         <a href="#top" className="group flex min-w-0 items-center gap-2.5">
           <img
-            src={logoAsset.url}
+            src={logoUrl}
             alt=""
             width={36}
             height={36}

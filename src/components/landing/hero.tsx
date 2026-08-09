@@ -1,8 +1,9 @@
 import { ArrowLeftRight, ArrowRight, Landmark, PiggyBank, ShieldCheck, Sparkles, WifiOff } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import heroShot from "@/assets/app-dash.png.asset.json";
 import { appStoreUrl } from "@/lib/links";
 import { useI18n } from "@/lib/i18n";
+
+const heroShotUrl = "/guiafin/app-dash.png";
 
 const explodedFeatures: { icon: LucideIcon; title: string; description: string }[] = [
   { icon: ArrowLeftRight, title: "f.income.t", description: "f.income.d" },
@@ -58,7 +59,7 @@ export function Hero() {
           />
           <div className="hero-exploded-stage">
             <img
-              src={heroShot.url}
+              src={heroShotUrl}
               alt={t("hero.imageAlt")}
               loading="eager"
               decoding="async"
