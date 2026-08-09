@@ -1,10 +1,10 @@
 import { Building2, Boxes, Rocket, Sparkles } from "lucide-react";
-import orbitalColor from "@/assets/orbital-mark.png.asset.json";
-import importsLogo from "@/assets/scheng-imports-logo.png.asset.json";
-import logoPro from "@/assets/scheng-pro-logo.png.asset.json";
-import techLogo from "@/assets/scheng-technology-logo.png.asset.json";
-import logo3d from "@/assets/scheng3d-logo-transparent.png.asset.json";
-import logoGuiafin from "@/assets/guiafin-icon-transparent.png.asset.json";
+const orbitalColorUrl = "/logos/orbital-mark.png";
+const importsLogoUrl = "/logos/scheng-imports.png";
+const logoProUrl = "/logos/scheng-pro.png";
+const techLogoUrl = "/logos/scheng-technology.png";
+const logo3dUrl = "/logos/scheng-3d.png";
+const logoGuiafinUrl = "/logos/guiafin-icon.png";
 
 export type VentureLogo = {
   src: string;
@@ -41,7 +41,7 @@ export const products: Product[] = [
     slug: "guiafin",
     k: "pr1",
     name: "GuiaFin",
-    logo: { src: logoGuiafin.url, label: "GuiaFin", chip: "dark" },
+    logo: { src: logoGuiafinUrl, label: "GuiaFin", chip: "dark" },
     features: 3,
     externalTo: "/",
     parentSlug: "scheng-technology",
@@ -51,7 +51,7 @@ export const products: Product[] = [
     slug: "3d-scheng",
     k: "pr2",
     name: "3D Scheng",
-    logo: { src: logo3d.url, label: "3D Scheng", chip: "dark" },
+    logo: { src: logo3dUrl, label: "3D Scheng", chip: "dark" },
     features: 3,
     parentSlug: "scheng-technology",
     parentName: "Scheng Technology",
@@ -60,7 +60,7 @@ export const products: Product[] = [
     slug: "scheng-pro",
     k: "pr3",
     name: "Scheng Pro",
-    logo: { src: logoPro.url, label: "Scheng Pro", chip: "light", zoom: true },
+    logo: { src: logoProUrl, label: "Scheng Pro", chip: "light", zoom: true },
     features: 3,
     parentSlug: "scheng-technology",
     parentName: "Scheng Technology",
@@ -78,7 +78,7 @@ export const ventures: Venture[] = [
     k: "v1",
     name: "Scheng Orbital System",
     logos: [
-      { src: orbitalColor.url, label: "Scheng Orbital System", chip: "light" },
+      { src: orbitalColorUrl, label: "Scheng Orbital System", chip: "light" },
     ],
     features: 3,
   },
@@ -88,7 +88,7 @@ export const ventures: Venture[] = [
     k: "v2",
     name: "Scheng Imports",
     logos: [
-      { src: importsLogo.url, label: "Scheng Imports", chip: "light", zoom: true },
+      { src: importsLogoUrl, label: "Scheng Imports", chip: "light", zoom: true },
     ],
     features: 3,
   },
@@ -97,7 +97,7 @@ export const ventures: Venture[] = [
     icon: Boxes,
     k: "v3",
     name: "Scheng Technology",
-    logos: [{ src: techLogo.url, label: "Scheng Technology", chip: "light" }],
+    logos: [{ src: techLogoUrl, label: "Scheng Technology", chip: "light" }],
     features: 3,
     products: products.filter((p) => p.parentSlug === "scheng-technology"),
   },

@@ -16,8 +16,8 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
-import logoGold from "@/assets/scheng-logo-dark-transparent.png.asset.json";
-import logoNavy from "@/assets/scheng-logo-light-transparent.png.asset.json";
+const logoGoldUrl = "/logos/logo-gold.png";
+const logoNavyUrl = "/logos/logo-navy.png";
 import { Reveal } from "@/components/landing/reveal";
 import { useScheng } from "@/components/scheng/context";
 import { ventures } from "@/components/scheng/ventures";
@@ -40,7 +40,7 @@ const tabs = [
 
 function useBrandLogo() {
   const { theme } = useScheng();
-  return theme === "dark" ? logoGold.url : logoNavy.url;
+  return theme === "dark" ? logoGoldUrl : logoNavyUrl;
 }
 
 function ThemeLangControls({ compact = false }: { compact?: boolean }) {
