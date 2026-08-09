@@ -82,6 +82,31 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "v4.tag": "Braço artesanal",
     "v4.d": "Sabonetes e artigos personalizados, feitos à mão em pequenas séries.",
     "vent.soon": "Em desenvolvimento",
+    "vent.more": "Saber mais",
+    "vent.back": "Voltar às empresas",
+    "detail.gallery": "Imagens",
+    "detail.photosSoon": "Fotografias em breve",
+    "detail.cta": "Falar sobre esta empresa",
+    "v1.long":
+      "A Scheng Orbital System dedica-se à engenharia de sistemas para o espaço, com trabalho em criogenia, propulsão e ensaio de componentes. A actividade está centrada em investigação e desenvolvimento próprios.",
+    "v1.f1": "Sistemas criogénicos e ensaios em ambiente controlado.",
+    "v1.f2": "Projecto e prototipagem de componentes de propulsão.",
+    "v1.f3": "Investigação própria, com documentação técnica completa.",
+    "v2.long":
+      "A Scheng Imports importa e vende equipamento de fabrico digital e consumíveis. Trabalha com fornecedores seleccionados e assegura o apoio técnico depois da venda.",
+    "v2.f1": "Impressoras 3D, filamentos e resinas.",
+    "v2.f2": "Ferramentas, acessórios e sílica em gel.",
+    "v2.f3": "Apoio técnico e acompanhamento pós-venda.",
+    "v3.long":
+      "A Scheng Technology desenvolve software próprio. Detém o 3D Scheng, plataforma de gestão de impressão 3D, o Scheng Pro, sistema de telemetria, e o GuiaFin, aplicação de finanças pessoais que funciona sem ligação à Internet.",
+    "v3.f1": "3D Scheng: gestão e monitorização de impressão 3D.",
+    "v3.f2": "Scheng Pro: telemetria e leitura de dados em tempo real.",
+    "v3.f3": "GuiaFin: finanças pessoais, offline e sem publicidade.",
+    "v4.long":
+      "O Scheng Atelier produz sabonetes e artigos personalizados em pequenas séries. Cada peça é feita à mão, com matérias-primas escolhidas uma a uma.",
+    "v4.f1": "Produção artesanal em séries limitadas.",
+    "v4.f2": "Personalização de aromas, formatos e embalagem.",
+    "v4.f3": "Matérias-primas seleccionadas e sem desperdício.",
 
     "val.title": "Os nossos valores",
     "val1.t": "Simplicidade",
@@ -172,6 +197,31 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "v4.tag": "Craft arm",
     "v4.d": "Handmade soaps and personalised goods, produced in small batches.",
     "vent.soon": "In development",
+    "vent.more": "Learn more",
+    "vent.back": "Back to companies",
+    "detail.gallery": "Images",
+    "detail.photosSoon": "Photos coming soon",
+    "detail.cta": "Talk about this company",
+    "v1.long":
+      "Scheng Orbital System works on engineering systems for space, covering cryogenics, propulsion and component testing. The work is centred on in-house research and development.",
+    "v1.f1": "Cryogenic systems and testing in controlled environments.",
+    "v1.f2": "Design and prototyping of propulsion components.",
+    "v1.f3": "In-house research with full technical documentation.",
+    "v2.long":
+      "Scheng Imports imports and sells digital fabrication equipment and consumables, working with selected suppliers and providing technical support after the sale.",
+    "v2.f1": "3D printers, filaments and resins.",
+    "v2.f2": "Tools, accessories and silica gel.",
+    "v2.f3": "Technical support and after-sales follow-up.",
+    "v3.long":
+      "Scheng Technology builds its own software: 3D Scheng, a platform for managing 3D printing, Scheng Pro, a telemetry system, and GuiaFin, a personal finance app that works entirely offline.",
+    "v3.f1": "3D Scheng: 3D printing management and monitoring.",
+    "v3.f2": "Scheng Pro: telemetry and real-time data readings.",
+    "v3.f3": "GuiaFin: personal finance, offline and ad-free.",
+    "v4.long":
+      "Scheng Atelier makes soaps and personalised goods in small batches. Every piece is handmade with carefully chosen raw materials.",
+    "v4.f1": "Handmade production in limited batches.",
+    "v4.f2": "Custom scents, shapes and packaging.",
+    "v4.f3": "Selected raw materials, with no waste.",
 
     "val.title": "Our values",
     "val1.t": "Simplicity",
