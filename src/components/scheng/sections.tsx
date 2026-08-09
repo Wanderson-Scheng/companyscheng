@@ -265,7 +265,7 @@ export function SchengVentures() {
                       {v.logos.map((l) => (
                         <span
                           key={l.label}
-                          className="grid size-12 shrink-0 place-items-center overflow-hidden rounded-xl bg-[var(--scheng-chip)] p-1 transition-transform duration-500 group-hover:-translate-y-0.5"
+                          className="grid size-12 shrink-0 place-items-center overflow-hidden rounded-xl bg-white p-1.5 ring-1 ring-black/5 transition-transform duration-500 group-hover:-translate-y-0.5"
                         >
                           <img
                             src={l.src}
