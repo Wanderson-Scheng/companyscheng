@@ -414,7 +414,7 @@ export function SchengVentures() {
                           <img
                             src={l.src}
                             alt={l.label}
-                            className="block size-full object-contain"
+                            className={`block size-full object-contain ${l.zoom ? "scale-[1.65]" : ""}`}
                             width={40}
                             height={40}
                             loading="lazy"
