@@ -16,6 +16,7 @@ import { Route as SchengContactoRouteImport } from './routes/scheng.contacto'
 import { Route as SchengGrupoRouteImport } from './routes/scheng.grupo'
 import { Route as SchengValoresRouteImport } from './routes/scheng.valores'
 import { Route as SchengEmpresasIndexRouteImport } from './routes/scheng.empresas.index'
+import { Route as SchengEmpresasSlugRouteImport } from './routes/scheng.empresas.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +53,11 @@ const SchengEmpresasIndexRoute = SchengEmpresasIndexRouteImport.update({
   path: '/empresas/',
   getParentRoute: () => SchengRoute,
 } as any)
+const SchengEmpresasSlugRoute = SchengEmpresasSlugRouteImport.update({
+  id: '/empresas/$slug',
+  path: '/empresas/$slug',
+  getParentRoute: () => SchengRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/scheng/grupo': typeof SchengGrupoRoute
   '/scheng/valores': typeof SchengValoresRoute
   '/scheng/': typeof SchengIndexRoute
+  '/scheng/empresas/$slug': typeof SchengEmpresasSlugRoute
   '/scheng/empresas/': typeof SchengEmpresasIndexRoute
 }
 export interface FileRoutesByTo {
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/scheng/grupo': typeof SchengGrupoRoute
   '/scheng/valores': typeof SchengValoresRoute
   '/scheng': typeof SchengIndexRoute
+  '/scheng/empresas/$slug': typeof SchengEmpresasSlugRoute
   '/scheng/empresas': typeof SchengEmpresasIndexRoute
 }
 export interface FileRoutesById {
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/scheng/grupo': typeof SchengGrupoRoute
   '/scheng/valores': typeof SchengValoresRoute
   '/scheng/': typeof SchengIndexRoute
+  '/scheng/empresas/$slug': typeof SchengEmpresasSlugRoute
   '/scheng/empresas/': typeof SchengEmpresasIndexRoute
 }
 export interface FileRouteTypes {
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/scheng/grupo'
     | '/scheng/valores'
     | '/scheng/'
+    | '/scheng/empresas/$slug'
     | '/scheng/empresas/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/scheng/grupo'
     | '/scheng/valores'
     | '/scheng'
+    | '/scheng/empresas/$slug'
     | '/scheng/empresas'
   id:
     | '__root__'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/scheng/grupo'
     | '/scheng/valores'
     | '/scheng/'
+    | '/scheng/empresas/$slug'
     | '/scheng/empresas/'
   fileRoutesById: FileRoutesById
 }
@@ -165,6 +177,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SchengEmpresasIndexRouteImport
       parentRoute: typeof SchengRoute
     }
+    '/scheng/empresas/$slug': {
+      id: '/scheng/empresas/$slug'
+      path: '/empresas/$slug'
+      fullPath: '/scheng/empresas/$slug'
+      preLoaderRoute: typeof SchengEmpresasSlugRouteImport
+      parentRoute: typeof SchengRoute
+    }
   }
 }
 
@@ -173,6 +192,7 @@ interface SchengRouteChildren {
   SchengGrupoRoute: typeof SchengGrupoRoute
   SchengValoresRoute: typeof SchengValoresRoute
   SchengIndexRoute: typeof SchengIndexRoute
+  SchengEmpresasSlugRoute: typeof SchengEmpresasSlugRoute
   SchengEmpresasIndexRoute: typeof SchengEmpresasIndexRoute
 }
 
@@ -181,6 +201,7 @@ const SchengRouteChildren: SchengRouteChildren = {
   SchengGrupoRoute: SchengGrupoRoute,
   SchengValoresRoute: SchengValoresRoute,
   SchengIndexRoute: SchengIndexRoute,
+  SchengEmpresasSlugRoute: SchengEmpresasSlugRoute,
   SchengEmpresasIndexRoute: SchengEmpresasIndexRoute,
 }
 
