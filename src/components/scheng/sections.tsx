@@ -217,7 +217,7 @@ type Venture = {
   icon: typeof Rocket;
   k: string;
   name: string;
-  logos?: { src: string; label: string }[];
+  logos?: { src: string; label: string; chip?: "light" | "dark" }[];
   to?: "/";
 };
 
@@ -226,7 +226,7 @@ const ventures: Venture[] = [
     icon: Rocket,
     k: "v1",
     name: "Scheng Orbital System",
-    logos: [{ src: orbitalColor.url, label: "Scheng Orbital System" }],
+    logos: [{ src: orbitalColor.url, label: "Scheng Orbital System", chip: "light" as const }],
   },
   { icon: Building2, k: "v2", name: "Scheng Imports" },
   {
@@ -234,8 +234,8 @@ const ventures: Venture[] = [
     k: "v3",
     name: "Scheng Technology",
     logos: [
-      { src: logo3d.url, label: "3D Scheng" },
-      { src: logoGuiafin.url, label: "GuiaFin" },
+      { src: logo3d.url, label: "3D Scheng", chip: "dark" as const },
+      { src: logoGuiafin.url, label: "GuiaFin", chip: "dark" as const },
     ],
     to: "/",
   },
@@ -266,9 +266,11 @@ export function SchengVentures() {
                         <span
                           key={l.label}
                           className={`grid size-12 shrink-0 place-items-center overflow-hidden rounded-xl p-1.5 transition-transform duration-500 group-hover:-translate-y-0.5 ${
-                            v.k === "v1"
+                            l.chip === "light"
                               ? "bg-white ring-1 ring-black/5"
-                              : "bg-[var(--scheng-surface)]"
+                              : l.chip === "dark"
+                                ? "bg-[#0b1220] ring-1 ring-white/10"
+                                : "bg-[var(--scheng-surface)]"
                           }`}
                         >
                           <img
