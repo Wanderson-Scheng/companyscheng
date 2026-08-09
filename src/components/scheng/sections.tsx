@@ -99,7 +99,7 @@ export function SchengNav() {
             eager
             src={brand}
             alt="Scheng Holdings"
-            className={`h-9 w-auto shrink-0 md:h-10 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
+            className={`h-11 w-auto shrink-0 md:h-14 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
             width={160}
             height={40}
           />
@@ -160,7 +160,7 @@ export function SchengHero() {
             eager
             src={brand}
             alt="Logótipo Scheng Holdings"
-            className={`mx-auto h-32 w-auto sm:h-40 md:h-52 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
+            className={`mx-auto h-40 w-auto sm:h-52 md:h-64 ${theme === "dark" ? "mix-blend-lighten" : ""}`}
             width={520}
             height={340}
           />
@@ -628,7 +628,7 @@ export function SchengFooter() {
         <LazyImage
           src={brand}
           alt="Scheng Holdings"
-          className={`h-12 w-auto ${theme === "dark" ? "mix-blend-lighten" : ""}`}
+          className={`h-16 w-auto ${theme === "dark" ? "mix-blend-lighten" : ""}`}
           width={180}
           height={48}
         />
