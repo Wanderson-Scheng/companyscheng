@@ -200,6 +200,45 @@ const highlights = [
   { icon: Mail, to: "/scheng/contacto", k: "h4" },
 ] as const;
 
+function CompanyMarks() {
+  return (
+    <span className="flex items-center gap-2" aria-label="Scheng Holdings — quatro empresas">
+      {ventures.map((venture) => {
+        const logo = venture.products?.length ? undefined : venture.logos?.[0];
+
+        return logo ? (
+          <span
+            key={venture.slug}
+            className={`grid size-10 shrink-0 place-items-center overflow-hidden rounded-xl p-1.5 ring-1 transition-transform duration-300 group-hover:-translate-y-0.5 ${
+              logo.chip === "light"
+                ? "bg-white ring-black/5"
+                : logo.chip === "dark"
+                  ? "bg-[#0b1220] ring-white/10"
+                  : "bg-[var(--scheng-surface)] ring-[var(--scheng-line)]"
+            }`}
+          >
+            <img
+              src={logo.src}
+              alt={logo.label}
+              className={`size-full object-contain ${logo.zoom ? "scale-[1.45]" : ""}`}
+              width={32}
+              height={32}
+              loading="lazy"
+            />
+          </span>
+        ) : (
+          <span
+            key={venture.slug}
+            className="grid size-10 shrink-0 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)] transition-transform duration-300 group-hover:-translate-y-0.5"
+          >
+            <venture.icon className="size-5" aria-hidden="true" />
+          </span>
+        );
+      })}
+    </span>
+  );
+}
+
 export function SchengHighlights() {
   const { t } = useScheng();
   return (
