@@ -6,7 +6,7 @@ export const Route = createFileRoute("/scheng/empresas/$slug")({
   loader: ({ params }) => {
     const venture = getVenture(params.slug);
     if (!venture) throw notFound();
-    return { name: venture.name, slug: venture.slug };
+    return { name: venture.name, slug: venture.slug, tagline: venture.tagline ?? "" };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -16,6 +16,7 @@ export const Route = createFileRoute("/scheng/empresas/$slug")({
     }
     const title = `${loaderData.name} — Scheng Holdings`;
     const description = `${loaderData.name}, empresa do grupo Scheng Holdings: área de actuação, produtos e como falar connosco.`;
+    const url = `https://www.companyscheng.com/scheng/empresas/${loaderData.slug}`;
     return {
       meta: [
         { title },
@@ -23,9 +24,28 @@ export const Route = createFileRoute("/scheng/empresas/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: url },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: loaderData.name,
+            url,
+            description: loaderData.tagline || description,
+            parentOrganization: {
+              "@type": "Organization",
+              name: "Scheng Holdings",
+              url: "https://www.companyscheng.com/scheng",
+            },
+          }),
+        },
       ],
     };
   },
