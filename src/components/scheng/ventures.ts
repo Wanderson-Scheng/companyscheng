@@ -96,11 +96,7 @@ export const ventures: Venture[] = [
     icon: Boxes,
     k: "v3",
     name: "Scheng Technology",
-    logos: [
-      { src: logoPro.url, label: "Scheng Pro", chip: "light", zoom: true },
-      { src: logo3d.url, label: "3D Scheng", chip: "dark" },
-      { src: logoGuiafin.url, label: "GuiaFin", chip: "dark" },
-    ],
+    logos: [{ src: logoPro.url, label: "Scheng Technology", chip: "light", zoom: true }],
     features: 3,
     products: products.filter((p) => p.parentSlug === "scheng-technology"),
   },
