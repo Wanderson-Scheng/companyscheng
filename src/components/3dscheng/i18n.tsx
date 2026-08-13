@@ -158,15 +158,11 @@ const pt: Dict = {
   "pricing.lifetime.cta": "Comprar",
 
   "download.eyebrow": "Download",
-  "download.title": "Transfira agora para o seu computador",
-  "download.mac": "Download para Mac",
-  "download.macDesc": "macOS 11+ (Apple Silicon ou Intel)",
-  "download.win": "Download para Windows",
-  "download.winDesc": "Windows 10+ (64-bit)",
+  "download.title": "Disponível na Mac App Store",
+  "download.subtitle":
+    "Subscreva através da App Store ou escolha um plano acima. Inclui teste gratuito de 30 dias.",
+  "download.availableOn": "Disponível na",
   "download.version": "Versão atual",
-  "download.requirements": "Requisitos do sistema",
-  "download.macReq": "macOS 11 Big Sur ou superior, Apple Silicon ou Intel",
-  "download.winReq": "Windows 10 ou superior, 64-bit",
 
   "faq.eyebrow": "Perguntas frequentes",
   "faq.title": "Ainda com dúvidas?",
@@ -329,15 +325,11 @@ const en: Dict = {
   "pricing.lifetime.cta": "Buy",
 
   "download.eyebrow": "Download",
-  "download.title": "Download now for your computer",
-  "download.mac": "Download for Mac",
-  "download.macDesc": "macOS 11+ (Apple Silicon or Intel)",
-  "download.win": "Download for Windows",
-  "download.winDesc": "Windows 10+ (64-bit)",
+  "download.title": "Available on the Mac App Store",
+  "download.subtitle":
+    "Subscribe through the App Store or choose a plan above. Includes 30-day free trial.",
+  "download.availableOn": "Available on",
   "download.version": "Current version",
-  "download.requirements": "System requirements",
-  "download.macReq": "macOS 11 Big Sur or later, Apple Silicon or Intel",
-  "download.winReq": "Windows 10 or later, 64-bit",
 
   "faq.eyebrow": "FAQ",
   "faq.title": "Still have questions?",
@@ -507,15 +499,11 @@ const es: Dict = {
   "pricing.lifetime.cta": "Comprar",
 
   "download.eyebrow": "Descargar",
-  "download.title": "Descargue ahora para su ordenador",
-  "download.mac": "Descargar para Mac",
-  "download.macDesc": "macOS 11+ (Apple Silicon o Intel)",
-  "download.win": "Descargar para Windows",
-  "download.winDesc": "Windows 10+ (64-bit)",
+  "download.title": "Disponible en la Mac App Store",
+  "download.subtitle":
+    "Suscríbase a través de la App Store o elija un plan arriba. Incluye prueba gratuita de 30 días.",
+  "download.availableOn": "Disponible en",
   "download.version": "Versión actual",
-  "download.requirements": "Requisitos del sistema",
-  "download.macReq": "macOS 11 Big Sur o superior, Apple Silicon o Intel",
-  "download.winReq": "Windows 10 o superior, 64-bit",
 
   "faq.eyebrow": "Preguntas frecuentes",
   "faq.title": "¿Aún tiene dudas?",
