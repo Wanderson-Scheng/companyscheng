@@ -302,6 +302,15 @@ export function Why3DScheng() {
   );
 }
 
+const checkoutLinks: Record<string, string> = {
+  monthly:
+    "https://companyscheng.lemonsqueezy.com/checkout/buy/98eaa919-360a-4ad1-9f8c-3fd5a65365e3",
+  annual:
+    "https://companyscheng.lemonsqueezy.com/checkout/buy/18c58db2-3f6a-467a-879a-ff1e88ccaa1f",
+  lifetime:
+    "https://companyscheng.lemonsqueezy.com/checkout/buy/adc8c3fc-56d2-4e31-93e8-d96441336699",
+};
+
 const plans = [
   { k: "trial", features: 3, highlight: false },
   { k: "annual", features: 3, highlight: true },
@@ -357,7 +366,9 @@ export function Pricing3D() {
                 )}
               </ul>
               <a
-                href="#download"
+                href={checkoutLinks[k] ?? "#download"}
+                target={checkoutLinks[k] ? "_blank" : undefined}
+                rel={checkoutLinks[k] ? "noopener noreferrer" : undefined}
                 className={`mt-8 block rounded-full py-3 text-center text-sm font-semibold transition-transform hover:-translate-y-0.5 ${
                   highlight
                     ? "text-primary-foreground shadow-[var(--shadow-lift)]"
@@ -385,7 +396,9 @@ export function Downloads3D() {
         </Reveal>
         <Reveal className="mt-12 grid gap-5 sm:grid-cols-2">
           <a
-            href="/downloads/3D-Scheng-1.0.0-arm64-mac.dmg"
+            href="https://companyscheng.lemonsqueezy.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center gap-5 rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[var(--shadow-lift)]"
           >
             <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
@@ -397,7 +410,9 @@ export function Downloads3D() {
             </div>
           </a>
           <a
-            href="/downloads/3D-Scheng-1.0.0-x64-win-setup.exe"
+            href="https://companyscheng.lemonsqueezy.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center gap-5 rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[var(--shadow-lift)]"
           >
             <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
