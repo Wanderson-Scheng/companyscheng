@@ -33,6 +33,8 @@ export type Product = {
   features: number;
   /** Set when the product already has a dedicated site inside this app. */
   externalTo?: string;
+  /** Gallery images shown on the product detail page. */
+  gallery?: { src: string; alt: string }[];
   parentSlug: string;
   parentName: string;
 };
@@ -54,6 +56,15 @@ export const products: Product[] = [
     name: "3D Scheng",
     logo: { src: logo3dUrl, label: "3D Scheng", chip: "dark" },
     features: 3,
+    externalTo: "/3dscheng",
+    gallery: [
+      { src: "/3dscheng/dashboard-light.png", alt: "Dashboard — Modo Claro" },
+      { src: "/3dscheng/printers.png", alt: "Gestão de Impressoras" },
+      { src: "/3dscheng/cameras.png", alt: "Câmaras RTSP" },
+      { src: "/3dscheng/filaments.png", alt: "Inventário de Filamentos" },
+      { src: "/3dscheng/calculator.png", alt: "Calculadora de Custos" },
+      { src: "/3dscheng/financial.png", alt: "Visão Financeira" },
+    ],
     parentSlug: "scheng-technology",
     parentName: "Scheng Technology",
   },

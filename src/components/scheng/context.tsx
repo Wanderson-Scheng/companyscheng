@@ -113,6 +113,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "pr2.f1": "Gestão de filas e de vários equipamentos em simultâneo.",
     "pr2.f2": "Monitorização do estado das impressões em curso.",
     "pr2.f3": "Registo de consumos e histórico de produção.",
+    "pr2.cta": "Conheça o 3D Scheng",
     "pr3.tag": "Telemetria",
     "pr3.d": "Sistema de telemetria para leitura e análise de dados em tempo real.",
     "pr3.long":
@@ -253,6 +254,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "pr2.f1": "Queue management across several machines at once.",
     "pr2.f2": "Live monitoring of running prints.",
     "pr2.f3": "Material usage records and production history.",
+    "pr2.cta": "Discover 3D Scheng",
     "pr3.tag": "Telemetry",
     "pr3.d": "A telemetry system for reading and analysing data in real time.",
     "pr3.long":

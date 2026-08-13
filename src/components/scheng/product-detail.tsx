@@ -4,6 +4,7 @@ import { Reveal } from "@/components/landing/reveal";
 import { useScheng } from "@/components/scheng/context";
 import { LogoChip } from "@/components/scheng/venture-detail";
 import type { Product } from "@/components/scheng/ventures";
+import { LazyImage } from "@/components/ui/lazy-image";
 
 export function SchengProductDetail({ product }: { product: Product }) {
   const { t } = useScheng();
@@ -55,17 +56,32 @@ export function SchengProductDetail({ product }: { product: Product }) {
             {t("detail.gallery")}
           </h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-3">
-            {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                className="grid aspect-[4/3] place-items-center rounded-2xl border border-dashed border-[var(--scheng-line)] bg-[var(--scheng-surface)] text-[var(--scheng-muted)]"
-              >
-                <span className="flex flex-col items-center gap-2 text-xs">
-                  <ImageIcon className="size-5" />
-                  {t("detail.photosSoon")}
-                </span>
-              </div>
-            ))}
+            {product.gallery?.length
+              ? product.gallery.map((img) => (
+                  <div
+                    key={img.src}
+                    className="overflow-hidden rounded-2xl border border-[var(--scheng-line)] bg-[var(--scheng-surface)]"
+                  >
+                    <LazyImage
+                      src={img.src}
+                      alt={img.alt}
+                      className="aspect-[4/3] w-full object-cover"
+                      width={400}
+                      height={300}
+                    />
+                  </div>
+                ))
+              : [0, 1, 2].map((i) => (
+                  <div
+                    key={i}
+                    className="grid aspect-[4/3] place-items-center rounded-2xl border border-dashed border-[var(--scheng-line)] bg-[var(--scheng-surface)] text-[var(--scheng-muted)]"
+                  >
+                    <span className="flex flex-col items-center gap-2 text-xs">
+                      <ImageIcon className="size-5" />
+                      {t("detail.photosSoon")}
+                    </span>
+                  </div>
+                ))}
           </div>
         </Reveal>
 
