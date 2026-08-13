@@ -390,45 +390,35 @@ export function Downloads3D() {
   const { t } = use3DI18n();
   return (
     <section id="download" className="bg-background py-16 sm:py-20">
-      <div className="mx-auto max-w-4xl px-5">
+      <div className="mx-auto max-w-3xl px-5">
         <Reveal>
-          <SectionHeader eyebrow={t("download.eyebrow")} title={t("download.title")} />
+          <SectionHeader
+            eyebrow={t("download.eyebrow")}
+            title={t("download.title")}
+            subtitle={t("download.subtitle")}
+          />
         </Reveal>
-        <Reveal className="mt-12 grid gap-5 sm:grid-cols-2">
+        <Reveal className="mt-10 flex flex-col items-center gap-6">
           <a
-            href="https://companyscheng.lemonsqueezy.com/checkout/buy/adc8c3fc-56d2-4e31-93e8-d96441336699"
+            href="https://apps.apple.com/app/3d-scheng/id6742187990"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-5 rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[var(--shadow-lift)]"
+            className="group flex items-center gap-5 rounded-2xl border border-border bg-card px-8 py-6 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[var(--shadow-lift)]"
           >
             <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
               <Apple className="size-7" aria-hidden="true" />
             </span>
             <div>
-              <p className="text-base font-bold">{t("download.mac")}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{t("download.macDesc")}</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                {t("download.availableOn")}
+              </p>
+              <p className="mt-1 text-lg font-bold">Mac App Store</p>
             </div>
           </a>
-          <a
-            href="https://companyscheng.lemonsqueezy.com/checkout/buy/adc8c3fc-56d2-4e31-93e8-d96441336699"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-5 rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[var(--shadow-lift)]"
-          >
-            <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-              <svg viewBox="0 0 24 24" className="size-7 fill-current" aria-hidden="true">
-                <path d="M3 5.548l7.197-0.984v6.953H3V5.548zm0 12.904l7.197 0.984v-6.919H3v5.935zM11.203 4.397L21 3v8.517h-9.797V4.397zM21 12.517v8.483l-9.797-1.397v-7.086H21z" />
-              </svg>
-            </span>
-            <div>
-              <p className="text-base font-bold">{t("download.win")}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{t("download.winDesc")}</p>
-            </div>
-          </a>
-        </Reveal>
-        <Reveal className="mt-8 text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-center text-sm text-muted-foreground">
             {t("download.version")}: <span className="font-semibold text-foreground">1.0.0</span>
+            <span className="mx-2">·</span>
+            macOS 11+
           </p>
         </Reveal>
       </div>
