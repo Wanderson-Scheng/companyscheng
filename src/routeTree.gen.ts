@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as R3dschengRouteImport } from './routes/3dscheng'
 import { Route as GuiafinRouteImport } from './routes/guiafin'
 import { Route as SchengRouteImport } from './routes/scheng'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -24,6 +25,11 @@ import { Route as SchengProdutosSlugRouteImport } from './routes/scheng.produtos
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const R3dschengRoute = R3dschengRouteImport.update({
+  id: '/3dscheng',
+  path: '/3dscheng',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuiafinRoute = GuiafinRouteImport.update({
@@ -79,6 +85,7 @@ const SchengProdutosSlugRoute = SchengProdutosSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/3dscheng': typeof R3dschengRoute
   '/guiafin': typeof GuiafinRoute
   '/scheng': typeof SchengRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -92,6 +99,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/3dscheng': typeof R3dschengRoute
   '/guiafin': typeof GuiafinRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/scheng/contacto': typeof SchengContactoRoute
@@ -105,6 +113,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/3dscheng': typeof R3dschengRoute
   '/guiafin': typeof GuiafinRoute
   '/scheng': typeof SchengRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -120,6 +129,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/3dscheng'
     | '/guiafin'
     | '/scheng'
     | '/sitemap.xml'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/3dscheng'
     | '/guiafin'
     | '/sitemap.xml'
     | '/scheng/contacto'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/3dscheng'
     | '/guiafin'
     | '/scheng'
     | '/sitemap.xml'
@@ -159,6 +171,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R3dschengRoute: typeof R3dschengRoute
   GuiafinRoute: typeof GuiafinRoute
   SchengRoute: typeof SchengRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/3dscheng': {
+      id: '/3dscheng'
+      path: '/3dscheng'
+      fullPath: '/3dscheng'
+      preLoaderRoute: typeof R3dschengRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guiafin': {
@@ -271,6 +291,7 @@ const SchengRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R3dschengRoute: R3dschengRoute,
   GuiafinRoute: GuiafinRoute,
   SchengRoute: SchengRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

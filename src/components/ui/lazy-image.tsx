@@ -1,4 +1,4 @@
-import { type ImgHTMLAttributes, useCallback, useState } from "react";
+import { type ImgHTMLAttributes, useCallback, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type LazyImageProps = Omit<ImgHTMLAttributes<HTMLImageElement>, "onLoad"> & {
@@ -12,9 +12,14 @@ export function LazyImage({ className, eager, ...props }: LazyImageProps) {
     setLoaded(true);
   }, []);
 
+  const imgRef = useCallback((node: HTMLImageElement | null) => {
+    if (node?.complete && node.naturalWidth > 0) setLoaded(true);
+  }, []);
+
   return (
     <img
       {...props}
+      ref={imgRef}
       loading={eager ? "eager" : "lazy"}
       onLoad={onLoad}
       className={cn("lazy-image", loaded && "loaded", className)}
