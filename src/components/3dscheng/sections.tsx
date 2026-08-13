@@ -396,7 +396,7 @@ export function Downloads3D() {
         </Reveal>
         <Reveal className="mt-12 grid gap-5 sm:grid-cols-2">
           <a
-            href="https://companyscheng.lemonsqueezy.com"
+            href="https://companyscheng.lemonsqueezy.com/checkout/buy/adc8c3fc-56d2-4e31-93e8-d96441336699"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-5 rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[var(--shadow-lift)]"
@@ -410,7 +410,7 @@ export function Downloads3D() {
             </div>
           </a>
           <a
-            href="https://companyscheng.lemonsqueezy.com"
+            href="https://companyscheng.lemonsqueezy.com/checkout/buy/adc8c3fc-56d2-4e31-93e8-d96441336699"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-5 rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[var(--shadow-lift)]"
