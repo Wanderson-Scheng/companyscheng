@@ -312,9 +312,8 @@ const checkoutLinks: Record<string, string> = {
 };
 
 const plans = [
-  { k: "trial", features: 3, highlight: false },
-  { k: "annual", features: 3, highlight: true },
   { k: "monthly", features: 3, highlight: false },
+  { k: "annual", features: 3, highlight: true },
   { k: "lifetime", features: 3, highlight: false },
 ];
 
@@ -325,8 +324,9 @@ export function Pricing3D() {
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
           <SectionHeader eyebrow={t("pricing.eyebrow")} title={t("pricing.title")} />
+          <p className="mt-3 text-center text-sm text-muted-foreground">{t("pricing.trialNote")}</p>
         </Reveal>
-        <Reveal className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {plans.map(({ k, features, highlight }, index) => (
             <div
               key={k}
