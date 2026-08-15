@@ -12,6 +12,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import { type ReactNode, useEffect } from "react";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { initSentry, Sentry } from "../lib/sentry";
+import fontCss from "../styles/fonts.css?url";
 import appCss from "../styles.css?url";
 
 initSentry();
@@ -92,11 +93,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: fontCss },
       {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
+        rel: "preload",
+        href: "/fonts/plus-jakarta-sans-latin.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "apple-touch-icon", href: "/favicon.png" },
