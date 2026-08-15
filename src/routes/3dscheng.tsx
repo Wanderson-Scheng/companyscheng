@@ -30,7 +30,7 @@ export const Route = createFileRoute("/3dscheng")({
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/3dscheng" }],
+    links: [{ rel: "canonical", href: "https://www.companyscheng.com/3dscheng" }],
     scripts: [
       {
         type: "application/ld+json",

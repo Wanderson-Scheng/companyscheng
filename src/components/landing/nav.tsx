@@ -79,7 +79,7 @@ export function Nav() {
         <a href="#top" className="group flex min-w-0 items-center gap-2.5">
           <img
             src={logoUrl}
-            alt=""
+            alt="GuiaFin"
             width={36}
             height={36}
             className="size-9 shrink-0 rounded-xl transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105"

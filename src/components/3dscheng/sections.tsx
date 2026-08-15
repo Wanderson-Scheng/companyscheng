@@ -312,9 +312,8 @@ const checkoutLinks: Record<string, string> = {
 };
 
 const plans = [
-  { k: "trial", features: 3, highlight: false },
-  { k: "annual", features: 3, highlight: true },
   { k: "monthly", features: 3, highlight: false },
+  { k: "annual", features: 3, highlight: true },
   { k: "lifetime", features: 3, highlight: false },
 ];
 
@@ -326,7 +325,7 @@ export function Pricing3D() {
         <Reveal>
           <SectionHeader eyebrow={t("pricing.eyebrow")} title={t("pricing.title")} />
         </Reveal>
-        <Reveal className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {plans.map(({ k, features, highlight }, index) => (
             <div
               key={k}
@@ -399,27 +398,44 @@ export function Downloads3D() {
           />
         </Reveal>
         <Reveal className="mt-10 flex flex-col items-center gap-6">
-          <a
-            href="https://apps.apple.com/app/3d-scheng/id6742187990"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-5 rounded-2xl border border-border bg-card px-8 py-6 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[var(--shadow-lift)]"
-          >
-            <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-              <Apple className="size-7" aria-hidden="true" />
-            </span>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                {t("download.availableOn")}
-              </p>
-              <p className="mt-1 text-lg font-bold">Mac App Store</p>
-            </div>
-          </a>
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <a
+              href="https://apps.apple.com/app/3d-scheng/id6742187990"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-5 rounded-2xl border border-border bg-card px-8 py-6 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[var(--shadow-lift)]"
+            >
+              <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                <Apple className="size-7" aria-hidden="true" />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  {t("download.availableOn")}
+                </p>
+                <p className="mt-1 text-lg font-bold">Mac App Store</p>
+              </div>
+            </a>
+            <a
+              href="https://github.com/Wanderson-Scheng/3D-Scheng-releases/releases/latest/download/3D-Scheng-Setup.exe"
+              className="group flex items-center gap-5 rounded-2xl border border-border bg-card px-8 py-6 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[var(--shadow-lift)]"
+            >
+              <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-primary-soft text-primary-deep transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                <Monitor className="size-7" aria-hidden="true" />
+              </span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  {t("download.directDownload")}
+                </p>
+                <p className="mt-1 text-lg font-bold">Windows</p>
+              </div>
+            </a>
+          </div>
           <p className="text-center text-sm text-muted-foreground">
             {t("download.version")}: <span className="font-semibold text-foreground">1.0.0</span>
             <span className="mx-2">·</span>
-            macOS 11+
+            macOS 11+ / Windows 10+
           </p>
+          <p className="text-center text-xs text-muted-foreground">{t("download.trialInfo")}</p>
         </Reveal>
       </div>
     </section>
