@@ -13,7 +13,7 @@ import {
 } from "@/components/landing/sections";
 import { I18nProvider } from "@/lib/i18n";
 
-const title = "Scheng Holdings";
+const title = "GuiaFin — Finanças Pessoais";
 const description =
   "Controle rendimentos, despesas, parcelamentos, contas, cartões e metas de poupança no seu telemóvel. Offline total, dados locais, proteção por PIN, sem anúncios.";
 
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/guiafin")({
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/guiafin" }],
+    links: [{ rel: "canonical", href: "https://www.companyscheng.com/guiafin" }],
     scripts: [
       {
         type: "application/ld+json",

@@ -13,7 +13,7 @@ export function Footer3D() {
           <div className="flex items-center gap-2.5">
             <img
               src={logoLight}
-              alt=""
+              alt="3D Scheng"
               width={40}
               height={40}
               className="size-10 shrink-0 rounded-full dark:hidden"
@@ -21,7 +21,7 @@ export function Footer3D() {
             />
             <img
               src={logoDark}
-              alt=""
+              alt="3D Scheng"
               width={40}
               height={40}
               className="hidden size-10 shrink-0 rounded-full dark:block"
@@ -69,8 +69,12 @@ export function Footer3D() {
           <h2 className="text-sm font-bold">{t("footer.social")}</h2>
           <ul className="mt-4 flex gap-2">
             {[
-              { Icon: Twitter, label: "X", href: "https://x.com" },
-              { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com" },
+              { Icon: Twitter, label: "X", href: "https://x.com/CompanyScheng" },
+              {
+                Icon: Instagram,
+                label: "Instagram",
+                href: "https://www.instagram.com/companyscheng",
+              },
               {
                 Icon: Linkedin,
                 label: "LinkedIn",

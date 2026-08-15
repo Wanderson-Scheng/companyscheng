@@ -13,7 +13,7 @@ export function Footer() {
           <div className="flex items-center gap-2.5">
             <img
               src={logoUrl}
-              alt=""
+              alt="GuiaFin"
               width={36}
               height={36}
               className="size-9 shrink-0 rounded-xl"
@@ -66,7 +66,7 @@ export function Footer() {
           <h2 className="text-sm font-bold">{t("footer.social")}</h2>
           <ul className="mt-4 flex gap-2">
             {[
-              { Icon: Twitter, label: "X", href: "https://x.com" },
+              { Icon: Twitter, label: "X", href: "https://x.com/CompanyScheng" },
               {
                 Icon: Instagram,
                 label: "Instagram",

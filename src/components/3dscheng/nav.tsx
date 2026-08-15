@@ -79,7 +79,7 @@ export function Nav3D() {
         <a href="#top" className="group flex min-w-0 items-center gap-2.5">
           <img
             src={logoLight}
-            alt=""
+            alt="3D Scheng"
             width={40}
             height={40}
             className="size-10 shrink-0 rounded-full transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105 dark:hidden"
@@ -87,7 +87,7 @@ export function Nav3D() {
           />
           <img
             src={logoDark}
-            alt=""
+            alt="3D Scheng"
             width={40}
             height={40}
             className="hidden size-10 shrink-0 rounded-full transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105 dark:block"
