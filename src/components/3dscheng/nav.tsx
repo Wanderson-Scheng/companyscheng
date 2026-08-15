@@ -80,17 +80,17 @@ export function Nav3D() {
           <img
             src={logoLight}
             alt=""
-            width={36}
-            height={36}
-            className="size-9 shrink-0 rounded-xl transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105 dark:hidden"
+            width={40}
+            height={40}
+            className="size-10 shrink-0 rounded-full transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105 dark:hidden"
             aria-hidden="true"
           />
           <img
             src={logoDark}
             alt=""
-            width={36}
-            height={36}
-            className="hidden size-9 shrink-0 rounded-xl transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105 dark:block"
+            width={40}
+            height={40}
+            className="hidden size-10 shrink-0 rounded-full transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105 dark:block"
             aria-hidden="true"
           />
           <span className="truncate text-lg font-extrabold tracking-tight">3D Scheng</span>

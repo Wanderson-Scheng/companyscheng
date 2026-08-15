@@ -14,17 +14,17 @@ export function Footer3D() {
             <img
               src={logoLight}
               alt=""
-              width={36}
-              height={36}
-              className="size-9 shrink-0 rounded-xl dark:hidden"
+              width={40}
+              height={40}
+              className="size-10 shrink-0 rounded-full dark:hidden"
               aria-hidden="true"
             />
             <img
               src={logoDark}
               alt=""
-              width={36}
-              height={36}
-              className="hidden size-9 shrink-0 rounded-xl dark:block"
+              width={40}
+              height={40}
+              className="hidden size-10 shrink-0 rounded-full dark:block"
               aria-hidden="true"
             />
             <span className="text-lg font-extrabold tracking-tight">3D Scheng</span>
