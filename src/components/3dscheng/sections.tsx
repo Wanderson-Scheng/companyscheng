@@ -323,11 +323,7 @@ export function Pricing3D() {
     <section id="pricing" className="bg-surface py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
-          <SectionHeader
-            eyebrow={t("pricing.eyebrow")}
-            title={t("pricing.title")}
-            subtitle={t("pricing.subtitle")}
-          />
+          <SectionHeader eyebrow={t("pricing.eyebrow")} title={t("pricing.title")} />
         </Reveal>
         <Reveal className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {plans.map(({ k, features, highlight }, index) => (

@@ -2,8 +2,7 @@ import { Check, ChevronDown, Globe, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { type Locale, localeMeta, locales, use3DI18n } from "./i18n";
 
-const logoDark = "/logos/scheng-3d.png";
-const logoLight = "/logos/scheng-3d-dark.png";
+const logoText = "/logos/3dscheng-text.png";
 
 function LanguageSwitcher() {
   const { locale, setLocale, t } = use3DI18n();
@@ -76,24 +75,14 @@ export function Nav3D() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3.5 sm:flex sm:justify-between">
-        <a href="#top" className="group flex min-w-0 items-center gap-2.5">
+        <a href="#top" className="group flex min-w-0 items-center">
           <img
-            src={logoLight}
+            src={logoText}
             alt="3D Scheng"
-            width={40}
-            height={40}
-            className="size-10 shrink-0 rounded-full transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105 dark:hidden"
-            aria-hidden="true"
+            width={400}
+            height={133}
+            className="h-8 w-auto dark:invert"
           />
-          <img
-            src={logoDark}
-            alt="3D Scheng"
-            width={40}
-            height={40}
-            className="hidden size-10 shrink-0 rounded-full transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105 dark:block"
-            aria-hidden="true"
-          />
-          <span className="truncate text-lg font-extrabold tracking-tight">3D Scheng</span>
         </a>
 
         <nav aria-label="3D Scheng" className="hidden items-center gap-1 md:flex">

@@ -1,8 +1,7 @@
 import { Instagram, Linkedin, Mail, Twitter } from "lucide-react";
 import { use3DI18n } from "./i18n";
 
-const logoDark = "/logos/scheng-3d.png";
-const logoLight = "/logos/scheng-3d-dark.png";
+const logoText = "/logos/3dscheng-text.png";
 
 export function Footer3D() {
   const { t } = use3DI18n();
@@ -10,25 +9,13 @@ export function Footer3D() {
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2.5">
-            <img
-              src={logoLight}
-              alt="3D Scheng"
-              width={40}
-              height={40}
-              className="size-10 shrink-0 rounded-full dark:hidden"
-              aria-hidden="true"
-            />
-            <img
-              src={logoDark}
-              alt="3D Scheng"
-              width={40}
-              height={40}
-              className="hidden size-10 shrink-0 rounded-full dark:block"
-              aria-hidden="true"
-            />
-            <span className="text-lg font-extrabold tracking-tight">3D Scheng</span>
-          </div>
+          <img
+            src={logoText}
+            alt="3D Scheng"
+            width={400}
+            height={133}
+            className="h-8 w-auto dark:invert"
+          />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             {t("footer.tagline")}
           </p>
