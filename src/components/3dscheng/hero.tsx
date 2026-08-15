@@ -3,7 +3,7 @@ import { ArrowRight, Camera, Cpu, HardDrive, Sparkles, Thermometer } from "lucid
 import { LazyImage } from "@/components/ui/lazy-image";
 import { use3DI18n } from "./i18n";
 
-const heroShotUrl = "/3dscheng/dashboard-light.png";
+const heroShotUrl = "/3dscheng/dashboard-light.webp";
 
 const explodedFeatures: { icon: LucideIcon; label: string }[] = [
   { icon: Cpu, label: "MQTT" },

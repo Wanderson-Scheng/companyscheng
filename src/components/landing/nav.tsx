@@ -1,6 +1,6 @@
 import { appStoreUrl } from "@/lib/links";
 
-const logoUrl = "/guiafin/guiafin-logo.png";
+const logoUrl = "/guiafin/guiafin-logo.webp";
 
 import { Check, ChevronDown, Globe, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
