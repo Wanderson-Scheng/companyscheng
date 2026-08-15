@@ -30,9 +30,9 @@ const pt: Dict = {
   "nav.tryfree": "Experimentar Grátis",
 
   "hero.badge": "Software Profissional para Impressão 3D",
-  "hero.title": "Gira a sua farm de impressoras 3D como um profissional",
+  "hero.title": "Tenha o controlo total da sua produção 3D",
   "hero.subtitle":
-    "Monitoramento em tempo real, controlo de custos, manutenção preventiva e gestão financeira. 100% offline, os seus dados nunca saem do seu computador.",
+    "Monitoramento em tempo real, controlo de custos, manutenção preventiva e gestão financeira — tudo num único software. 100% offline, os seus dados nunca saem do seu computador.",
   "hero.cta": "Experimentar Grátis — 30 dias",
   "hero.secondary": "Ver Funcionalidades",
   "hero.imageAlt": "Dashboard do 3D Scheng mostrando monitoramento de farm de impressoras 3D",
@@ -206,9 +206,9 @@ const en: Dict = {
   "nav.tryfree": "Try Free",
 
   "hero.badge": "Professional 3D Printing Software",
-  "hero.title": "Manage your 3D printer farm like a pro",
+  "hero.title": "Take full control of your 3D production",
   "hero.subtitle":
-    "Real-time monitoring, cost control, preventive maintenance and financial management. 100% offline — your data never leaves your computer.",
+    "Real-time monitoring, cost control, preventive maintenance and financial management — all in one software. 100% offline, your data never leaves your computer.",
   "hero.cta": "Try Free — 30 days",
   "hero.secondary": "See Features",
   "hero.imageAlt": "3D Scheng Dashboard showing 3D printer farm monitoring",
@@ -372,9 +372,9 @@ const es: Dict = {
   "nav.tryfree": "Probar Gratis",
 
   "hero.badge": "Software Profesional para Impresión 3D",
-  "hero.title": "Gestione su granja de impresoras 3D como un profesional",
+  "hero.title": "Tenga el control total de su producción 3D",
   "hero.subtitle":
-    "Monitoreo en tiempo real, control de costes, mantenimiento preventivo y gestión financiera. 100% offline, sus datos nunca salen de su ordenador.",
+    "Monitoreo en tiempo real, control de costes, mantenimiento preventivo y gestión financiera — todo en un solo software. 100% offline, sus datos nunca salen de su ordenador.",
   "hero.cta": "Probar Gratis — 30 días",
   "hero.secondary": "Ver Funciones",
   "hero.imageAlt": "Dashboard del 3D Scheng mostrando monitoreo de granja de impresoras 3D",

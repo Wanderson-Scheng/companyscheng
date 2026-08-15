@@ -12,7 +12,7 @@ import { LazyImage } from "@/components/ui/lazy-image";
 import { useI18n } from "@/lib/i18n";
 import { appStoreUrl } from "@/lib/links";
 
-const heroShotUrl = "/guiafin/app-dash.png";
+const heroShotUrl = "/guiafin/app-dash.webp";
 
 const explodedFeatures: { icon: LucideIcon; title: string; description: string }[] = [
   { icon: ArrowLeftRight, title: "f.income.t", description: "f.income.d" },

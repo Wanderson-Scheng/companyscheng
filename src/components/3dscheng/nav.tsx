@@ -2,7 +2,8 @@ import { Check, ChevronDown, Globe, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { type Locale, localeMeta, locales, use3DI18n } from "./i18n";
 
-const logoUrl = "/logos/scheng-3d.png";
+const logoDark = "/logos/scheng-3d.png";
+const logoLight = "/logos/scheng-3d-dark.png";
 
 function LanguageSwitcher() {
   const { locale, setLocale, t } = use3DI18n();
@@ -77,11 +78,19 @@ export function Nav3D() {
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3.5 sm:flex sm:justify-between">
         <a href="#top" className="group flex min-w-0 items-center gap-2.5">
           <img
-            src={logoUrl}
+            src={logoLight}
             alt=""
-            width={36}
-            height={36}
-            className="size-9 shrink-0 rounded-xl transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105"
+            width={40}
+            height={40}
+            className="size-10 shrink-0 rounded-full transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105 dark:hidden"
+            aria-hidden="true"
+          />
+          <img
+            src={logoDark}
+            alt=""
+            width={40}
+            height={40}
+            className="hidden size-10 shrink-0 rounded-full transition-transform duration-300 group-hover:rotate-6 group-hover:scale-105 dark:block"
             aria-hidden="true"
           />
           <span className="truncate text-lg font-extrabold tracking-tight">3D Scheng</span>

@@ -164,15 +164,15 @@ export function WhyGuiaFin() {
 }
 
 const screenShots: { k: string; url: string }[] = [
-  { k: "pin", url: "/guiafin/app-pin.png" },
-  { k: "currency", url: "/guiafin/app-overview.png" },
-  { k: "accounts", url: "/guiafin/app-accounts.png" },
-  { k: "card", url: "/guiafin/app-card.png" },
-  { k: "install", url: "/guiafin/app-install.png" },
-  { k: "goal", url: "/guiafin/app-goal.png" },
-  { k: "menu", url: "/guiafin/app-menu.png" },
-  { k: "profile", url: "/guiafin/app-profile.png" },
-  { k: "annual", url: "/guiafin/app-annual.png" },
+  { k: "pin", url: "/guiafin/app-pin.webp" },
+  { k: "currency", url: "/guiafin/app-overview.webp" },
+  { k: "accounts", url: "/guiafin/app-accounts.webp" },
+  { k: "card", url: "/guiafin/app-card.webp" },
+  { k: "install", url: "/guiafin/app-install.webp" },
+  { k: "goal", url: "/guiafin/app-goal.webp" },
+  { k: "menu", url: "/guiafin/app-menu.webp" },
+  { k: "profile", url: "/guiafin/app-profile.webp" },
+  { k: "annual", url: "/guiafin/app-annual.webp" },
 ];
 
 export function Screens() {

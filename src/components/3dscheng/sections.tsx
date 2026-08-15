@@ -148,15 +148,15 @@ export function Features3D() {
 }
 
 const screenShots: { k: string; file: string }[] = [
-  { k: "dashboard-light", file: "dashboard-light.png" },
-  { k: "dashboard-dark", file: "dashboard-dark.png" },
-  { k: "printers", file: "printers.png" },
-  { k: "cameras", file: "cameras.png" },
-  { k: "filaments", file: "filaments.png" },
-  { k: "calculator", file: "calculator.png" },
-  { k: "parts", file: "parts.png" },
-  { k: "financial", file: "financial.png" },
-  { k: "settings", file: "settings.png" },
+  { k: "dashboard-light", file: "dashboard-light.webp" },
+  { k: "dashboard-dark", file: "dashboard-dark.webp" },
+  { k: "printers", file: "printers.webp" },
+  { k: "cameras", file: "cameras.webp" },
+  { k: "filaments", file: "filaments.webp" },
+  { k: "calculator", file: "calculator.webp" },
+  { k: "parts", file: "parts.webp" },
+  { k: "financial", file: "financial.webp" },
+  { k: "settings", file: "settings.webp" },
 ];
 
 export function Screenshots3D() {

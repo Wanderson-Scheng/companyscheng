@@ -1,6 +1,6 @@
 import { Instagram, Linkedin, Mail, Twitter } from "lucide-react";
 
-const logoUrl = "/guiafin/guiafin-logo.png";
+const logoUrl = "/guiafin/guiafin-logo.webp";
 
 import { useI18n } from "@/lib/i18n";
 
