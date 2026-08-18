@@ -29,6 +29,8 @@ export const Route = createFileRoute("/3dscheng")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
+      { property: "og:image", content: "https://www.companyscheng.com/logos/3dscheng-text.png" },
+      { name: "twitter:image", content: "https://www.companyscheng.com/logos/3dscheng-text.png" },
     ],
     links: [{ rel: "canonical", href: "https://www.companyscheng.com/3dscheng" }],
     scripts: [

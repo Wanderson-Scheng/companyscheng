@@ -28,6 +28,8 @@ export const Route = createFileRoute("/guiafin")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
+      { property: "og:image", content: "https://www.companyscheng.com/guiafin/logo.webp" },
+      { name: "twitter:image", content: "https://www.companyscheng.com/guiafin/logo.webp" },
     ],
     links: [{ rel: "canonical", href: "https://www.companyscheng.com/guiafin" }],
     scripts: [
