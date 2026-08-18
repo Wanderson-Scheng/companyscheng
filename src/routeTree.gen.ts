@@ -12,8 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as R3dschengRouteImport } from './routes/3dscheng'
 import { Route as GuiafinRouteImport } from './routes/guiafin'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SchengRouteImport } from './routes/scheng'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SchengIndexRouteImport } from './routes/scheng.index'
 import { Route as SchengContactoRouteImport } from './routes/scheng.contacto'
 import { Route as SchengGrupoRouteImport } from './routes/scheng.grupo'
@@ -37,6 +39,11 @@ const GuiafinRoute = GuiafinRouteImport.update({
   path: '/guiafin',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SchengRoute = SchengRouteImport.update({
   id: '/scheng',
   path: '/scheng',
@@ -45,6 +52,11 @@ const SchengRoute = SchengRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SchengIndexRoute = SchengIndexRouteImport.update({
@@ -87,8 +99,10 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/3dscheng': typeof R3dschengRoute
   '/guiafin': typeof GuiafinRoute
+  '/privacy': typeof PrivacyRoute
   '/scheng': typeof SchengRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/scheng/contacto': typeof SchengContactoRoute
   '/scheng/grupo': typeof SchengGrupoRoute
   '/scheng/valores': typeof SchengValoresRoute
@@ -101,7 +115,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/3dscheng': typeof R3dschengRoute
   '/guiafin': typeof GuiafinRoute
+  '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/scheng/contacto': typeof SchengContactoRoute
   '/scheng/grupo': typeof SchengGrupoRoute
   '/scheng/valores': typeof SchengValoresRoute
@@ -115,8 +131,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/3dscheng': typeof R3dschengRoute
   '/guiafin': typeof GuiafinRoute
+  '/privacy': typeof PrivacyRoute
   '/scheng': typeof SchengRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/scheng/contacto': typeof SchengContactoRoute
   '/scheng/grupo': typeof SchengGrupoRoute
   '/scheng/valores': typeof SchengValoresRoute
@@ -131,8 +149,10 @@ export interface FileRouteTypes {
     | '/'
     | '/3dscheng'
     | '/guiafin'
+    | '/privacy'
     | '/scheng'
     | '/sitemap.xml'
+    | '/terms'
     | '/scheng/contacto'
     | '/scheng/grupo'
     | '/scheng/valores'
@@ -145,7 +165,9 @@ export interface FileRouteTypes {
     | '/'
     | '/3dscheng'
     | '/guiafin'
+    | '/privacy'
     | '/sitemap.xml'
+    | '/terms'
     | '/scheng/contacto'
     | '/scheng/grupo'
     | '/scheng/valores'
@@ -158,8 +180,10 @@ export interface FileRouteTypes {
     | '/'
     | '/3dscheng'
     | '/guiafin'
+    | '/privacy'
     | '/scheng'
     | '/sitemap.xml'
+    | '/terms'
     | '/scheng/contacto'
     | '/scheng/grupo'
     | '/scheng/valores'
@@ -173,8 +197,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   R3dschengRoute: typeof R3dschengRoute
   GuiafinRoute: typeof GuiafinRoute
+  PrivacyRoute: typeof PrivacyRoute
   SchengRoute: typeof SchengRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -200,6 +226,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuiafinRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/scheng': {
       id: '/scheng'
       path: '/scheng'
@@ -212,6 +245,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/scheng/': {
@@ -293,8 +333,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   R3dschengRoute: R3dschengRoute,
   GuiafinRoute: GuiafinRoute,
+  PrivacyRoute: PrivacyRoute,
   SchengRoute: SchengRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

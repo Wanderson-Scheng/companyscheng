@@ -18,6 +18,8 @@ export const Route = createFileRoute("/scheng/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
+      { property: "og:image", content: "https://www.companyscheng.com/logos/logo-gold.png" },
+      { name: "twitter:image", content: "https://www.companyscheng.com/logos/logo-gold.png" },
     ],
     links: [{ rel: "canonical", href: url }],
   }),
