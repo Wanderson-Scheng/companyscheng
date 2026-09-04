@@ -173,7 +173,10 @@ const screenShots: { k: string; url: string }[] = [
   { k: "annual", url: "/guiafin/app-annual.webp" },
   { k: "card", url: "/guiafin/app-card.webp" },
   { k: "goal", url: "/guiafin/app-goal.webp" },
-  { k: "accounts", url: "/guiafin/app-accounts.webp" },
+  // "As minhas contas" sai por agora: é a única captura tirada com uma folha
+  // modal aberta, e por cima aparece um pedaço do painel esbatido e cortado a
+  // meio da saudação. A legenda e o ficheiro ficam, para a captura nova entrar
+  // aqui de volta.
   { k: "menu", url: "/guiafin/app-menu.webp" },
   { k: "pin", url: "/guiafin/app-pin.webp" },
 ];
