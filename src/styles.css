@@ -618,7 +618,8 @@
      desenhado dentro do PNG é agora desenhado aqui. Em CSS fica nítido em
      qualquer tamanho e não obriga a reexportar as nove imagens de cada vez
      que a app muda de cara. A ilha dinâmica já vem na captura. */
-  .screen-shot {
+  .phone-frame {
+    position: relative;
     animation: screen-hover 6s ease-in-out infinite;
     border: 0.4rem solid #0b0d12;
     border-radius: 1.25rem;
@@ -626,6 +627,37 @@
     box-shadow:
       0 0 0 1px color-mix(in oklab, white 16%, transparent),
       0 0 0 2px #05070b;
+  }
+
+  .phone-screen {
+    display: block;
+    width: 100%;
+    border-radius: 0.85rem;
+  }
+
+  /* Botões laterais. O box-shadow repete a forma do elemento com os cantos
+     já redondos, por isso um só pseudo-elemento desenha os dois botões de
+     volume. Ficam por fora da aresta, como no telemóvel. */
+  .phone-frame::before,
+  .phone-frame::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    background: #05070b;
+    border-radius: 2px;
+  }
+
+  .phone-frame::before {
+    left: -3px;
+    top: 20%;
+    height: 8%;
+    box-shadow: 0 52px 0 #05070b;
+  }
+
+  .phone-frame::after {
+    right: -3px;
+    top: 26%;
+    height: 11%;
   }
 
   .screen-caption {

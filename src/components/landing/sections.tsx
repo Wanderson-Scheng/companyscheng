@@ -233,15 +233,17 @@ export function Screens() {
               {screenShots.map(({ k, url }) => (
                 <CarouselItem key={k} className="pl-5 sm:basis-1/2 lg:basis-1/3">
                   <article className="group h-full text-center">
-                    <img
-                      src={url}
-                      alt={t(`s.${k}.t`)}
-                      loading="lazy"
-                      decoding="async"
-                      width={819}
-                      height={1779}
-                      className="screen-shot mx-auto w-[min(100%,15rem)] drop-shadow-xl transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-[1.02]"
-                    />
+                    <div className="phone-frame mx-auto w-[min(100%,15rem)] drop-shadow-xl transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-[1.02]">
+                      <img
+                        src={url}
+                        alt={t(`s.${k}.t`)}
+                        loading="lazy"
+                        decoding="async"
+                        width={819}
+                        height={1779}
+                        className="phone-screen"
+                      />
+                    </div>
                     <div className="screen-caption mt-5">
                       <h3 className="text-sm font-bold tracking-tight">{t(`s.${k}.t`)}</h3>
                       <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
