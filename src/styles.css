@@ -614,8 +614,18 @@
     pointer-events: none;
   }
 
+  /* As capturas da versão 2.0 são o ecrã puro: o iPhone que antes vinha
+     desenhado dentro do PNG é agora desenhado aqui. Em CSS fica nítido em
+     qualquer tamanho e não obriga a reexportar as nove imagens de cada vez
+     que a app muda de cara. A ilha dinâmica já vem na captura. */
   .screen-shot {
     animation: screen-hover 6s ease-in-out infinite;
+    border: 0.4rem solid #0b0d12;
+    border-radius: 1.25rem;
+    background-color: #0b0d12;
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, white 16%, transparent),
+      0 0 0 2px #05070b;
   }
 
   .screen-caption {
