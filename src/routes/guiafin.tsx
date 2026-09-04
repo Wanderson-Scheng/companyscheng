@@ -8,7 +8,6 @@ import {
   Features,
   FinalCta,
   Screens,
-  Testimonials,
   WhyGuiaFin,
 } from "@/components/landing/sections";
 import { I18nProvider } from "@/lib/i18n";
@@ -28,8 +27,14 @@ export const Route = createFileRoute("/guiafin")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
-      { property: "og:image", content: "https://www.companyscheng.com/guiafin/logo.webp" },
-      { name: "twitter:image", content: "https://www.companyscheng.com/guiafin/logo.webp" },
+      // logo.webp nunca existiu em public/ — o ficheiro chama-se guiafin-logo.webp.
+      // A partilha da página em WhatsApp, LinkedIn ou X vinha sem imagem nenhuma,
+      // porque o og:image devolvia 404.
+      { property: "og:image", content: "https://www.companyscheng.com/guiafin/guiafin-logo.webp" },
+      {
+        name: "twitter:image",
+        content: "https://www.companyscheng.com/guiafin/guiafin-logo.webp",
+      },
     ],
     links: [{ rel: "canonical", href: "https://www.companyscheng.com/guiafin" }],
     scripts: [
@@ -42,7 +47,10 @@ export const Route = createFileRoute("/guiafin")({
           applicationCategory: "FinanceApplication",
           operatingSystem: "iOS",
           description,
-          offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+          // A app custa 4,99 €. Dizer "0" aqui é o que o Google lê para decidir
+          // se mostra "Grátis" no resultado de pesquisa — e depois a pessoa
+          // chega à App Store e encontra um preço.
+          offers: { "@type": "Offer", price: "4.99", priceCurrency: "EUR" },
         }),
       },
     ],
@@ -61,7 +69,6 @@ function GuiaFinPage() {
           <WhyGuiaFin />
           <Screens />
           <AppStoreReviews />
-          <Testimonials />
           <Faq />
           <FinalCta />
         </main>
