@@ -10,7 +10,6 @@ import {
   Minus,
   Moon,
   PiggyBank,
-  Quote,
   Repeat,
   Star,
   WifiOff,
@@ -163,16 +162,20 @@ export function WhyGuiaFin() {
   );
 }
 
+// Capturas da versão 2.0. O ecrã inicial abre o carrossel porque é onde está a
+// saúde financeira, e as prestações vêm logo a seguir por serem a novidade da
+// versão. Saíram daqui a "visão por moeda" e o "perfil e tema": esses ecrãs
+// deixaram de existir com esta cara no redesenho.
 const screenShots: { k: string; url: string }[] = [
-  { k: "pin", url: "/guiafin/app-pin.webp" },
-  { k: "currency", url: "/guiafin/app-overview.webp" },
-  { k: "accounts", url: "/guiafin/app-accounts.webp" },
-  { k: "card", url: "/guiafin/app-card.webp" },
+  { k: "dash", url: "/guiafin/app-dash.webp" },
   { k: "install", url: "/guiafin/app-install.webp" },
-  { k: "goal", url: "/guiafin/app-goal.webp" },
-  { k: "menu", url: "/guiafin/app-menu.webp" },
-  { k: "profile", url: "/guiafin/app-profile.webp" },
+  { k: "movements", url: "/guiafin/app-movements.webp" },
   { k: "annual", url: "/guiafin/app-annual.webp" },
+  { k: "card", url: "/guiafin/app-card.webp" },
+  { k: "goal", url: "/guiafin/app-goal.webp" },
+  { k: "accounts", url: "/guiafin/app-accounts.webp" },
+  { k: "menu", url: "/guiafin/app-menu.webp" },
+  { k: "pin", url: "/guiafin/app-pin.webp" },
 ];
 
 export function Screens() {
@@ -236,7 +239,7 @@ export function Screens() {
                       loading="lazy"
                       decoding="async"
                       width={819}
-                      height={1652}
+                      height={1779}
                       className="screen-shot mx-auto w-[min(100%,15rem)] drop-shadow-xl transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-[1.02]"
                     />
                     <div className="screen-caption mt-5">
@@ -285,8 +288,6 @@ export function Screens() {
     </section>
   );
 }
-
-const testimonials = ["t1", "t2", "t3"];
 
 const appStoreReviews = [
   {
@@ -364,46 +365,11 @@ export function AppStoreReviews() {
   );
 }
 
-export function Testimonials() {
-  const { t } = useI18n();
-  return (
-    <section className="bg-background py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-5">
-        <Reveal>
-          <SectionHeader eyebrow={t("testimonials.eyebrow")} title={t("testimonials.title")} />
-        </Reveal>
-        <Reveal as="ul" className="mt-10 grid gap-5 md:grid-cols-3">
-          {testimonials.map((k, index) => (
-            <li
-              key={k}
-              className="group flex flex-col rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25"
-              style={{ "--reveal-delay": `${index * 90}ms` } as CSSProperties}
-            >
-              <Quote className="size-6 text-primary" aria-hidden="true" />
-              <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground">
-                {t(`${k}.q`)}
-              </blockquote>
-              <div className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-                <span className="grid size-10 shrink-0 place-items-center rounded-full bg-primary-soft text-sm font-bold text-primary-deep">
-                  {t(`${k}.n`).charAt(0)}
-                </span>
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-bold">{t(`${k}.n`)}</p>
-                  <p className="truncate text-xs text-muted-foreground">{t(`${k}.r`)}</p>
-                </div>
-                <span className="ml-auto flex shrink-0 gap-0.5" aria-hidden="true">
-                  {[0, 1, 2, 3, 4].map((s) => (
-                    <Star key={s} className="size-3.5 fill-primary text-primary" />
-                  ))}
-                </span>
-              </div>
-            </li>
-          ))}
-        </Reveal>
-      </div>
-    </section>
-  );
-}
+// A secção de testemunhos foi removida: as três pessoas que aqui apareciam
+// (nome, profissão e cidade) nunca existiram — eram texto de exemplo gerado
+// quando o site foi montado. Endossos inventados numa página que vende um
+// produto são publicidade enganosa, e a página já mostra as avaliações
+// verdadeiras da App Store logo acima.
 
 const faqKeys = ["1", "2", "3", "4", "5", "6"];
 
