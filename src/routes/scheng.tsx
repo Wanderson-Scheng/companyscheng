@@ -3,7 +3,7 @@ import { SchengProvider, useScheng } from "@/components/scheng/context";
 import { SchengFooter, SchengNav } from "@/components/scheng/sections";
 
 const description =
-  "A Scheng Holdings reúne quatro braços independentes: engenharia aeroespacial, comércio de hardware, tecnologia e produção artesanal.";
+  "A Scheng Holdings reúne três braços independentes: engenharia aeroespacial, comércio de hardware e tecnologia.";
 const url = "https://www.companyscheng.com/scheng";
 
 export const Route = createFileRoute("/scheng")({

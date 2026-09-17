@@ -1,4 +1,4 @@
-import { Boxes, Building2, Rocket, Sparkles } from "lucide-react";
+import { Boxes, Building2, Rocket } from "lucide-react";
 
 const orbitalColorUrl = "/logos/orbital-mark.png";
 const importsLogoUrl = "/logos/scheng-imports.png";
@@ -120,14 +120,6 @@ export const ventures: Venture[] = [
     logos: [{ src: techLogoUrl, label: "Scheng Technology", chip: "light" }],
     features: 3,
     products: products.filter((p) => p.parentSlug === "scheng-technology"),
-  },
-  {
-    slug: "scheng-atelier",
-    icon: Sparkles,
-    k: "v4",
-    name: "Scheng Atelier",
-    features: 3,
-    inProgress: true,
   },
 ];
 

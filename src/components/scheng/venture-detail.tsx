@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { Reveal } from "@/components/landing/reveal";
 import { useScheng } from "@/components/scheng/context";
-import { MaintenanceNotice } from "@/components/scheng/maintenance-notice";
+import { SchengMaintenancePage } from "@/components/scheng/maintenance";
 import type { Venture, VentureLogo } from "@/components/scheng/ventures";
 import { LazyImage } from "@/components/ui/lazy-image";
 
@@ -32,32 +32,42 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
   const { t } = useScheng();
   const features = Array.from({ length: venture.features }, (_, i) => `${venture.k}.f${i + 1}`);
 
+  const back = (
+    <Link
+      to="/scheng/empresas"
+      className="inline-flex items-center gap-2 text-sm font-medium text-[var(--scheng-muted)] transition-colors hover:text-[var(--scheng-gold)]"
+    >
+      <ArrowLeft className="size-4" />
+      {t("vent.back")}
+    </Link>
+  );
+
+  const badge = (
+    <>
+      {venture.logos?.length ? (
+        venture.logos.map((l) => <LogoChip key={l.label} logo={l} />)
+      ) : (
+        <span className="grid size-12 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
+          <venture.icon className="size-5" />
+        </span>
+      )}
+      <span className="rounded-full border border-[var(--scheng-line)] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[var(--scheng-muted)]">
+        {t(`${venture.k}.tag`)}
+      </span>
+    </>
+  );
+
+  if (venture.inProgress) {
+    return <SchengMaintenancePage back={back} badge={badge} name={venture.name} />;
+  }
+
   return (
     <section className="px-5 py-14 md:py-20">
       <div className="mx-auto max-w-5xl">
-        <Reveal>
-          <Link
-            to="/scheng/empresas"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--scheng-muted)] transition-colors hover:text-[var(--scheng-gold)]"
-          >
-            <ArrowLeft className="size-4" />
-            {t("vent.back")}
-          </Link>
-        </Reveal>
+        <Reveal>{back}</Reveal>
 
         <Reveal delay={80}>
-          <div className="group mt-8 flex flex-wrap items-center gap-3">
-            {venture.logos?.length ? (
-              venture.logos.map((l) => <LogoChip key={l.label} logo={l} />)
-            ) : (
-              <span className="grid size-12 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
-                <venture.icon className="size-5" />
-              </span>
-            )}
-            <span className="rounded-full border border-[var(--scheng-line)] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[var(--scheng-muted)]">
-              {t(`${venture.k}.tag`)}
-            </span>
-          </div>
+          <div className="group mt-8 flex flex-wrap items-center gap-3">{badge}</div>
           <h1 className="mt-6 text-3xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-4xl">
             {venture.name}
           </h1>
@@ -65,7 +75,6 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
           <p className="mt-4 max-w-2xl leading-relaxed text-[var(--scheng-muted)]">
             {t(`${venture.k}.long`)}
           </p>
-          {venture.inProgress ? <MaintenanceNotice /> : null}
         </Reveal>
 
         {venture.products?.length ? null : (
