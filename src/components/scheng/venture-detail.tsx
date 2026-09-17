@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight, Check, ImageIcon } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { Reveal } from "@/components/landing/reveal";
 import { useScheng } from "@/components/scheng/context";
+import { MaintenanceNotice } from "@/components/scheng/maintenance-notice";
 import type { Venture, VentureLogo } from "@/components/scheng/ventures";
 import { LazyImage } from "@/components/ui/lazy-image";
 
@@ -64,6 +65,7 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
           <p className="mt-4 max-w-2xl leading-relaxed text-[var(--scheng-muted)]">
             {t(`${venture.k}.long`)}
           </p>
+          {venture.inProgress ? <MaintenanceNotice /> : null}
         </Reveal>
 
         {venture.products?.length ? null : (
@@ -110,24 +112,11 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
           </div>
         ) : null}
 
-        <Reveal delay={120}>
-          <h2 className="mt-14 text-xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-2xl">
-            {t("detail.gallery")}
-          </h2>
-          <div className="mt-5 grid gap-4 sm:grid-cols-3">
-            {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                className="grid aspect-[4/3] place-items-center rounded-2xl border border-dashed border-[var(--scheng-line)] bg-[var(--scheng-surface)] text-[var(--scheng-muted)]"
-              >
-                <span className="flex flex-col items-center gap-2 text-xs">
-                  <ImageIcon className="size-5" />
-                  {t("detail.photosSoon")}
-                </span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+        {/* Aqui havia uma secção "Imagens" com três molduras tracejadas a dizer
+            "fotografias em breve". Nenhuma empresa tem fotografias — o tipo
+            Venture não tem campo `gallery` —, por isso a secção nunca podia
+            encher, e era ela que fazia a página parecer partida. Quem está à
+            espera de conteúdo é o aviso de manutenção, acima. */}
 
         <Reveal delay={140}>
           <div className="mt-14 flex flex-wrap items-center gap-3">

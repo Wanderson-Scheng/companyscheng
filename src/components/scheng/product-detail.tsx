@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Check, ImageIcon } from "lucide-react";
 import { Reveal } from "@/components/landing/reveal";
 import { useScheng } from "@/components/scheng/context";
+import { MaintenanceNotice } from "@/components/scheng/maintenance-notice";
 import { LogoChip } from "@/components/scheng/venture-detail";
 import type { Product } from "@/components/scheng/ventures";
 import { LazyImage } from "@/components/ui/lazy-image";
@@ -38,6 +39,7 @@ export function SchengProductDetail({ product }: { product: Product }) {
           <p className="mt-4 max-w-2xl leading-relaxed text-[var(--scheng-muted)]">
             {t(`${product.k}.long`)}
           </p>
+          {product.inProgress ? <MaintenanceNotice /> : null}
         </Reveal>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -51,39 +53,43 @@ export function SchengProductDetail({ product }: { product: Product }) {
           ))}
         </div>
 
-        <Reveal delay={120}>
-          <h2 className="mt-14 text-xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-2xl">
-            {t("detail.gallery")}
-          </h2>
-          <div className="mt-5 grid gap-4 sm:grid-cols-3">
-            {product.gallery?.length
-              ? product.gallery.map((img) => (
-                  <div
-                    key={img.src}
-                    className="overflow-hidden rounded-2xl border border-[var(--scheng-line)] bg-[var(--scheng-surface)]"
-                  >
-                    <LazyImage
-                      src={img.src}
-                      alt={img.alt}
-                      className="aspect-[4/3] w-full object-cover"
-                      width={400}
-                      height={300}
-                    />
-                  </div>
-                ))
-              : [0, 1, 2].map((i) => (
-                  <div
-                    key={i}
-                    className="grid aspect-[4/3] place-items-center rounded-2xl border border-dashed border-[var(--scheng-line)] bg-[var(--scheng-surface)] text-[var(--scheng-muted)]"
-                  >
-                    <span className="flex flex-col items-center gap-2 text-xs">
-                      <ImageIcon className="size-5" />
-                      {t("detail.photosSoon")}
-                    </span>
-                  </div>
-                ))}
-          </div>
-        </Reveal>
+        {/* Numa página em construção o aviso já diz que faltam as fotografias,
+            por isso as molduras tracejadas ficariam a repetir a mesma coisa. */}
+        {product.inProgress ? null : (
+          <Reveal delay={120}>
+            <h2 className="mt-14 text-xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-2xl">
+              {t("detail.gallery")}
+            </h2>
+            <div className="mt-5 grid gap-4 sm:grid-cols-3">
+              {product.gallery?.length
+                ? product.gallery.map((img) => (
+                    <div
+                      key={img.src}
+                      className="overflow-hidden rounded-2xl border border-[var(--scheng-line)] bg-[var(--scheng-surface)]"
+                    >
+                      <LazyImage
+                        src={img.src}
+                        alt={img.alt}
+                        className="aspect-[4/3] w-full object-cover"
+                        width={400}
+                        height={300}
+                      />
+                    </div>
+                  ))
+                : [0, 1, 2].map((i) => (
+                    <div
+                      key={i}
+                      className="grid aspect-[4/3] place-items-center rounded-2xl border border-dashed border-[var(--scheng-line)] bg-[var(--scheng-surface)] text-[var(--scheng-muted)]"
+                    >
+                      <span className="flex flex-col items-center gap-2 text-xs">
+                        <ImageIcon className="size-5" />
+                        {t("detail.photosSoon")}
+                      </span>
+                    </div>
+                  ))}
+            </div>
+          </Reveal>
+        )}
 
         <Reveal delay={140}>
           <div className="mt-14 flex flex-wrap items-center gap-3">

@@ -123,6 +123,10 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "pr3.f3": "Alertas configuráveis por limites definidos.",
     "detail.photosSoon": "Fotografias em breve",
     "detail.cta": "Falar sobre esta empresa",
+    // Em inglês também na locale pt: ver MaintenanceNotice.
+    "wip.title": "Under maintenance",
+    "wip.body":
+      "This page is still being built, so what you see here is incomplete and the photos are not up yet. Get in touch and we will answer any question in the meantime.",
     "v1.long":
       "A Scheng Orbital System dedica-se à engenharia de sistemas para o espaço, com trabalho em criogenia, propulsão e ensaio de componentes. A actividade está centrada em investigação e desenvolvimento próprios.",
     "v1.f1": "Sistemas criogénicos e ensaios em ambiente controlado.",
@@ -264,6 +268,9 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "pr3.f3": "Configurable alerts based on defined thresholds.",
     "detail.photosSoon": "Photos coming soon",
     "detail.cta": "Talk about this company",
+    "wip.title": "Under maintenance",
+    "wip.body":
+      "This page is still being built, so what you see here is incomplete and the photos are not up yet. Get in touch and we will answer any question in the meantime.",
     "v1.long":
       "Scheng Orbital System works on engineering systems for space, covering cryogenics, propulsion and component testing. The work is centred on in-house research and development.",
     "v1.f1": "Cryogenic systems and testing in controlled environments.",
