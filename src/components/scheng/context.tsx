@@ -39,7 +39,9 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "nav.lang": "Alternar idioma",
 
     "hero.eyebrow": "Holding · Portugal",
-    "hero.title": "Três empresas. Uma forma de trabalhar.",
+    // O   cola "A" a "mesma": sem ele a primeira linha acabava no artigo
+    // sozinho ("Empresas autónomas. A") e a quebra caía a meio da frase.
+    "hero.title": "Empresas autónomas. A mesma exigência.",
     "hero.sub":
       "A Scheng Holdings detém e desenvolve empresas nas áreas aeroespacial, comercial e tecnológica. Cada uma opera de forma autónoma, com engenharia própria e responsabilidade sobre o que entrega.",
     "hero.cta1": "Ver as empresas",
@@ -180,7 +182,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "nav.lang": "Switch language",
 
     "hero.eyebrow": "Holding · Portugal",
-    "hero.title": "Three companies. One way of working.",
+    "hero.title": "Independent companies. One standard.",
     "hero.sub":
       "Scheng Holdings owns and builds companies across aerospace, trade and technology. Each one runs independently, with its own engineering and full ownership of what it ships.",
     "hero.cta1": "See the companies",
