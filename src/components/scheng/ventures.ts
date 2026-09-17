@@ -1,4 +1,4 @@
-import { Boxes, Building2, Rocket, Sparkles } from "lucide-react";
+import { Boxes, Building2, Rocket } from "lucide-react";
 
 const orbitalColorUrl = "/logos/orbital-mark.png";
 const importsLogoUrl = "/logos/scheng-imports.png";
@@ -23,6 +23,12 @@ export type Venture = {
   /** Number of i18n feature bullets available (`${k}.f1`...). */
   features: number;
   products?: Product[];
+  /**
+   * Página ainda a ser construída. Mostra o aviso de manutenção, esconde a
+   * galeria vazia, tira a página do sitemap e marca-a `noindex`. Apagar esta
+   * linha é o que "solta" a página.
+   */
+  inProgress?: true;
 };
 
 export type Product = {
@@ -37,6 +43,8 @@ export type Product = {
   gallery?: { src: string; alt: string }[];
   parentSlug: string;
   parentName: string;
+  /** Ver `Venture.inProgress`. */
+  inProgress?: true;
 };
 
 export const products: Product[] = [
@@ -76,6 +84,8 @@ export const products: Product[] = [
     features: 3,
     parentSlug: "scheng-technology",
     parentName: "Scheng Technology",
+    // Sem site próprio e sem fotografias, ao contrário do GuiaFin e do 3D Scheng.
+    inProgress: true,
   },
 ];
 
@@ -91,6 +101,7 @@ export const ventures: Venture[] = [
     name: "Scheng Orbital System",
     logos: [{ src: orbitalColorUrl, label: "Scheng Orbital System", chip: "light" }],
     features: 3,
+    inProgress: true,
   },
   {
     slug: "scheng-imports",
@@ -99,6 +110,7 @@ export const ventures: Venture[] = [
     name: "Scheng Imports",
     logos: [{ src: importsLogoUrl, label: "Scheng Imports", chip: "light", zoom: true }],
     features: 3,
+    inProgress: true,
   },
   {
     slug: "scheng-technology",
@@ -108,13 +120,6 @@ export const ventures: Venture[] = [
     logos: [{ src: techLogoUrl, label: "Scheng Technology", chip: "light" }],
     features: 3,
     products: products.filter((p) => p.parentSlug === "scheng-technology"),
-  },
-  {
-    slug: "scheng-atelier",
-    icon: Sparkles,
-    k: "v4",
-    name: "Scheng Atelier",
-    features: 3,
   },
 ];
 

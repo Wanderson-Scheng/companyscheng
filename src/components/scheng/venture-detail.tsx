@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight, Check, ImageIcon } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { Reveal } from "@/components/landing/reveal";
 import { useScheng } from "@/components/scheng/context";
+import { SchengMaintenancePage } from "@/components/scheng/maintenance";
 import type { Venture, VentureLogo } from "@/components/scheng/ventures";
 import { LazyImage } from "@/components/ui/lazy-image";
 
@@ -31,32 +32,42 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
   const { t } = useScheng();
   const features = Array.from({ length: venture.features }, (_, i) => `${venture.k}.f${i + 1}`);
 
+  const back = (
+    <Link
+      to="/scheng/empresas"
+      className="inline-flex items-center gap-2 text-sm font-medium text-[var(--scheng-muted)] transition-colors hover:text-[var(--scheng-gold)]"
+    >
+      <ArrowLeft className="size-4" />
+      {t("vent.back")}
+    </Link>
+  );
+
+  const badge = (
+    <>
+      {venture.logos?.length ? (
+        venture.logos.map((l) => <LogoChip key={l.label} logo={l} />)
+      ) : (
+        <span className="grid size-12 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
+          <venture.icon className="size-5" />
+        </span>
+      )}
+      <span className="rounded-full border border-[var(--scheng-line)] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[var(--scheng-muted)]">
+        {t(`${venture.k}.tag`)}
+      </span>
+    </>
+  );
+
+  if (venture.inProgress) {
+    return <SchengMaintenancePage back={back} badge={badge} name={venture.name} />;
+  }
+
   return (
     <section className="px-5 py-14 md:py-20">
       <div className="mx-auto max-w-5xl">
-        <Reveal>
-          <Link
-            to="/scheng/empresas"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--scheng-muted)] transition-colors hover:text-[var(--scheng-gold)]"
-          >
-            <ArrowLeft className="size-4" />
-            {t("vent.back")}
-          </Link>
-        </Reveal>
+        <Reveal>{back}</Reveal>
 
         <Reveal delay={80}>
-          <div className="group mt-8 flex flex-wrap items-center gap-3">
-            {venture.logos?.length ? (
-              venture.logos.map((l) => <LogoChip key={l.label} logo={l} />)
-            ) : (
-              <span className="grid size-12 place-items-center rounded-xl bg-[var(--scheng-gold)]/12 text-[var(--scheng-gold)]">
-                <venture.icon className="size-5" />
-              </span>
-            )}
-            <span className="rounded-full border border-[var(--scheng-line)] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[var(--scheng-muted)]">
-              {t(`${venture.k}.tag`)}
-            </span>
-          </div>
+          <div className="group mt-8 flex flex-wrap items-center gap-3">{badge}</div>
           <h1 className="mt-6 text-3xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-4xl">
             {venture.name}
           </h1>
@@ -110,24 +121,11 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
           </div>
         ) : null}
 
-        <Reveal delay={120}>
-          <h2 className="mt-14 text-xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-2xl">
-            {t("detail.gallery")}
-          </h2>
-          <div className="mt-5 grid gap-4 sm:grid-cols-3">
-            {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                className="grid aspect-[4/3] place-items-center rounded-2xl border border-dashed border-[var(--scheng-line)] bg-[var(--scheng-surface)] text-[var(--scheng-muted)]"
-              >
-                <span className="flex flex-col items-center gap-2 text-xs">
-                  <ImageIcon className="size-5" />
-                  {t("detail.photosSoon")}
-                </span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+        {/* Aqui havia uma secção "Imagens" com três molduras tracejadas a dizer
+            "fotografias em breve". Nenhuma empresa tem fotografias — o tipo
+            Venture não tem campo `gallery` —, por isso a secção nunca podia
+            encher, e era ela que fazia a página parecer partida. Quem está à
+            espera de conteúdo é o aviso de manutenção, acima. */}
 
         <Reveal delay={140}>
           <div className="mt-14 flex flex-wrap items-center gap-3">

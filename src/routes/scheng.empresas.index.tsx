@@ -3,7 +3,7 @@ import { SchengVentures } from "@/components/scheng/sections";
 
 const title = "Scheng Holdings";
 const description =
-  "Scheng Orbital System, Scheng Imports, Scheng Technology e Scheng Atelier: as quatro empresas do grupo e o que cada uma faz.";
+  "Scheng Orbital System, Scheng Imports e Scheng Technology: as três empresas do grupo e o que cada uma faz.";
 const url = "https://www.companyscheng.com/scheng/empresas";
 
 export const Route = createFileRoute("/scheng/empresas/")({

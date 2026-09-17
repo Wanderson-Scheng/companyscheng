@@ -3,7 +3,7 @@ import { SchengHero, SchengHighlights } from "@/components/scheng/sections";
 
 const title = "Scheng Holdings";
 const description =
-  "A Scheng Holdings detém e desenvolve quatro empresas independentes em Portugal: aeroespacial, comercial, tecnológica e artesanal.";
+  "A Scheng Holdings detém e desenvolve três empresas independentes em Portugal: aeroespacial, comercial e tecnológica.";
 const url = "https://www.companyscheng.com/scheng";
 
 export const Route = createFileRoute("/scheng/")({

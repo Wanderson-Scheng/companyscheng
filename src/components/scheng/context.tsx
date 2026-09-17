@@ -39,9 +39,9 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "nav.lang": "Alternar idioma",
 
     "hero.eyebrow": "Holding · Portugal",
-    "hero.title": "Quatro empresas. Uma forma de trabalhar.",
+    "hero.title": "Três empresas. Uma forma de trabalhar.",
     "hero.sub":
-      "A Scheng Holdings detém e desenvolve empresas nas áreas aeroespacial, comercial, tecnológica e artesanal. Cada uma opera de forma autónoma, com engenharia própria e responsabilidade sobre o que entrega.",
+      "A Scheng Holdings detém e desenvolve empresas nas áreas aeroespacial, comercial e tecnológica. Cada uma opera de forma autónoma, com engenharia própria e responsabilidade sobre o que entrega.",
     "hero.cta1": "Ver as empresas",
     "hero.cta2": "Contactar",
 
@@ -49,7 +49,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "home.title": "Por onde quer começar?",
     "home.more": "Ver mais",
     "h1.t": "Empresas",
-    "h1.d": "As quatro empresas do grupo e a área em que cada uma trabalha.",
+    "h1.d": "As três empresas do grupo e a área em que cada uma trabalha.",
     "h2.t": "O grupo",
     "h2.d": "Como estamos organizados e quem fundou a holding.",
     "h3.t": "Valores",
@@ -61,7 +61,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "founder.role": "Fundador e responsável pela estratégia do grupo",
     "founder.title": "Uma holding construída a partir de projectos reais",
     "founder.p1":
-      "A Scheng Holdings nasceu da vontade de reunir, sob a mesma estrutura, projectos que já existiam de forma independente: engenharia, comércio de equipamento, software e produção artesanal.",
+      "A Scheng Holdings nasceu da vontade de reunir, sob a mesma estrutura, projectos que já existiam de forma independente: engenharia, comércio de equipamento e software.",
     "founder.p2":
       "O grupo mantém equipas pequenas e decisões rápidas. Cada empresa responde pelo que entrega e a holding garante os recursos, a marca e a visão de longo prazo.",
     "founder.quote": "Preferimos fazer poucas coisas e fazê-las de forma que aguente o tempo.",
@@ -89,8 +89,6 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "v3.d":
       "Detém o 3D Scheng, software de gestão de impressão 3D, e o GuiaFin, aplicação de finanças pessoais.",
     "v3.cta": "Conhecer o GuiaFin",
-    "v4.tag": "Braço artesanal",
-    "v4.d": "Sabonetes e artigos personalizados, feitos à mão em pequenas séries.",
     "vent.soon": "Em desenvolvimento",
     "vent.more": "Saber mais",
     "vent.back": "Voltar às empresas",
@@ -123,6 +121,10 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "pr3.f3": "Alertas configuráveis por limites definidos.",
     "detail.photosSoon": "Fotografias em breve",
     "detail.cta": "Falar sobre esta empresa",
+    // Em inglês também na locale pt: ver MaintenanceNotice.
+    "wip.title": "Under maintenance",
+    "wip.body":
+      "This page is not ready yet. We are still building it and will publish it once it is complete. Get in touch and we will gladly answer any question in the meantime.",
     "v1.long":
       "A Scheng Orbital System dedica-se à engenharia de sistemas para o espaço, com trabalho em criogenia, propulsão e ensaio de componentes. A actividade está centrada em investigação e desenvolvimento próprios.",
     "v1.f1": "Sistemas criogénicos e ensaios em ambiente controlado.",
@@ -138,11 +140,6 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "v3.f1": "3D Scheng: gestão e monitorização de impressão 3D.",
     "v3.f2": "Scheng Pro: telemetria e leitura de dados em tempo real.",
     "v3.f3": "GuiaFin: finanças pessoais, offline e sem publicidade.",
-    "v4.long":
-      "O Scheng Atelier produz sabonetes e artigos personalizados em pequenas séries. Cada peça é feita à mão, com matérias-primas escolhidas uma a uma.",
-    "v4.f1": "Produção artesanal em séries limitadas.",
-    "v4.f2": "Personalização de aromas, formatos e embalagem.",
-    "v4.f3": "Matérias-primas seleccionadas e sem desperdício.",
 
     "val.title": "Os nossos valores",
     "val1.t": "Simplicidade",
@@ -183,9 +180,9 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "nav.lang": "Switch language",
 
     "hero.eyebrow": "Holding · Portugal",
-    "hero.title": "Four companies. One way of working.",
+    "hero.title": "Three companies. One way of working.",
     "hero.sub":
-      "Scheng Holdings owns and builds companies across aerospace, trade, technology and craft. Each one runs independently, with its own engineering and full ownership of what it ships.",
+      "Scheng Holdings owns and builds companies across aerospace, trade and technology. Each one runs independently, with its own engineering and full ownership of what it ships.",
     "hero.cta1": "See the companies",
     "hero.cta2": "Contact",
 
@@ -193,7 +190,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "home.title": "Where would you like to start?",
     "home.more": "See more",
     "h1.t": "Companies",
-    "h1.d": "The four companies in the group and what each one works on.",
+    "h1.d": "The three companies in the group and what each one works on.",
     "h2.t": "The group",
     "h2.d": "How we are organised and who founded the holding.",
     "h3.t": "Values",
@@ -205,7 +202,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "founder.role": "Founder, responsible for group strategy",
     "founder.title": "A holding built from real projects",
     "founder.p1":
-      "Scheng Holdings was created to bring together, under one structure, projects that already existed independently: engineering, hardware trade, software and craft production.",
+      "Scheng Holdings was created to bring together, under one structure, projects that already existed independently: engineering, hardware trade and software.",
     "founder.p2":
       "The group keeps small teams and fast decisions. Each company owns what it ships, while the holding provides resources, the brand and the long-term view.",
     "founder.quote": "We would rather do a few things, and do them so they last.",
@@ -231,8 +228,6 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "v3.d":
       "Owns 3D Scheng, software for managing 3D printing, and GuiaFin, a personal finance app.",
     "v3.cta": "Discover GuiaFin",
-    "v4.tag": "Craft arm",
-    "v4.d": "Handmade soaps and personalised goods, produced in small batches.",
     "vent.soon": "In development",
     "vent.more": "Learn more",
     "vent.back": "Back to companies",
@@ -264,6 +259,9 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "pr3.f3": "Configurable alerts based on defined thresholds.",
     "detail.photosSoon": "Photos coming soon",
     "detail.cta": "Talk about this company",
+    "wip.title": "Under maintenance",
+    "wip.body":
+      "This page is not ready yet. We are still building it and will publish it once it is complete. Get in touch and we will gladly answer any question in the meantime.",
     "v1.long":
       "Scheng Orbital System works on engineering systems for space, covering cryogenics, propulsion and component testing. The work is centred on in-house research and development.",
     "v1.f1": "Cryogenic systems and testing in controlled environments.",
@@ -279,11 +277,6 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "v3.f1": "3D Scheng: 3D printing management and monitoring.",
     "v3.f2": "Scheng Pro: telemetry and real-time data readings.",
     "v3.f3": "GuiaFin: personal finance, offline and ad-free.",
-    "v4.long":
-      "Scheng Atelier makes soaps and personalised goods in small batches. Every piece is handmade with carefully chosen raw materials.",
-    "v4.f1": "Handmade production in limited batches.",
-    "v4.f2": "Custom scents, shapes and packaging.",
-    "v4.f3": "Selected raw materials, with no waste.",
 
     "val.title": "Our values",
     "val1.t": "Simplicity",

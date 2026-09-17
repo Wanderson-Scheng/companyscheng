@@ -14,6 +14,10 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
+        // Fonte única do sitemap. Havia também um public/sitemap.xml escrito à
+        // mão que, sendo ficheiro estático, era servido à frente desta rota e
+        // deixava-a morta: as páginas do grupo nunca chegaram ao sitemap e as
+        // /privacy e /terms iam lá listadas apesar de serem `noindex`.
         const entries: SitemapEntry[] = [
           { path: "/scheng", changefreq: "weekly", priority: "1.0" },
           { path: "/scheng/grupo", changefreq: "monthly", priority: "0.8" },
@@ -21,15 +25,22 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/scheng/valores", changefreq: "yearly", priority: "0.5" },
           { path: "/scheng/contacto", changefreq: "yearly", priority: "0.7" },
           { path: "/guiafin", changefreq: "monthly", priority: "0.8" },
+          { path: "/3dscheng", changefreq: "monthly", priority: "0.8" },
         ];
 
+        // Páginas marcadas `inProgress` ficam fora do sitemap e vão com
+        // `noindex`: enquanto estiverem em construção não são para ser
+        // encontradas. Tirar a marca em ventures.ts solta-as nos dois sítios.
         for (const venture of ventures) {
-          entries.push({
-            path: `/scheng/empresas/${venture.slug}`,
-            changefreq: "monthly",
-            priority: "0.7",
-          });
+          if (!venture.inProgress) {
+            entries.push({
+              path: `/scheng/empresas/${venture.slug}`,
+              changefreq: "monthly",
+              priority: "0.7",
+            });
+          }
           for (const product of venture.products ?? []) {
+            if (product.inProgress) continue;
             entries.push({
               path: `/scheng/produtos/${product.slug}`,
               changefreq: "monthly",
