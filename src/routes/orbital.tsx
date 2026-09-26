@@ -35,7 +35,26 @@ export const Route = createFileRoute("/orbital")({
       { name: "twitter:description", content: description },
       { name: "twitter:image", content: image },
     ],
-    links: [{ rel: "canonical", href: url }],
+    links: [
+      { rel: "canonical", href: url },
+      // Preload só aqui: a Inter e a JetBrains Mono são desta página, e
+      // carregá-las no __root faria o GuiaFin e as páginas do grupo descarregar
+      // fontes que não usam.
+      {
+        rel: "preload",
+        href: "/fonts/inter-latin.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        href: "/fonts/jetbrains-mono-latin.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",
