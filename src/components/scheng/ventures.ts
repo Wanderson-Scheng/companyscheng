@@ -23,6 +23,8 @@ export type Venture = {
   /** Number of i18n feature bullets available (`${k}.f1`...). */
   features: number;
   products?: Product[];
+  /** Definido quando a empresa já tem site próprio dentro desta aplicação. */
+  externalTo?: string;
   /**
    * Página ainda a ser construída. Mostra o aviso de manutenção, esconde a
    * galeria vazia, tira a página do sitemap e marca-a `noindex`. Apagar esta
@@ -101,7 +103,7 @@ export const ventures: Venture[] = [
     name: "Scheng Orbital System",
     logos: [{ src: orbitalColorUrl, label: "Scheng Orbital System", chip: "light" }],
     features: 3,
-    inProgress: true,
+    externalTo: "/orbital",
   },
   {
     slug: "scheng-imports",
