@@ -214,7 +214,7 @@ const highlights = [
 
 function CompanyMarks() {
   return (
-    <span className="flex items-center gap-2" aria-label="Scheng Holdings — quatro empresas">
+    <span className="flex items-center gap-2" aria-label="Scheng Holdings — três empresas">
       {ventures.map((venture) => {
         const logo = venture.logos?.[0];
 

@@ -6,7 +6,12 @@ export const Route = createFileRoute("/scheng/produtos/$slug")({
   loader: ({ params }) => {
     const product = getProduct(params.slug);
     if (!product) throw notFound();
-    return { name: product.name, parentName: product.parentName, slug: params.slug };
+    return {
+      name: product.name,
+      parentName: product.parentName,
+      slug: params.slug,
+      inProgress: product.inProgress ?? false,
+    };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -28,6 +33,8 @@ export const Route = createFileRoute("/scheng/produtos/$slug")({
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
+        // Ver a nota igual em scheng.empresas.$slug.tsx.
+        ...(loaderData.inProgress ? [{ name: "robots", content: "noindex" }] : []),
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [

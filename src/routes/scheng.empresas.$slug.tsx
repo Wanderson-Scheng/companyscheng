@@ -6,7 +6,7 @@ export const Route = createFileRoute("/scheng/empresas/$slug")({
   loader: ({ params }) => {
     const venture = getVenture(params.slug);
     if (!venture) throw notFound();
-    return { name: venture.name, slug: venture.slug };
+    return { name: venture.name, slug: venture.slug, inProgress: venture.inProgress ?? false };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -28,6 +28,9 @@ export const Route = createFileRoute("/scheng/empresas/$slug")({
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
+        // Uma página em construção não deve ser indexada: quem chegasse por
+        // pesquisa caía numa página que ainda não está pronta para ser vista.
+        ...(loaderData.inProgress ? [{ name: "robots", content: "noindex" }] : []),
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [

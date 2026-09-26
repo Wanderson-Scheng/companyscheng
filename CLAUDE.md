@@ -2,7 +2,7 @@
 
 ## About
 
-Corporate website for **Scheng Holdings**, a holding company with ventures in aerospace (Orbital System), imports, technology, and atelier. Includes a dedicated landing page for **GuiaFin**, a personal finance iOS app.
+Corporate website for **Scheng Holdings**, a holding company with ventures in aerospace (Orbital System), imports, and technology. Includes a dedicated landing page for **GuiaFin**, a personal finance iOS app.
 
 - **Stack**: React + TanStack Start (SSR) + Vite + Tailwind CSS + Nitro
 - **Hosting**: Vercel (auto-deploy from `main` branch)

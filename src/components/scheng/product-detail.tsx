@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Check, ImageIcon } from "lucide-react";
 import { Reveal } from "@/components/landing/reveal";
 import { useScheng } from "@/components/scheng/context";
+import { SchengMaintenancePage } from "@/components/scheng/maintenance";
 import { LogoChip } from "@/components/scheng/venture-detail";
 import type { Product } from "@/components/scheng/ventures";
 import { LazyImage } from "@/components/ui/lazy-image";
@@ -10,27 +11,37 @@ export function SchengProductDetail({ product }: { product: Product }) {
   const { t } = useScheng();
   const features = Array.from({ length: product.features }, (_, i) => `${product.k}.f${i + 1}`);
 
+  const back = (
+    <Link
+      to="/scheng/empresas/$slug"
+      params={{ slug: product.parentSlug }}
+      className="inline-flex items-center gap-2 text-sm font-medium text-[var(--scheng-muted)] transition-colors hover:text-[var(--scheng-gold)]"
+    >
+      <ArrowLeft className="size-4" />
+      {product.parentName}
+    </Link>
+  );
+
+  const badge = (
+    <>
+      <LogoChip logo={product.logo} />
+      <span className="rounded-full border border-[var(--scheng-line)] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[var(--scheng-muted)]">
+        {t(`${product.k}.tag`)}
+      </span>
+    </>
+  );
+
+  if (product.inProgress) {
+    return <SchengMaintenancePage back={back} badge={badge} name={product.name} />;
+  }
+
   return (
     <section className="px-5 py-14 md:py-20">
       <div className="mx-auto max-w-5xl">
-        <Reveal>
-          <Link
-            to="/scheng/empresas/$slug"
-            params={{ slug: product.parentSlug }}
-            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--scheng-muted)] transition-colors hover:text-[var(--scheng-gold)]"
-          >
-            <ArrowLeft className="size-4" />
-            {product.parentName}
-          </Link>
-        </Reveal>
+        <Reveal>{back}</Reveal>
 
         <Reveal delay={80}>
-          <div className="group mt-8 flex flex-wrap items-center gap-3">
-            <LogoChip logo={product.logo} />
-            <span className="rounded-full border border-[var(--scheng-line)] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-[var(--scheng-muted)]">
-              {t(`${product.k}.tag`)}
-            </span>
-          </div>
+          <div className="group mt-8 flex flex-wrap items-center gap-3">{badge}</div>
           <h1 className="mt-6 text-3xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-4xl">
             {product.name}
           </h1>
