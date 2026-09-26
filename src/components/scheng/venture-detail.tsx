@@ -129,9 +129,24 @@ export function SchengVentureDetail({ venture }: { venture: Venture }) {
 
         <Reveal delay={140}>
           <div className="mt-14 flex flex-wrap items-center gap-3">
+            {/* Empresas com site próprio levam o visitante para lá, tal como
+                as páginas de produto do GuiaFin e do 3D Scheng fazem. */}
+            {venture.externalTo ? (
+              <Link
+                to={venture.externalTo}
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--scheng-gold-deep)] via-[var(--scheng-gold)] to-[var(--scheng-gold-deep)] px-6 py-3 text-sm font-bold text-[var(--scheng-ink-deep)] shadow-[0_18px_45px_-18px_var(--scheng-gold)] transition-transform duration-300 hover:-translate-y-0.5"
+              >
+                {`${t("vent.more")} — ${venture.name}`}
+                <ArrowUpRight className="size-4" />
+              </Link>
+            ) : null}
             <Link
               to="/scheng/contacto"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--scheng-gold-deep)] via-[var(--scheng-gold)] to-[var(--scheng-gold-deep)] px-6 py-3 text-sm font-bold text-[var(--scheng-ink-deep)] shadow-[0_18px_45px_-18px_var(--scheng-gold)] transition-transform duration-300 hover:-translate-y-0.5"
+              className={
+                venture.externalTo
+                  ? "inline-flex items-center gap-2 rounded-full border border-[var(--scheng-line)] px-6 py-3 text-sm font-semibold text-[var(--scheng-fg)] transition-colors hover:border-[var(--scheng-gold)]/50"
+                  : "inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--scheng-gold-deep)] via-[var(--scheng-gold)] to-[var(--scheng-gold-deep)] px-6 py-3 text-sm font-bold text-[var(--scheng-ink-deep)] shadow-[0_18px_45px_-18px_var(--scheng-gold)] transition-transform duration-300 hover:-translate-y-0.5"
+              }
             >
               {t("detail.cta")}
               <ArrowUpRight className="size-4" />

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as R3dschengRouteImport } from './routes/3dscheng'
 import { Route as GuiafinRouteImport } from './routes/guiafin'
+import { Route as OrbitalRouteImport } from './routes/orbital'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SchengRouteImport } from './routes/scheng'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -37,6 +38,11 @@ const R3dschengRoute = R3dschengRouteImport.update({
 const GuiafinRoute = GuiafinRouteImport.update({
   id: '/guiafin',
   path: '/guiafin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrbitalRoute = OrbitalRouteImport.update({
+  id: '/orbital',
+  path: '/orbital',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -99,6 +105,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/3dscheng': typeof R3dschengRoute
   '/guiafin': typeof GuiafinRoute
+  '/orbital': typeof OrbitalRoute
   '/privacy': typeof PrivacyRoute
   '/scheng': typeof SchengRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -115,6 +122,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/3dscheng': typeof R3dschengRoute
   '/guiafin': typeof GuiafinRoute
+  '/orbital': typeof OrbitalRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
@@ -131,6 +139,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/3dscheng': typeof R3dschengRoute
   '/guiafin': typeof GuiafinRoute
+  '/orbital': typeof OrbitalRoute
   '/privacy': typeof PrivacyRoute
   '/scheng': typeof SchengRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -149,6 +158,7 @@ export interface FileRouteTypes {
     | '/'
     | '/3dscheng'
     | '/guiafin'
+    | '/orbital'
     | '/privacy'
     | '/scheng'
     | '/sitemap.xml'
@@ -165,6 +175,7 @@ export interface FileRouteTypes {
     | '/'
     | '/3dscheng'
     | '/guiafin'
+    | '/orbital'
     | '/privacy'
     | '/sitemap.xml'
     | '/terms'
@@ -180,6 +191,7 @@ export interface FileRouteTypes {
     | '/'
     | '/3dscheng'
     | '/guiafin'
+    | '/orbital'
     | '/privacy'
     | '/scheng'
     | '/sitemap.xml'
@@ -197,6 +209,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   R3dschengRoute: typeof R3dschengRoute
   GuiafinRoute: typeof GuiafinRoute
+  OrbitalRoute: typeof OrbitalRoute
   PrivacyRoute: typeof PrivacyRoute
   SchengRoute: typeof SchengRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -224,6 +237,13 @@ declare module '@tanstack/react-router' {
       path: '/guiafin'
       fullPath: '/guiafin'
       preLoaderRoute: typeof GuiafinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orbital': {
+      id: '/orbital'
+      path: '/orbital'
+      fullPath: '/orbital'
+      preLoaderRoute: typeof OrbitalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -333,6 +353,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   R3dschengRoute: R3dschengRoute,
   GuiafinRoute: GuiafinRoute,
+  OrbitalRoute: OrbitalRoute,
   PrivacyRoute: PrivacyRoute,
   SchengRoute: SchengRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

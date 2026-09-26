@@ -218,6 +218,32 @@
   --scheng-chip: oklch(1 0 0 / 6%);
 }
 
+/* Scheng Orbital System. Identidade própria, separada do dourado da holding:
+   o registo do sector é frio e técnico — a ESA assenta em azul-petróleo muito
+   escuro sobre cinzento quente, e nenhum par europeu usa dourado. Um só
+   acento (ciano), reservado para estado, números e destaques. */
+.orb {
+  --orb-bg: oklch(0.965 0.004 230);
+  --orb-panel: oklch(1 0 0);
+  --orb-fg: oklch(0.22 0.04 240);
+  --orb-muted: oklch(0.48 0.02 240);
+  --orb-line: oklch(0.22 0.04 240 / 14%);
+  --orb-accent: oklch(0.52 0.12 225);
+  --orb-accent-soft: oklch(0.52 0.12 225 / 10%);
+  --orb-deep: oklch(0.19 0.045 245);
+}
+
+.orb[data-orb-theme="dark"] {
+  --orb-bg: oklch(0.18 0.035 243);
+  --orb-panel: oklch(0.22 0.038 243);
+  --orb-fg: oklch(0.98 0.004 240);
+  --orb-muted: oklch(0.74 0.02 240);
+  --orb-line: oklch(1 0 0 / 13%);
+  --orb-accent: oklch(0.78 0.13 210);
+  --orb-accent-soft: oklch(0.78 0.13 210 / 12%);
+  --orb-deep: oklch(0.13 0.03 245);
+}
+
 @keyframes scheng-float {
   0%,
   100% {
