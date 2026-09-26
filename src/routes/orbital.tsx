@@ -5,12 +5,13 @@ import { OrbitalNav } from "@/components/orbital/nav";
 import {
   OrbitalContext,
   OrbitalCta,
+  OrbitalGallery,
   OrbitalHero,
   OrbitalMethod,
   OrbitalProblem,
   OrbitalStatus,
   OrbitalTeam,
-  OrbitalWork,
+  OrbitalTech,
 } from "@/components/orbital/sections";
 
 const title = "Scheng Orbital System";
@@ -82,7 +83,8 @@ function OrbitalShell() {
       <main>
         <OrbitalHero />
         <OrbitalProblem />
-        <OrbitalWork />
+        <OrbitalTech />
+        <OrbitalGallery />
         <OrbitalMethod />
         <OrbitalStatus />
         <OrbitalContext />

@@ -244,6 +244,39 @@
   --orb-deep: oklch(0.13 0.03 245);
 }
 
+/* Campo estelar. Três camadas de pontos esparsos, monocromáticos e de baixa
+   opacidade, geradas por radial-gradient — sem imagem, sem nebulosa e sem
+   gradiente colorido, que é o que faz um site aeroespacial parecer um fundo
+   de apresentação. A deriva é lentíssima e sai com prefers-reduced-motion. */
+.orb-stars {
+  background-image:
+    radial-gradient(1.2px 1.2px at 12% 18%, rgb(255 255 255 / 55%), transparent),
+    radial-gradient(1px 1px at 34% 62%, rgb(255 255 255 / 40%), transparent),
+    radial-gradient(1.4px 1.4px at 58% 26%, rgb(255 255 255 / 50%), transparent),
+    radial-gradient(1px 1px at 76% 74%, rgb(255 255 255 / 35%), transparent),
+    radial-gradient(1.1px 1.1px at 88% 38%, rgb(255 255 255 / 45%), transparent),
+    radial-gradient(1px 1px at 22% 84%, rgb(255 255 255 / 30%), transparent),
+    radial-gradient(1.3px 1.3px at 66% 92%, rgb(255 255 255 / 40%), transparent),
+    radial-gradient(1px 1px at 46% 8%, rgb(255 255 255 / 35%), transparent);
+  background-size: 620px 620px;
+  background-repeat: repeat;
+  animation: orb-drift 240s linear infinite;
+}
+
+/* Só faz sentido sobre fundo escuro: no tema claro desaparece. */
+.orb[data-orb-theme="light"] .orb-stars {
+  display: none;
+}
+
+@keyframes orb-drift {
+  from { background-position: 0 0; }
+  to { background-position: 620px 620px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb-stars { animation: none; }
+}
+
 @keyframes scheng-float {
   0%,
   100% {

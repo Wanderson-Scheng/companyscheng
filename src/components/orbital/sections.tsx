@@ -1,21 +1,38 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, Check, MapPin } from "lucide-react";
 import { Reveal } from "@/components/landing/reveal";
 import { useOrbital } from "@/components/orbital/i18n";
+import { OrbitalTabs, type OrbTab } from "@/components/orbital/tabs";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { LazyImage } from "@/components/ui/lazy-image";
 
 /**
  * Secções da Scheng Orbital System.
  *
- * As imagens são vistas gerais do módulo. Os renders que mostram a geometria
- * de engate da interface ficam de fora de propósito: é o núcleo técnico, e
- * numa página pública não acrescenta nada que compense expô-lo.
+ * As imagens são vistas gerais do módulo e do modelo de referência. Os
+ * renders que mostram a geometria de engate da interface ficam de fora de
+ * propósito, tal como materiais, dimensões, parâmetros de processo e
+ * resultados de simulação: é o núcleo técnico da empresa.
  */
 
-const work = ["w1", "w2", "w3"];
 const method = ["m1", "m2", "m3"];
 const context = ["c1", "c2", "c3"];
-const team = ["t1", "t2", "t3"];
+const team = ["t1", "t2"];
+const envelope = ["env1", "env2", "env3"];
+
+const gallery = [
+  { src: "/landing/orbital-system/cad-mesh.webp", k: "demo.i1" },
+  { src: "/landing/orbital-system/cad-plate.webp", k: "demo.i2" },
+  { src: "/landing/orbital-system/cad-curvature.webp", k: "demo.i3" },
+  { src: "/landing/orbital-system/module-detail.webp", k: "demo.i4" },
+  { src: "/landing/orbital-system/cad-interior.webp", k: "demo.i5" },
+];
 
 function Eyebrow({ children }: { children: string }) {
   return (
@@ -39,14 +56,15 @@ export function OrbitalHero() {
   return (
     <section id="top" className="relative overflow-hidden bg-[var(--orb-deep)]">
       <div className="absolute inset-0" aria-hidden="true">
+        <div className="orb-stars absolute inset-0" />
         <LazyImage
           src="/landing/orbital-system/module-hero.webp"
           alt=""
-          className="size-full object-cover opacity-50"
+          className="size-full object-cover opacity-40"
           width={1920}
           height={1048}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--orb-deep)]/70 via-[var(--orb-deep)]/85 to-[var(--orb-deep)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--orb-deep)]/60 via-[var(--orb-deep)]/80 to-[var(--orb-deep)]" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-36">
@@ -94,8 +112,58 @@ export function OrbitalProblem() {
   );
 }
 
-export function OrbitalWork() {
+function TabPanel({ k, image }: { k: string; image: string }) {
   const { t } = useOrbital();
+  const bullets = [`${k}.b1`, `${k}.b2`, `${k}.b3`];
+
+  return (
+    <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_1fr]">
+      <div>
+        <h3 className="text-xl font-medium tracking-tight text-[var(--orb-fg)]">{t(`${k}.t`)}</h3>
+        <p className="mt-4 leading-relaxed text-[var(--orb-muted)]">{t(`${k}.p`)}</p>
+        <ul className="mt-6 grid gap-3">
+          {bullets.map((b) => (
+            <li key={b} className="flex items-start gap-3">
+              <Check className="mt-0.5 size-4 shrink-0 text-[var(--orb-accent)]" />
+              <span className="text-sm text-[var(--orb-fg)]">{t(b)}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="overflow-hidden rounded-2xl border border-[var(--orb-line)] bg-[var(--orb-deep)]">
+        <LazyImage
+          src={image}
+          alt={t(`${k}.t`)}
+          className="aspect-[4/3] w-full object-cover"
+          width={1400}
+          height={1050}
+        />
+      </div>
+    </div>
+  );
+}
+
+export function OrbitalTech() {
+  const { t } = useOrbital();
+
+  const tabs: OrbTab[] = [
+    {
+      id: "interface",
+      label: t("tab1.k"),
+      panel: <TabPanel k="tab1" image="/landing/orbital-system/module-detail.webp" />,
+    },
+    {
+      id: "modelo",
+      label: t("tab2.k"),
+      panel: <TabPanel k="tab2" image="/landing/orbital-system/cad-interior.webp" />,
+    },
+    {
+      id: "verificacao",
+      label: t("tab3.k"),
+      panel: <TabPanel k="tab3" image="/landing/orbital-system/cad-mesh.webp" />,
+    },
+  ];
 
   return (
     <section
@@ -104,36 +172,90 @@ export function OrbitalWork() {
     >
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <Eyebrow>{t("work.eyebrow")}</Eyebrow>
-          <Title>{t("work.title")}</Title>
+          <Eyebrow>{t("tabs.eyebrow")}</Eyebrow>
+          <Title>{t("tabs.title")}</Title>
         </Reveal>
 
-        <div className="mt-12 grid items-start gap-10 lg:grid-cols-[1fr_1.05fr]">
-          <Reveal delay={80}>
-            <div className="overflow-hidden rounded-2xl border border-[var(--orb-line)] bg-[var(--orb-deep)]">
-              <LazyImage
-                src="/landing/orbital-system/module-detail.webp"
-                alt="Scheng Orbital System"
-                className="aspect-[4/3] w-full object-cover"
-                width={1600}
-                height={1200}
-              />
-            </div>
-          </Reveal>
+        <Reveal delay={100} className="mt-12">
+          <OrbitalTabs tabs={tabs} label={t("tabs.eyebrow")} />
+        </Reveal>
 
-          <ul className="grid gap-4">
-            {work.map((k, i) => (
-              <Reveal key={k} delay={120 + i * 70}>
-                <li className="rounded-2xl border border-[var(--orb-line)] bg-[var(--orb-bg)] p-6">
-                  <h3 className="text-base font-semibold text-[var(--orb-fg)]">{t(`${k}.t`)}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--orb-muted)]">
-                    {t(`${k}.d`)}
-                  </p>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
+        {/* Envelope de projecto. São requisitos externos — o que a peça tem de
+            aguentar —, não resultados nossos, e a nota di-lo por escrito. */}
+        <Reveal delay={160}>
+          <div className="mt-14 rounded-2xl border border-[var(--orb-line)] bg-[var(--orb-bg)] p-7">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--orb-accent)]">
+              {t("env.title")}
+            </p>
+            <dl className="mt-6 grid gap-x-8 gap-y-5 sm:grid-cols-3">
+              {envelope.map((e) => (
+                <div key={e} className="border-l-2 border-[var(--orb-accent)]/40 pl-4">
+                  <dt className="text-xs text-[var(--orb-muted)]">{t(`${e}.l`)}</dt>
+                  <dd className="mt-1.5 font-mono text-lg text-[var(--orb-fg)]">{t(`${e}.v`)}</dd>
+                  <dd className="mt-1 font-mono text-[0.65rem] uppercase tracking-wider text-[var(--orb-muted)]">
+                    {t(`${e}.s`)}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-7 border-t border-[var(--orb-line)] pt-5 text-xs leading-relaxed text-[var(--orb-muted)]">
+              {t("env.note")}
+            </p>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+export function OrbitalGallery() {
+  const { t } = useOrbital();
+
+  return (
+    <section className="relative overflow-hidden bg-[var(--orb-deep)] px-5 py-20 md:py-28">
+      <div className="orb-stars absolute inset-0 opacity-70" aria-hidden="true" />
+
+      <div className="relative mx-auto max-w-6xl">
+        <Reveal>
+          <Eyebrow>{t("demo.eyebrow")}</Eyebrow>
+          <h2 className="mt-4 max-w-2xl text-2xl font-medium leading-tight tracking-tight text-white sm:text-3xl md:text-4xl">
+            {t("demo.title")}
+          </h2>
+          <p className="mt-5 max-w-2xl leading-relaxed text-white/65">{t("demo.lead")}</p>
+        </Reveal>
+
+        <Reveal delay={100} className="relative mt-12">
+          <Carousel opts={{ align: "start", loop: true }} aria-label={t("demo.title")}>
+            <CarouselContent className="-ml-4">
+              {gallery.map((g) => (
+                <CarouselItem key={g.src} className="pl-4 sm:basis-1/2 lg:basis-1/2">
+                  <figure>
+                    <div className="overflow-hidden rounded-2xl border border-white/12 bg-black/30">
+                      <LazyImage
+                        src={g.src}
+                        alt={t(g.k)}
+                        className="aspect-[16/10] w-full object-cover"
+                        width={1400}
+                        height={875}
+                      />
+                    </div>
+                    <figcaption className="mt-3 font-mono text-xs text-white/55">
+                      {t(g.k)}
+                    </figcaption>
+                  </figure>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious
+              className="-left-1 flex size-10 border-white/20 bg-white/10 text-white hover:bg-white/20 lg:-left-12"
+              aria-label={t("demo.prev")}
+            />
+            <CarouselNext
+              className="-right-1 flex size-10 border-white/20 bg-white/10 text-white hover:bg-white/20 lg:-right-12"
+              aria-label={t("demo.next")}
+            />
+          </Carousel>
+        </Reveal>
       </div>
     </section>
   );
@@ -250,7 +372,7 @@ export function OrbitalTeam() {
           <Eyebrow>{t("team.eyebrow")}</Eyebrow>
           <Title>{t("team.title")}</Title>
         </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:max-w-2xl">
           {team.map((k, i) => (
             <Reveal key={k} delay={80 + i * 70}>
               <div className="h-full rounded-2xl border border-[var(--orb-line)] bg-[var(--orb-bg)] p-6">
@@ -274,14 +396,15 @@ export function OrbitalCta() {
       className="relative overflow-hidden bg-[var(--orb-deep)] px-5 py-24 md:py-32"
     >
       <div className="absolute inset-0" aria-hidden="true">
+        <div className="orb-stars absolute inset-0" />
         <LazyImage
           src="/landing/orbital-system/module-base.webp"
           alt=""
-          className="size-full object-cover opacity-30"
+          className="size-full object-cover opacity-25"
           width={1600}
           height={873}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--orb-deep)] via-[var(--orb-deep)]/90 to-[var(--orb-deep)]/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--orb-deep)] via-[var(--orb-deep)]/88 to-[var(--orb-deep)]/65" />
       </div>
 
       <div className="relative mx-auto max-w-3xl text-center">

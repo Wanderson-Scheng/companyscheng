@@ -94,14 +94,64 @@ const pt: Dict = {
   "c3.t": "ESA OSIP",
   "c3.d": "Ideia submetida ao Open Space Innovation Platform da Agência Espacial Europeia.",
 
+  "tabs.eyebrow": "Tecnologia",
+  "tabs.title": "Três frentes de trabalho.",
+  "tab1.k": "A interface",
+  "tab1.t": "O componente que liga os dois veículos",
+  "tab1.p":
+    "É a peça por onde o propelente atravessa. Une materiais diferentes sem colas nem vedantes que envelheçam, mantém-se ao longo de toda a gama térmica e leva sensores incorporados na própria estrutura, para que o estado da ligação seja lido durante a operação em vez de inferido depois.",
+  "tab1.b1": "União mecânica, sem adesivo",
+  "tab1.b2": "Acoplamento sem intervenção humana",
+  "tab1.b3": "Leitura do estado em operação",
+  "tab2.k": "Modelo de referência",
+  "tab2.t": "O veículo onde a interface é validada",
+  "tab2.p":
+    "Para testar a interface é preciso um veículo que a use. Modelámos um módulo de referência completo — estrutura, depósitos, aviónica e portas de transferência — que serve de banco de ensaio virtual e de caso de uso para dimensionar a interface contra requisitos reais.",
+  "tab2.b1": "Estrutura e arranjo interno modelados",
+  "tab2.b2": "Portas de transferência integradas",
+  "tab2.b3": "Caso de uso para dimensionamento",
+  "tab3.k": "Verificação",
+  "tab3.t": "Como sabemos que o projecto fecha",
+  "tab3.p":
+    "A geometria é gerada por código, não desenhada à mão: mudar um requisito regenera o modelo inteiro. Sobre esse modelo corremos análise de superfície e elementos finitos próprios, para comparar soluções antes de existir peça física. Os resultados orientam o projecto; não substituem ensaio.",
+  "tab3.b1": "CAD paramétrico gerado por código",
+  "tab3.b2": "Elementos finitos internos",
+  "tab3.b3": "Referencial ECSS",
+
+  "demo.eyebrow": "O trabalho",
+  "demo.title": "O que sai do nosso CAD.",
+  "demo.lead":
+    "Modelação paramétrica, análise de superfície e verificação por elementos finitos, feitas em casa. As imagens mostram o modelo de referência; o detalhe da interface fica de fora.",
+  "demo.i1": "Malha do modelo de referência",
+  "demo.i2": "Placa de acoplamento, vista sombreada",
+  "demo.i3": "Análise de curvatura de superfície",
+  "demo.i4": "Módulo de referência, vista geral",
+  "demo.i5": "Arranjo interno do módulo",
+  "demo.prev": "Imagem anterior",
+  "demo.next": "Imagem seguinte",
+
+  "env.title": "Envelope de projecto",
+  // Requisitos externos, não resultados nossos: dizem o que a peça tem de
+  // aguentar, não como lá chegamos. Os valores de carga e as propriedades dos
+  // materiais ficam de fora por serem o núcleo técnico.
+  "env.note":
+    "Requisitos a que a interface tem de responder, não desempenho medido. A verificação feita até agora é por simulação.",
+  "env1.l": "Gama de operação",
+  "env1.v": "−200 °C a +150 °C",
+  "env1.s": "ECSS-Q-ST-70",
+  "env2.l": "Desalinhamento radial absorvido",
+  "env2.v": "≤ 30 mm",
+  "env2.s": "InSPoC-1 B2",
+  "env3.l": "Desalinhamento angular",
+  "env3.v": "≤ 5°",
+  "env3.s": "InSPoC-1 B2",
+
   "team.eyebrow": "Equipa",
   "team.title": "Quem faz o trabalho.",
   "t1.n": "Wanderson Scheng",
   "t1.r": "Fundador · Arquitectura de sistema",
   "t2.n": "Beatriz Cabral",
   "t2.r": "Operações",
-  "t3.n": "Alexander Serafim",
-  "t3.r": "Engenharia mecânica",
 
   "talk.title": "Trabalha em transferência de propelente em órbita?",
   "talk.text":
@@ -179,14 +229,61 @@ const en: Dict = {
   "c3.t": "ESA OSIP",
   "c3.d": "Idea submitted to the European Space Agency's Open Space Innovation Platform.",
 
+  "tabs.eyebrow": "Technology",
+  "tabs.title": "Three strands of work.",
+  "tab1.k": "The interface",
+  "tab1.t": "The component that joins the two vehicles",
+  "tab1.p":
+    "It is the part the propellant crosses. It joins dissimilar materials without glues or seals that age, holds across the full temperature range, and carries sensors embedded in the structure itself, so the state of the joint is read during operation rather than inferred afterwards.",
+  "tab1.b1": "Mechanical union, no adhesive",
+  "tab1.b2": "Mates without a human present",
+  "tab1.b3": "Joint state read in operation",
+  "tab2.k": "Reference model",
+  "tab2.t": "The vehicle the interface is validated on",
+  "tab2.p":
+    "Testing the interface needs a vehicle that uses it. We modelled a complete reference module — structure, tanks, avionics and transfer ports — which serves as a virtual test bench and as the use case for sizing the interface against real requirements.",
+  "tab2.b1": "Structure and internal arrangement modelled",
+  "tab2.b2": "Transfer ports integrated",
+  "tab2.b3": "Use case for sizing",
+  "tab3.k": "Verification",
+  "tab3.t": "How we know the design closes",
+  "tab3.p":
+    "Geometry is generated from code, not drawn by hand: changing one requirement regenerates the whole model. On that model we run our own surface analysis and finite-element work, to compare options before any physical part exists. The results guide the design; they do not replace testing.",
+  "tab3.b1": "Parametric CAD generated from code",
+  "tab3.b2": "In-house finite elements",
+  "tab3.b3": "ECSS framework",
+
+  "demo.eyebrow": "The work",
+  "demo.title": "What comes out of our CAD.",
+  "demo.lead":
+    "Parametric modelling, surface analysis and finite-element verification, done in house. The images show the reference model; the detail of the interface stays out.",
+  "demo.i1": "Reference model mesh",
+  "demo.i2": "Coupling plate, shaded view",
+  "demo.i3": "Surface curvature analysis",
+  "demo.i4": "Reference module, general view",
+  "demo.i5": "Module internal arrangement",
+  "demo.prev": "Previous image",
+  "demo.next": "Next image",
+
+  "env.title": "Design envelope",
+  "env.note":
+    "Requirements the interface has to meet, not measured performance. Verification so far is by simulation.",
+  "env1.l": "Operating range",
+  "env1.v": "−200 °C to +150 °C",
+  "env1.s": "ECSS-Q-ST-70",
+  "env2.l": "Radial misalignment absorbed",
+  "env2.v": "≤ 30 mm",
+  "env2.s": "InSPoC-1 B2",
+  "env3.l": "Angular misalignment",
+  "env3.v": "≤ 5°",
+  "env3.s": "InSPoC-1 B2",
+
   "team.eyebrow": "Team",
   "team.title": "Who does the work.",
   "t1.n": "Wanderson Scheng",
   "t1.r": "Founder · System architecture",
   "t2.n": "Beatriz Cabral",
   "t2.r": "Operations",
-  "t3.n": "Alexander Serafim",
-  "t3.r": "Mechanical engineering",
 
   "talk.title": "Working on in-orbit propellant transfer?",
   "talk.text":
