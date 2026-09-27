@@ -21,10 +21,10 @@ import { LazyImage } from "@/components/ui/lazy-image";
  * resultados de simulação: é o núcleo técnico da empresa.
  */
 
-const context = ["c1", "c2", "c3"];
+const context = ["c2", "c3"];
 const failures = ["f1", "f2", "f3"];
 const projects = ["p1", "p2", "p3"];
-const companyFacts = ["cf1", "cf2", "cf3", "cf4"];
+const companyFacts = ["cf1", "cf2", "cf3"];
 const envelope = ["env1", "env2", "env3"];
 
 const gallery = [
@@ -67,16 +67,8 @@ export function OrbitalHero() {
           dimensões, volumes e materiais, que é o que mantemos fora do site. */}
       <div className="absolute inset-0" aria-hidden="true">
         <div className="orb-stars absolute inset-0" />
-        {/* Camada de recurso, por baixo do vídeo: é o que fica à vista quando
-            o vídeo é escondido por prefers-reduced-motion. O poster do próprio
-            elemento <video> desapareceria com ele. */}
-        <img
-          src="/landing/orbital-system/module-loop-poster.jpg"
-          alt=""
-          className="absolute inset-0 size-full object-cover opacity-50 mix-blend-screen"
-        />
         <video
-          className="orb-hero-video absolute inset-0 size-full object-cover opacity-50 mix-blend-screen"
+          className="orb-hero-video absolute inset-0 size-full object-cover opacity-75 mix-blend-screen"
           src="/landing/orbital-system/module-loop.mp4"
           poster="/landing/orbital-system/module-loop-poster.jpg"
           autoPlay
@@ -85,11 +77,8 @@ export function OrbitalHero() {
           playsInline
           preload="metadata"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/60 to-black" />
-        {/* Véu lateral: o módulo desloca-se ao longo do vídeo, por isso não há
-            posição fixa que o mantenha longe do texto. Em vez de o perseguir,
-            garante-se campo escuro debaixo da coluna de texto. */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/65 to-transparent" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-36">

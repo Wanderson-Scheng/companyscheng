@@ -3,21 +3,16 @@ import { OrbitalFooter } from "@/components/orbital/footer";
 import { OrbitalProvider } from "@/components/orbital/i18n";
 import { OrbitalNav } from "@/components/orbital/nav";
 import {
-  OrbitalCompany,
   OrbitalContext,
   OrbitalCta,
-  OrbitalFounder,
-  OrbitalGallery,
   OrbitalHero,
   OrbitalProblem,
-  OrbitalProjects,
-  OrbitalStatus,
-  OrbitalTech,
 } from "@/components/orbital/sections";
+import { OrbitalViews } from "@/components/orbital/views";
 
 const title = "Scheng Orbital System";
 const description =
-  "Interfaces criogénicas para transferência de propelente em órbita. Empresa incubada no ESA BIC Centro, em Vila de Rei, Portugal.";
+  "Interfaces criogénicas para transferência de propelente em órbita. Engenharia em Vila de Rei, Portugal.";
 const url = "https://www.companyscheng.com/orbital";
 const image = "https://www.companyscheng.com/landing/orbital-system/module-detail.webp";
 
@@ -38,16 +33,8 @@ export const Route = createFileRoute("/orbital")({
     ],
     links: [
       { rel: "canonical", href: url },
-      // Preload só aqui: a Inter e a JetBrains Mono são desta página, e
-      // carregá-las no __root faria o GuiaFin e as páginas do grupo descarregar
-      // fontes que não usam.
-      {
-        rel: "preload",
-        href: "/fonts/inter-latin.woff2",
-        as: "font",
-        type: "font/woff2",
-        crossOrigin: "anonymous",
-      },
+      // Preload só aqui: a mono é desta página, e carregá-la no __root faria
+      // o GuiaFin e as páginas do grupo descarregar uma fonte que não usam.
       {
         rel: "preload",
         href: "/fonts/jetbrains-mono-latin.woff2",
@@ -97,12 +84,7 @@ function OrbitalShell() {
       <main>
         <OrbitalHero />
         <OrbitalProblem />
-        <OrbitalCompany />
-        <OrbitalTech />
-        <OrbitalProjects />
-        <OrbitalGallery />
-        <OrbitalStatus />
-        <OrbitalFounder />
+        <OrbitalViews />
         <OrbitalContext />
         <OrbitalCta />
       </main>
