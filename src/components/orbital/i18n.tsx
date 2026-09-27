@@ -81,8 +81,6 @@ const pt: Dict = {
 
   "ctx.eyebrow": "Enquadramento",
   "ctx.title": "Onde este trabalho se insere.",
-  "c1.t": "ESA BIC Centro",
-  "c1.d": "Empresa incubada no Business Incubation Centre da Agência Espacial Europeia.",
   "c2.t": "InSPoC-1, Fase B2",
   "c2.d":
     "Participação no grupo de trabalho da ESA dedicado a interfaces de acoplamento e reabastecimento.",
@@ -148,6 +146,7 @@ const pt: Dict = {
   "t2.n": "Beatriz Cabral",
   "t2.r": "Operações",
 
+  "views.label": "Secções",
   "nav.company": "Empresa",
   "nav.projects": "Projectos",
 
@@ -177,15 +176,13 @@ const pt: Dict = {
   "cf2.v": "Montante · subsistemas",
   "cf3.l": "Modelo",
   "cf3.v": "B2B · hardware, engenharia, licenciamento",
-  "cf4.l": "Incubação",
-  "cf4.v": "ESA BIC Centro · Pampilhosa da Serra",
 
   "proj.eyebrow": "Projectos",
   "proj.title": "Em que estamos a trabalhar.",
   "p1.k": "Em curso",
   "p1.t": "The Interlock",
   "p1.d":
-    "A interface criogénica instrumentada para logística orbital. É o produto da empresa e o objecto de toda a actividade de desenvolvimento. O programa de incubação leva-o de prova de conceito a validação em ambiente relevante, com modelos de engenharia fabricados e ensaiados.",
+    "A interface criogénica instrumentada para logística orbital. É o produto da empresa e o objecto de toda a actividade de desenvolvimento. O caminho traçado leva-o de prova de conceito a validação em ambiente relevante, com modelos de engenharia fabricados e ensaiados.",
   "p2.k": "Apoio",
   "p2.t": "Módulo de referência",
   "p2.d":
@@ -193,7 +190,7 @@ const pt: Dict = {
   "p3.k": "Previsto",
   "p3.t": "Proteção industrial",
   "p3.d":
-    "Pedido de patente europeia sobre a arquitectura da interface, a apresentar durante o período de incubação, acompanhado de uma base documental alinhada com as normas ECSS.",
+    "Pedido de patente europeia sobre a arquitectura da interface, acompanhado de uma base documental alinhada com as normas ECSS.",
 
   "founder.eyebrow": "Fundador",
   "founder.title": "Como esta empresa apareceu.",
@@ -207,7 +204,7 @@ const pt: Dict = {
 
   "t2.r2": "Operações e administração",
   "t2.d":
-    "Formação técnica em gestão. Responde pela gestão corrente, pelo acompanhamento financeiro, pelos relatórios do programa de incubação e pela conformidade contratual e regulamentar, o que liberta a parte técnica para engenharia.",
+    "Formação técnica em gestão. Responde pela gestão corrente, pelo acompanhamento financeiro e pela conformidade contratual e regulamentar, o que liberta a parte técnica para engenharia.",
 
   "talk.title": "Trabalha em transferência de propelente em órbita?",
   "talk.text":
@@ -273,8 +270,6 @@ const en: Dict = {
 
   "ctx.eyebrow": "Context",
   "ctx.title": "Where this work sits.",
-  "c1.t": "ESA BIC Centro",
-  "c1.d": "Incubated at the European Space Agency's Business Incubation Centre.",
   "c2.t": "InSPoC-1, Phase B2",
   "c2.d": "Member of the ESA working group on docking and refilling interfaces.",
   "c3.t": "ESA OSIP",
@@ -336,6 +331,7 @@ const en: Dict = {
   "t2.n": "Beatriz Cabral",
   "t2.r": "Operations",
 
+  "views.label": "Sections",
   "nav.company": "Company",
   "nav.projects": "Projects",
 
@@ -365,15 +361,13 @@ const en: Dict = {
   "cf2.v": "Upstream · subsystems",
   "cf3.l": "Model",
   "cf3.v": "B2B · hardware, engineering, licensing",
-  "cf4.l": "Incubation",
-  "cf4.v": "ESA BIC Centro · Pampilhosa da Serra",
 
   "proj.eyebrow": "Projects",
   "proj.title": "What we are working on.",
   "p1.k": "Active",
   "p1.t": "The Interlock",
   "p1.d":
-    "The instrumented cryogenic interface for orbital logistics. It is the company's product and the object of all development work. The incubation programme takes it from proof of concept to validation in a relevant environment, with engineering models manufactured and tested.",
+    "The instrumented cryogenic interface for orbital logistics. It is the company's product and the object of all development work. The path ahead takes it from proof of concept to validation in a relevant environment, with engineering models manufactured and tested.",
   "p2.k": "Supporting",
   "p2.t": "Reference module",
   "p2.d":
@@ -381,7 +375,7 @@ const en: Dict = {
   "p3.k": "Planned",
   "p3.t": "Industrial protection",
   "p3.d":
-    "A European patent application covering the interface architecture, to be filed during the incubation period, alongside a documented evidence base aligned with ECSS standards.",
+    "A European patent application covering the interface architecture, alongside a documented evidence base aligned with ECSS standards.",
 
   "founder.eyebrow": "Founder",
   "founder.title": "How this company came about.",
@@ -395,7 +389,7 @@ const en: Dict = {
 
   "t2.r2": "Operations and administration",
   "t2.d":
-    "A technical background in business administration. She is responsible for day-to-day management, financial monitoring, incubation programme reporting, and contractual and regulatory compliance, which keeps the technical side free for engineering.",
+    "A technical background in business administration. She is responsible for day-to-day management, financial monitoring, and contractual and regulatory compliance, which keeps the technical side free for engineering.",
 
   "talk.title": "Working on in-orbit propellant transfer?",
   "talk.text":
@@ -408,9 +402,15 @@ const en: Dict = {
 
 const dict: Record<OrbLocale, Dict> = { pt, en };
 
+/** Secções que vivem atrás das abas. */
+export const orbViews = ["empresa", "tecnologia", "projectos", "estado", "equipa"] as const;
+export type OrbView = (typeof orbViews)[number];
+
 type Ctx = {
   lang: OrbLocale;
   setLang: (l: OrbLocale) => void;
+  view: OrbView;
+  setView: (v: OrbView) => void;
   t: (key: string) => string;
 };
 
@@ -418,6 +418,7 @@ const OrbContext = createContext<Ctx | null>(null);
 
 export function OrbitalProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<OrbLocale>("pt");
+  const [view, setView] = useState<OrbView>("empresa");
 
   useEffect(() => {
     try {
@@ -437,7 +438,7 @@ export function OrbitalProvider({ children }: { children: ReactNode }) {
 
   const t = useCallback((key: string) => dict[lang][key] ?? dict.pt[key] ?? key, [lang]);
 
-  const value = useMemo(() => ({ lang, setLang, t }), [lang, setLang, t]);
+  const value = useMemo(() => ({ lang, setLang, view, setView, t }), [lang, setLang, view, t]);
 
   return <OrbContext.Provider value={value}>{children}</OrbContext.Provider>;
 }
