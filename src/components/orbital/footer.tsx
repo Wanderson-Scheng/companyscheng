@@ -9,18 +9,15 @@ export function OrbitalFooter() {
     <footer className="border-t border-[var(--orb-line)] bg-[var(--orb-deep)] px-5 py-12">
       <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <div className="flex items-center gap-2.5">
-            <img
-              src="/logos/orbital-mark.png"
-              alt="Scheng Orbital System"
-              width={32}
-              height={32}
-              className="size-8 rounded-md bg-white object-contain p-0.5"
-            />
-            <span className="text-sm font-semibold tracking-tight text-white">
-              Scheng Orbital System
-            </span>
-          </div>
+          {/* Aqui entra o bloco completo, com ORBITAL SYSTEM: há largura para
+              o subtítulo se ler, ao contrário do cabeçalho. */}
+          <img
+            src="/logos/orbital-lockup-light.png"
+            alt="Scheng Orbital System"
+            width={1370}
+            height={215}
+            className="h-11 w-auto"
+          />
           {/* Morada física: numa empresa desta dimensão é sinal de seriedade,
               e a sua ausência é um dos sinais de amadorismo no sector. */}
           <p className="mt-4 inline-flex items-start gap-2 text-sm leading-relaxed text-white/60">

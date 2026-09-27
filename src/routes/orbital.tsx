@@ -1,16 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { OrbitalFooter } from "@/components/orbital/footer";
-import { OrbitalProvider, useOrbital } from "@/components/orbital/i18n";
+import { OrbitalProvider } from "@/components/orbital/i18n";
 import { OrbitalNav } from "@/components/orbital/nav";
 import {
+  OrbitalCompany,
   OrbitalContext,
   OrbitalCta,
+  OrbitalFounder,
+  OrbitalGallery,
   OrbitalHero,
-  OrbitalMethod,
   OrbitalProblem,
+  OrbitalProjects,
   OrbitalStatus,
-  OrbitalTeam,
-  OrbitalWork,
+  OrbitalTech,
 } from "@/components/orbital/sections";
 
 const title = "Scheng Orbital System";
@@ -34,7 +36,26 @@ export const Route = createFileRoute("/orbital")({
       { name: "twitter:description", content: description },
       { name: "twitter:image", content: image },
     ],
-    links: [{ rel: "canonical", href: url }],
+    links: [
+      { rel: "canonical", href: url },
+      // Preload só aqui: a Inter e a JetBrains Mono são desta página, e
+      // carregá-las no __root faria o GuiaFin e as páginas do grupo descarregar
+      // fontes que não usam.
+      {
+        rel: "preload",
+        href: "/fonts/inter-latin.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        href: "/fonts/jetbrains-mono-latin.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -69,24 +90,20 @@ function OrbitalPage() {
   );
 }
 
-/** Separado do provider para poder ler o tema escolhido e aplicá-lo à casca. */
 function OrbitalShell() {
-  const { theme } = useOrbital();
-
   return (
-    <div
-      className="orb min-h-dvh bg-[var(--orb-bg)] font-sans antialiased transition-colors duration-500"
-      data-orb-theme={theme}
-    >
+    <div className="orb min-h-dvh bg-[var(--orb-bg)] antialiased">
       <OrbitalNav />
       <main>
         <OrbitalHero />
         <OrbitalProblem />
-        <OrbitalWork />
-        <OrbitalMethod />
+        <OrbitalCompany />
+        <OrbitalTech />
+        <OrbitalProjects />
+        <OrbitalGallery />
         <OrbitalStatus />
+        <OrbitalFounder />
         <OrbitalContext />
-        <OrbitalTeam />
         <OrbitalCta />
       </main>
       <OrbitalFooter />
