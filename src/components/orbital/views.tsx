@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { type OrbView, orbViews, useOrbital } from "@/components/orbital/i18n";
 import {
   OrbitalCompany,
@@ -50,6 +50,24 @@ function isView(v: string): v is OrbView {
   return (orbViews as readonly string[]).includes(v);
 }
 
+/**
+ * Leva o ecrã ao topo da secção.
+ *
+ * `scrollIntoView` e não um `scrollTo` calculado à mão: o projecto já define
+ * `scroll-margin-top` global para elementos com id, e é ele que desconta o
+ * cabeçalho fixo.
+ *
+ * Chamar isto a partir do onClick não funciona. Nessa altura o React ainda não
+ * trocou o painel, portanto a medição é feita sobre a altura antiga; quando o
+ * painel novo entra e é mais curto, o documento encolhe e o browser fixa o
+ * scroll no fundo. Por isso a troca de aba rola a partir de um efeito, que
+ * corre depois da actualização, e isto fica só para o caso de se pedir a
+ * secção que já está activa.
+ */
+export function scrollToViews() {
+  document.getElementById("seccoes")?.scrollIntoView({ block: "start", behavior: "smooth" });
+}
+
 export function OrbitalViews() {
   const { t, view, setView } = useOrbital();
   const Panel = panels[view];
@@ -66,6 +84,16 @@ export function OrbitalViews() {
     if (window.location.hash.slice(1) !== view) {
       window.history.replaceState(null, "", `#${view}`);
     }
+  }, [view]);
+
+  // Depois de o painel trocar, e não antes: aqui a altura já é a nova. Guarda
+  // a secção anterior em vez de um sinalizador de primeira passagem, para não
+  // rolar quando o efeito volta a correr sem a secção ter mudado.
+  const anterior = useRef(view);
+  useEffect(() => {
+    if (anterior.current === view) return;
+    anterior.current = view;
+    scrollToViews();
   }, [view]);
 
   function go(index: number) {

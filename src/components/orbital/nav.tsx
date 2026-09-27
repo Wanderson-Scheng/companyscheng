@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { type OrbLocale, type OrbView, orbLocales, useOrbital } from "@/components/orbital/i18n";
+import { scrollToViews } from "@/components/orbital/views";
 
 const links: { view: OrbView; k: string }[] = [
   { view: "empresa", k: "nav.company" },
@@ -10,7 +11,7 @@ const links: { view: OrbView; k: string }[] = [
 ];
 
 export function OrbitalNav() {
-  const { t, lang, setLang, setView } = useOrbital();
+  const { t, lang, setLang, view, setView } = useOrbital();
 
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--orb-line)] bg-[var(--orb-deep)]/90 backdrop-blur">
@@ -37,8 +38,11 @@ export function OrbitalNav() {
               <button
                 type="button"
                 onClick={() => {
-                  setView(l.view);
-                  document.getElementById("seccoes")?.scrollIntoView({ block: "start" });
+                  // Trocar de aba rola sozinho, a partir do efeito em views.
+                  // Só é preciso rolar aqui quando já se está nessa secção e
+                  // não haveria troca nenhuma para o efeito apanhar.
+                  if (l.view === view) scrollToViews();
+                  else setView(l.view);
                 }}
                 className="px-3.5 py-2 font-mono text-xs uppercase tracking-[0.14em] text-[var(--orb-muted)] transition-colors hover:text-[var(--orb-fg)]"
               >
