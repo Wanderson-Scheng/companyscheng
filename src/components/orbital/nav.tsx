@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { Moon, Sun } from "lucide-react";
 import { type OrbLocale, orbLocales, useOrbital } from "@/components/orbital/i18n";
 
 const links = [
@@ -9,22 +8,22 @@ const links = [
 ];
 
 export function OrbitalNav() {
-  const { t, lang, setLang, theme, setTheme } = useOrbital();
+  const { t, lang, setLang } = useOrbital();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--orb-line)] bg-[var(--orb-bg)]/85 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center gap-4 px-5 py-3.5">
-        <a href="#top" className="flex min-w-0 shrink-0 items-center gap-2.5">
+    <header className="sticky top-0 z-50 border-b border-[var(--orb-line)] bg-[var(--orb-deep)]/90 backdrop-blur">
+      <nav className="mx-auto flex max-w-6xl items-center gap-6 px-5 py-4">
+        {/* Só "SCHENG" no cabeçalho. O bloco completo, com ORBITAL SYSTEM por
+            baixo, tem o subtítulo ilegível a esta altura: a 30px fica uma
+            mancha cinzenta. A versão completa vive no rodapé, onde há espaço. */}
+        <a href="#top" className="shrink-0">
           <img
-            src="/logos/orbital-mark.png"
+            src="/logos/orbital-wordmark-light.png"
             alt="Scheng Orbital System"
-            width={32}
-            height={32}
-            className="size-8 shrink-0 rounded-md bg-white object-contain p-0.5"
+            width={1370}
+            height={140}
+            className="h-6 w-auto"
           />
-          <span className="hidden text-sm font-semibold tracking-tight text-[var(--orb-fg)] sm:block">
-            Scheng Orbital System
-          </span>
         </a>
 
         <ul className="ml-auto hidden items-center gap-1 md:flex">
@@ -32,7 +31,7 @@ export function OrbitalNav() {
             <li key={l.k}>
               <a
                 href={l.href}
-                className="rounded-full px-3.5 py-2 text-sm text-[var(--orb-muted)] transition-colors hover:text-[var(--orb-fg)]"
+                className="px-3.5 py-2 font-mono text-xs uppercase tracking-[0.14em] text-[var(--orb-muted)] transition-colors hover:text-[var(--orb-fg)]"
               >
                 {t(l.k)}
               </a>
@@ -40,31 +39,17 @@ export function OrbitalNav() {
           ))}
         </ul>
 
-        <div className="ml-auto flex items-center gap-2 md:ml-0">
-          <button
-            type="button"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            aria-label={t("nav.theme")}
-            className="grid size-9 place-items-center rounded-full border border-[var(--orb-line)] text-[var(--orb-muted)] transition-colors hover:text-[var(--orb-fg)]"
-          >
-            {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
-          </button>
-
-          {/* fieldset em vez de div com role="group": é o elemento nativo para
-              um grupo de controlos, e evita o aviso de a11y do Biome. */}
-          <fieldset
-            className="flex min-w-0 items-center rounded-full border border-[var(--orb-line)] p-0.5"
-            aria-label={t("nav.lang")}
-          >
+        <div className="ml-auto flex items-center gap-3 md:ml-0">
+          <fieldset className="flex min-w-0 items-center gap-0.5" aria-label={t("nav.lang")}>
             {orbLocales.map((l: OrbLocale) => (
               <button
                 key={l}
                 type="button"
                 onClick={() => setLang(l)}
                 aria-pressed={lang === l}
-                className={`rounded-full px-2.5 py-1 text-xs font-semibold uppercase transition-colors ${
+                className={`px-2 py-1 font-mono text-xs uppercase transition-colors ${
                   lang === l
-                    ? "bg-[var(--orb-accent-soft)] text-[var(--orb-accent)]"
+                    ? "text-[var(--orb-accent)]"
                     : "text-[var(--orb-muted)] hover:text-[var(--orb-fg)]"
                 }`}
               >
@@ -75,7 +60,7 @@ export function OrbitalNav() {
 
           <Link
             to="/scheng/contacto"
-            className="hidden rounded-full bg-[var(--orb-accent)] px-4 py-2 text-xs font-bold text-[var(--orb-deep)] transition-opacity hover:opacity-90 sm:block"
+            className="hidden border border-[var(--orb-accent)]/50 px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] text-[var(--orb-accent)] transition-colors hover:bg-[var(--orb-accent)] hover:text-black sm:block"
           >
             {t("nav.cta")}
           </Link>

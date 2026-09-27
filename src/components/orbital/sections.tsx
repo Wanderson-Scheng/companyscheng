@@ -55,16 +55,19 @@ export function OrbitalHero() {
 
   return (
     <section id="top" className="relative overflow-hidden bg-[var(--orb-deep)]">
+      {/* Ordem das camadas: render, depois o véu que o assenta no preto, e só
+          então as estrelas. Estando por baixo do véu, as estrelas eram
+          apagadas por ele e o campo estelar não se via de todo. */}
       <div className="absolute inset-0" aria-hidden="true">
-        <div className="orb-stars absolute inset-0" />
         <LazyImage
           src="/landing/orbital-system/module-hero.webp"
           alt=""
-          className="size-full object-cover opacity-40"
+          className="size-full object-cover opacity-45"
           width={1920}
           height={1048}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--orb-deep)]/60 via-[var(--orb-deep)]/80 to-[var(--orb-deep)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/75 to-black" />
+        <div className="orb-stars absolute inset-0" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-36">
@@ -396,15 +399,15 @@ export function OrbitalCta() {
       className="relative overflow-hidden bg-[var(--orb-deep)] px-5 py-24 md:py-32"
     >
       <div className="absolute inset-0" aria-hidden="true">
-        <div className="orb-stars absolute inset-0" />
         <LazyImage
           src="/landing/orbital-system/module-base.webp"
           alt=""
-          className="size-full object-cover opacity-25"
+          className="size-full object-cover opacity-30"
           width={1600}
           height={873}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--orb-deep)] via-[var(--orb-deep)]/88 to-[var(--orb-deep)]/65" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/60" />
+        <div className="orb-stars absolute inset-0" />
       </div>
 
       <div className="relative mx-auto max-w-3xl text-center">

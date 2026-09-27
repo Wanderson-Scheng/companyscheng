@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { OrbitalFooter } from "@/components/orbital/footer";
-import { OrbitalProvider, useOrbital } from "@/components/orbital/i18n";
+import { OrbitalProvider } from "@/components/orbital/i18n";
 import { OrbitalNav } from "@/components/orbital/nav";
 import {
   OrbitalContext,
@@ -89,15 +89,9 @@ function OrbitalPage() {
   );
 }
 
-/** Separado do provider para poder ler o tema escolhido e aplicá-lo à casca. */
 function OrbitalShell() {
-  const { theme } = useOrbital();
-
   return (
-    <div
-      className="orb min-h-dvh bg-[var(--orb-bg)] font-sans antialiased transition-colors duration-500"
-      data-orb-theme={theme}
-    >
+    <div className="orb min-h-dvh bg-[var(--orb-bg)] antialiased">
       <OrbitalNav />
       <main>
         <OrbitalHero />

@@ -14,7 +14,7 @@ import {
  * O que aqui está é o que a empresa pode dizer em público: o problema, a
  * abordagem ao nível do conceito, o método e o estádio de maturidade.
  * Materiais, dimensões, parâmetros de processo e resultados de simulação
- * ficam deliberadamente de fora — são o núcleo técnico da empresa e não têm
+ * ficam deliberadamente de fora por serem o núcleo técnico da empresa e não terem
  * de estar num site.
  *
  * Duas línguas, como o site da holding. Inglês é a língua franca do sector,
@@ -34,7 +34,6 @@ const pt: Dict = {
   "nav.cta": "Falar connosco",
   "nav.menu": "Abrir menu",
   "nav.lang": "Alternar idioma",
-  "nav.theme": "Alternar tema",
 
   "hero.title": "Interfaces criogénicas para a próxima geração de infraestrutura orbital.",
   "hero.sub":
@@ -45,7 +44,7 @@ const pt: Dict = {
   "problem.eyebrow": "O problema",
   "problem.title": "Um satélite sem propelente é um satélite perdido.",
   "problem.p1":
-    "Quase todos os satélites em serviço foram construídos para nunca serem reabastecidos. Quando o propelente acaba, o veículo deixa de manter a órbita e a missão termina — mesmo com a eletrónica, os painéis e os instrumentos em pleno funcionamento.",
+    "Quase todos os satélites em serviço foram construídos para nunca serem reabastecidos. Quando o propelente acaba, o veículo deixa de manter a órbita e a missão termina, com a eletrónica, os painéis e os instrumentos ainda em pleno funcionamento.",
   "problem.p2":
     "Reabastecer em órbita muda essa equação. Mas para transferir propelente criogénico entre dois veículos é preciso uma ligação que aguente temperaturas extremas, que se acople sem intervenção humana e que não falhe em silêncio. É esse o componente em que trabalhamos.",
 
@@ -76,7 +75,7 @@ const pt: Dict = {
   "status.eyebrow": "Onde estamos",
   "status.title": "TRL 3, a caminho de TRL 5.",
   "status.p1":
-    "A tecnologia está em prova de conceito: a solução está definida e analisada, e os modelos apontam no sentido certo. Ainda não existe hardware fabricado nem campanha de ensaio físico — e, enquanto não existir, não apresentamos números como desempenho medido.",
+    "A tecnologia está em prova de conceito: a solução está definida e analisada, e os modelos apontam no sentido certo. Ainda não existe hardware fabricado nem campanha de ensaio físico. Enquanto não existir, não apresentamos números como desempenho medido.",
   "status.p2":
     "O objectivo da fase em curso é chegar a validação em ambiente relevante, com peça real e ensaio criogénico.",
   "status.now": "Agora",
@@ -106,7 +105,7 @@ const pt: Dict = {
   "tab2.k": "Modelo de referência",
   "tab2.t": "O veículo onde a interface é validada",
   "tab2.p":
-    "Para testar a interface é preciso um veículo que a use. Modelámos um módulo de referência completo — estrutura, depósitos, aviónica e portas de transferência — que serve de banco de ensaio virtual e de caso de uso para dimensionar a interface contra requisitos reais.",
+    "Para testar a interface é preciso um veículo que a use. Modelámos um módulo de referência completo, com estrutura, depósitos, aviónica e portas de transferência, que serve de banco de ensaio virtual e de caso de uso para dimensionar a interface contra requisitos reais.",
   "tab2.b1": "Estrutura e arranjo interno modelados",
   "tab2.b2": "Portas de transferência integradas",
   "tab2.b3": "Caso de uso para dimensionamento",
@@ -170,7 +169,6 @@ const en: Dict = {
   "nav.cta": "Get in touch",
   "nav.menu": "Open menu",
   "nav.lang": "Switch language",
-  "nav.theme": "Switch theme",
 
   "hero.title": "Cryogenic interfaces for the next generation of orbital infrastructure.",
   "hero.sub":
@@ -181,7 +179,7 @@ const en: Dict = {
   "problem.eyebrow": "The problem",
   "problem.title": "A satellite out of propellant is a satellite lost.",
   "problem.p1":
-    "Almost every satellite in service was built never to be refuelled. When the propellant runs out the vehicle can no longer hold its orbit and the mission ends — with the electronics, the arrays and the instruments still working perfectly.",
+    "Almost every satellite in service was built never to be refuelled. When the propellant runs out the vehicle can no longer hold its orbit and the mission ends, with the electronics, the arrays and the instruments still working perfectly.",
   "problem.p2":
     "Refuelling in orbit changes that equation. But transferring cryogenic propellant between two vehicles needs a connection that survives extreme temperatures, mates without a human present, and does not fail silently. That component is what we work on.",
 
@@ -212,7 +210,7 @@ const en: Dict = {
   "status.eyebrow": "Where we are",
   "status.title": "TRL 3, working towards TRL 5.",
   "status.p1":
-    "The technology is at proof of concept: the solution is defined and analysed, and the models point the right way. There is no manufactured hardware and no physical test campaign yet — and until there is, we do not present numbers as measured performance.",
+    "The technology is at proof of concept: the solution is defined and analysed, and the models point the right way. There is no manufactured hardware and no physical test campaign yet. Until there is, we do not present numbers as measured performance.",
   "status.p2":
     "The goal of the current phase is validation in a relevant environment, with a real part and cryogenic testing.",
   "status.now": "Now",
@@ -241,7 +239,7 @@ const en: Dict = {
   "tab2.k": "Reference model",
   "tab2.t": "The vehicle the interface is validated on",
   "tab2.p":
-    "Testing the interface needs a vehicle that uses it. We modelled a complete reference module — structure, tanks, avionics and transfer ports — which serves as a virtual test bench and as the use case for sizing the interface against real requirements.",
+    "Testing the interface needs a vehicle that uses it. We modelled a complete reference module, with structure, tanks, avionics and transfer ports, that serves as a virtual test bench and as the use case for sizing the interface against real requirements.",
   "tab2.b1": "Structure and internal arrangement modelled",
   "tab2.b2": "Transfer ports integrated",
   "tab2.b3": "Use case for sizing",
@@ -296,13 +294,9 @@ const en: Dict = {
 
 const dict: Record<OrbLocale, Dict> = { pt, en };
 
-export type OrbTheme = "light" | "dark";
-
 type Ctx = {
   lang: OrbLocale;
   setLang: (l: OrbLocale) => void;
-  theme: OrbTheme;
-  setTheme: (t: OrbTheme) => void;
   t: (key: string) => string;
 };
 
@@ -310,15 +304,11 @@ const OrbContext = createContext<Ctx | null>(null);
 
 export function OrbitalProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<OrbLocale>("pt");
-  // Escuro por omissão: é o registo do sector e o que serve os renders.
-  const [theme, setThemeState] = useState<OrbTheme>("dark");
 
   useEffect(() => {
     try {
       const savedLang = localStorage.getItem("orb-lang");
       if (savedLang === "pt" || savedLang === "en") setLangState(savedLang);
-      const savedTheme = localStorage.getItem("orb-theme");
-      if (savedTheme === "light" || savedTheme === "dark") setThemeState(savedTheme);
     } catch {
       // Janela privada ou dados de site bloqueados: fica pelos valores padrão.
     }
@@ -331,19 +321,9 @@ export function OrbitalProvider({ children }: { children: ReactNode }) {
     } catch {}
   }, []);
 
-  const setTheme = useCallback((t: OrbTheme) => {
-    setThemeState(t);
-    try {
-      localStorage.setItem("orb-theme", t);
-    } catch {}
-  }, []);
-
   const t = useCallback((key: string) => dict[lang][key] ?? dict.pt[key] ?? key, [lang]);
 
-  const value = useMemo(
-    () => ({ lang, setLang, theme, setTheme, t }),
-    [lang, setLang, theme, setTheme, t],
-  );
+  const value = useMemo(() => ({ lang, setLang, t }), [lang, setLang, t]);
 
   return <OrbContext.Provider value={value}>{children}</OrbContext.Provider>;
 }

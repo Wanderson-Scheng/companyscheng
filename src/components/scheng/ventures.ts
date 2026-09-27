@@ -1,6 +1,8 @@
 import { Boxes, Building2, Rocket } from "lucide-react";
 
-const orbitalColorUrl = "/logos/orbital-mark.png";
+// O ficheiro anterior tinha "Founded by Wanderson Scheng" cozido por dentro,
+// a baixa opacidade, resto da ferramenta que o gerou. Foi apagado.
+const orbitalColorUrl = "/logos/orbital-mark-light.png";
 const importsLogoUrl = "/logos/scheng-imports.png";
 const logoProUrl = "/logos/scheng-pro.png";
 const techLogoUrl = "/logos/scheng-technology.png";
@@ -101,7 +103,8 @@ export const ventures: Venture[] = [
     icon: Rocket,
     k: "v1",
     name: "Scheng Orbital System",
-    logos: [{ src: orbitalColorUrl, label: "Scheng Orbital System", chip: "light" }],
+    // Chip escuro porque a marca é de tinta branca, como o GuiaFin e o 3D Scheng.
+    logos: [{ src: orbitalColorUrl, label: "Scheng Orbital System", chip: "dark" }],
     features: 3,
     externalTo: "/orbital",
   },
