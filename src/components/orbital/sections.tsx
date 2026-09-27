@@ -55,19 +55,40 @@ export function OrbitalHero() {
 
   return (
     <section id="top" className="relative overflow-hidden bg-[var(--orb-deep)]">
-      {/* Ordem das camadas: render, depois o véu que o assenta no preto, e só
-          então as estrelas. Estando por baixo do véu, as estrelas eram
-          apagadas por ele e o campo estelar não se via de todo. */}
+      {/* Camadas, de trás para a frente: estrelas, módulo a rodar e o véu que
+          assenta tudo no preto.
+
+          O vídeo entra com mistura `screen`: o fundo cinzento-escuro do render
+          cai para preto e só o módulo fica, que é o efeito de fundo
+          transparente sem ter de refazer o vídeo com canal alfa.
+
+          As legendas do original foram recortadas na codificação: diziam
+          dimensões, volumes e materiais, que é o que mantemos fora do site. */}
       <div className="absolute inset-0" aria-hidden="true">
-        <LazyImage
-          src="/landing/orbital-system/module-hero.webp"
-          alt=""
-          className="size-full object-cover opacity-45"
-          width={1920}
-          height={1048}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/75 to-black" />
         <div className="orb-stars absolute inset-0" />
+        {/* Camada de recurso, por baixo do vídeo: é o que fica à vista quando
+            o vídeo é escondido por prefers-reduced-motion. O poster do próprio
+            elemento <video> desapareceria com ele. */}
+        <img
+          src="/landing/orbital-system/module-loop-poster.jpg"
+          alt=""
+          className="absolute inset-0 size-full object-cover opacity-50 mix-blend-screen"
+        />
+        <video
+          className="orb-hero-video absolute inset-0 size-full object-cover opacity-50 mix-blend-screen"
+          src="/landing/orbital-system/module-loop.mp4"
+          poster="/landing/orbital-system/module-loop-poster.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/60 to-black" />
+        {/* Véu lateral: o módulo desloca-se ao longo do vídeo, por isso não há
+            posição fixa que o mantenha longe do texto. Em vez de o perseguir,
+            garante-se campo escuro debaixo da coluna de texto. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-36">

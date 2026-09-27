@@ -13,16 +13,17 @@ export function OrbitalNav() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--orb-line)] bg-[var(--orb-deep)]/90 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center gap-6 px-5 py-4">
-        {/* Só "SCHENG" no cabeçalho. O bloco completo, com ORBITAL SYSTEM por
-            baixo, tem o subtítulo ilegível a esta altura: a 30px fica uma
-            mancha cinzenta. A versão completa vive no rodapé, onde há espaço. */}
+        {/* Bloco completo, com ORBITAL SYSTEM: "SCHENG" sozinho é ambíguo,
+            porque a holding também se chama Scheng. O subtítulo só se lê a
+            partir de uns 44px de altura, por isso é o cabeçalho que ganha
+            altura, em vez de ser o logótipo a encolher. */}
         <a href="#top" className="shrink-0">
           <img
-            src="/logos/orbital-wordmark-light.png"
+            src="/logos/orbital-lockup-light.png"
             alt="Scheng Orbital System"
             width={1370}
-            height={140}
-            className="h-6 w-auto"
+            height={215}
+            className="h-11 w-auto"
           />
         </a>
 

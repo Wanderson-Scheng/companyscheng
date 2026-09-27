@@ -315,6 +315,12 @@
   animation: orb-drift 300s linear infinite;
 }
 
+/* O corpo da página é branco por omissão. Sem isto, a Orbital mostra uma faixa
+   branca ao esticar o scroll e um flash branco antes de a casca pintar. */
+body:has(.orb) {
+  background-color: #000;
+}
+
 @keyframes orb-drift {
   from { background-position: 0 0; }
   to { background-position: 760px 760px; }
@@ -322,6 +328,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .orb-stars { animation: none; }
+  /* Quem pede menos movimento não leva um módulo a rodar em fundo: fica a
+     imagem de cartaz, que o elemento mostra quando o vídeo não corre. */
+  .orb-hero-video { display: none; }
 }
 
 @keyframes scheng-float {
