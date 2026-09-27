@@ -491,10 +491,14 @@ export function OrbitalCta() {
       className="relative overflow-hidden bg-[var(--orb-deep)] px-5 py-24 md:py-32"
     >
       <div className="absolute inset-0" aria-hidden="true">
+        {/* Ampliado para lá do enquadramento de propósito. Ao tamanho natural,
+            o corpo do módulo fica mais estreito que o título e lê-se como um
+            painel claro desalinhado por trás do texto, em vez de peça. Com as
+            arestas fora do ecrã passa a ser textura. */}
         <LazyImage
           src="/landing/orbital-system/module-base.webp"
           alt=""
-          className="size-full object-cover opacity-30"
+          className="size-full scale-[2.3] object-cover opacity-20"
           width={1600}
           height={873}
         />
