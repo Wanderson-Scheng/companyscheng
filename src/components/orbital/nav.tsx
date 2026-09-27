@@ -2,7 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { type OrbLocale, orbLocales, useOrbital } from "@/components/orbital/i18n";
 
 const links = [
+  { href: "#empresa", k: "nav.company" },
   { href: "#tecnologia", k: "nav.tech" },
+  { href: "#projectos", k: "nav.projects" },
   { href: "#estado", k: "nav.status" },
   { href: "#equipa", k: "nav.team" },
 ];

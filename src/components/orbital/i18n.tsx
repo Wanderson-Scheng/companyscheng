@@ -43,10 +43,6 @@ const pt: Dict = {
 
   "problem.eyebrow": "O problema",
   "problem.title": "Um satélite sem propelente é um satélite perdido.",
-  "problem.p1":
-    "Quase todos os satélites em serviço foram construídos para nunca serem reabastecidos. Quando o propelente acaba, o veículo deixa de manter a órbita e a missão termina, com a eletrónica, os painéis e os instrumentos ainda em pleno funcionamento.",
-  "problem.p2":
-    "Reabastecer em órbita muda essa equação. Mas para transferir propelente criogénico entre dois veículos é preciso uma ligação que aguente temperaturas extremas, que se acople sem intervenção humana e que não falhe em silêncio. É esse o componente em que trabalhamos.",
 
   "work.eyebrow": "O que fazemos",
   "work.title": "Um componente, levado a sério.",
@@ -152,6 +148,67 @@ const pt: Dict = {
   "t2.n": "Beatriz Cabral",
   "t2.r": "Operações",
 
+  "nav.company": "Empresa",
+  "nav.projects": "Projectos",
+
+  "problem.p1":
+    "Quase todos os satélites em serviço foram construídos para nunca serem reabastecidos. Quando o propelente acaba, o veículo deixa de manter a órbita e a missão termina, com a eletrónica, os painéis e os instrumentos ainda em pleno funcionamento.",
+  "problem.p2":
+    "Reabastecer em órbita muda essa equação, mas a ligação por onde o propelente passa é o elo que falta. Três modos de falha conhecidos travam o problema, e a própria ESA identificou uma interface criogénica fiável e interoperável como peça em falta na arquitectura europeia de logística orbital.",
+  "f1.t": "Soldadura a frio",
+  "f1.d":
+    "No vácuo, superfícies metálicas nuas colam-se umas às outras. Depois de acoplar, separar sem danificar deixa de ser possível.",
+  "f2.t": "Desalinhamento residual",
+  "f2.d":
+    "Nenhum acoplamento fica perfeito. Um acoplador metálico rígido não absorve o desvio que sobra e transmite-o à estrutura.",
+  "f3.t": "Adesivos no frio",
+  "f3.d":
+    "As colas usadas em montagens híbridas tornam-se quebradiças à temperatura criogénica e libertam gases no vácuo.",
+
+  "company.eyebrow": "A empresa",
+  "company.title": "Uma empresa de componente, não de plataforma.",
+  "company.p1":
+    "A Scheng Orbital System é uma empresa portuguesa de engenharia, sediada em Vila de Rei. Trabalha a montante da cadeia espacial: não constrói satélites nem veículos, constrói a peça de que eles dependem para trocar propelente entre si.",
+  "company.p2":
+    "O modelo é B2B, com venda de hardware, serviços de engenharia e licenciamento de propriedade intelectual. O mercado principal são os veículos de transferência orbital e as missões de serviço em órbita, com a Europa primeiro. A mesma tecnologia de interface tem aplicação fora do espaço, na infraestrutura criogénica industrial.",
+  "cf1.l": "Fundada em",
+  "cf1.v": "Vila de Rei, Portugal",
+  "cf2.l": "Posição na cadeia",
+  "cf2.v": "Montante · subsistemas",
+  "cf3.l": "Modelo",
+  "cf3.v": "B2B · hardware, engenharia, licenciamento",
+  "cf4.l": "Incubação",
+  "cf4.v": "ESA BIC Centro · Pampilhosa da Serra",
+
+  "proj.eyebrow": "Projectos",
+  "proj.title": "Em que estamos a trabalhar.",
+  "p1.k": "Em curso",
+  "p1.t": "The Interlock",
+  "p1.d":
+    "A interface criogénica instrumentada para logística orbital. É o produto da empresa e o objecto de toda a actividade de desenvolvimento. O programa de incubação leva-o de prova de conceito a validação em ambiente relevante, com modelos de engenharia fabricados e ensaiados.",
+  "p2.k": "Apoio",
+  "p2.t": "Módulo de referência",
+  "p2.d":
+    "Um veículo completo modelado em CAD paramétrico, com estrutura, depósitos, aviónica e portas de transferência. Serve de banco de ensaio virtual e de caso de uso para dimensionar a interface contra requisitos reais, em vez de contra requisitos supostos.",
+  "p3.k": "Previsto",
+  "p3.t": "Proteção industrial",
+  "p3.d":
+    "Pedido de patente europeia sobre a arquitectura da interface, a apresentar durante o período de incubação, acompanhado de uma base documental alinhada com as normas ECSS.",
+
+  "founder.eyebrow": "Fundador",
+  "founder.title": "Como esta empresa apareceu.",
+  "founder.p1":
+    "Wanderson Scheng é empresário na área aeroespacial, com trabalho em engenharia de materiais avançados e arquitectura de sistemas orbitais. O Interlock nasceu de investigação independente e continuada sobre infraestrutura criogénica, logística orbital e interfaces em órbita, feita antes de existir empresa para a suportar.",
+  "founder.p2":
+    "Esse trabalho entrou no ecossistema europeu por duas vias: as actividades OSIP e IDEA da Agência Espacial Europeia e, sobretudo, a participação no grupo de trabalho InSPoC-1, Fase B2, sobre normalização de interfaces passivas. É o fórum onde se está a definir a interface europeia comum, o que significa que os requisitos não são adivinhados a partir de fora.",
+  "founder.p3":
+    "Na empresa responde pelo desenvolvimento do produto, pela arquitectura de sistema, pela definição de interfaces e tolerâncias, pela especificação de materiais, pela coordenação de fabrico e pelas negociações técnicas com contratantes e integradores.",
+  "founder.role": "Fundador · Arquitectura de sistema",
+
+  "t2.r2": "Operações e administração",
+  "t2.d":
+    "Formação técnica em gestão. Responde pela gestão corrente, pelo acompanhamento financeiro, pelos relatórios do programa de incubação e pela conformidade contratual e regulamentar, o que liberta a parte técnica para engenharia.",
+
   "talk.title": "Trabalha em transferência de propelente em órbita?",
   "talk.text":
     "Falamos com engenheiros, integradores e programas que trabalham em reabastecimento orbital. Escreva-nos e respondemos.",
@@ -178,10 +235,6 @@ const en: Dict = {
 
   "problem.eyebrow": "The problem",
   "problem.title": "A satellite out of propellant is a satellite lost.",
-  "problem.p1":
-    "Almost every satellite in service was built never to be refuelled. When the propellant runs out the vehicle can no longer hold its orbit and the mission ends, with the electronics, the arrays and the instruments still working perfectly.",
-  "problem.p2":
-    "Refuelling in orbit changes that equation. But transferring cryogenic propellant between two vehicles needs a connection that survives extreme temperatures, mates without a human present, and does not fail silently. That component is what we work on.",
 
   "work.eyebrow": "What we do",
   "work.title": "One component, taken seriously.",
@@ -282,6 +335,67 @@ const en: Dict = {
   "t1.r": "Founder · System architecture",
   "t2.n": "Beatriz Cabral",
   "t2.r": "Operations",
+
+  "nav.company": "Company",
+  "nav.projects": "Projects",
+
+  "problem.p1":
+    "Almost every satellite in service was built never to be refuelled. When the propellant runs out the vehicle can no longer hold its orbit and the mission ends, with the electronics, the arrays and the instruments still working perfectly.",
+  "problem.p2":
+    "Refuelling in orbit changes that equation, but the connection the propellant passes through is the missing link. Three known failure modes hold the problem back, and ESA itself has identified a reliable, interoperable cryogenic interface as a missing piece of European orbital logistics.",
+  "f1.t": "Cold welding",
+  "f1.d":
+    "In vacuum, bare metal surfaces weld to each other. Once mated, separating without damage stops being possible.",
+  "f2.t": "Residual misalignment",
+  "f2.d":
+    "No docking is perfect. A rigid metallic coupler cannot absorb the offset that is left over and passes it into the structure.",
+  "f3.t": "Adhesives in the cold",
+  "f3.d":
+    "The glues used in hybrid assemblies turn brittle at cryogenic temperature and outgas in vacuum.",
+
+  "company.eyebrow": "The company",
+  "company.title": "A component company, not a platform company.",
+  "company.p1":
+    "Scheng Orbital System is a Portuguese engineering company based in Vila de Rei. It works upstream in the space supply chain: it does not build satellites or vehicles, it builds the part they depend on to pass propellant between them.",
+  "company.p2":
+    "The model is B2B, covering hardware sales, engineering services and intellectual property licensing. The primary market is orbital transfer vehicles and in-space servicing missions, Europe first. The same interface technology applies outside space, in industrial cryogenic infrastructure.",
+  "cf1.l": "Based in",
+  "cf1.v": "Vila de Rei, Portugal",
+  "cf2.l": "Position in the chain",
+  "cf2.v": "Upstream · subsystems",
+  "cf3.l": "Model",
+  "cf3.v": "B2B · hardware, engineering, licensing",
+  "cf4.l": "Incubation",
+  "cf4.v": "ESA BIC Centro · Pampilhosa da Serra",
+
+  "proj.eyebrow": "Projects",
+  "proj.title": "What we are working on.",
+  "p1.k": "Active",
+  "p1.t": "The Interlock",
+  "p1.d":
+    "The instrumented cryogenic interface for orbital logistics. It is the company's product and the object of all development work. The incubation programme takes it from proof of concept to validation in a relevant environment, with engineering models manufactured and tested.",
+  "p2.k": "Supporting",
+  "p2.t": "Reference module",
+  "p2.d":
+    "A complete vehicle modelled in parametric CAD, with structure, tanks, avionics and transfer ports. It serves as a virtual test bench and as the use case for sizing the interface against real requirements rather than assumed ones.",
+  "p3.k": "Planned",
+  "p3.t": "Industrial protection",
+  "p3.d":
+    "A European patent application covering the interface architecture, to be filed during the incubation period, alongside a documented evidence base aligned with ECSS standards.",
+
+  "founder.eyebrow": "Founder",
+  "founder.title": "How this company came about.",
+  "founder.p1":
+    "Wanderson Scheng is an aerospace entrepreneur working in advanced-materials engineering and orbital system architecture. The Interlock came out of sustained independent research into cryogenic infrastructure, orbital logistics and in-space interfaces, done before there was a company to support it.",
+  "founder.p2":
+    "That work entered the European ecosystem through two routes: the European Space Agency's OSIP and IDEA activities and, above all, membership of the InSPoC-1 Phase B2 working group on passive interface standardisation. That is the forum where the common European interface is being defined, which means the requirements are not being guessed at from outside.",
+  "founder.p3":
+    "Within the company he leads product development, system architecture, interface and tolerance definition, material specification, manufacturing coordination, and the technical negotiations with contractors and integrators.",
+  "founder.role": "Founder · System architecture",
+
+  "t2.r2": "Operations and administration",
+  "t2.d":
+    "A technical background in business administration. She is responsible for day-to-day management, financial monitoring, incubation programme reporting, and contractual and regulatory compliance, which keeps the technical side free for engineering.",
 
   "talk.title": "Working on in-orbit propellant transfer?",
   "talk.text":

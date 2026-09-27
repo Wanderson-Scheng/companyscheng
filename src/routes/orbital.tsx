@@ -3,14 +3,15 @@ import { OrbitalFooter } from "@/components/orbital/footer";
 import { OrbitalProvider } from "@/components/orbital/i18n";
 import { OrbitalNav } from "@/components/orbital/nav";
 import {
+  OrbitalCompany,
   OrbitalContext,
   OrbitalCta,
+  OrbitalFounder,
   OrbitalGallery,
   OrbitalHero,
-  OrbitalMethod,
   OrbitalProblem,
+  OrbitalProjects,
   OrbitalStatus,
-  OrbitalTeam,
   OrbitalTech,
 } from "@/components/orbital/sections";
 
@@ -96,12 +97,13 @@ function OrbitalShell() {
       <main>
         <OrbitalHero />
         <OrbitalProblem />
+        <OrbitalCompany />
         <OrbitalTech />
+        <OrbitalProjects />
         <OrbitalGallery />
-        <OrbitalMethod />
         <OrbitalStatus />
+        <OrbitalFounder />
         <OrbitalContext />
-        <OrbitalTeam />
         <OrbitalCta />
       </main>
       <OrbitalFooter />

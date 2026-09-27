@@ -21,9 +21,10 @@ import { LazyImage } from "@/components/ui/lazy-image";
  * resultados de simulação: é o núcleo técnico da empresa.
  */
 
-const method = ["m1", "m2", "m3"];
 const context = ["c1", "c2", "c3"];
-const team = ["t1", "t2"];
+const failures = ["f1", "f2", "f3"];
+const projects = ["p1", "p2", "p3"];
+const companyFacts = ["cf1", "cf2", "cf3", "cf4"];
 const envelope = ["env1", "env2", "env3"];
 
 const gallery = [
@@ -130,6 +131,25 @@ export function OrbitalProblem() {
           <Reveal delay={140}>
             <p className="leading-relaxed text-[var(--orb-muted)]">{t("problem.p2")}</p>
           </Reveal>
+        </div>
+
+        {/* Os três modos de falha são conhecidos do sector e estão nomeados na
+            documentação da ESA. Dizem qual é o problema sem dizer como o
+            resolvemos, que é a linha que esta página não atravessa. */}
+        <div className="mt-12 grid gap-px overflow-hidden border border-[var(--orb-line)] bg-[var(--orb-line)] md:grid-cols-3">
+          {failures.map((k, i) => (
+            <Reveal key={k} delay={80 + i * 70}>
+              <div className="h-full bg-[var(--orb-bg)] p-6">
+                <span className="font-mono text-xs text-[var(--orb-accent)]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-4 text-base font-semibold text-[var(--orb-fg)]">{t(`${k}.t`)}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--orb-muted)]">
+                  {t(`${k}.d`)}
+                </p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
@@ -285,36 +305,6 @@ export function OrbitalGallery() {
   );
 }
 
-export function OrbitalMethod() {
-  const { t } = useOrbital();
-
-  return (
-    <section className="bg-[var(--orb-bg)] px-5 py-20 md:py-28">
-      <div className="mx-auto max-w-6xl">
-        <Reveal>
-          <Eyebrow>{t("method.eyebrow")}</Eyebrow>
-          <Title>{t("method.title")}</Title>
-        </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {method.map((k, i) => (
-            <Reveal key={k} delay={80 + i * 70}>
-              <div className="h-full rounded-2xl border border-[var(--orb-line)] bg-[var(--orb-panel)] p-6">
-                <span className="font-mono text-xs text-[var(--orb-accent)]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 text-base font-semibold text-[var(--orb-fg)]">{t(`${k}.t`)}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--orb-muted)]">
-                  {t(`${k}.d`)}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function OrbitalStatus() {
   const { t } = useOrbital();
 
@@ -356,6 +346,126 @@ export function OrbitalStatus() {
   );
 }
 
+export function OrbitalCompany() {
+  const { t } = useOrbital();
+
+  return (
+    <section
+      id="empresa"
+      className="border-y border-[var(--orb-line)] bg-[var(--orb-panel)] px-5 py-20 md:py-28"
+    >
+      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.2fr_1fr]">
+        <Reveal>
+          <div>
+            <Eyebrow>{t("company.eyebrow")}</Eyebrow>
+            <Title>{t("company.title")}</Title>
+            <p className="mt-7 leading-relaxed text-[var(--orb-muted)]">{t("company.p1")}</p>
+            <p className="mt-4 leading-relaxed text-[var(--orb-muted)]">{t("company.p2")}</p>
+          </div>
+        </Reveal>
+
+        {/* Ficha da empresa em pares etiqueta/valor, que é como os sites do
+            sector apresentam dados: etiqueta pequena, valor em mono. */}
+        <Reveal delay={100}>
+          <dl className="divide-y divide-[var(--orb-line)] border-y border-[var(--orb-line)]">
+            {companyFacts.map((k) => (
+              <div key={k} className="grid grid-cols-[auto_1fr] gap-4 py-4">
+                <dt className="font-mono text-xs uppercase tracking-[0.14em] text-[var(--orb-muted)]">
+                  {t(`${k}.l`)}
+                </dt>
+                <dd className="text-right font-mono text-sm text-[var(--orb-fg)]">{t(`${k}.v`)}</dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+export function OrbitalProjects() {
+  const { t } = useOrbital();
+
+  return (
+    <section id="projectos" className="bg-[var(--orb-bg)] px-5 py-20 md:py-28">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <Eyebrow>{t("proj.eyebrow")}</Eyebrow>
+          <Title>{t("proj.title")}</Title>
+        </Reveal>
+
+        {/* Cada projecto leva o estado à frente. Um site que rotula o próprio
+            trabalho como em curso ganha confiança; um que não rotula perde-a
+            toda à primeira pergunta. */}
+        <ol className="mt-12 divide-y divide-[var(--orb-line)] border-y border-[var(--orb-line)]">
+          {projects.map((k, i) => (
+            <Reveal key={k} as="li" delay={80 + i * 70}>
+              <div className="grid gap-4 py-8 md:grid-cols-[auto_1fr_2fr] md:gap-10">
+                <span className="font-mono text-xs text-[var(--orb-muted)]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <span className="inline-block border border-[var(--orb-accent)]/45 px-2.5 py-1 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-[var(--orb-accent)]">
+                    {t(`${k}.k`)}
+                  </span>
+                  <h3 className="mt-3 text-lg font-medium text-[var(--orb-fg)]">{t(`${k}.t`)}</h3>
+                </div>
+                <p className="leading-relaxed text-[var(--orb-muted)]">{t(`${k}.d`)}</p>
+              </div>
+            </Reveal>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+export function OrbitalFounder() {
+  const { t } = useOrbital();
+
+  return (
+    <section
+      id="equipa"
+      className="border-y border-[var(--orb-line)] bg-[var(--orb-panel)] px-5 py-20 md:py-28"
+    >
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <Eyebrow>{t("founder.eyebrow")}</Eyebrow>
+          <Title>{t("founder.title")}</Title>
+        </Reveal>
+
+        <div className="mt-12 grid gap-12 lg:grid-cols-[1.3fr_1fr]">
+          <Reveal delay={80}>
+            <div className="space-y-4 leading-relaxed text-[var(--orb-muted)]">
+              <p>{t("founder.p1")}</p>
+              <p>{t("founder.p2")}</p>
+              <p>{t("founder.p3")}</p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={140}>
+            <div className="space-y-px bg-[var(--orb-line)]">
+              <div className="bg-[var(--orb-bg)] p-6">
+                <p className="text-base font-semibold text-[var(--orb-fg)]">{t("t1.n")}</p>
+                <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-[var(--orb-accent)]">
+                  {t("founder.role")}
+                </p>
+              </div>
+              <div className="bg-[var(--orb-bg)] p-6">
+                <p className="text-base font-semibold text-[var(--orb-fg)]">{t("t2.n")}</p>
+                <p className="mt-1 font-mono text-xs uppercase tracking-[0.12em] text-[var(--orb-muted)]">
+                  {t("t2.r2")}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--orb-muted)]">{t("t2.d")}</p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function OrbitalContext() {
   const { t } = useOrbital();
 
@@ -374,34 +484,6 @@ export function OrbitalContext() {
                 <p className="mt-2 text-sm leading-relaxed text-[var(--orb-muted)]">
                   {t(`${k}.d`)}
                 </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function OrbitalTeam() {
-  const { t } = useOrbital();
-
-  return (
-    <section
-      id="equipa"
-      className="border-y border-[var(--orb-line)] bg-[var(--orb-panel)] px-5 py-20 md:py-28"
-    >
-      <div className="mx-auto max-w-6xl">
-        <Reveal>
-          <Eyebrow>{t("team.eyebrow")}</Eyebrow>
-          <Title>{t("team.title")}</Title>
-        </Reveal>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:max-w-2xl">
-          {team.map((k, i) => (
-            <Reveal key={k} delay={80 + i * 70}>
-              <div className="h-full rounded-2xl border border-[var(--orb-line)] bg-[var(--orb-bg)] p-6">
-                <p className="text-base font-semibold text-[var(--orb-fg)]">{t(`${k}.n`)}</p>
-                <p className="mt-1 text-sm text-[var(--orb-muted)]">{t(`${k}.r`)}</p>
               </div>
             </Reveal>
           ))}
