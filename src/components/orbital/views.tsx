@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { type OrbView, orbViews, useOrbital } from "@/components/orbital/i18n";
 import {
   OrbitalCompany,
@@ -45,9 +46,27 @@ const labels: Record<OrbView, string> = {
   equipa: "nav.team",
 };
 
+function isView(v: string): v is OrbView {
+  return (orbViews as readonly string[]).includes(v);
+}
+
 export function OrbitalViews() {
   const { t, view, setView } = useOrbital();
   const Panel = panels[view];
+
+  // A aba fica na URL, para poder ser partilhada e para quem chega por
+  // #tecnologia cair na secção certa. replaceState e não pushState: trocar de
+  // aba não devia encher o histórico do browser.
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (isView(hash)) setView(hash);
+  }, [setView]);
+
+  useEffect(() => {
+    if (window.location.hash.slice(1) !== view) {
+      window.history.replaceState(null, "", `#${view}`);
+    }
+  }, [view]);
 
   function go(index: number) {
     const next = orbViews[(index + orbViews.length) % orbViews.length] ?? orbViews[0];
@@ -96,9 +115,6 @@ export function OrbitalViews() {
                   : "border-transparent text-[var(--orb-muted)] hover:text-[var(--orb-fg)]"
               }`}
             >
-              <span className="mr-2 text-[var(--orb-accent)]">
-                {String(i + 1).padStart(2, "0")}
-              </span>
               {t(labels[v])}
             </button>
           ))}
