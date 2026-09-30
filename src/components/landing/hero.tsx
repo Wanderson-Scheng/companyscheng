@@ -78,7 +78,7 @@ export function Hero() {
               alt={t("hero.imageAlt")}
               decoding="async"
               width={900}
-              height={1839}
+              height={1828}
               className="hero-phone relative z-10 animate-float drop-shadow-2xl"
             />
             <div className="hero-feature-column">

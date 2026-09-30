@@ -87,6 +87,13 @@ def main():
         print(nome, out.size, os.path.getsize(alvo + ".webp") // 1024, "KB")
 
 
+# Maqueta do heroi: ecra inicial em modo claro, com a app cheia. A caixa foi
+# medida nesta maqueta em concreto (canvas 1322x1932), que nao tem nada escuro
+# fora do aparelho — por isso o recorte sai limpo.
+HEROI_MAQUETA = os.path.expanduser("~/Pictures/Prints/Captura de ecrã 2026-09-30, às 11.56.23.png")
+HEROI_BOX = (212, 24, 1137, 1903)
+
+
 def heroi():
     """Recorta o telemovel da maqueta do ecra inicial em modo claro.
 
@@ -95,8 +102,7 @@ def heroi():
     pagina, um ecra escuro dentro da moldura le-se como um retangulo preto,
     enquanto o claro faz o aparelho parecer ligado.
     """
-    im = Image.open(os.path.expanduser("~/Pictures/Prints/08-inicio-cheio.png")).convert("RGB")
-    im = im.crop((462, 180, 1232, 1753))
+    im = Image.open(HEROI_MAQUETA).convert("RGB").crop(HEROI_BOX)
     a = np.array(im).astype(int)
     sil = preencher(a.sum(2) < 330)
     m = Image.fromarray((sil * 255).astype("uint8"))
