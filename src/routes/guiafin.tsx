@@ -55,10 +55,9 @@ export const Route = createFileRoute("/guiafin")({
           applicationCategory: "FinanceApplication",
           operatingSystem: "iOS",
           description,
-          // A partir da versao 2.0 a app e gratuita. Este numero e o que o
-          // Google le para decidir se mostra "Gratis" no resultado de pesquisa,
-          // por isso tem de acompanhar o preco real na App Store — se um dia
-          // voltar a ser paga, muda aqui tambem.
+          // A app é gratuita na App Store. O Google lê este campo para decidir
+          // se mostra "Grátis" no resultado de pesquisa, por isso tem de
+          // acompanhar o preço real da app.
           offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
         }),
       },
