@@ -179,6 +179,11 @@ const screenShots: { k: string; url: string }[] = [
   { k: "annual", url: "/guiafin/app-annual-frame.webp" },
   { k: "card", url: "/guiafin/app-card-frame.webp" },
   { k: "goal", url: "/guiafin/app-goal-frame.webp" },
+  // A unica em modo claro, e a unica tirada com os dados do Joao em vez dos da
+  // Sofia. Fecha o carrossel de proposito: mostra o tema claro (que a lista de
+  // funcionalidades promete e mais nenhuma captura provava) e a escolha de cor,
+  // que ate aqui nao aparecia em lado nenhum do site.
+  { k: "theme", url: "/guiafin/app-theme-frame.webp" },
 ];
 
 export function Screens() {
