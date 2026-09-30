@@ -47,10 +47,10 @@ export const Route = createFileRoute("/guiafin")({
           applicationCategory: "FinanceApplication",
           operatingSystem: "iOS",
           description,
-          // A app custa 4,99 €. Dizer "0" aqui é o que o Google lê para decidir
-          // se mostra "Grátis" no resultado de pesquisa — e depois a pessoa
-          // chega à App Store e encontra um preço.
-          offers: { "@type": "Offer", price: "4.99", priceCurrency: "EUR" },
+          // A app é gratuita na App Store. O Google lê este campo para decidir
+          // se mostra "Grátis" no resultado de pesquisa, por isso tem de
+          // acompanhar o preço real da app.
+          offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
         }),
       },
     ],
