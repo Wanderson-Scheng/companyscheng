@@ -127,6 +127,8 @@ const pt: Dict = {
   "s.pin.d": "Os teus dados ficam bloqueados no teu iPhone.",
   "s.goal.t": "Metas de poupança",
   "s.goal.d": "Guarda, retira e acompanha a percentagem da tua meta.",
+  "s.theme.t": "A cor é tua",
+  "s.theme.d": "Escolhe a cor da app e o tema claro ou escuro.",
 
   "reviews.eyebrow": "App Store",
   "reviews.title": "Avaliações reais na App Store",
@@ -275,6 +277,8 @@ const en: Dict = {
   "s.pin.d": "Your data stays locked on your iPhone.",
   "s.goal.t": "Savings goals",
   "s.goal.d": "Add, withdraw and track the progress of each goal.",
+  "s.theme.t": "Your colour",
+  "s.theme.d": "Pick the app colour and the light or dark theme.",
 
   "reviews.eyebrow": "App Store",
   "reviews.title": "Real reviews on the App Store",
@@ -421,6 +425,8 @@ const es: Dict = {
   "s.pin.d": "Tus datos quedan bloqueados en tu iPhone.",
   "s.goal.t": "Metas de ahorro",
   "s.goal.d": "Guarda, retira y sigue el progreso de cada meta.",
+  "s.theme.t": "El color es tuyo",
+  "s.theme.d": "Elige el color de la app y el tema claro u oscuro.",
 
   "reviews.eyebrow": "App Store",
   "reviews.title": "Reseñas reales en la App Store",

@@ -94,6 +94,34 @@ HEROI_MAQUETA = os.path.expanduser("~/Pictures/Prints/Captura de ecrã 2026-09-
 HEROI_BOX = (212, 24, 1137, 1903)
 
 
+# Capturas de hoje (canvas 1322x1932, modo claro, dados do Joao). Nao tem nada
+# escuro fora do aparelho, por isso o recorte sai limpo com esta caixa.
+HOJE_BOX = (212, 24, 1137, 1903)
+HOJE = {
+    "app-theme": "Captura de ecrã 2026-09-30, às 11.58.42.png",
+}
+
+
+def hoje():
+    """Capturas de hoje que entram no carrossel, ja com a moldura."""
+    for nome, ficheiro in HOJE.items():
+        im = Image.open(os.path.expanduser("~/Pictures/Prints/" + ficheiro)).convert("RGB").crop(HOJE_BOX)
+        a = np.array(im).astype(int)
+        sil = preencher(a.sum(2) < 330)
+        m = Image.fromarray((sil * 255).astype("uint8"))
+        m = m.filter(ImageFilter.GaussianBlur(1.2)).point(lambda v: 255 if v > 128 else 0)
+
+        out = im.convert("RGBA")
+        out.putalpha(m)
+        h = round(out.size[1] * LARGURA / out.size[0])
+        out = out.resize((LARGURA, h), Image.LANCZOS)
+
+        alvo = os.path.join(DESTINO, nome + "-frame")
+        out.save(alvo + ".webp", quality=86, method=6)
+        out.save(alvo + ".png", optimize=True)
+        print(nome, out.size, os.path.getsize(alvo + ".webp") // 1024, "KB")
+
+
 def heroi():
     """Recorta o telemovel da maqueta do ecra inicial em modo claro.
 
@@ -121,4 +149,5 @@ def heroi():
 
 if __name__ == "__main__":
     main()
+    hoje()
     heroi()
