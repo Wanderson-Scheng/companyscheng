@@ -14,7 +14,7 @@ import { I18nProvider } from "@/lib/i18n";
 
 const title = "GuiaFin — Finanças Pessoais";
 const description =
-  "Controle rendimentos, despesas, parcelamentos, contas, cartões e metas de poupança no seu telemóvel. Offline total, dados locais, proteção por PIN, sem anúncios.";
+  "App gratuita de finanças pessoais para iPhone e iPad. Rendimentos, despesas, prestações, contas, cartões e metas no seu telemóvel. Funciona sem internet, protegida por PIN, sem anúncios e sem recolha de dados.";
 
 export const Route = createFileRoute("/guiafin")({
   head: () => ({
@@ -27,13 +27,21 @@ export const Route = createFileRoute("/guiafin")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
-      // logo.webp nunca existiu em public/ — o ficheiro chama-se guiafin-logo.webp.
-      // A partilha da página em WhatsApp, LinkedIn ou X vinha sem imagem nenhuma,
-      // porque o og:image devolvia 404.
-      { property: "og:image", content: "https://www.companyscheng.com/guiafin/guiafin-logo.webp" },
+      // O og:image era o icone quadrado da app. Quem partilhava a pagina no
+      // WhatsApp ou no LinkedIn via um quadrado com o logotipo e mais nada — sem
+      // titulo, sem preco, sem um unico ecra da aplicacao. Passa a ser um cartao
+      // 1200x630 (o formato que estas redes recortam sem cortar nada) com o
+      // nome, a frase, o preco e o ecra inicial.
+      { property: "og:image", content: "https://www.companyscheng.com/guiafin/og-guiafin.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      {
+        property: "og:image:alt",
+        content: "GuiaFin — app gratuita de finanças pessoais para iPhone e iPad",
+      },
       {
         name: "twitter:image",
-        content: "https://www.companyscheng.com/guiafin/guiafin-logo.webp",
+        content: "https://www.companyscheng.com/guiafin/og-guiafin.png",
       },
     ],
     links: [{ rel: "canonical", href: "https://www.companyscheng.com/guiafin" }],
@@ -47,10 +55,11 @@ export const Route = createFileRoute("/guiafin")({
           applicationCategory: "FinanceApplication",
           operatingSystem: "iOS",
           description,
-          // A app custa 4,99 €. Dizer "0" aqui é o que o Google lê para decidir
-          // se mostra "Grátis" no resultado de pesquisa — e depois a pessoa
-          // chega à App Store e encontra um preço.
-          offers: { "@type": "Offer", price: "4.99", priceCurrency: "EUR" },
+          // A partir da versao 2.0 a app e gratuita. Este numero e o que o
+          // Google le para decidir se mostra "Gratis" no resultado de pesquisa,
+          // por isso tem de acompanhar o preco real na App Store — se um dia
+          // voltar a ser paga, muda aqui tambem.
+          offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
         }),
       },
     ],

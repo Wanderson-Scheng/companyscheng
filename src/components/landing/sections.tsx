@@ -162,23 +162,23 @@ export function WhyGuiaFin() {
   );
 }
 
-// Capturas da versão 2.0. O ecrã inicial abre o carrossel porque é onde está a
-// saúde financeira, e as prestações vêm logo a seguir por serem a novidade da
-// versão. Saíram daqui a "visão por moeda" e o "perfil e tema": esses ecrãs
-// deixaram de existir com esta cara no redesenho.
+// Capturas da versao 2.0, tiradas de novo para o lancamento gratuito. Sao as
+// mesmas seis que estao na App Store, por isso quem chega ca pelo site ve
+// exatamente o que vai encontrar na loja. O ecra inicial abre o carrossel
+// porque e onde esta a saude financeira, e as prestacoes vem logo a seguir por
+// serem a novidade da versao.
+//
+// Sairam daqui o "menu lateral" e o "PIN": as unicas capturas que restavam do
+// desenho antigo, verdes e com a interface anterior. Ao lado das novas liam-se
+// como outra aplicacao. Os ficheiros ficam em public/guiafin/ para quando
+// houver capturas novas desses dois ecras.
 const screenShots: { k: string; url: string }[] = [
-  { k: "dash", url: "/guiafin/app-dash.webp" },
-  { k: "install", url: "/guiafin/app-install.webp" },
-  { k: "movements", url: "/guiafin/app-movements.webp" },
-  { k: "annual", url: "/guiafin/app-annual.webp" },
-  { k: "card", url: "/guiafin/app-card.webp" },
-  { k: "goal", url: "/guiafin/app-goal.webp" },
-  // "As minhas contas" sai por agora: é a única captura tirada com uma folha
-  // modal aberta, e por cima aparece um pedaço do painel esbatido e cortado a
-  // meio da saudação. A legenda e o ficheiro ficam, para a captura nova entrar
-  // aqui de volta.
-  { k: "menu", url: "/guiafin/app-menu.webp" },
-  { k: "pin", url: "/guiafin/app-pin.webp" },
+  { k: "dash", url: "/guiafin/app-dash-frame.webp" },
+  { k: "install", url: "/guiafin/app-install-frame.webp" },
+  { k: "movements", url: "/guiafin/app-movements-frame.webp" },
+  { k: "annual", url: "/guiafin/app-annual-frame.webp" },
+  { k: "card", url: "/guiafin/app-card-frame.webp" },
+  { k: "goal", url: "/guiafin/app-goal-frame.webp" },
 ];
 
 export function Screens() {
@@ -242,8 +242,8 @@ export function Screens() {
                         alt={t(`s.${k}.t`)}
                         loading="lazy"
                         decoding="async"
-                        width={819}
-                        height={1779}
+                        width={900}
+                        height={1836}
                         className="phone-screen"
                       />
                     </div>
