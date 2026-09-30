@@ -12,7 +12,10 @@ import { LazyImage } from "@/components/ui/lazy-image";
 import { useI18n } from "@/lib/i18n";
 import { appStoreUrl } from "@/lib/links";
 
-const heroShotUrl = "/guiafin/app-dash.webp";
+// Modo claro, e com a moldura do telemovel desenhada na propria imagem (ver
+// scripts/moldura.py). O heroi mostrava a captura nua e escura: sobre o fundo
+// claro da pagina lia-se como um retangulo preto, nao como um telemovel ligado.
+const heroShotUrl = "/guiafin/app-dash-light-frame.webp";
 
 const explodedFeatures: { icon: LucideIcon; title: string; description: string }[] = [
   { icon: ArrowLeftRight, title: "f.income.t", description: "f.income.d" },
@@ -74,8 +77,8 @@ export function Hero() {
               src={heroShotUrl}
               alt={t("hero.imageAlt")}
               decoding="async"
-              width={819}
-              height={1652}
+              width={900}
+              height={1839}
               className="hero-phone relative z-10 animate-float drop-shadow-2xl"
             />
             <div className="hero-feature-column">

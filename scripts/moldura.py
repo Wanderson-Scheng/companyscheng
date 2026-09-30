@@ -87,5 +87,32 @@ def main():
         print(nome, out.size, os.path.getsize(alvo + ".webp") // 1024, "KB")
 
 
+def heroi():
+    """Recorta o telemovel da maqueta do ecra inicial em modo claro.
+
+    Esta nao precisa de troca de ecra: a maqueta ja tem a captura certa la
+    dentro. O heroi usa o modo claro de proposito — sobre o fundo claro da
+    pagina, um ecra escuro dentro da moldura le-se como um retangulo preto,
+    enquanto o claro faz o aparelho parecer ligado.
+    """
+    im = Image.open(os.path.expanduser("~/Pictures/Prints/08-inicio-cheio.png")).convert("RGB")
+    im = im.crop((462, 180, 1232, 1753))
+    a = np.array(im).astype(int)
+    sil = preencher(a.sum(2) < 330)
+    m = Image.fromarray((sil * 255).astype("uint8"))
+    m = m.filter(ImageFilter.GaussianBlur(1.2)).point(lambda v: 255 if v > 128 else 0)
+
+    out = im.convert("RGBA")
+    out.putalpha(m)
+    h = round(out.size[1] * LARGURA / out.size[0])
+    out = out.resize((LARGURA, h), Image.LANCZOS)
+
+    alvo = os.path.join(DESTINO, "app-dash-light-frame")
+    out.save(alvo + ".webp", quality=88, method=6)
+    out.save(alvo + ".png", optimize=True)
+    print("heroi (modo claro)", out.size, os.path.getsize(alvo + ".webp") // 1024, "KB")
+
+
 if __name__ == "__main__":
     main()
+    heroi()
