@@ -79,6 +79,8 @@ export const products: Product[] = [
     ],
     parentSlug: "scheng-technology",
     parentName: "Scheng Technology",
+    // Deixou de ser vendido, e a própria página /3dscheng está em manutenção.
+    inProgress: true,
   },
   {
     slug: "scheng-pro",
