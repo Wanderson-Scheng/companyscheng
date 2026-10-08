@@ -189,6 +189,10 @@ const pt: Dict = {
   "footer.company": "Empresa",
   "footer.social": "Redes sociais",
   "footer.rights": "Todos os direitos reservados.",
+  "maint.title": "Under maintenance",
+  "maint.body":
+    "This page is not ready yet. We are still building it and will publish it once it is complete. Get in touch and we will gladly answer any question in the meantime.",
+  "maint.cta": "Get in touch",
 };
 
 const en: Dict = {
@@ -351,6 +355,10 @@ const en: Dict = {
   "footer.company": "Company",
   "footer.social": "Social",
   "footer.rights": "All rights reserved.",
+  "maint.title": "Under maintenance",
+  "maint.body":
+    "This page is not ready yet. We are still building it and will publish it once it is complete. Get in touch and we will gladly answer any question in the meantime.",
+  "maint.cta": "Get in touch",
 };
 
 const es: Dict = {
@@ -521,6 +529,10 @@ const es: Dict = {
   "footer.company": "Empresa",
   "footer.social": "Redes sociales",
   "footer.rights": "Todos los derechos reservados.",
+  "maint.title": "Under maintenance",
+  "maint.body":
+    "This page is not ready yet. We are still building it and will publish it once it is complete. Get in touch and we will gladly answer any question in the meantime.",
+  "maint.cta": "Get in touch",
 };
 
 const dictionaries: Record<Locale, Dict> = { pt, en, es };

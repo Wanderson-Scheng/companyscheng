@@ -25,7 +25,6 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/scheng/valores", changefreq: "yearly", priority: "0.5" },
           { path: "/scheng/contacto", changefreq: "yearly", priority: "0.7" },
           { path: "/guiafin", changefreq: "monthly", priority: "0.8" },
-          { path: "/3dscheng", changefreq: "monthly", priority: "0.8" },
           { path: "/orbital", changefreq: "monthly", priority: "0.8" },
         ];
 
