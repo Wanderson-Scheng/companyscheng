@@ -43,7 +43,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
     // sozinho ("Empresas autónomas. A") e a quebra caía a meio da frase.
     "hero.title": "Empresas autónomas. A mesma exigência.",
     "hero.sub":
-      "A Scheng Holdings detém e desenvolve empresas nas áreas aeroespacial, comercial e tecnológica. Cada uma opera de forma autónoma, com engenharia própria e responsabilidade sobre o que entrega.",
+      "A Scheng Holdings está a construir um grupo de empresas nas áreas aeroespacial, comercial e tecnológica. Cada uma é pensada para operar de forma autónoma, com engenharia própria e responsabilidade sobre o que entrega.",
     "hero.cta1": "Ver as empresas",
     "hero.cta2": "Contactar",
 
@@ -51,7 +51,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "home.title": "Por onde quer começar?",
     "home.more": "Ver mais",
     "h1.t": "Empresas",
-    "h1.d": "As três empresas do grupo e a área em que cada uma trabalha.",
+    "h1.d": "As três áreas em que o grupo está a trabalhar e o que cada uma faz.",
     "h2.t": "O grupo",
     "h2.d": "Como estamos organizados e quem fundou a holding.",
     "h3.t": "Valores",
@@ -61,17 +61,17 @@ const dict: Record<SchengLang, Record<string, string>> = {
 
     "founder.eyebrow": "Fundador",
     "founder.role": "Fundador e responsável pela estratégia do grupo",
-    "founder.title": "Uma holding construída a partir de projectos reais",
+    "founder.title": "Uma holding a ser construída a partir de projectos reais",
     "founder.p1":
-      "A Scheng Holdings nasceu da vontade de reunir, sob a mesma estrutura, projectos que já existiam de forma independente: engenharia, comércio de equipamento e software.",
+      "A Scheng Holdings nasce da vontade de reunir, sob a mesma estrutura, projectos que já existiam de forma independente: engenharia, comércio de equipamento e software.",
     "founder.p2":
-      "O grupo mantém equipas pequenas e decisões rápidas. Cada empresa responde pelo que entrega e a holding garante os recursos, a marca e a visão de longo prazo.",
+      "O grupo pretende manter equipas pequenas e decisões rápidas. Cada empresa responderá pelo que entrega e a holding garantirá os recursos, a marca e a visão de longo prazo.",
     "founder.quote": "Preferimos fazer poucas coisas e fazê-las de forma que aguente o tempo.",
 
     "about.eyebrow": "O grupo",
     "about.title": "Como o grupo está organizado",
     "about.text":
-      "Cada braço tem equipa, produto e contas próprias. À holding cabe a estratégia, a propriedade intelectual e os recursos partilhados.",
+      "Cada braço está a ser montado com equipa, produto e contas próprias. À holding cabe a estratégia, a propriedade intelectual e os recursos partilhados.",
     "p1.t": "Longo prazo",
     "p1.d": "Investimos em produtos que continuam úteis anos depois do lançamento.",
     "p2.t": "Privacidade",
@@ -184,7 +184,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "hero.eyebrow": "Holding · Portugal",
     "hero.title": "Independent companies. One standard.",
     "hero.sub":
-      "Scheng Holdings owns and builds companies across aerospace, trade and technology. Each one runs independently, with its own engineering and full ownership of what it ships.",
+      "Scheng Holdings is building a group of companies across aerospace, trade and technology. Each one is designed to run independently, with its own engineering and full ownership of what it ships.",
     "hero.cta1": "See the companies",
     "hero.cta2": "Contact",
 
@@ -192,7 +192,7 @@ const dict: Record<SchengLang, Record<string, string>> = {
     "home.title": "Where would you like to start?",
     "home.more": "See more",
     "h1.t": "Companies",
-    "h1.d": "The three companies in the group and what each one works on.",
+    "h1.d": "The three areas the group is working in and what each one does.",
     "h2.t": "The group",
     "h2.d": "How we are organised and who founded the holding.",
     "h3.t": "Values",
@@ -202,17 +202,17 @@ const dict: Record<SchengLang, Record<string, string>> = {
 
     "founder.eyebrow": "Founder",
     "founder.role": "Founder, responsible for group strategy",
-    "founder.title": "A holding built from real projects",
+    "founder.title": "A holding being built from real projects",
     "founder.p1":
-      "Scheng Holdings was created to bring together, under one structure, projects that already existed independently: engineering, hardware trade and software.",
+      "Scheng Holdings is being created to bring together, under one structure, projects that already existed independently: engineering, hardware trade and software.",
     "founder.p2":
-      "The group keeps small teams and fast decisions. Each company owns what it ships, while the holding provides resources, the brand and the long-term view.",
+      "The group aims to keep small teams and fast decisions. Each company will own what it ships, while the holding provides resources, the brand and the long-term view.",
     "founder.quote": "We would rather do a few things, and do them so they last.",
 
     "about.eyebrow": "The group",
     "about.title": "How the group is organised",
     "about.text":
-      "Each arm has its own team, product and accounts. The holding handles strategy, intellectual property and shared resources.",
+      "Each arm is being set up with its own team, product and accounts. The holding handles strategy, intellectual property and shared resources.",
     "p1.t": "Long term",
     "p1.d": "We invest in products that stay useful years after launch.",
     "p2.t": "Privacy",

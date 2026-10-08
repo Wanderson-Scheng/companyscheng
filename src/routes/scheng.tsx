@@ -3,7 +3,7 @@ import { SchengProvider, useScheng } from "@/components/scheng/context";
 import { SchengFooter, SchengNav } from "@/components/scheng/sections";
 
 const description =
-  "A Scheng Holdings reúne três braços independentes: engenharia aeroespacial, comércio de hardware e tecnologia.";
+  "A Scheng Holdings está a reunir três braços: engenharia aeroespacial, comércio de hardware e tecnologia.";
 const url = "https://www.companyscheng.com/scheng";
 
 export const Route = createFileRoute("/scheng")({
@@ -18,10 +18,10 @@ export const Route = createFileRoute("/scheng")({
           url,
           email: "Info@companyscheng.com",
           description,
-          sameAs: [
-            "https://www.instagram.com/guiafin_",
-            "https://www.linkedin.com/in/wanderson-scheng-769b72379",
-          ],
+          // sameAs diz "esta organização é a mesma que estes perfis". O Instagram
+          // do GuiaFin é de um produto e o LinkedIn é um perfil pessoal, por isso
+          // nenhum dos dois pertence aqui.
+          sameAs: ["https://www.instagram.com/companyscheng", "https://x.com/CompanyScheng"],
         }),
       },
     ],

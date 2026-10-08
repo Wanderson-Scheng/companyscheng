@@ -15,7 +15,7 @@ export const Route = createFileRoute("/scheng/empresas/$slug")({
       };
     }
     const title = "Scheng Holdings";
-    const description = `${loaderData.name}, empresa do grupo Scheng Holdings: área de actuação, produtos e como falar connosco.`;
+    const description = `${loaderData.name}, área do grupo Scheng Holdings: o que faz, produtos e como falar connosco.`;
     const url = `https://www.companyscheng.com/scheng/empresas/${loaderData.slug}`;
     return {
       meta: [
