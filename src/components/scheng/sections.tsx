@@ -24,6 +24,13 @@ const logoNavyUrl = "/logos/logo-navy.png";
 import { Reveal } from "@/components/landing/reveal";
 import { useScheng } from "@/components/scheng/context";
 import { ventures } from "@/components/scheng/ventures";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { LazyImage } from "@/components/ui/lazy-image";
 
 const email = "Info@companyscheng.com";
@@ -294,6 +301,130 @@ export function SchengHighlights() {
   );
 }
 
+/**
+ * Uma entrada por área do grupo, não por produto: aeroespacial, comercial e
+ * tecnológica. A área tecnológica é representada pelo GuiaFin, que é o que tem
+ * ecrã para mostrar; o 3D Scheng está em manutenção e o Scheng Pro não tem
+ * página própria.
+ *
+ * A Scheng Imports ainda não tem imagem nem página, e diz-o em vez de fingir:
+ * leva o selo "Em desenvolvimento" e não é ligação.
+ */
+const building = [
+  {
+    k: "v1",
+    name: "Scheng Orbital System",
+    descKey: "v1.d",
+    to: "/orbital",
+    image: "/landing/orbital-system/module-detail.webp",
+    fit: "object-cover",
+  },
+  {
+    k: "v3",
+    name: "GuiaFin",
+    descKey: "pr1.d",
+    to: "/guiafin",
+    image: "/guiafin/app-dash-frame.webp",
+    fit: "object-contain p-4",
+  },
+  {
+    k: "v2",
+    name: "Scheng Imports",
+    descKey: "v2.d",
+    to: null,
+    image: "/logos/scheng-imports.png",
+    fit: "object-contain p-9",
+  },
+] as const;
+
+export function SchengBuilding() {
+  const { t } = useScheng();
+
+  return (
+    <section className="px-5 py-16 md:py-20">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-[var(--scheng-gold)]">
+            {t("build.eyebrow")}
+          </p>
+          <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-tight text-[var(--scheng-fg)] sm:text-3xl md:text-4xl">
+            {t("build.title")}
+          </h2>
+        </Reveal>
+
+        <Reveal delay={100} className="relative mt-10">
+          <Carousel opts={{ align: "start" }} aria-label={t("build.title")}>
+            <CarouselContent className="-ml-5">
+              {building.map((b) => {
+                const card = (
+                  <>
+                    <div className="relative aspect-[16/10] overflow-hidden bg-[#0b1220]">
+                      <LazyImage
+                        src={b.image}
+                        alt=""
+                        className={`size-full ${b.fit} ${b.to ? "" : "opacity-90"}`}
+                        width={800}
+                        height={500}
+                      />
+                    </div>
+                    <div className="flex flex-1 flex-col p-6">
+                      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[var(--scheng-gold)]">
+                        {t(`${b.k}.tag`)}
+                      </p>
+                      <h3 className="mt-3 text-lg font-bold text-[var(--scheng-fg)]">{b.name}</h3>
+                      <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--scheng-muted)]">
+                        {t(b.descKey)}
+                      </p>
+                      {b.to ? (
+                        <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--scheng-gold)]">
+                          {t("vent.more")}
+                          <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </span>
+                      ) : (
+                        <span className="mt-6 inline-flex w-fit items-center rounded-full border border-[var(--scheng-line)] px-3 py-1 text-xs font-medium text-[var(--scheng-muted)]">
+                          {t("vent.soon")}
+                        </span>
+                      )}
+                    </div>
+                  </>
+                );
+
+                const frame =
+                  "group flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--scheng-line)] bg-[var(--scheng-surface)] transition-all duration-300";
+
+                return (
+                  <CarouselItem key={b.k} className="pl-5 md:basis-1/2 lg:basis-1/3">
+                    {b.to ? (
+                      <Link
+                        to={b.to}
+                        className={`${frame} hover:-translate-y-1 hover:border-[var(--scheng-gold)]/45`}
+                      >
+                        {card}
+                      </Link>
+                    ) : (
+                      <div className={frame}>{card}</div>
+                    )}
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+            {/* Com três entradas, a partir de lg cabem todas e as setas não
+                teriam nada para fazer. */}
+            <CarouselPrevious
+              className="-left-1 flex size-11 border-[var(--scheng-line)] bg-[var(--scheng-ink)] text-[var(--scheng-fg)] lg:hidden"
+              aria-label={t("build.prev")}
+            />
+            <CarouselNext
+              className="-right-1 flex size-11 border-[var(--scheng-line)] bg-[var(--scheng-ink)] text-[var(--scheng-fg)] lg:hidden"
+              aria-label={t("build.next")}
+            />
+          </Carousel>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 export function SchengFounder() {
   const { t } = useScheng();
   return (
@@ -301,6 +432,13 @@ export function SchengFounder() {
       <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[minmax(0,1fr)_1.3fr] md:items-start">
         <Reveal>
           <div className="rounded-3xl border border-[var(--scheng-line)] bg-[var(--scheng-surface)] p-7">
+            <LazyImage
+              src="/team/wanderson-scheng.webp"
+              alt="Wanderson Scheng"
+              className="mb-6 aspect-square w-full max-w-[14rem] rounded-2xl object-cover"
+              width={720}
+              height={720}
+            />
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.32em] text-[var(--scheng-gold)]">
               {t("founder.eyebrow")}
             </p>

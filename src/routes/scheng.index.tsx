@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SchengHero, SchengHighlights } from "@/components/scheng/sections";
+import { SchengBuilding, SchengHero, SchengHighlights } from "@/components/scheng/sections";
 
 const title = "Scheng Holdings";
 const description =
@@ -30,6 +30,7 @@ function SchengHome() {
   return (
     <>
       <SchengHero />
+      <SchengBuilding />
       <SchengHighlights />
     </>
   );
