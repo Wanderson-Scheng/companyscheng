@@ -1,6 +1,7 @@
 import { type QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   createRootRouteWithContext,
+  type ErrorComponentProps,
   HeadContent,
   Link,
   Outlet,
@@ -39,7 +40,10 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+// O router passou a tipar `error` como `unknown`, o que é mais correcto: no
+// limite de erros pode chegar qualquer coisa que tenha sido lançada, não só
+// instâncias de Error. Os dois sítios que o recebem aceitam `unknown`.
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
