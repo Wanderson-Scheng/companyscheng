@@ -167,7 +167,7 @@ const pt: Dict = {
   "company.eyebrow": "A empresa",
   "company.title": "Uma empresa de componente, não de plataforma.",
   "company.p1":
-    "A Scheng Orbital System é uma empresa portuguesa de engenharia, sediada em Vila de Rei. Trabalha a montante da cadeia espacial: não constrói satélites nem veículos, constrói a peça de que eles dependem para trocar propelente entre si.",
+    "A Scheng Orbital System é um projecto português de engenharia, desenvolvido a partir de Vila de Rei. Trabalha a montante da cadeia espacial: não constrói satélites nem veículos, constrói a peça de que eles dependem para trocar propelente entre si.",
   "company.p2":
     "O modelo é B2B, com venda de hardware, serviços de engenharia e licenciamento de propriedade intelectual. O mercado principal são os veículos de transferência orbital e as missões de serviço em órbita, com a Europa primeiro. A mesma tecnologia de interface tem aplicação fora do espaço, na infraestrutura criogénica industrial.",
   "cf1.l": "Fundada em",
@@ -211,7 +211,7 @@ const pt: Dict = {
     "Falamos com engenheiros, integradores e programas que trabalham em reabastecimento orbital. Escreva-nos e respondemos.",
   "talk.cta": "Falar com a equipa",
 
-  "foot.group": "Uma empresa da Scheng Holdings",
+  "foot.group": "Um projecto da Scheng Holdings",
   "foot.rights": "Todos os direitos reservados.",
 };
 
@@ -352,7 +352,7 @@ const en: Dict = {
   "company.eyebrow": "The company",
   "company.title": "A component company, not a platform company.",
   "company.p1":
-    "Scheng Orbital System is a Portuguese engineering company based in Vila de Rei. It works upstream in the space supply chain: it does not build satellites or vehicles, it builds the part they depend on to pass propellant between them.",
+    "Scheng Orbital System is a Portuguese engineering project, developed from Vila de Rei. It works upstream in the space supply chain: it does not build satellites or vehicles, it builds the part they depend on to pass propellant between them.",
   "company.p2":
     "The model is B2B, covering hardware sales, engineering services and intellectual property licensing. The primary market is orbital transfer vehicles and in-space servicing missions, Europe first. The same interface technology applies outside space, in industrial cryogenic infrastructure.",
   "cf1.l": "Based in",
@@ -396,7 +396,7 @@ const en: Dict = {
     "We talk to engineers, integrators and programmes working on orbital refuelling. Write to us and we will answer.",
   "talk.cta": "Talk to the team",
 
-  "foot.group": "A Scheng Holdings company",
+  "foot.group": "A Scheng Holdings project",
   "foot.rights": "All rights reserved.",
 };
 

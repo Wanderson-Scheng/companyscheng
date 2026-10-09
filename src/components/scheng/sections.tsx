@@ -31,7 +31,10 @@ const companyPhone = "+351 963614366";
 const founderEmail = "Wanderson@companyscheng.com";
 const phone = "+351 914293350";
 const whatsappUrl = "https://wa.me/351914293350";
-const instagramUrl = "https://www.instagram.com/guiafin_?igsh=bzV0NDAybnJmMmRs";
+// A conta da própria holding. O rodapé apontava para a do GuiaFin, que é de um
+// produto e não do grupo; as duas contas existem, e a do GuiaFin fica no site
+// do GuiaFin.
+const instagramUrl = "https://www.instagram.com/companyscheng";
 const linkedinUrl = "https://www.linkedin.com/in/wanderson-scheng-769b72379";
 
 const tabs = [
