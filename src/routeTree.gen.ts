@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as R3dschengRouteImport } from './routes/3dscheng'
+import { Route as DetravoRouteImport } from './routes/detravo'
 import { Route as GuiafinRouteImport } from './routes/guiafin'
 import { Route as OrbitalRouteImport } from './routes/orbital'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -33,6 +34,11 @@ const IndexRoute = IndexRouteImport.update({
 const R3dschengRoute = R3dschengRouteImport.update({
   id: '/3dscheng',
   path: '/3dscheng',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DetravoRoute = DetravoRouteImport.update({
+  id: '/detravo',
+  path: '/detravo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuiafinRoute = GuiafinRouteImport.update({
@@ -104,6 +110,7 @@ const SchengProdutosSlugRoute = SchengProdutosSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/3dscheng': typeof R3dschengRoute
+  '/detravo': typeof DetravoRoute
   '/guiafin': typeof GuiafinRoute
   '/orbital': typeof OrbitalRoute
   '/privacy': typeof PrivacyRoute
@@ -121,6 +128,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/3dscheng': typeof R3dschengRoute
+  '/detravo': typeof DetravoRoute
   '/guiafin': typeof GuiafinRoute
   '/orbital': typeof OrbitalRoute
   '/privacy': typeof PrivacyRoute
@@ -138,6 +146,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/3dscheng': typeof R3dschengRoute
+  '/detravo': typeof DetravoRoute
   '/guiafin': typeof GuiafinRoute
   '/orbital': typeof OrbitalRoute
   '/privacy': typeof PrivacyRoute
@@ -157,6 +166,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/3dscheng'
+    | '/detravo'
     | '/guiafin'
     | '/orbital'
     | '/privacy'
@@ -174,6 +184,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/3dscheng'
+    | '/detravo'
     | '/guiafin'
     | '/orbital'
     | '/privacy'
@@ -190,6 +201,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/3dscheng'
+    | '/detravo'
     | '/guiafin'
     | '/orbital'
     | '/privacy'
@@ -208,6 +220,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   R3dschengRoute: typeof R3dschengRoute
+  DetravoRoute: typeof DetravoRoute
   GuiafinRoute: typeof GuiafinRoute
   OrbitalRoute: typeof OrbitalRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -230,6 +243,13 @@ declare module '@tanstack/react-router' {
       path: '/3dscheng'
       fullPath: '/3dscheng'
       preLoaderRoute: typeof R3dschengRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/detravo': {
+      id: '/detravo'
+      path: '/detravo'
+      fullPath: '/detravo'
+      preLoaderRoute: typeof DetravoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guiafin': {
@@ -352,6 +372,7 @@ const SchengRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   R3dschengRoute: R3dschengRoute,
+  DetravoRoute: DetravoRoute,
   GuiafinRoute: GuiafinRoute,
   OrbitalRoute: OrbitalRoute,
   PrivacyRoute: PrivacyRoute,
